@@ -1,0 +1,529 @@
+<!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Core Concepts &mdash; Daml Finance  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+  <script src="_static/jquery.js"></script>
+  <script src="_static/underscore.js"></script>
+  <script src="_static/doctools.js"></script>
+  <script src="_static/clipboard.min.js"></script>
+  <script src="_static/copybutton.js"></script>
+  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Getting Started : Introduction" href="getting-started/intro.html" />
+  <link rel="prev" title="Architecture" href="architecture.html" /> 
+
+  
+  <link rel="icon" type="image/svg+xml"  href="_static/images/daml-logo-mark-light.svg">
+  <link rel="alternate icon" href="_static/images/daml-favicon-1.ico">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MSWJMNX');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSWJMNX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-nav-side-shadow"></div>
+      <div class="wy-side-scroll">
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+          
+          
+          
+          
+          
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Daml Finance Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Architecture and concepts</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#example-use-cases">Example use-cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#interface-layer">Interface layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#implementation-layer">Implementation layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#other-packages">Other packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#extension-packages">Extension packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html#how-to-use-the-library">How to use the library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#extension-points">Extension Points</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Core Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#asset-model">Asset model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instrument">Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#signatories">Signatories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keys-and-versioning">Keys and versioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementations">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#holding">Holding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#signatories-1">Signatories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#properties-of-holdings">Properties of holdings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementations-1">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#account">Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#signatories-2">Signatories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keys">Keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementations-2">Implementations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#settlement">Settlement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lifecycling">Lifecycling</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/intro.html">Getting Started : Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/transfer.html">Getting started : Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/install-daml-finance.html">Getting started : Installing Daml Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/settlement.html">Getting started : Settlement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/lifecycling.html">Getting started : Lifecycling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/intro.html">Tutorial : Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/bond-extension.html">Tutorial : How to use the Bond extension package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/derivative-extension.html">Tutorial : How to use the Derivative extension to model generic instruments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/contingent-claims-instrument.html">Tutorial : How to implement a Contingent Claims-based instrument</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/contingent-claims-on-ledger-vs-on-the-fly.html">Tutorial : Contingent Claims tree on ledger vs on-the-fly creation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-documentation/daml-finance-rst/index.html">Code documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Holding-Account.html">Daml.Finance.Holding.Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Holding-Fungible.html">Daml.Finance.Holding.Fungible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Holding-NonFungible.html">Daml.Finance.Holding.NonFungible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Holding-NonTransferable.html">Daml.Finance.Holding.NonTransferable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Instrument-Base-Instrument.html">Daml.Finance.Instrument.Base.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-FixedRate.html">Daml.Finance.Instrument.Bond.FixedRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-FloatingRate.html">Daml.Finance.Instrument.Bond.FloatingRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-InflationLinked.html">Daml.Finance.Instrument.Bond.InflationLinked</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-Util.html">Daml.Finance.Instrument.Bond.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-ZeroCoupon.html">Daml.Finance.Instrument.Bond.ZeroCoupon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Instrument-Equity-Factory.html">Daml.Finance.Instrument.Equity.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Instrument-Equity-Instrument.html">Daml.Finance.Instrument.Equity.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Election.html">Daml.Finance.Instrument.Generic.Election</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Factory.html">Daml.Finance.Instrument.Generic.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Instrument.html">Daml.Finance.Instrument.Generic.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Account.html">Daml.Finance.Interface.Holding.Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Base.html">Daml.Finance.Interface.Holding.Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Factory-Account.html">Daml.Finance.Interface.Holding.Factory.Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Factory-Holding.html">Daml.Finance.Interface.Holding.Factory.Holding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html">Daml.Finance.Interface.Holding.Fungible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html">Daml.Finance.Interface.Holding.Lockable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Transferable.html">Daml.Finance.Interface.Holding.Transferable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Util.html">Daml.Finance.Interface.Holding.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Base-Factory.html">Daml.Finance.Interface.Instrument.Base.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Base-Instrument.html">Daml.Finance.Interface.Instrument.Base.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Bond-FixedRate.html">Daml.Finance.Interface.Instrument.Bond.FixedRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Bond-FloatingRate.html">Daml.Finance.Interface.Instrument.Bond.FloatingRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Bond-InflationLinked.html">Daml.Finance.Interface.Instrument.Bond.InflationLinked</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Bond-ZeroCoupon.html">Daml.Finance.Interface.Instrument.Bond.ZeroCoupon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Equity-Factory.html">Daml.Finance.Interface.Instrument.Equity.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Equity-Instrument.html">Daml.Finance.Interface.Instrument.Equity.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Election.html">Daml.Finance.Interface.Instrument.Generic.Election</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Factory.html">Daml.Finance.Interface.Instrument.Generic.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-HasClaims.html">Daml.Finance.Interface.Instrument.Generic.HasClaims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Types.html">Daml.Finance.Interface.Instrument.Generic.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Util-Claims.html">Daml.Finance.Interface.Instrument.Generic.Util.Claims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Util-Claims-Lifecycle.html">Daml.Finance.Interface.Instrument.Generic.Util.Claims.Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Clock.html">Daml.Finance.Interface.Lifecycle.Clock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Effect.html">Daml.Finance.Interface.Lifecycle.Effect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Event.html">Daml.Finance.Interface.Lifecycle.Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Observable.html">Daml.Finance.Interface.Lifecycle.Observable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Rule-Lifecycle.html">Daml.Finance.Interface.Lifecycle.Rule.Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Rule-Settlement.html">Daml.Finance.Interface.Lifecycle.Rule.Settlement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Batch.html">Daml.Finance.Interface.Settlement.Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Factory.html">Daml.Finance.Interface.Settlement.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Instruction.html">Daml.Finance.Interface.Settlement.Instruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html">Daml.Finance.Interface.Settlement.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Common.html">Daml.Finance.Interface.Types.Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Calendar.html">Daml.Finance.Interface.Types.Date.Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Classes.html">Daml.Finance.Interface.Types.Date.Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-DayCount.html">Daml.Finance.Interface.Types.Date.DayCount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-RollConvention.html">Daml.Finance.Interface.Types.Date.RollConvention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Schedule.html">Daml.Finance.Interface.Types.Date.Schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Util-Common.html">Daml.Finance.Interface.Util.Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Interface-Util-Disclosure.html">Daml.Finance.Interface.Util.Disclosure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Effect.html">Daml.Finance.Lifecycle.Effect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-ElectionEffect.html">Daml.Finance.Lifecycle.ElectionEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-Distribution.html">Daml.Finance.Lifecycle.Event.Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-Replacement.html">Daml.Finance.Lifecycle.Event.Replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Distribution.html">Daml.Finance.Lifecycle.Rule.Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Replacement.html">Daml.Finance.Lifecycle.Rule.Replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Settlement.html">Daml.Finance.Lifecycle.Rule.Settlement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-RefData-HolidayCalendar.html">Daml.Finance.RefData.HolidayCalendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-RefData-Observation.html">Daml.Finance.RefData.Observation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-RefData-Time-DateClock.html">Daml.Finance.RefData.Time.DateClock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html">Daml.Finance.Settlement.Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Settlement-Factory.html">Daml.Finance.Settlement.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Util-Common.html">Daml.Finance.Util.Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Util-Date-Calendar.html">Daml.Finance.Util.Date.Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Util-Date-DayCount.html">Daml.Finance.Util.Date.DayCount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Util-Date-RollConvention.html">Daml.Finance.Util.Date.RollConvention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-documentation/daml-finance-rst/Daml-Finance-Util-Date-Schedule.html">Daml.Finance.Util.Date.Schedule</a></li>
+</ul>
+</li>
+</ul>
+
+          
+          
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <div class="topbar fixed">
+        
+        <nav class="wy-nav-top" aria-label="top navigation">
+          
+          <i data-toggle="wy-nav-top" class="wy-nav-top-toggle"></i>
+          
+        </nav>
+        <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<div class="navbar">
+    <h1><img src="_static/images/Daml_Logo_Blue.svg"></h1>
+    <div class="navbar-menu">
+        <div class="da-menu-item da-menu-depth-1" role="menu">
+            <a href="https://www.digitalasset.com/developers" role="menuitem" class="da-menu-link">Developers</a>
+        </div>
+        <div class="da-menu-item da-menu-depth-1" role="menu">
+            <a href="https://www.digitalasset.com/products" role="menuitem" class="da-menu-link">Products</a>
+        </div>
+        <div class="da-menu-item da-menu-depth-1" role="menu">
+            <a href="https://www.digitalasset.com" role="menuitem" class="da-menu-link">Company</a>
+        </div>
+    </div>
+</div>
+
+        <div class="version ">
+          <span class="hide-mobile">Version&nbsp;</span><span class="version_switcher_placeholder"></span>
+          
+        </div>
+
+
+        <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<div class="search-inline">
+    <div id="rtd-search-inline-form" class="wy-form">
+        <input type="text" class="search-inline-input" placeholder="Search" name="q">
+        <img src="_static/images/Search.svg" class="search-inline-img"/>
+    </div>
+    <div class="search-alert">
+        Please enter at least 3 letters.
+    </div>
+    <div id="search-inline-results" class="search-inline-results">
+        
+    </div>
+</div>
+          <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<div class="content-menu collapsed">
+    <span class="content-menu-title">In This Section</span>
+    <span class="content-menu-expand"></span>
+    <div class="content-menu-wrapper">
+        
+        <!-- Local TOC -->
+        <div class="content-menu-toc"><ul>
+<li><a class="reference internal" href="#">Core Concepts</a><ul>
+<li><a class="reference internal" href="#asset-model">Asset model</a><ul>
+<li><a class="reference internal" href="#instrument">Instrument</a><ul>
+<li><a class="reference internal" href="#signatories">Signatories</a></li>
+<li><a class="reference internal" href="#keys-and-versioning">Keys and versioning</a></li>
+<li><a class="reference internal" href="#implementations">Implementations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#holding">Holding</a><ul>
+<li><a class="reference internal" href="#signatories-1">Signatories</a></li>
+<li><a class="reference internal" href="#properties-of-holdings">Properties of holdings</a></li>
+<li><a class="reference internal" href="#implementations-1">Implementations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#account">Account</a><ul>
+<li><a class="reference internal" href="#signatories-2">Signatories</a></li>
+<li><a class="reference internal" href="#keys">Keys</a></li>
+<li><a class="reference internal" href="#implementations-2">Implementations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#settlement">Settlement</a></li>
+<li><a class="reference internal" href="#lifecycling">Lifecycling</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        
+    </div>
+</div>
+        
+
+      </div>
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+                
+  <div class="section" id="core-concepts">
+<h1>Core Concepts<a class="headerlink" href="#core-concepts" title="Permalink to this headline">¶</a></h1>
+<p>This page describes the core concepts of the Daml Finance library. It also refers the reader to where each of these concepts is implemented in the library.</p>
+<p>The most important definitions are also summarized in the <a class="reference internal" href="glossary.html"><span class="doc">glossary</span></a>.</p>
+<div class="section" id="asset-model">
+<h2>Asset model<a class="headerlink" href="#asset-model" title="Permalink to this headline">¶</a></h2>
+<p>The library’s asset model is the set of contracts that describe the financial rights and obligations that exist between parties. It is composed of instruments, holdings, and accounts.</p>
+<p>It is important to note that she economic terms of an asset are separated from the representation of an asset holding. This is to allow centralized management of instruments (e.g. lifecycling), and to allow reuse of instruments and associated logic across different entities (e.g. custodians). It also avoids the data redundancy of replicating instrument data and logic on every holding contract.</p>
+<p>All asset model interfaces are defined in the <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Asset</span></code> package. Implementations are in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Asset</span></code>.</p>
+<div class="section" id="instrument">
+<h3>Instrument<a class="headerlink" href="#instrument" title="Permalink to this headline">¶</a></h3>
+<p>An Instrument contract describes the economic terms (rights and
+obligations) of one unit of a financial contract.</p>
+<p>It can be as simple as an ISIN code referencing some real-world (off-ledger)
+security, or it could encode specific on-ledger lifecycling logic.</p>
+<div class="section" id="signatories">
+<h4>Signatories<a class="headerlink" href="#signatories" title="Permalink to this headline">¶</a></h4>
+<p>Every instrument must have an <code class="docutils literal notranslate"><span class="pre">issuer</span></code> party and a <code class="docutils literal notranslate"><span class="pre">depository</span></code>
+party, which are both signatories of the contract.</p>
+<p>The terminology is borrowed from the real world, where an issuer of
+e.g., a stock instrument deposits the paper certificate at a depository
+and gets the corresponding amount credited in book-entry form.</p>
+<p>On the ledger, the <code class="docutils literal notranslate"><span class="pre">depository</span></code> acts as a trusted party that prevents
+the <code class="docutils literal notranslate"><span class="pre">issuer</span></code> from potentially acting maliciously.</p>
+</div>
+<div class="section" id="keys-and-versioning">
+<h4>Keys and versioning<a class="headerlink" href="#keys-and-versioning" title="Permalink to this headline">¶</a></h4>
+<p>An instrument is identified by an <code class="docutils literal notranslate"><span class="pre">Id</span></code>, which comprises a textual
+label and a textual version.</p>
+<p>It is usually referenced by key, the <code class="docutils literal notranslate"><span class="pre">InstrumentKey</span></code> comprising</p>
+<ul class="simple">
+<li>the <code class="docutils literal notranslate"><span class="pre">issuer</span></code></li>
+<li>the <code class="docutils literal notranslate"><span class="pre">depository</span></code></li>
+<li>the <code class="docutils literal notranslate"><span class="pre">id</span></code></li>
+</ul>
+<p>The version part of the <code class="docutils literal notranslate"><span class="pre">Id</span></code> can be used to keep track of the linear
+evolution of an instrument.</p>
+<p>For example, once a dividend on a share is paid, different versions
+identify the cum-dividend and the ex-dividend share.</p>
+</div>
+<div class="section" id="implementations">
+<h4>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h4>
+<p>A base implementation is provided in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Asset</span></code>.</p>
+<p>This template does not involve any lifecycling logic and is suitable to
+model contracts that are likely to stay stable, such as currency
+instruments.</p>
+<p>The extensions packages provide additional business-specific
+implementations, such as an <code class="docutils literal notranslate"><span class="pre">Equity</span></code> instrument (where the issuer can
+pay dividends) or a <code class="docutils literal notranslate"><span class="pre">Bond</span></code> instrument (which includes coupon
+payments).</p>
+<p>The expectation is that customers define their own instruments suiting
+the use-case they are modeling.</p>
+</div>
+</div>
+<div class="section" id="holding">
+<h3>Holding<a class="headerlink" href="#holding" title="Permalink to this headline">¶</a></h3>
+<p>A Holding contract represents the ownership of a certain amount of an
+instrument by an owner at a custodian.</p>
+<p>Where an instrument defines <strong>what</strong> a party holds, a holding defines
+<strong>how much</strong> and <strong>against which party</strong> we are holding something.</p>
+<div class="section" id="signatories-1">
+<span id="id1"></span><h4>Signatories<a class="headerlink" href="#signatories-1" title="Permalink to this headline">¶</a></h4>
+<p>Every holding must have an <code class="docutils literal notranslate"><span class="pre">owner</span></code> party and a <code class="docutils literal notranslate"><span class="pre">custodian</span></code> party,
+which are usually both signatories of the contract.</p>
+<p>The terminology is again borrowed from the real-world: our cash or
+shares are usually deposited at a custodian and we have (at least in
+principle) the right to claim them back.</p>
+</div>
+<div class="section" id="properties-of-holdings">
+<h4>Properties of holdings<a class="headerlink" href="#properties-of-holdings" title="Permalink to this headline">¶</a></h4>
+<p>A holding implementation can have specific properties such as being <a class="reference internal" href="glossary.html#fungibility"><span class="std std-ref">fungible</span></a> or <a class="reference internal" href="glossary.html#transferability"><span class="std std-ref">transferable</span></a>.</p>
+<p>When, for instance, a holding is transferable, the owner has the right to transfer ownership to a different party at the same custodian.</p>
+<p>These properties are exposed by implementing the corresponding interface (<code class="docutils literal notranslate"><span class="pre">Fungible</span></code> and <code class="docutils literal notranslate"><span class="pre">Transferable</span></code>, respectively).</p>
+</div>
+<div class="section" id="implementations-1">
+<span id="id2"></span><h4>Implementations<a class="headerlink" href="#implementations-1" title="Permalink to this headline">¶</a></h4>
+<p>Implementations are provided in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Asset</span></code> for</p>
+<ul class="simple">
+<li>a fungible and transferable holding</li>
+<li>a holding which is transferable but not fungible</li>
+<li>a holding which is neither transferable nor fungible</li>
+</ul>
+</div>
+</div>
+<div class="section" id="account">
+<h3>Account<a class="headerlink" href="#account" title="Permalink to this headline">¶</a></h3>
+<p>Finally, account contracts are used as proof of a relationship between a
+<code class="docutils literal notranslate"><span class="pre">custodian</span></code> and an asset <code class="docutils literal notranslate"><span class="pre">owner</span></code>.</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">owner</span></code> must have an account contract with a <code class="docutils literal notranslate"><span class="pre">custodian</span></code> before a holding
+contract can be created.</p>
+<p>This is similar to how in the real world you need to open a bank account
+before you can use the bank’s services.</p>
+<p>In the library, accounts are used to prevent holding transfers to
+unvetted third parties: Alice can transfer a holding to Bob only
+if Bob has an account at the Bank (and has therefore been vetted
+by the Bank).</p>
+<div class="section" id="signatories-2">
+<span id="id3"></span><h4>Signatories<a class="headerlink" href="#signatories-2" title="Permalink to this headline">¶</a></h4>
+<p>An account is co-signed by the account <code class="docutils literal notranslate"><span class="pre">owner</span></code> and the <code class="docutils literal notranslate"><span class="pre">custodian</span></code>.</p>
+</div>
+<div class="section" id="keys">
+<h4>Keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h4>
+<p>Accounts are keyed by an <code class="docutils literal notranslate"><span class="pre">AccountKey</span></code>, which comprises</p>
+<ul class="simple">
+<li>the account <code class="docutils literal notranslate"><span class="pre">owner</span></code></li>
+<li>the account <code class="docutils literal notranslate"><span class="pre">custodian</span></code></li>
+<li>a textual <code class="docutils literal notranslate"><span class="pre">id</span></code></li>
+</ul>
+</div>
+<div class="section" id="implementations-2">
+<span id="id4"></span><h4>Implementations<a class="headerlink" href="#implementations-2" title="Permalink to this headline">¶</a></h4>
+<p>A base account implementation is provided in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Asset</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="settlement">
+<h2>Settlement<a class="headerlink" href="#settlement" title="Permalink to this headline">¶</a></h2>
+<p>Settlement refers to the execution of holding transfers originating from
+a financial transaction.</p>
+<p>For instance, an example FX spot transaction involves the transfer of a
+EUR-denominated holding from Alice to Bob in exchange for a
+USD-denominated holding.</p>
+<p>The library provides facilities to execute these transfers atomically
+(i.e., within the same Daml transaction) in the package <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Settlement</span></code>.</p>
+<p>EXPLAIN INSTRUCTABLE, BATCH, INSTRUCTION USING THE FX EXAMPLE</p>
+</div>
+<div class="section" id="lifecycling">
+<h2>Lifecycling<a class="headerlink" href="#lifecycling" title="Permalink to this headline">¶</a></h2>
+<p>Lifecycling is the evolution of instruments over their lifetime.</p>
+<p>EXPLAIN THE CONCEPT OF AN INSTRUMENT VERSION</p>
+<p>It is important to understand that these are two different instruments.</p>
+</div>
+</div>
+
+
+              
+            </div>
+            
+            
+              <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="architecture.html" class="da-btn da-btn-label btn-prev" title="Architecture" accesskey="p" rel="prev">Previous</a>
+      
+      
+        <a href="getting-started/intro.html" class="da-btn da-btn-label btn-next" title="Getting Started : Introduction" accesskey="n" rel="next">Next</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. Any unauthorized use, duplication or distribution is strictly prohibited. &#34;Digital Asset&#34; and &#34;Daml&#34; are Registered in the U.S. Patent and Trademark Office.
+
+    </p>
+  </div> 
+
+</footer>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+
+
+
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+
+  
+    
+  
+  <div id="inpageContent"></div>
+  
+
+</body>
+</html>

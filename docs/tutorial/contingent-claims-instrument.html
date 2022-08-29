@@ -1,0 +1,589 @@
+<!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial : How to implement a Contingent Claims-based instrument &mdash; Daml Finance  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+  <script src="../_static/jquery.js"></script>
+  <script src="../_static/underscore.js"></script>
+  <script src="../_static/doctools.js"></script>
+  <script src="../_static/clipboard.min.js"></script>
+  <script src="../_static/copybutton.js"></script>
+  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Tutorial : Contingent Claims tree on ledger vs on-the-fly creation" href="contingent-claims-on-ledger-vs-on-the-fly.html" />
+  <link rel="prev" title="Tutorial : How to use the Derivative extension to model generic instruments" href="derivative-extension.html" /> 
+
+  
+  <link rel="icon" type="image/svg+xml"  href="../_static/images/daml-logo-mark-light.svg">
+  <link rel="alternate icon" href="../_static/images/daml-favicon-1.ico">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MSWJMNX');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSWJMNX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-nav-side-shadow"></div>
+      <div class="wy-side-scroll">
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+          
+          
+          
+          
+          
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Daml Finance Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Architecture and concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#example-use-cases">Example use-cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#interface-layer">Interface layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#implementation-layer">Implementation layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#other-packages">Other packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#extension-packages">Extension packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html#how-to-use-the-library">How to use the library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#extension-points">Extension Points</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../core-concepts.html">Core Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../core-concepts.html#asset-model">Asset model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../core-concepts.html#instrument">Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../core-concepts.html#signatories">Signatories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../core-concepts.html#keys-and-versioning">Keys and versioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../core-concepts.html#implementations">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../core-concepts.html#holding">Holding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../core-concepts.html#signatories-1">Signatories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../core-concepts.html#properties-of-holdings">Properties of holdings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../core-concepts.html#implementations-1">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../core-concepts.html#account">Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../core-concepts.html#signatories-2">Signatories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../core-concepts.html#keys">Keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../core-concepts.html#implementations-2">Implementations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../core-concepts.html#settlement">Settlement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core-concepts.html#lifecycling">Lifecycling</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/intro.html">Getting Started : Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/transfer.html">Getting started : Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/install-daml-finance.html">Getting started : Installing Daml Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/settlement.html">Getting started : Settlement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/lifecycling.html">Getting started : Lifecycling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorial : Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bond-extension.html">Tutorial : How to use the Bond extension package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derivative-extension.html">Tutorial : How to use the Derivative extension to model generic instruments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial : How to implement a Contingent Claims-based instrument</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contingent-claims-on-ledger-vs-on-the-fly.html">Tutorial : Contingent Claims tree on ledger vs on-the-fly creation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code-documentation/daml-finance-rst/index.html">Code documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Holding-Account.html">Daml.Finance.Holding.Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Holding-Fungible.html">Daml.Finance.Holding.Fungible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Holding-NonFungible.html">Daml.Finance.Holding.NonFungible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Holding-NonTransferable.html">Daml.Finance.Holding.NonTransferable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Instrument-Base-Instrument.html">Daml.Finance.Instrument.Base.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-FixedRate.html">Daml.Finance.Instrument.Bond.FixedRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-FloatingRate.html">Daml.Finance.Instrument.Bond.FloatingRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-InflationLinked.html">Daml.Finance.Instrument.Bond.InflationLinked</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-Util.html">Daml.Finance.Instrument.Bond.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-ZeroCoupon.html">Daml.Finance.Instrument.Bond.ZeroCoupon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Instrument-Equity-Factory.html">Daml.Finance.Instrument.Equity.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Instrument-Equity-Instrument.html">Daml.Finance.Instrument.Equity.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Election.html">Daml.Finance.Instrument.Generic.Election</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Factory.html">Daml.Finance.Instrument.Generic.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Instrument.html">Daml.Finance.Instrument.Generic.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Account.html">Daml.Finance.Interface.Holding.Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Base.html">Daml.Finance.Interface.Holding.Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Factory-Account.html">Daml.Finance.Interface.Holding.Factory.Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Factory-Holding.html">Daml.Finance.Interface.Holding.Factory.Holding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html">Daml.Finance.Interface.Holding.Fungible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html">Daml.Finance.Interface.Holding.Lockable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Transferable.html">Daml.Finance.Interface.Holding.Transferable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Util.html">Daml.Finance.Interface.Holding.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Base-Factory.html">Daml.Finance.Interface.Instrument.Base.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Base-Instrument.html">Daml.Finance.Interface.Instrument.Base.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Bond-FixedRate.html">Daml.Finance.Interface.Instrument.Bond.FixedRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Bond-FloatingRate.html">Daml.Finance.Interface.Instrument.Bond.FloatingRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Bond-InflationLinked.html">Daml.Finance.Interface.Instrument.Bond.InflationLinked</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Bond-ZeroCoupon.html">Daml.Finance.Interface.Instrument.Bond.ZeroCoupon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Equity-Factory.html">Daml.Finance.Interface.Instrument.Equity.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Equity-Instrument.html">Daml.Finance.Interface.Instrument.Equity.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Election.html">Daml.Finance.Interface.Instrument.Generic.Election</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Factory.html">Daml.Finance.Interface.Instrument.Generic.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-HasClaims.html">Daml.Finance.Interface.Instrument.Generic.HasClaims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Types.html">Daml.Finance.Interface.Instrument.Generic.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Util-Claims.html">Daml.Finance.Interface.Instrument.Generic.Util.Claims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Util-Claims-Lifecycle.html">Daml.Finance.Interface.Instrument.Generic.Util.Claims.Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Clock.html">Daml.Finance.Interface.Lifecycle.Clock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Effect.html">Daml.Finance.Interface.Lifecycle.Effect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Event.html">Daml.Finance.Interface.Lifecycle.Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Observable.html">Daml.Finance.Interface.Lifecycle.Observable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Rule-Lifecycle.html">Daml.Finance.Interface.Lifecycle.Rule.Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Rule-Settlement.html">Daml.Finance.Interface.Lifecycle.Rule.Settlement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Batch.html">Daml.Finance.Interface.Settlement.Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Factory.html">Daml.Finance.Interface.Settlement.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Instruction.html">Daml.Finance.Interface.Settlement.Instruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html">Daml.Finance.Interface.Settlement.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Common.html">Daml.Finance.Interface.Types.Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Calendar.html">Daml.Finance.Interface.Types.Date.Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Classes.html">Daml.Finance.Interface.Types.Date.Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-DayCount.html">Daml.Finance.Interface.Types.Date.DayCount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-RollConvention.html">Daml.Finance.Interface.Types.Date.RollConvention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Schedule.html">Daml.Finance.Interface.Types.Date.Schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Util-Common.html">Daml.Finance.Interface.Util.Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Interface-Util-Disclosure.html">Daml.Finance.Interface.Util.Disclosure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Effect.html">Daml.Finance.Lifecycle.Effect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-ElectionEffect.html">Daml.Finance.Lifecycle.ElectionEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-Distribution.html">Daml.Finance.Lifecycle.Event.Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-Replacement.html">Daml.Finance.Lifecycle.Event.Replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Distribution.html">Daml.Finance.Lifecycle.Rule.Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Replacement.html">Daml.Finance.Lifecycle.Rule.Replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Settlement.html">Daml.Finance.Lifecycle.Rule.Settlement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-RefData-HolidayCalendar.html">Daml.Finance.RefData.HolidayCalendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-RefData-Observation.html">Daml.Finance.RefData.Observation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-RefData-Time-DateClock.html">Daml.Finance.RefData.Time.DateClock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html">Daml.Finance.Settlement.Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Settlement-Factory.html">Daml.Finance.Settlement.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Util-Common.html">Daml.Finance.Util.Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Util-Date-Calendar.html">Daml.Finance.Util.Date.Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Util-Date-DayCount.html">Daml.Finance.Util.Date.DayCount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Util-Date-RollConvention.html">Daml.Finance.Util.Date.RollConvention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code-documentation/daml-finance-rst/Daml-Finance-Util-Date-Schedule.html">Daml.Finance.Util.Date.Schedule</a></li>
+</ul>
+</li>
+</ul>
+
+          
+          
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <div class="topbar fixed">
+        
+        <nav class="wy-nav-top" aria-label="top navigation">
+          
+          <i data-toggle="wy-nav-top" class="wy-nav-top-toggle"></i>
+          
+        </nav>
+        <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<div class="navbar">
+    <h1><img src="../_static/images/Daml_Logo_Blue.svg"></h1>
+    <div class="navbar-menu">
+        <div class="da-menu-item da-menu-depth-1" role="menu">
+            <a href="https://www.digitalasset.com/developers" role="menuitem" class="da-menu-link">Developers</a>
+        </div>
+        <div class="da-menu-item da-menu-depth-1" role="menu">
+            <a href="https://www.digitalasset.com/products" role="menuitem" class="da-menu-link">Products</a>
+        </div>
+        <div class="da-menu-item da-menu-depth-1" role="menu">
+            <a href="https://www.digitalasset.com" role="menuitem" class="da-menu-link">Company</a>
+        </div>
+    </div>
+</div>
+
+        <div class="version ">
+          <span class="hide-mobile">Version&nbsp;</span><span class="version_switcher_placeholder"></span>
+          
+        </div>
+
+
+        <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<div class="search-inline">
+    <div id="rtd-search-inline-form" class="wy-form">
+        <input type="text" class="search-inline-input" placeholder="Search" name="q">
+        <img src="../_static/images/Search.svg" class="search-inline-img"/>
+    </div>
+    <div class="search-alert">
+        Please enter at least 3 letters.
+    </div>
+    <div id="search-inline-results" class="search-inline-results">
+        
+    </div>
+</div>
+          <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<div class="content-menu collapsed">
+    <span class="content-menu-title">In This Section</span>
+    <span class="content-menu-expand"></span>
+    <div class="content-menu-wrapper">
+        
+        <!-- Local TOC -->
+        <div class="content-menu-toc"><ul>
+<li><a class="reference internal" href="#">Tutorial : How to implement a Contingent Claims-based instrument</a><ul>
+<li><a class="reference internal" href="#download-the-code-for-the-tutorial">Download the code for the tutorial</a></li>
+<li><a class="reference internal" href="#template-definition">Template definition</a></li>
+<li><a class="reference internal" href="#hasclaims-interface">HasClaims interface</a></li>
+<li><a class="reference internal" href="#how-to-define-the-redemption-claim">How to define the redemption claim</a></li>
+<li><a class="reference internal" href="#how-to-define-the-coupon-claims">How to define the coupon claims</a></li>
+<li><a class="reference internal" href="#how-the-instrument-evolves-over-time">How the instrument evolves over time</a></li>
+<li><a class="reference internal" href="#observables">Observables</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        
+    </div>
+</div>
+        
+
+      </div>
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+                
+  <div class="section" id="tutorial-how-to-implement-a-contingent-claims-based-instrument">
+<h1>Tutorial : How to implement a Contingent Claims-based instrument<a class="headerlink" href="#tutorial-how-to-implement-a-contingent-claims-based-instrument" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will look at how to create a strongly typed instrument, which leverages
+the <code class="docutils literal notranslate"><span class="pre">Contingent</span> <span class="pre">Claims</span></code> library.
+As an example, we will see how the fixed rate bond instrument is implemented in Daml Finance.
+The goal is that you will learn how to implement your own instrument template, if you need an
+instrument type that is not already implemented in Daml Fincance.</p>
+<div class="section" id="download-the-code-for-the-tutorial">
+<h2>Download the code for the tutorial<a class="headerlink" href="#download-the-code-for-the-tutorial" title="Permalink to this headline">¶</a></h2>
+<p>The code of this tutorial resides in the <a class="reference external" href="https://github.com/digital-asset/daml-finance">Daml Finance</a> repo.
+You can install it locally by following <a class="reference internal" href="../getting-started/install-daml-finance.html"><span class="doc">these instructions</span></a>.</p>
+<p>In particular, the file <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Bond/Test/FixedRate.daml</span></code> is the starting point
+of this tutorial.
+It also refers to some utility functions in <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Bond/Test/Util.daml</span></code>.</p>
+</div>
+<div class="section" id="template-definition">
+<h2>Template definition<a class="headerlink" href="#template-definition" title="Permalink to this headline">¶</a></h2>
+<p>We start by defining a new template for the instrument. Here are the first few lines of the fixed rate instrument:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="c1">-- | This template models a fixed rate bond.</span><span class="w"></span>
+<span class="c1">-- It pays a fixed coupon rate at the end of every coupon period.</span><span class="w"></span>
+<span class="kr">template</span><span class="w"> </span><span class="kt">Instrument</span><span class="w"></span>
+<span class="w">  </span><span class="kr">with</span><span class="w"></span>
+<span class="w">    </span><span class="n">depository</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Party</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The depository of the instrument.</span><span class="w"></span>
+<span class="w">    </span><span class="n">issuer</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Party</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The issuer of the instrument.</span><span class="w"></span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Id</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ An identifier of the instrument.</span><span class="w"></span>
+<span class="w">    </span><span class="n">couponRate</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Decimal</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The fixed coupon rate, per annum. For example, in case of a &quot;3.5% p.a coupon&quot; this should be 0.035.</span><span class="w"></span>
+<span class="w">    </span><span class="n">issueDate</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Date</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The date when the bond was issued.</span><span class="w"></span>
+<span class="w">    </span><span class="n">firstCouponDate</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Date</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The first coupon date of the bond.</span><span class="w"></span>
+<span class="w">    </span><span class="n">maturityDate</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Date</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The last coupon date (and the redemption date) of the bond.</span><span class="w"></span>
+<span class="w">    </span><span class="n">holidayCalendarIds</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="p">[</span><span class="kt">Text</span><span class="p">]</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ the identifier of the holiday calendar to be used for the coupon schedule.</span><span class="w"></span>
+<span class="w">    </span><span class="n">calendarDataProvider</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Party</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The reference data provider to use for the holiday calendar.</span><span class="w"></span>
+<span class="w">    </span><span class="n">dayCountConvention</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">DayCountConventionEnum</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The day count convention used to calculate day count fractions. For example: Act360.</span><span class="w"></span>
+<span class="w">    </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">BusinessDayConventionEnum</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ An enum type to specify how a non-business day is adjusted. For example: FOLLOWING.</span><span class="w"></span>
+<span class="w">    </span><span class="n">couponPeriod</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">PeriodEnum</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The coupon period. For example, in case of a 3M coupon period (a coupon every 3 months), this should be M.</span><span class="w"></span>
+<span class="w">    </span><span class="n">couponPeriodMultiplier</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The coupon period multiplier. For example, in case of a 3M coupon period (a coupon every 3 months), this should be 3.</span><span class="w"></span>
+<span class="w">    </span><span class="n">currency</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Instrument</span><span class="o">.</span><span class="kt">K</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The currency of the bond. For example, if the bond pays in USD this should be a USD cash instrument.</span><span class="w"></span>
+<span class="w">    </span><span class="n">observers</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Observers</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The observers of the instrument.</span><span class="w"></span>
+<span class="w">    </span><span class="n">lastEventTimestamp</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Time</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ (market) time of the last recorded lifecycle event. If no event has occurred yet, the time of creation should be used.</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Contingent</span> <span class="pre">Claims</span></code> tree is not part the template. Instead, it will be created
+dynamically, as described in the next sections.</p>
+</div>
+<div class="section" id="hasclaims-interface">
+<h2>HasClaims interface<a class="headerlink" href="#hasclaims-interface" title="Permalink to this headline">¶</a></h2>
+<p>In order for the instrument to work with the general Daml Finance lifecycling framework
+we will implement the HasClaims interface. This provides a generic mechanism to
+process coupon payments and the redemption amount. The good thing here is that it will
+work in a similar way for all instrument types, regardless of their economic terms.</p>
+<p>Here is a high level implementation of HasClaims:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">interface</span><span class="w"> </span><span class="kr">instance</span><span class="w"> </span><span class="kt">HasClaims</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="kt">Instrument</span><span class="w"> </span><span class="kr">where</span><span class="w"></span>
+<span class="w">      </span><span class="n">view</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">HasClaims</span><span class="o">.</span><span class="kt">View</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">acquisitionTime</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">dateToDateClockTime</span><span class="w"> </span><span class="n">issueDate</span><span class="w"></span>
+<span class="w">      </span><span class="n">getClaims</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">        </span><span class="c1">-- get the initial claims tree (as of the bond&#39;s acquisition time)</span><span class="w"></span>
+<span class="w">        </span><span class="p">(</span><span class="n">schedule</span><span class="p">,</span><span class="w"> </span><span class="n">frequency</span><span class="p">)</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">createCouponScheduleAndFrequency</span><span class="w"> </span><span class="n">firstCouponDate</span><span class="w"> </span><span class="n">holidayCalendarIds</span><span class="w"> </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="n">couponPeriod</span><span class="w"> </span><span class="n">couponPeriodMultiplier</span><span class="w"> </span><span class="n">issueDate</span><span class="w"> </span><span class="n">maturityDate</span><span class="w"> </span><span class="n">issuer</span><span class="w"> </span><span class="n">calendarDataProvider</span><span class="w"></span>
+<span class="w">        </span><span class="kr">let</span><span class="w"></span>
+<span class="w">          </span><span class="n">useAdjustedDatesForDcf</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kc">True</span><span class="w"></span>
+<span class="w">        </span><span class="n">couponClaims</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">createFixRateCouponClaims</span><span class="w"> </span><span class="n">schedule</span><span class="w"> </span><span class="n">useAdjustedDatesForDcf</span><span class="w"> </span><span class="n">couponRate</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="w"> </span><span class="n">maturityDate</span><span class="w"> </span><span class="n">frequency</span><span class="w"> </span><span class="n">currency</span><span class="w"></span>
+<span class="w">        </span><span class="n">redemptionClaim</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">createRedemptionClaim</span><span class="w"> </span><span class="n">currency</span><span class="w"> </span><span class="n">maturityDate</span><span class="w"></span>
+<span class="w">        </span><span class="n">pure</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">mconcat</span><span class="w"> </span><span class="p">[</span><span class="n">couponClaims</span><span class="p">,</span><span class="w"> </span><span class="n">redemptionClaim</span><span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>First, we create a coupon schedule, which depends on the coupon dates and a holiday calendar.
+This is then used to create the actual coupon claims.
+The redemption claim is also created.
+Finally, the the coupon claims and the redemption claim define the economic terms of the instrument.</p>
+</div>
+<div class="section" id="how-to-define-the-redemption-claim">
+<h2>How to define the redemption claim<a class="headerlink" href="#how-to-define-the-redemption-claim" title="Permalink to this headline">¶</a></h2>
+<p>In the above example, we see that the redemption claim depends on the currency and the maturity date.</p>
+<p>We will now create a <code class="docutils literal notranslate"><span class="pre">Contingent</span> <span class="pre">Claims</span></code> representation of the actual redemption claim:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="c1">-- | Create a redemption claim</span><span class="w"></span>
+<span class="nf">createRedemptionClaim</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Applicative</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="kt">Deliverable</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Date</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">[</span><span class="kt">TaggedClaim</span><span class="p">]</span><span class="w"></span>
+<span class="nf">createRedemptionClaim</span><span class="w"> </span><span class="n">cashInstrumentCid</span><span class="w"> </span><span class="n">maturityDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">  </span><span class="kr">let</span><span class="w"></span>
+<span class="w">    </span><span class="n">redemptionClaim</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="n">when</span><span class="w"> </span><span class="p">(</span><span class="kt">TimeGte</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">maturityDate</span><span class="p">)</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">cashInstrumentCid</span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="n">prepareAndTagClaims</span><span class="w"> </span><span class="n">redemptionClaim</span><span class="w"> </span><span class="s">&quot;Redemption&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-define-the-coupon-claims">
+<h2>How to define the coupon claims<a class="headerlink" href="#how-to-define-the-coupon-claims" title="Permalink to this headline">¶</a></h2>
+<p>The coupon claims are a bit more complicated to define.
+We need to take a schedule of adjusted coupon dates and the day count convention into account.</p>
+<p>Here is how we create the <code class="docutils literal notranslate"><span class="pre">Contingent</span> <span class="pre">Claims</span></code> representation of the coupons:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="c1">-- | Calculate a fix coupon amount for each coupon date and create claims</span><span class="w"></span>
+<span class="nf">createFixRateCouponClaims</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Applicative</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">SchedulePeriod</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Decimal</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">DayCountConventionEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Date</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Frequency</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Deliverable</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">[</span><span class="kt">TaggedClaim</span><span class="p">]</span><span class="w"></span>
+<span class="nf">createFixRateCouponClaims</span><span class="w"> </span><span class="n">schedule</span><span class="w"> </span><span class="n">useAdjustedDatesForDcf</span><span class="w"> </span><span class="n">couponRate</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="w"> </span><span class="n">maturityDate</span><span class="w"> </span><span class="n">frequency</span><span class="w"> </span><span class="n">cashInstrumentCid</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">  </span><span class="kr">let</span><span class="w"></span>
+<span class="w">    </span><span class="n">couponDatesAdjusted</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="p">(</span><span class="o">.</span><span class="n">adjustedEndDate</span><span class="p">)</span><span class="w"> </span><span class="n">schedule</span><span class="w"></span>
+<span class="w">    </span><span class="n">couponAmounts</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">p</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">couponRate</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">calcPeriodDcf</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="n">useAdjustedDatesForDcf</span><span class="w"> </span><span class="n">maturityDate</span><span class="w"> </span><span class="n">frequency</span><span class="p">))</span><span class="w"> </span><span class="n">schedule</span><span class="w"></span>
+<span class="w">    </span><span class="n">couponClaims</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">zipWith</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">d</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="p">(</span><span class="kt">TimeGte</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="p">(</span><span class="kt">Const</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">cashInstrumentCid</span><span class="p">)</span><span class="w"> </span><span class="n">couponDatesAdjusted</span><span class="w"> </span><span class="n">couponAmounts</span><span class="w"></span>
+<span class="w">  </span><span class="n">prepareAndTagClaims</span><span class="w"> </span><span class="n">couponClaims</span><span class="w"> </span><span class="s">&quot;Fix Coupon&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For each coupon period we calculate the adjusted end date and the amount of the coupon.
+We then create each coupon claim in a way similar to the redemption claim above.</p>
+</div>
+<div class="section" id="how-the-instrument-evolves-over-time">
+<h2>How the instrument evolves over time<a class="headerlink" href="#how-the-instrument-evolves-over-time" title="Permalink to this headline">¶</a></h2>
+<p>The bond instrument gives the holder the right to receive future coupons and the redemption amount.
+At issuance, this means all the coupons, since they are all in the future.
+However, when the first coupon is paid, the holder of the instrument is no longer entitled to receive this coupon again.
+In other words, the claims representation of the instrument changes. It evolves over time.</p>
+<p>In our implementation of the fixed rate bond we want a simple and reliable mechanism for evolving the instrument.
+Luckily for us, when the lifecycle function returns a coupon to be paid today, it also returns the remaining claims of the instrument
+(excluding today’s and any previous coupons). Hence, we can use this to evolve our instrument, in a way that is guaranteed to be
+consistent with the lifecycle mechanism.</p>
+<p>This is all done in the <code class="docutils literal notranslate"><span class="pre">processClockUpdate</span></code> function. We will now break it apart to describe the steps in more detail:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="c1">-- | Rule to process a clock update event.</span><span class="w"></span>
+<span class="nf">processClockUpdate</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">IsBond</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="kt">Party</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">ContractId</span><span class="w"> </span><span class="kt">Event</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">ContractId</span><span class="w"> </span><span class="kt">Clock</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">ContractId</span><span class="w"> </span><span class="kt">Lifecycle</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">ContractId</span><span class="w"> </span><span class="kt">Observable</span><span class="o">.</span><span class="kt">I</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Update</span><span class="w"> </span><span class="p">(</span><span class="kt">ContractId</span><span class="w"> </span><span class="kt">Lifecycle</span><span class="o">.</span><span class="kt">I</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="kt">ContractId</span><span class="w"> </span><span class="kt">Effect</span><span class="o">.</span><span class="kt">I</span><span class="p">])</span><span class="w"></span>
+<span class="nf">processClockUpdate</span><span class="w"> </span><span class="n">settler</span><span class="w"> </span><span class="n">eventCid</span><span class="w"> </span><span class="kr">_</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">instrument</span><span class="w"> </span><span class="n">observableCids</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">  </span><span class="n">t</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="kt">Event</span><span class="o">.</span><span class="n">getEventTime</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">fetch</span><span class="w"> </span><span class="n">eventCid</span><span class="w"></span>
+<span class="w">  </span><span class="kr">let</span><span class="w"></span>
+<span class="w">    </span><span class="n">claimInstrument</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">toInterface</span><span class="w"> </span><span class="o">@</span><span class="kt">HasClaims</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="n">instrument</span><span class="w"></span>
+<span class="w">    </span><span class="n">acquisitionTime</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">HasClaims</span><span class="o">.</span><span class="n">getAcquisitionTime</span><span class="w"> </span><span class="n">claimInstrument</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">-- Recover claims tree as of the lastEventTimestamp. For a bond, this just requires lifecycling as of the lastEventTimestamp</span><span class="w"></span>
+<span class="w">  </span><span class="n">initialClaims</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="kt">HasClaims</span><span class="o">.</span><span class="n">getClaims</span><span class="w"> </span><span class="n">claimInstrument</span><span class="w"></span>
+</pre></div>
+</div>
+<p>First, we retrieve the inital claims of the instrument.
+This represents the bond as of inception.
+By keeping track of <code class="docutils literal notranslate"><span class="pre">lastEventTimestamp</span></code> (in our case: the last time a coupon was paid),
+we can “fast forward” to the remaining claims of the instrument:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">claims</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="kt">Prelude</span><span class="o">.</span><span class="n">fst</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">lifecycle</span><span class="w"> </span><span class="n">observableCids</span><span class="w"> </span><span class="n">claimInstrument</span><span class="w"> </span><span class="p">[</span><span class="n">timeEvent</span><span class="w"> </span><span class="n">instrument</span><span class="o">.</span><span class="n">lastEventTimestamp</span><span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Finally, we can lifecycle the instrument as of the current time (as descibed by the Clock template).
+If there is a lifecycle effect (for example a coupon), we will create an Effect for it, which can then be settled.</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="c1">-- Lifecycle</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="n">remaining</span><span class="p">,</span><span class="w"> </span><span class="n">pending</span><span class="p">)</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">lifecycleClaims</span><span class="w"> </span><span class="n">observableCids</span><span class="w"> </span><span class="n">acquisitionTime</span><span class="w"> </span><span class="n">claims</span><span class="w"> </span><span class="p">[</span><span class="n">timeEvent</span><span class="w"> </span><span class="n">t</span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="kr">let</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="n">consumed</span><span class="p">,</span><span class="w"> </span><span class="n">produced</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">splitPending</span><span class="w"> </span><span class="n">pending</span><span class="w"></span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="n">remaining</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">claims</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">null</span><span class="w"> </span><span class="n">pending</span><span class="w"> </span><span class="kr">then</span><span class="w"></span>
+<span class="w">    </span><span class="n">pure</span><span class="w"> </span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="kt">[]</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="kr">else</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">    </span><span class="kr">let</span><span class="w"></span>
+<span class="w">      </span><span class="n">currentKey</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Instrument</span><span class="o">.</span><span class="n">getKey</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">toInterface</span><span class="w"> </span><span class="o">@</span><span class="kt">Instrument</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="n">instrument</span><span class="w"></span>
+<span class="w">      </span><span class="n">settlementDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">toDateUTC</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="c1">-- TODO remove this dependency</span><span class="w"></span>
+<span class="w">      </span><span class="n">newKey</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">currentKey</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">id</span><span class="o">.</span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">sha256</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">remaining</span><span class="w"></span>
+<span class="w">    </span><span class="n">newInstrumentCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">instrument</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">lastEventTimestamp</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">newKey</span><span class="o">.</span><span class="n">id</span><span class="w"></span>
+<span class="w">    </span><span class="kt">Instrument</span><span class="o">.</span><span class="n">createReference</span><span class="w"> </span><span class="n">instrument</span><span class="o">.</span><span class="n">issuer</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="n">newInstrumentCid</span><span class="w"></span>
+<span class="w">    </span><span class="n">effectCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="kt">Effect</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
+<span class="w">      </span><span class="n">provider</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">currentKey</span><span class="o">.</span><span class="n">issuer</span><span class="w"></span>
+<span class="w">      </span><span class="n">settler</span><span class="w"></span>
+<span class="w">      </span><span class="n">targetInstrument</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">currentKey</span><span class="w"></span>
+<span class="w">      </span><span class="n">producedInstrument</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">isZero&#39;</span><span class="w"> </span><span class="n">remaining</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kt">None</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="n">newKey</span><span class="w"></span>
+<span class="w">      </span><span class="n">consumed</span><span class="w"></span>
+<span class="w">      </span><span class="n">produced</span><span class="w"></span>
+<span class="w">      </span><span class="n">settlementDate</span><span class="w"></span>
+<span class="w">      </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">instrument</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">label</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">settlementDate</span><span class="w"></span>
+<span class="w">      </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="o">.</span><span class="n">observers</span><span class="p">)</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">_view</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">toInterface</span><span class="w"> </span><span class="o">@</span><span class="kt">Disclosure</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="n">instrument</span><span class="w"></span>
+<span class="w">    </span><span class="n">pure</span><span class="w"> </span><span class="p">(</span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="n">newInstrumentCid</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">effectCid</span><span class="p">])</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="observables">
+<h2>Observables<a class="headerlink" href="#observables" title="Permalink to this headline">¶</a></h2>
+<p>In our fixed rate bond example above, the coupon amount is pre-determined at the
+inception of the instrument. In contrast, a floating rate coupon is defined by the
+value of a reference rate during the lifetime of the bond. Since we do not know this
+value when the instrument is created, we need to define the coupon based on a
+future observation of the reference rate.
+In order to do this we introduce the concept of an <code class="docutils literal notranslate"><span class="pre">Observable</span></code>.</p>
+<p>In the instrument definition, we need an identifier for the reference rate:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="kr">template</span><span class="w"> </span><span class="kt">Instrument</span><span class="w"></span>
+<span class="w">  </span><span class="kr">with</span><span class="w"></span>
+<span class="w">    </span><span class="n">depository</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Party</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The depository of the instrument.</span><span class="w"></span>
+<span class="w">    </span><span class="n">issuer</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Party</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The issuer of the instrument.</span><span class="w"></span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Id</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ An identifier of the instrument.</span><span class="w"></span>
+<span class="w">    </span><span class="n">referenceRateId</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Text</span><span class="w"></span>
+<span class="w">      </span><span class="c1">-- ^ The floating rate reference ID. For example, in case of &quot;3M Euribor + 0.5%&quot; this should a valid reference to the &quot;3M Euribor&quot; reference rate.</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In the claims definition, we can then use <code class="docutils literal notranslate"><span class="pre">Observe</span></code> to refer to the value of the reference rate:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="c1">-- | Calculate a floating coupon amount for each coupon date and create claims</span><span class="w"></span>
+<span class="nf">createFloatingRateCouponClaims</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Applicative</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">SchedulePeriod</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Decimal</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">DayCountConventionEnum</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Date</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Frequency</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Deliverable</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Observable</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">[</span><span class="kt">TaggedClaim</span><span class="p">]</span><span class="w"></span>
+<span class="nf">createFloatingRateCouponClaims</span><span class="w"> </span><span class="n">schedule</span><span class="w"> </span><span class="n">useAdjustedDatesForDcf</span><span class="w"> </span><span class="n">couponSpread</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="w"> </span><span class="n">maturityDate</span><span class="w"> </span><span class="n">frequency</span><span class="w"> </span><span class="n">cashInstrumentCid</span><span class="w"> </span><span class="n">referenceRateId</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">  </span><span class="kr">let</span><span class="w"></span>
+<span class="w">    </span><span class="n">couponClaims</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">p</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="n">when</span><span class="w"> </span><span class="p">(</span><span class="kt">TimeGte</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">p</span><span class="o">.</span><span class="n">adjustedStartDate</span><span class="p">)</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="p">((</span><span class="kt">Observe</span><span class="w"> </span><span class="n">referenceRateId</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kt">Const</span><span class="w"> </span><span class="n">couponSpread</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="kt">Const</span><span class="w"> </span><span class="p">(</span><span class="n">calcPeriodDcf</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="n">useAdjustedDatesForDcf</span><span class="w"> </span><span class="n">maturityDate</span><span class="w"> </span><span class="n">frequency</span><span class="p">)))</span><span class="w"> </span><span class="o">$</span><span class="w"></span>
+<span class="w">      </span><span class="n">when</span><span class="w"> </span><span class="p">(</span><span class="kt">TimeGte</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">p</span><span class="o">.</span><span class="n">adjustedEndDate</span><span class="p">)</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">cashInstrumentCid</span><span class="p">)</span><span class="w"> </span><span class="n">schedule</span><span class="w"></span>
+<span class="w">  </span><span class="n">prepareAndTagClaims</span><span class="w"> </span><span class="n">couponClaims</span><span class="w"> </span><span class="s">&quot;Floating Coupon&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this example, the observable is an interest reference rate. Other instrument types can require other
+types of observables, for example an FX rate or a stock price.</p>
+</div>
+</div>
+
+
+              
+            </div>
+            
+            
+              <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="derivative-extension.html" class="da-btn da-btn-label btn-prev" title="Tutorial : How to use the Derivative extension to model generic instruments" accesskey="p" rel="prev">Previous</a>
+      
+      
+        <a href="contingent-claims-on-ledger-vs-on-the-fly.html" class="da-btn da-btn-label btn-next" title="Tutorial : Contingent Claims tree on ledger vs on-the-fly creation" accesskey="n" rel="next">Next</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. Any unauthorized use, duplication or distribution is strictly prohibited. &#34;Digital Asset&#34; and &#34;Daml&#34; are Registered in the U.S. Patent and Trademark Office.
+
+    </p>
+  </div> 
+
+</footer>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+
+
+
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+
+  
+    
+  
+  <div id="inpageContent"></div>
+  
+
+</body>
+</html>
