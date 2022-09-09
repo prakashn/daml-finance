@@ -1,0 +1,669 @@
+<!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Transfer &mdash; Daml Finance  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+  <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+  <script src="../../_static/jquery.js"></script>
+  <script src="../../_static/underscore.js"></script>
+  <script src="../../_static/doctools.js"></script>
+  <script src="../../_static/clipboard.min.js"></script>
+  <script src="../../_static/copybutton.js"></script>
+  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="Settlement" href="settlement.html" />
+  <link rel="prev" title="Getting Started" href="intro.html" /> 
+
+  
+  <link rel="icon" type="image/svg+xml"  href="../../_static/images/daml-logo-mark-light.svg">
+  <link rel="alternate icon" href="../../_static/images/daml-favicon-1.ico">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MSWJMNX');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSWJMNX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-nav-side-shadow"></div>
+      <div class="wy-side-scroll">
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+          
+          
+          
+          
+          
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Daml Finance Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/architecture.html">Architecture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/asset-model.html">Asset model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/settlement.html">Settlement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/lifecycling.html">Lifecycling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../packages/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../packages/core-interfaces.html">Core Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../packages/core-implementations.html">Core Implementations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../packages/instrument-extensions.html">Instrument Extensions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="intro.html">Getting Started</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settlement.html">Settlement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycling.html">Lifecycling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../instrument-modelling/intro.html">Instrument Modeling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../instrument-modelling/bond-extension.html">How to use the Bond extension package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument-modelling/bond-lifecycling.html">How to lifecycle a bond instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument-modelling/derivative-extension.html">How to use the Derivative extension to model generic instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument-modelling/contingent-claims-instrument.html">How to implement a Contingent Claims-based instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument-modelling/contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims tree on ledger vs on-the-fly creation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/index.html">Daml Finance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Holding-Account.html">Daml.Finance.Holding.Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Holding-Fungible.html">Daml.Finance.Holding.Fungible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Holding-NonFungible.html">Daml.Finance.Holding.NonFungible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Holding-NonTransferable.html">Daml.Finance.Holding.NonTransferable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Holding-Util.html">Daml.Finance.Holding.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Base-Instrument.html">Daml.Finance.Instrument.Base.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-FixedRate.html">Daml.Finance.Instrument.Bond.FixedRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-FloatingRate.html">Daml.Finance.Instrument.Bond.FloatingRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-InflationLinked.html">Daml.Finance.Instrument.Bond.InflationLinked</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-Util.html">Daml.Finance.Instrument.Bond.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Bond-ZeroCoupon.html">Daml.Finance.Instrument.Bond.ZeroCoupon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Equity-Factory.html">Daml.Finance.Instrument.Equity.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Equity-Instrument.html">Daml.Finance.Instrument.Equity.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Election.html">Daml.Finance.Instrument.Generic.Election</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Factory.html">Daml.Finance.Instrument.Generic.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Instrument.html">Daml.Finance.Instrument.Generic.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Account.html">Daml.Finance.Interface.Holding.Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Base.html">Daml.Finance.Interface.Holding.Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Factory-Account.html">Daml.Finance.Interface.Holding.Factory.Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Factory-Holding.html">Daml.Finance.Interface.Holding.Factory.Holding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html">Daml.Finance.Interface.Holding.Fungible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html">Daml.Finance.Interface.Holding.Lockable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Transferable.html">Daml.Finance.Interface.Holding.Transferable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Util.html">Daml.Finance.Interface.Holding.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Base-Factory.html">Daml.Finance.Interface.Instrument.Base.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Base-Instrument.html">Daml.Finance.Interface.Instrument.Base.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Bond-FixedRate.html">Daml.Finance.Interface.Instrument.Bond.FixedRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Bond-FloatingRate.html">Daml.Finance.Interface.Instrument.Bond.FloatingRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Bond-InflationLinked.html">Daml.Finance.Interface.Instrument.Bond.InflationLinked</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Bond-ZeroCoupon.html">Daml.Finance.Interface.Instrument.Bond.ZeroCoupon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Equity-Factory.html">Daml.Finance.Interface.Instrument.Equity.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Equity-Instrument.html">Daml.Finance.Interface.Instrument.Equity.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Election.html">Daml.Finance.Interface.Instrument.Generic.Election</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Factory.html">Daml.Finance.Interface.Instrument.Generic.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-HasClaims.html">Daml.Finance.Interface.Instrument.Generic.HasClaims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Types.html">Daml.Finance.Interface.Instrument.Generic.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Util-Claims.html">Daml.Finance.Interface.Instrument.Generic.Util.Claims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Util-Claims-Lifecycle.html">Daml.Finance.Interface.Instrument.Generic.Util.Claims.Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Clock.html">Daml.Finance.Interface.Lifecycle.Clock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Effect.html">Daml.Finance.Interface.Lifecycle.Effect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Event.html">Daml.Finance.Interface.Lifecycle.Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Observable.html">Daml.Finance.Interface.Lifecycle.Observable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Rule-Claim.html">Daml.Finance.Interface.Lifecycle.Rule.Claim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Rule-Lifecycle.html">Daml.Finance.Interface.Lifecycle.Rule.Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Batch.html">Daml.Finance.Interface.Settlement.Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Factory.html">Daml.Finance.Interface.Settlement.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Instruction.html">Daml.Finance.Interface.Settlement.Instruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html">Daml.Finance.Interface.Settlement.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Common.html">Daml.Finance.Interface.Types.Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Calendar.html">Daml.Finance.Interface.Types.Date.Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Classes.html">Daml.Finance.Interface.Types.Date.Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-DayCount.html">Daml.Finance.Interface.Types.Date.DayCount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-RollConvention.html">Daml.Finance.Interface.Types.Date.RollConvention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Schedule.html">Daml.Finance.Interface.Types.Date.Schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Util-Common.html">Daml.Finance.Interface.Util.Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Util-Disclosure.html">Daml.Finance.Interface.Util.Disclosure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Effect.html">Daml.Finance.Lifecycle.Effect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-ElectionEffect.html">Daml.Finance.Lifecycle.ElectionEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-Distribution.html">Daml.Finance.Lifecycle.Event.Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-Replacement.html">Daml.Finance.Lifecycle.Event.Replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Claim.html">Daml.Finance.Lifecycle.Rule.Claim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Distribution.html">Daml.Finance.Lifecycle.Rule.Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Replacement.html">Daml.Finance.Lifecycle.Rule.Replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-RefData-HolidayCalendar.html">Daml.Finance.RefData.HolidayCalendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-RefData-Observation.html">Daml.Finance.RefData.Observation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-RefData-Time-DateClock.html">Daml.Finance.RefData.Time.DateClock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html">Daml.Finance.Settlement.Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Factory.html">Daml.Finance.Settlement.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Util-Common.html">Daml.Finance.Util.Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Util-Date-Calendar.html">Daml.Finance.Util.Date.Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Util-Date-DayCount.html">Daml.Finance.Util.Date.DayCount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Util-Date-RollConvention.html">Daml.Finance.Util.Date.RollConvention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Util-Date-Schedule.html">Daml.Finance.Util.Date.Schedule</a></li>
+</ul>
+</li>
+</ul>
+
+          
+          
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <div class="topbar fixed">
+        
+        <nav class="wy-nav-top" aria-label="top navigation">
+          
+          <i data-toggle="wy-nav-top" class="wy-nav-top-toggle"></i>
+          
+        </nav>
+        <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<div class="navbar">
+    <h1><img src="../../_static/images/Daml_Logo_Blue.svg"></h1>
+    <div class="navbar-menu">
+        <div class="da-menu-item da-menu-depth-1" role="menu">
+            <a href="https://www.digitalasset.com/developers" role="menuitem" class="da-menu-link">Developers</a>
+        </div>
+        <div class="da-menu-item da-menu-depth-1" role="menu">
+            <a href="https://www.digitalasset.com/products" role="menuitem" class="da-menu-link">Products</a>
+        </div>
+        <div class="da-menu-item da-menu-depth-1" role="menu">
+            <a href="https://www.digitalasset.com" role="menuitem" class="da-menu-link">Company</a>
+        </div>
+    </div>
+</div>
+
+        <div class="version ">
+          <span class="hide-mobile">Version&nbsp;</span><span class="version_switcher_placeholder"></span>
+          
+        </div>
+
+
+        <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<div class="search-inline">
+    <div id="rtd-search-inline-form" class="wy-form">
+        <input type="text" class="search-inline-input" placeholder="Search" name="q">
+        <img src="../../_static/images/Search.svg" class="search-inline-img"/>
+    </div>
+    <div class="search-alert">
+        Please enter at least 3 letters.
+    </div>
+    <div id="search-inline-results" class="search-inline-results">
+        
+    </div>
+</div>
+          <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<div class="content-menu collapsed">
+    <span class="content-menu-title">In This Section</span>
+    <span class="content-menu-expand"></span>
+    <div class="content-menu-wrapper">
+        
+        <!-- Local TOC -->
+        <div class="content-menu-toc"><ul>
+<li><a class="reference internal" href="#">Transfer</a><ul>
+<li><a class="reference internal" href="#download-the-code-for-the-tutorial">Download the code for the tutorial</a></li>
+<li><a class="reference internal" href="#structure-of-the-code-dependencies">Structure of the code, dependencies</a></li>
+<li><a class="reference internal" href="#running-the-transfer-script">Running the Transfer script</a><ul>
+<li><a class="reference internal" href="#creating-holding-and-account-factories">Creating <code class="docutils literal notranslate"><span class="pre">Holding</span></code> and <code class="docutils literal notranslate"><span class="pre">Account</span></code> factories</a></li>
+<li><a class="reference internal" href="#opening-alices-and-bobs-accounts">Opening Alice’s and Bob’s accounts</a></li>
+<li><a class="reference internal" href="#creating-the-cash-instrument">Creating the cash instrument</a></li>
+<li><a class="reference internal" href="#depositing-cash-on-alices-account">Depositing cash on Alice’s account</a></li>
+<li><a class="reference internal" href="#transferring-cash-from-alice-to-bob">Transferring cash from Alice to Bob</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#frequently-asked-questions">Frequently Asked Questions</a><ul>
+<li><a class="reference internal" href="#how-does-the-transfer-workflow-work">How does the <code class="docutils literal notranslate"><span class="pre">Transfer</span></code> workflow work?</a></li>
+<li><a class="reference internal" href="#why-is-alice-an-observer-on-bobs-account">Why is Alice an observer on Bob’s account?</a></li>
+<li><a class="reference internal" href="#what-are-accounts-used-for">What are accounts used for?</a></li>
+<li><a class="reference internal" href="#why-do-we-need-factories">Why do we need factories?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exercises">Exercises</a><ul>
+<li><a class="reference internal" href="#split-the-holding-to-transfer-the-right-amount">Split the holding to transfer the right amount</a></li>
+<li><a class="reference internal" href="#temporary-account-disclosure">Temporary account Disclosure</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        
+    </div>
+</div>
+        
+
+      </div>
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+                
+  <div class="section" id="transfer">
+<h1>Transfer<a class="headerlink" href="#transfer" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial introduces the core asset model of the library through a
+simple example. The purpose is to illustrate the concepts of
+<a class="reference internal" href="../../reference/glossary.html#account"><span class="std std-ref">account</span></a>, <a class="reference internal" href="../../reference/glossary.html#instrument"><span class="std std-ref">instrument</span></a>, and
+<a class="reference internal" href="../../reference/glossary.html#holding"><span class="std std-ref">holding</span></a>, as well as showing how to work
+with Daml interfaces.</p>
+<p>We are going to</p>
+<ol class="arabic simple">
+<li>create accounts for Alice and Bob at the Bank</li>
+<li>issue a cash instrument</li>
+<li>credit a cash holding to Alice’s account</li>
+<li>transfer the holding from Alice to Bob</li>
+</ol>
+<p>We expect the reader to be familiar with the basic building blocks of Daml.
+If that is not the case, a suitable introduction can be found in <a class="reference external" href="https://www.digitalasset.com/developers/learn">this page</a>.</p>
+<div class="section" id="download-the-code-for-the-tutorial">
+<h2>Download the code for the tutorial<a class="headerlink" href="#download-the-code-for-the-tutorial" title="Permalink to this headline">¶</a></h2>
+<p>As a pre-requisite, the <a class="reference external" href="https://docs.daml.com/getting-started/installation.html">Daml SDK</a> needs to be installed on your
+machine.</p>
+<p>Open a terminal and run:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>daml new quickstart-finance --template quickstart-finance
+</pre></div>
+</div>
+<p>This creates a new folder with contents from our template.
+Navigate to the folder and then run</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./get-dependencies.sh
+</pre></div>
+</div>
+<p>to download the required <code class="docutils literal notranslate"><span class="pre">daml-finance</span></code> packages.
+You can then run</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>daml studio
+</pre></div>
+</div>
+<p>to open the code editor and inspect the code.</p>
+</div>
+<div class="section" id="structure-of-the-code-dependencies">
+<span id="structure-of-code-dependencies"></span><h2>Structure of the code, dependencies<a class="headerlink" href="#structure-of-the-code-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>The code includes</p>
+<ul class="simple">
+<li>four workflows defined in the <code class="docutils literal notranslate"><span class="pre">Workflows</span></code> folder</li>
+<li>two Daml scripts defined in the <code class="docutils literal notranslate"><span class="pre">Scripts</span></code> folder</li>
+</ul>
+<p>The first encapsulate the core business logic of the application, whereas the latter includes scripts that are
+executed on a one-off basis.</p>
+<p>If you take a closer look at the <code class="docutils literal notranslate"><span class="pre">Workflows</span></code>, you will recognize three
+initiate / accept patterns to</p>
+<ul class="simple">
+<li>create an account</li>
+<li>make a deposit to the account</li>
+<li>execute a holding transfer</li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">DvP</span></code> workflow will be used in the next tutorial, so please ignore that one for now.</p>
+<p>Files in the <code class="docutils literal notranslate"><span class="pre">Workflows</span></code> folder depend only on interface packages of <code class="docutils literal notranslate"><span class="pre">daml-finance</span></code>
+(the ones that start with <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.*</span></code>), as you can see from
+the import list.</p>
+<p>This is important, as it decouples the user-defined business logic from
+the template implementations used in <code class="docutils literal notranslate"><span class="pre">daml-finance</span></code> and, thus, makes it easier
+to upgrade the one without being forced to upgrade the other.</p>
+<p>On the other hand, the script in the <code class="docutils literal notranslate"><span class="pre">Scripts</span></code> folder depends also on
+implementation packages (in this case, <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Holding</span></code> and <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Instrument.Base</span></code>).</p>
+<p>This is not problematic, as the script is meant to be run only once when
+the application is initialized.</p>
+</div>
+<div class="section" id="running-the-transfer-script">
+<h2>Running the Transfer script<a class="headerlink" href="#running-the-transfer-script" title="Permalink to this headline">¶</a></h2>
+<p>Let us now explore the <code class="docutils literal notranslate"><span class="pre">Transfer</span></code> script step-by-step.</p>
+<div class="section" id="creating-holding-and-account-factories">
+<h3>Creating <code class="docutils literal notranslate"><span class="pre">Holding</span></code> and <code class="docutils literal notranslate"><span class="pre">Account</span></code> factories<a class="headerlink" href="#creating-holding-and-account-factories" title="Permalink to this headline">¶</a></h3>
+<p>The first instruction instantiates an account factory. This is just a
+template that is used by a party (the Bank in this case) to create
+accounts as part of the <code class="docutils literal notranslate"><span class="pre">CreateAccount</span></code> workflow.</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">accountFactoryCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">@</span><span class="kt">Account</span><span class="o">.</span><span class="kt">F</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="n">bank</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">Account</span><span class="o">.</span><span class="kt">Factory</span><span class="w"></span>
+<span class="w">      </span><span class="kr">with</span><span class="w"></span>
+<span class="w">        </span><span class="n">provider</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">bank</span><span class="w"></span>
+<span class="w">        </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">empty</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Notice how the <code class="docutils literal notranslate"><span class="pre">ContractId</span></code> is immediately converted to an interface
+upon creation: this is because our workflows do not have any knowledge
+of concrete template implementations.</p>
+<p>Similarly, we define a holding factory, which is used within an account
+to <code class="docutils literal notranslate"><span class="pre">Credit</span></code> and <code class="docutils literal notranslate"><span class="pre">Debit</span></code> holdings.</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">holdingFactoryCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">@</span><span class="kt">Holding</span><span class="o">.</span><span class="kt">F</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="n">bank</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">Fungible</span><span class="o">.</span><span class="kt">Factory</span><span class="w"></span>
+<span class="w">      </span><span class="kr">with</span><span class="w"></span>
+<span class="w">        </span><span class="n">provider</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">bank</span><span class="w"></span>
+<span class="w">        </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">fromList</span><span class="w"> </span><span class="p">[(</span><span class="s">&quot;PublicObserver&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">public</span><span class="w"> </span><span class="p">)]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This factory contract can be used to create <code class="docutils literal notranslate"><span class="pre">Fungible</span></code> holdings, which
+are defined in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Holding.Fungible</span></code> and are
+<a class="reference internal" href="../../reference/glossary.html#fungibility"><span class="std std-ref">fungible</span></a>, as well as
+<a class="reference internal" href="../../reference/glossary.html#transferability"><span class="std std-ref">transferable</span></a>.</p>
+<p>We are adding a so-called <em>public party</em> as an observer to the holding factory.
+This is done to ensure that every other party has visibility over this contract, as all parties can <cite>readAs</cite> the public party.
+The reason why this is necessary will come into play at the end of this tutorial.</p>
+</div>
+<div class="section" id="opening-alices-and-bobs-accounts">
+<h3>Opening Alice’s and Bob’s accounts<a class="headerlink" href="#opening-alices-and-bobs-accounts" title="Permalink to this headline">¶</a></h3>
+<p>Once the factory templates are setup, we leverage our <code class="docutils literal notranslate"><span class="pre">CreateAccount</span></code>
+workflow to create accounts at the Bank for Alice and Bob.</p>
+<p>The creation of an account needs to be authorized by both the
+<code class="docutils literal notranslate"><span class="pre">custodian</span></code> and the <code class="docutils literal notranslate"><span class="pre">owner</span></code> (resp. the Bank and Alice in our
+case). Authorization is collected using an initiate / accept pattern.</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">aliceRequestCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="n">alice</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">CreateAccount</span><span class="o">.</span><span class="kt">Request</span><span class="w"></span>
+<span class="w">      </span><span class="kr">with</span><span class="w"></span>
+<span class="w">        </span><span class="n">owner</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">alice</span><span class="w"></span>
+<span class="w">        </span><span class="n">custodian</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">bank</span><span class="w"></span>
+<span class="w">  </span><span class="n">aliceAccount</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="n">bank</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">    </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">aliceRequestCid</span><span class="w"> </span><span class="kt">CreateAccount</span><span class="o">.</span><span class="kt">Accept</span><span class="w"></span>
+<span class="w">      </span><span class="kr">with</span><span class="w"></span>
+<span class="w">        </span><span class="n">label</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Alice@Bank&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="n">description</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Account of Alice at Bank&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="n">accountFactoryCid</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">accountFactoryCid</span><span class="w"></span>
+<span class="w">        </span><span class="n">holdingFactoryCid</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">holdingFactoryCid</span><span class="w"></span>
+<span class="w">        </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Bob’s account is created in a similar fashion.</p>
+</div>
+<div class="section" id="creating-the-cash-instrument">
+<h3>Creating the cash instrument<a class="headerlink" href="#creating-the-cash-instrument" title="Permalink to this headline">¶</a></h3>
+<p>In order to credit Alice’s account with some cash, we first need
+to introduce a cash <code class="docutils literal notranslate"><span class="pre">Instrument</span></code> in our model.</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kr">let</span><span class="w"></span>
+<span class="w">    </span><span class="n">instrumentId</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="s">&quot;USD&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">instrumentVersion</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="n">now</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">getTime</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">cashInstrumentCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">@</span><span class="kt">Instrument</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="n">bank</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">Instrument</span><span class="w"></span>
+<span class="w">      </span><span class="kr">with</span><span class="w"></span>
+<span class="w">        </span><span class="n">depository</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">bank</span><span class="w"></span>
+<span class="w">        </span><span class="n">issuer</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">bank</span><span class="w"></span>
+<span class="w">        </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">instrumentId</span><span class="w"></span>
+<span class="w">        </span><span class="n">description</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Instrument representing units of USD&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">instrumentVersion</span><span class="w"></span>
+<span class="w">        </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">empty</span><span class="w"></span>
+<span class="w">        </span><span class="n">validAsOf</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">now</span><span class="w"></span>
+</pre></div>
+</div>
+<p>An instrument is a representation of what it is that we are holding
+against the bank. It can be as simple as just a textual label (like in
+this case) or it can include complex on-ledger lifecycling logic.</p>
+<p>To hold one unit of the cash instrument in this scenario means that we
+can claim 1 USD from the custodian of the holding.</p>
+<p>Notice how in this case the Bank acts both as the issuer and depository of the cash instrument. This means that we fully trust the Bank with
+any action concerning the instrument.</p>
+</div>
+<div class="section" id="depositing-cash-on-alices-account">
+<h3>Depositing cash on Alice’s account<a class="headerlink" href="#depositing-cash-on-alices-account" title="Permalink to this headline">¶</a></h3>
+<p>We can now deposit cash on Alice’s account, using the <code class="docutils literal notranslate"><span class="pre">Deposit</span></code>
+workflow.</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">aliceRequestCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="n">alice</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">CreditAccount</span><span class="o">.</span><span class="kt">Request</span><span class="w"></span>
+<span class="w">      </span><span class="kr">with</span><span class="w"></span>
+<span class="w">        </span><span class="n">account</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">aliceAccount</span><span class="w"></span>
+<span class="w">        </span><span class="n">instrument</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">InstrumentKey</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">issuer</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">bank</span><span class="p">;</span><span class="w"> </span><span class="n">depository</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">bank</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">instrumentId</span><span class="p">;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">instrumentVersion</span><span class="w"></span>
+<span class="w">        </span><span class="n">amount</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">1000.0</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">aliceCashHoldingCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="n">bank</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">aliceRequestCid</span><span class="w"> </span><span class="kt">CreditAccount</span><span class="o">.</span><span class="kt">Accept</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Alice creates a request to deposit <code class="docutils literal notranslate"><span class="pre">1,000</span> <span class="pre">USD</span></code> at the Bank, the Bank then
+accepts the request and a corresponding <code class="docutils literal notranslate"><span class="pre">Holding</span></code> is created.</p>
+<p>You can imagine that the latter step happens only after Alice has
+showed up at the bank and delivered physical banknotes corresponding to
+the amount of the deposit.</p>
+</div>
+<div class="section" id="transferring-cash-from-alice-to-bob">
+<h3>Transferring cash from Alice to Bob<a class="headerlink" href="#transferring-cash-from-alice-to-bob" title="Permalink to this headline">¶</a></h3>
+<p>The final step of our <code class="docutils literal notranslate"><span class="pre">Setup</span></code> script transfers Alice’s holding to Bob
+using the <code class="docutils literal notranslate"><span class="pre">Transfer</span></code> workflow.</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kr">let</span><span class="w"> </span><span class="n">cashInstrument</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">InstrumentKey</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">issuer</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">bank</span><span class="p">;</span><span class="w"> </span><span class="n">depository</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">bank</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">instrumentId</span><span class="p">;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">instrumentVersion</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">transferRequestCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="n">bob</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">Transfer</span><span class="o">.</span><span class="kt">Request</span><span class="w"></span>
+<span class="w">      </span><span class="kr">with</span><span class="w"></span>
+<span class="w">        </span><span class="n">receiverAccount</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">bobAccount</span><span class="w"></span>
+<span class="w">        </span><span class="n">instrument</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">cashInstrument</span><span class="w"></span>
+<span class="w">        </span><span class="n">amount</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">1000.0</span><span class="w"></span>
+<span class="w">        </span><span class="n">currentOwner</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">alice</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">newHoldingCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">alice</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">public</span><span class="p">]</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">transferRequestCid</span><span class="w"> </span><span class="kt">Transfer</span><span class="o">.</span><span class="kt">Accept</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">holdingCid</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">aliceCashHoldingCid</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Bob requests the cash to be transferred to his account. Alice
+then accepts the request.</p>
+<p>You notice that here we make explicit use of the fact that Alice can <code class="docutils literal notranslate"><span class="pre">readAs</span></code> the public party.
+This is needed as, in order to complete the transfer, visibility on the receiving account’s holding factory is required.</p>
+</div>
+</div>
+<div class="section" id="frequently-asked-questions">
+<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-does-the-transfer-workflow-work">
+<h3>How does the <code class="docutils literal notranslate"><span class="pre">Transfer</span></code> workflow work?<a class="headerlink" href="#how-does-the-transfer-workflow-work" title="Permalink to this headline">¶</a></h3>
+<p>If you look at the implementation of the <code class="docutils literal notranslate"><span class="pre">Transfer</span></code> workflow, you will
+notice the following lines:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">        </span><span class="kr">let</span><span class="w"> </span><span class="n">transferableCid</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">ContractId</span><span class="w"> </span><span class="kt">Transferable</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">coerceContractId</span><span class="w"> </span><span class="n">holdingCid</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">newTransferableCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">exercise</span><span class="w"> </span><span class="n">transferableCid</span><span class="w"> </span><span class="kt">Transferable</span><span class="o">.</span><span class="kt">Transfer</span><span class="w"></span>
+<span class="w">          </span><span class="kr">with</span><span class="w"></span>
+<span class="w">            </span><span class="n">newOwnerAccount</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">receiverAccount</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">pure</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">@</span><span class="kt">Holding</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="n">newTransferableCid</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The first line converts the holding contract id (of type
+<code class="docutils literal notranslate"><span class="pre">ContractId</span> <span class="pre">Holding.I</span></code>) to the <code class="docutils literal notranslate"><span class="pre">Transferable</span></code> interface using
+<code class="docutils literal notranslate"><span class="pre">coerceContractId</span></code>.</p>
+<p>Then, the <code class="docutils literal notranslate"><span class="pre">Transfer</span></code> choice, defined as part of the <code class="docutils literal notranslate"><span class="pre">Transferable.I</span></code>
+interface, is invoked.</p>
+<p>Finally, the new holding is converted back to a <code class="docutils literal notranslate"><span class="pre">Holding.I</span></code> before it
+is returned. This is done using <code class="docutils literal notranslate"><span class="pre">toInterfaceContractId</span></code>.</p>
+<p>In order to fully understand these instructions, we need to keep it mind
+the interface hierarchy used by our holding implementation.</p>
+<img alt="../../_images/interface_hierarchy.png" src="../../_images/interface_hierarchy.png" />
+<p>We use <code class="docutils literal notranslate"><span class="pre">coerceContractId</span></code> to convert the <code class="docutils literal notranslate"><span class="pre">Holding</span></code> to a
+<code class="docutils literal notranslate"><span class="pre">Transferable</span></code>. The success of this operation is not guaranteed and
+will result in a run-time error if the holding implementation at hand
+does not implement <code class="docutils literal notranslate"><span class="pre">Transferable</span></code>.</p>
+<p>We use <code class="docutils literal notranslate"><span class="pre">toInterfaceContractId</span></code> to convert back to a <code class="docutils literal notranslate"><span class="pre">Holding</span></code>. This
+is because all <code class="docutils literal notranslate"><span class="pre">Transferable</span></code>s implement the <code class="docutils literal notranslate"><span class="pre">Holding</span></code> interface,
+so the validity of this operation is guaranteed at compile-time.</p>
+</div>
+<div class="section" id="why-is-alice-an-observer-on-bobs-account">
+<h3>Why is Alice an observer on Bob’s account?<a class="headerlink" href="#why-is-alice-an-observer-on-bobs-account" title="Permalink to this headline">¶</a></h3>
+<p>You might have noticed that Alice is an observer of Bob’s
+account and you might be wondering why this is the case.</p>
+<p>This is because the party exercising the <code class="docutils literal notranslate"><span class="pre">Transfer</span></code> choice, which in
+this case is Alice, needs to fetch Bob’s account in order to
+verify that it has not been archived.</p>
+<p>If we wanted to avoid Bob’s account contract ever being disclosed
+to Alice, we would need a third party (in this case the Bank) to
+execute the <code class="docutils literal notranslate"><span class="pre">Transfer</span></code>.</p>
+</div>
+<div class="section" id="what-are-accounts-used-for">
+<h3>What are accounts used for?<a class="headerlink" href="#what-are-accounts-used-for" title="Permalink to this headline">¶</a></h3>
+<p>An account is used as the proof of a business relationship between an
+owner and a custodian: Alice is authorized to transfer cash to
+Bob because Bob has a valid account at the Bank.</p>
+<p>This is done to avoid that Alice transfers cash to Charlie
+without Charlie being vetted and acknowledged by the Bank.</p>
+</div>
+<div class="section" id="why-do-we-need-factories">
+<h3>Why do we need factories?<a class="headerlink" href="#why-do-we-need-factories" title="Permalink to this headline">¶</a></h3>
+<p>You might be wondering why we use account factories and holding factories
+instead of creating an <code class="docutils literal notranslate"><span class="pre">Account</span></code> or <code class="docutils literal notranslate"><span class="pre">Holding</span></code> directly.</p>
+<p>This is done to avoid having to reference
+<code class="docutils literal notranslate"><span class="pre">Daml.Finance.Holding</span></code> directly in user workflows (and hence simplify
+upgrading procedures).</p>
+<p>This is based on the assumption that there are very few factory
+contracts which are setup on ledger initialization.</p>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>There are a couple of improvements to the code that can be implemented as an exercise.
+Giving them a try will help you familiarize yourself with the library and with Daml interfaces.</p>
+<div class="section" id="split-the-holding-to-transfer-the-right-amount">
+<h3>Split the holding to transfer the right amount<a class="headerlink" href="#split-the-holding-to-transfer-the-right-amount" title="Permalink to this headline">¶</a></h3>
+<p>In the example, Bob requests <code class="docutils literal notranslate"><span class="pre">1,000</span> <span class="pre">USD</span></code> from Alice and Alice allocates a holding for exactly the right amount, because the transfer would otherwise fail.
+We want the transfer to be successful also if Alice allocates a holding for a larger amount e.g., <code class="docutils literal notranslate"><span class="pre">1,500</span> <span class="pre">USD</span></code>.</p>
+<p>We can leverage the fact that the holding implements the <a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html#type-daml-finance-interface-holding-fungible-fungible-60176"><span class="std std-ref">Fungible</span></a> interface, which makes it possible to <code class="docutils literal notranslate"><span class="pre">Split</span></code> it into a holding of <code class="docutils literal notranslate"><span class="pre">1,000</span> <span class="pre">USD</span></code> and one of <code class="docutils literal notranslate"><span class="pre">500</span> <span class="pre">USD</span></code>.
+In the implementation of the <code class="docutils literal notranslate"><span class="pre">CashTransferRequest_Accept</span></code> choice</p>
+<ul class="simple">
+<li>cast the allocated holding to the <code class="docutils literal notranslate"><span class="pre">Fungible</span></code> interface</li>
+<li>use the <code class="docutils literal notranslate"><span class="pre">Split</span></code> choice to split the larger holding into two holdings</li>
+<li>execute the transfer, allocating the holding on the correct amount</li>
+</ul>
+<p>In the last step, you will need to cast the <code class="docutils literal notranslate"><span class="pre">Fungible</span></code> to a <code class="docutils literal notranslate"><span class="pre">Transferable</span></code> using <code class="docutils literal notranslate"><span class="pre">toInterfaceContractId</span></code>.</p>
+</div>
+<div class="section" id="temporary-account-disclosure">
+<h3>Temporary account Disclosure<a class="headerlink" href="#temporary-account-disclosure" title="Permalink to this headline">¶</a></h3>
+<p>There is no reason for Alice to be an observer on Bob’s account before the transfer is initiated by Bob (and after the transfer is executed).</p>
+<p>Modify the original code, such that</p>
+<ul class="simple">
+<li>Bob’s account is disclosed to Alice once the transfer is initiated</li>
+<li>When the Transfer is executed, Alice removes herself from the account observers</li>
+</ul>
+<p>In order to do that, you can leverage the fact that <code class="docutils literal notranslate"><span class="pre">Account</span></code> implements the <a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Util-Disclosure.html#type-daml-finance-interface-util-disclosure-disclosure-97052"><span class="std std-ref">Disclosure</span></a> interface.
+This interface exposes the <code class="docutils literal notranslate"><span class="pre">AddObservers</span></code> and <code class="docutils literal notranslate"><span class="pre">RemoveObservers</span></code> choices, which can be used to disclose / undisclose Bob’s account contract to Alice.</p>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>You now know how to setup basic accounts, holdings and instruments. You also learned how to perform a simple transfer. The key concepts to take away are:</p>
+<ul class="simple">
+<li>Holdings represent the ownership of a financial instrument at a custodian</li>
+<li>Instruments define the economic terms of a financial contract</li>
+<li>Accounts ensure that only known parties can obtain ownership</li>
+<li>Factories are used to create the respective contracts without having to depend on implementation packages</li>
+<li>Transfers change ownership of a holding</li>
+</ul>
+<p>sOwnership transfers typically happen within a larger financial transaction. The next tutorial will show you how to create such a transaction and how to settle it atomically.</p>
+</div>
+</div>
+
+
+              
+            </div>
+            
+            
+              <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="intro.html" class="da-btn da-btn-label btn-prev" title="Getting Started" accesskey="p" rel="prev">Previous</a>
+      
+      
+        <a href="settlement.html" class="da-btn da-btn-label btn-next" title="Settlement" accesskey="n" rel="next">Next</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. Any unauthorized use, duplication or distribution is strictly prohibited. &#34;Digital Asset&#34; and &#34;Daml&#34; are Registered in the U.S. Patent and Trademark Office.
+
+    </p>
+  </div> 
+
+</footer>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+
+
+
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+
+  
+    
+  
+  <div id="inpageContent"></div>
+  
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+.. Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved.
+.. SPDX-License-Identifier: Apache-2.0
+
+.. _module-daml-finance-interface-holding-factory-account-66430:
+
+Module Daml.Finance.Interface.Holding.Factory.Account
+=====================================================
+
+Interfaces
+----------
+
+.. _type-daml-finance-interface-holding-factory-account-factory-4543:
+
+**interface** `Factory <type-daml-finance-interface-holding-factory-account-factory-4543_>`_
+
+  Interface that allows implementing templates to create accounts\.
+  
+  **viewtype** `V <type-daml-finance-interface-holding-factory-account-v-42389_>`_
+  
+  + **Choice Create**
+    
+    Create a new account\.
+    
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+    
+       * - Field
+         - Type
+         - Description
+       * - account
+         - :ref:`AccountKey <type-daml-finance-interface-types-common-accountkey-85835>`
+         - The account's key\.
+       * - holdingFactoryCid
+         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`F <type-daml-finance-interface-holding-factory-holding-f-13397>`
+         - Associated holding factory for the account\.
+       * - description
+         - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+         - Human readable description of the account\.
+       * - observers
+         - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+         - The account's observers\.
+  
+  + **Choice Remove**
+    
+    Archive an account\.
+    
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+    
+       * - Field
+         - Type
+         - Description
+       * - account
+         - :ref:`AccountKey <type-daml-finance-interface-types-common-accountkey-85835>`
+         - The account's key\.
+  
+  + **Method asDisclosure \:** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>`
+    
+    Conversion to ``Disclosure`` interface\.
+  
+  + **Method create' \:** Create \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-account-i-40586>`)
+    
+    Implementation of ``Create`` choice\.
+  
+  + **Method remove \:** Remove \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ ()
+    
+    Implementation of ``Remove`` choice\.
+
+Typeclasses
+-----------
+
+.. _class-daml-finance-interface-holding-factory-account-hasimplementation-82638:
+
+**class** `Implementation <type-daml-finance-interface-holding-factory-account-implementation-85288_>`_ t \=\> `HasImplementation <class-daml-finance-interface-holding-factory-account-hasimplementation-82638_>`_ t **where**
+
+
+Data Types
+----------
+
+.. _type-daml-finance-interface-holding-factory-account-f-72869:
+
+**type** `F <type-daml-finance-interface-holding-factory-account-f-72869_>`_
+  \= `Factory <type-daml-finance-interface-holding-factory-account-factory-4543_>`_
+  
+  Type synonym for ``Factory``\.
+
+.. _type-daml-finance-interface-holding-factory-account-implementation-85288:
+
+**type** `Implementation <type-daml-finance-interface-holding-factory-account-implementation-85288_>`_ t
+  \= (`HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t `F <type-daml-finance-interface-holding-factory-account-f-72869_>`_, :ref:`Implementation <type-daml-finance-interface-util-disclosure-implementation-41553>` t)
+  
+  Type constraint for requiring templates to implement ``Factory`` along with ``Disclosure``\.
+
+.. _type-daml-finance-interface-holding-factory-account-v-42389:
+
+**type** `V <type-daml-finance-interface-holding-factory-account-v-42389_>`_
+  \= `View <type-daml-finance-interface-holding-factory-account-view-14139_>`_
+  
+  Type synonym for ``View``\.
+
+.. _type-daml-finance-interface-holding-factory-account-view-14139:
+
+**data** `View <type-daml-finance-interface-holding-factory-account-view-14139_>`_
+
+  .. _constr-daml-finance-interface-holding-factory-account-view-62232:
+  
+  `View <constr-daml-finance-interface-holding-factory-account-view-62232_>`_
+  
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+    
+       * - Field
+         - Type
+         - Description
+       * - provider
+         - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
+         - The provider of the ``Factory``\.
+  
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-holding-factory-account-view-14139_>`_
+  
+  **instance** `Ord <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-ord-6395>`_ `View <type-daml-finance-interface-holding-factory-account-view-14139_>`_
+  
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `View <type-daml-finance-interface-holding-factory-account-view-14139_>`_
+
+Functions
+---------
+
+.. _function-daml-finance-interface-holding-factory-account-asdisclosure-10287:
+
+`asDisclosure <function-daml-finance-interface-holding-factory-account-asdisclosure-10287_>`_
+  \: `Factory <type-daml-finance-interface-holding-factory-account-factory-4543_>`_ \-\> :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>`
+
+.. _function-daml-finance-interface-holding-factory-account-createtick-86546:
+
+`create' <function-daml-finance-interface-holding-factory-account-createtick-86546_>`_
+  \: `Factory <type-daml-finance-interface-holding-factory-account-factory-4543_>`_ \-\> Create \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-account-i-40586>`)
+
+.. _function-daml-finance-interface-holding-factory-account-remove-62066:
+
+`remove <function-daml-finance-interface-holding-factory-account-remove-62066_>`_
+  \: `Factory <type-daml-finance-interface-holding-factory-account-factory-4543_>`_ \-\> Remove \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ ()

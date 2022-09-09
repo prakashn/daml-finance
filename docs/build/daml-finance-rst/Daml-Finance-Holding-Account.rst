@@ -1,0 +1,86 @@
+.. Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved.
+.. SPDX-License-Identifier: Apache-2.0
+
+.. _module-daml-finance-holding-account-88149:
+
+Module Daml.Finance.Holding.Account
+===================================
+
+Templates
+---------
+
+.. _type-daml-finance-holding-account-account-19209:
+
+**template** `Account <type-daml-finance-holding-account-account-19209_>`_
+
+  A relationship between a custodian and an asset owner\. It is referenced by holdings\.
+  
+  .. list-table::
+     :widths: 15 10 30
+     :header-rows: 1
+  
+     * - Field
+       - Type
+       - Description
+     * - custodian
+       - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
+       - The account provider\.
+     * - owner
+       - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
+       - The account owner\.
+     * - id
+       - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
+       - Identifier of the account\.
+     * - description
+       - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+       - Description of the account\.
+     * - holdingFactoryCid
+       - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`F <type-daml-finance-interface-holding-factory-holding-f-13397>`
+       - Associated holding factory\.
+     * - observers
+       - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+       - Observers\.
+  
+  + **Choice Archive**
+    
+
+  + **interface instance** :ref:`I <type-daml-finance-interface-holding-account-i-40586>` **for** `Account <type-daml-finance-holding-account-account-19209_>`_
+  
+  + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Account <type-daml-finance-holding-account-account-19209_>`_
+
+.. _type-daml-finance-holding-account-factory-15238:
+
+**template** `Factory <type-daml-finance-holding-account-factory-15238_>`_
+
+  Template used to create accounts\.
+  
+  .. list-table::
+     :widths: 15 10 30
+     :header-rows: 1
+  
+     * - Field
+       - Type
+       - Description
+     * - provider
+       - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
+       - The factory's provider\.
+     * - observers
+       - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+       - The factory's observers\.
+  
+  + **Choice Archive**
+    
+
+  + **interface instance** :ref:`F <type-daml-finance-interface-holding-factory-account-f-72869>` **for** `Factory <type-daml-finance-holding-account-factory-15238_>`_
+  
+  + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Factory <type-daml-finance-holding-account-factory-15238_>`_
+
+Data Types
+----------
+
+.. _type-daml-finance-holding-account-t-81518:
+
+**type** `T <type-daml-finance-holding-account-t-81518_>`_
+  \= `Account <type-daml-finance-holding-account-account-19209_>`_
+  
+  Type synonym for ``Account``\.
