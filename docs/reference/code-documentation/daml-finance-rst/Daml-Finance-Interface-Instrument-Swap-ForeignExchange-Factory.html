@@ -1,0 +1,520 @@
+<!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Module Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Factory &mdash; Daml Finance  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+  
+  <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+  <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+  <script src="../../../_static/jquery.js"></script>
+  <script src="../../../_static/underscore.js"></script>
+  <script src="../../../_static/doctools.js"></script>
+  <script src="../../../_static/clipboard.min.js"></script>
+  <script src="../../../_static/copybutton.js"></script>
+  
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="index" title="Index" href="../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../search.html" />
+  <link rel="next" title="Module Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Instrument" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Instrument.html" />
+  <link rel="prev" title="Module Daml.Finance.Interface.Instrument.Swap.Currency.Types" href="Daml-Finance-Interface-Instrument-Swap-Currency-Types.html" /> 
+
+  
+  <link rel="icon" type="image/svg+xml"  href="../../../_static/images/daml-logo-mark-light.svg">
+  <link rel="alternate icon" href="../../../_static/images/daml-favicon-1.ico">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MSWJMNX');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="wy-body-for-nav">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSWJMNX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-nav-side-shadow"></div>
+      <div class="wy-side-scroll">
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+          
+          
+          
+          
+          
+          <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Daml Finance Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/architecture.html">Architecture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts/asset-model.html">Asset model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts/settlement.html">Settlement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts/lifecycling.html">Lifecycling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../packages/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../packages/core-interfaces.html">Core Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../packages/core-implementations.html">Core Implementations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../packages/instrument-extensions.html">Instrument Extensions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/getting-started/intro.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/getting-started/transfer.html">Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/getting-started/settlement.html">Settlement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/getting-started/lifecycling.html">Lifecycling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/instrument-modeling/intro.html">Instrument Modeling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-extension.html">How to use the Bond extension package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html">How to lifecycle a bond instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/derivative-extension.html">How to use the Derivative extension to model generic instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html">How to implement a Contingent Claims-based instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims tree on ledger vs on-the-fly creation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Daml Finance</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Data-Observable-Observation.html">Daml.Finance.Data.Observable.Observation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Data-Reference-HolidayCalendar.html">Daml.Finance.Data.Reference.HolidayCalendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Holding-Account.html">Daml.Finance.Holding.Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Holding-Fungible.html">Daml.Finance.Holding.Fungible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Holding-NonFungible.html">Daml.Finance.Holding.NonFungible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Holding-NonTransferable.html">Daml.Finance.Holding.NonTransferable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Holding-Util.html">Daml.Finance.Holding.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FixedRate-Factory.html">Daml.Finance.Instrument.Bond.FixedRate.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FixedRate-Instrument.html">Daml.Finance.Instrument.Bond.FixedRate.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FloatingRate-Factory.html">Daml.Finance.Instrument.Bond.FloatingRate.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FloatingRate-Instrument.html">Daml.Finance.Instrument.Bond.FloatingRate.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-InflationLinked-Factory.html">Daml.Finance.Instrument.Bond.InflationLinked.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-InflationLinked-Instrument.html">Daml.Finance.Instrument.Bond.InflationLinked.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-ZeroCoupon-Factory.html">Daml.Finance.Instrument.Bond.ZeroCoupon.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-ZeroCoupon-Instrument.html">Daml.Finance.Instrument.Bond.ZeroCoupon.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Equity-Factory.html">Daml.Finance.Instrument.Equity.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Equity-Instrument.html">Daml.Finance.Instrument.Equity.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Election.html">Daml.Finance.Instrument.Generic.Election</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Factory.html">Daml.Finance.Instrument.Generic.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Instrument.html">Daml.Finance.Instrument.Generic.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Instrument.Swap.CreditDefault.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Instrument.Swap.CreditDefault.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Currency-Factory.html">Daml.Finance.Instrument.Swap.Currency.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Currency-Instrument.html">Daml.Finance.Instrument.Swap.Currency.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-ForeignExchange-Factory.html">Daml.Finance.Instrument.Swap.ForeignExchange.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-ForeignExchange-Instrument.html">Daml.Finance.Instrument.Swap.ForeignExchange.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-InterestRate-Factory.html">Daml.Finance.Instrument.Swap.InterestRate.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-InterestRate-Instrument.html">Daml.Finance.Instrument.Swap.InterestRate.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Token-Factory.html">Daml.Finance.Instrument.Token.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Token-Instrument.html">Daml.Finance.Instrument.Token.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Claims-Claim.html">Daml.Finance.Interface.Claims.Claim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Claims-Types.html">Daml.Finance.Interface.Claims.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Claims-Util.html">Daml.Finance.Interface.Claims.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Claims-Util-Lifecycle.html">Daml.Finance.Interface.Claims.Util.Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Data-Observable.html">Daml.Finance.Interface.Data.Observable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Account.html">Daml.Finance.Interface.Holding.Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Base.html">Daml.Finance.Interface.Holding.Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Factory-Account.html">Daml.Finance.Interface.Holding.Factory.Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Factory-Holding.html">Daml.Finance.Interface.Holding.Factory.Holding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Fungible.html">Daml.Finance.Interface.Holding.Fungible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Lockable.html">Daml.Finance.Interface.Holding.Lockable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Transferable.html">Daml.Finance.Interface.Holding.Transferable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Util.html">Daml.Finance.Interface.Holding.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Base-Instrument.html">Daml.Finance.Interface.Instrument.Base.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Factory.html">Daml.Finance.Interface.Instrument.Bond.FixedRate.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Instrument.html">Daml.Finance.Interface.Instrument.Bond.FixedRate.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Types.html">Daml.Finance.Interface.Instrument.Bond.FixedRate.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Factory.html">Daml.Finance.Interface.Instrument.Bond.FloatingRate.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Instrument.html">Daml.Finance.Interface.Instrument.Bond.FloatingRate.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Types.html">Daml.Finance.Interface.Instrument.Bond.FloatingRate.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Factory.html">Daml.Finance.Interface.Instrument.Bond.InflationLinked.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Instrument.html">Daml.Finance.Interface.Instrument.Bond.InflationLinked.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Types.html">Daml.Finance.Interface.Instrument.Bond.InflationLinked.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Factory.html">Daml.Finance.Interface.Instrument.Bond.ZeroCoupon.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Instrument.html">Daml.Finance.Interface.Instrument.Bond.ZeroCoupon.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Types.html">Daml.Finance.Interface.Instrument.Bond.ZeroCoupon.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Factory.html">Daml.Finance.Interface.Instrument.Equity.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Instrument.html">Daml.Finance.Interface.Instrument.Equity.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Election.html">Daml.Finance.Interface.Instrument.Generic.Election</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Factory.html">Daml.Finance.Interface.Instrument.Generic.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Instrument.html">Daml.Finance.Interface.Instrument.Generic.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Types.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Factory.html">Daml.Finance.Interface.Instrument.Swap.Currency.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Currency.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Types.html">Daml.Finance.Interface.Instrument.Swap.Currency.Types</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Instrument.html">Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Types.html">Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Factory.html">Daml.Finance.Interface.Instrument.Swap.InterestRate.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Instrument.html">Daml.Finance.Interface.Instrument.Swap.InterestRate.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Types.html">Daml.Finance.Interface.Instrument.Swap.InterestRate.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Factory.html">Daml.Finance.Interface.Instrument.Token.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Instrument.html">Daml.Finance.Interface.Instrument.Token.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Types.html">Daml.Finance.Interface.Instrument.Token.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Clock.html">Daml.Finance.Interface.Lifecycle.Clock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Effect.html">Daml.Finance.Interface.Lifecycle.Effect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event.html">Daml.Finance.Interface.Lifecycle.Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Distribution.html">Daml.Finance.Interface.Lifecycle.Event.Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Replacement.html">Daml.Finance.Interface.Lifecycle.Event.Replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Time.html">Daml.Finance.Interface.Lifecycle.Event.Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Claim.html">Daml.Finance.Interface.Lifecycle.Rule.Claim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Lifecycle.html">Daml.Finance.Interface.Lifecycle.Rule.Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Batch.html">Daml.Finance.Interface.Settlement.Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Factory.html">Daml.Finance.Interface.Settlement.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Instruction.html">Daml.Finance.Interface.Settlement.Instruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Types.html">Daml.Finance.Interface.Settlement.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html">Daml.Finance.Interface.Types.Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-Calendar.html">Daml.Finance.Interface.Types.Date.Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-Classes.html">Daml.Finance.Interface.Types.Date.Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-DayCount.html">Daml.Finance.Interface.Types.Date.DayCount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-RollConvention.html">Daml.Finance.Interface.Types.Date.RollConvention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-Schedule.html">Daml.Finance.Interface.Types.Date.Schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Util-Common.html">Daml.Finance.Interface.Util.Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html">Daml.Finance.Interface.Util.Disclosure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-DateClock.html">Daml.Finance.Lifecycle.DateClock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Effect.html">Daml.Finance.Lifecycle.Effect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-ElectionEffect.html">Daml.Finance.Lifecycle.ElectionEffect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-DateClock.html">Daml.Finance.Lifecycle.Event.DateClock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-Distribution.html">Daml.Finance.Lifecycle.Event.Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-Replacement.html">Daml.Finance.Lifecycle.Event.Replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Claim.html">Daml.Finance.Lifecycle.Rule.Claim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Distribution.html">Daml.Finance.Lifecycle.Rule.Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Replacement.html">Daml.Finance.Lifecycle.Rule.Replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Types.html">Daml.Finance.Lifecycle.Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Settlement-Batch.html">Daml.Finance.Settlement.Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Settlement-Factory.html">Daml.Finance.Settlement.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Util-Common.html">Daml.Finance.Util.Common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Util-Date-Calendar.html">Daml.Finance.Util.Date.Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Util-Date-DayCount.html">Daml.Finance.Util.Date.DayCount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Util-Date-RollConvention.html">Daml.Finance.Util.Date.RollConvention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Util-Date-Schedule.html">Daml.Finance.Util.Date.Schedule</a></li>
+</ul>
+</li>
+</ul>
+
+          
+          
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <div class="topbar fixed">
+        
+        <nav class="wy-nav-top" aria-label="top navigation">
+          
+          <i data-toggle="wy-nav-top" class="wy-nav-top-toggle"></i>
+          
+        </nav>
+        <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<div class="navbar">
+    <h1><img src="../../../_static/images/Daml_Logo_Blue.svg"></h1>
+    <div class="navbar-menu">
+        <div class="da-menu-item da-menu-depth-1" role="menu">
+            <a href="https://www.digitalasset.com/developers" role="menuitem" class="da-menu-link">Developers</a>
+        </div>
+        <div class="da-menu-item da-menu-depth-1" role="menu">
+            <a href="https://www.digitalasset.com/products" role="menuitem" class="da-menu-link">Products</a>
+        </div>
+        <div class="da-menu-item da-menu-depth-1" role="menu">
+            <a href="https://www.digitalasset.com" role="menuitem" class="da-menu-link">Company</a>
+        </div>
+    </div>
+</div>
+
+        <div class="version ">
+          <span class="hide-mobile">Version&nbsp;</span><span class="version_switcher_placeholder"></span>
+          
+        </div>
+
+
+        <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<div class="search-inline">
+    <div id="rtd-search-inline-form" class="wy-form">
+        <input type="text" class="search-inline-input" placeholder="Search" name="q">
+        <img src="../../../_static/images/Search.svg" class="search-inline-img"/>
+    </div>
+    <div class="search-alert">
+        Please enter at least 3 letters.
+    </div>
+    <div id="search-inline-results" class="search-inline-results">
+        
+    </div>
+</div>
+          <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<div class="content-menu collapsed">
+    <span class="content-menu-title">In This Section</span>
+    <span class="content-menu-expand"></span>
+    <div class="content-menu-wrapper">
+        
+        <!-- Local TOC -->
+        <div class="content-menu-toc"><ul>
+<li><a class="reference internal" href="#">Module Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Factory</a><ul>
+<li><a class="reference internal" href="#interfaces">Interfaces</a></li>
+<li><a class="reference internal" href="#typeclasses">Typeclasses</a></li>
+<li><a class="reference internal" href="#data-types">Data Types</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        
+    </div>
+</div>
+        
+
+      </div>
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+                
+  <div class="section" id="module-daml-finance-interface-instrument-swap-foreignexchange-factory">
+<span id="module-daml-finance-interface-instrument-swap-foreignexchange-factory-12809"></span><h1>Module Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Factory<a class="headerlink" href="#module-daml-finance-interface-instrument-swap-foreignexchange-factory" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="interfaces">
+<h2>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h2>
+<p id="type-daml-finance-interface-instrument-swap-foreignexchange-factory-factory-25462"><strong>interface</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-factory-25462">Factory</a></p>
+<blockquote>
+<div><p>Interface that allows implementing templates to create foreign exchange swaps.</p>
+<p><strong>viewtype</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-v-39856">V</a></p>
+<ul>
+<li><p class="first"><strong>Choice Create</strong></p>
+<p>Create a new instrument.</p>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>foreignExchange</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Types.html#type-daml-finance-interface-instrument-swap-foreignexchange-types-foreignexchange-32192"><span class="std std-ref">ForeignExchange</span></a></td>
+<td>Attributes to create an FX swap.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first"><strong>Choice Remove</strong></p>
+<p>Archive an instrument.</p>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>instrument</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-instrumentkey-59982"><span class="std std-ref">InstrumentKey</span></a></td>
+<td>The instrument’s key.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first"><strong>Method asDisclosure :</strong> <a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html#type-daml-finance-interface-util-disclosure-i-26993"><span class="std std-ref">I</span></a></p>
+<p>Conversion to <code class="docutils literal notranslate"><span class="pre">Disclosure</span></code> interface.</p>
+</li>
+<li><p class="first"><strong>Method create’ :</strong> Create -&gt; <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072">Update</a> (<a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282">ContractId</a> <a class="reference internal" href="Daml-Finance-Interface-Instrument-Base-Instrument.html#type-daml-finance-interface-instrument-base-instrument-i-67236"><span class="std std-ref">I</span></a>)</p>
+<p>Implementation of <code class="docutils literal notranslate"><span class="pre">Create</span></code> choice.</p>
+</li>
+<li><p class="first"><strong>Method remove :</strong> Remove -&gt; <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072">Update</a> ()</p>
+<p>Implementation of <code class="docutils literal notranslate"><span class="pre">Remove</span></code> choice.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="typeclasses">
+<h2>Typeclasses<a class="headerlink" href="#typeclasses" title="Permalink to this headline">¶</a></h2>
+<p id="class-daml-finance-interface-instrument-swap-foreignexchange-factory-hasimplementation-79479"><strong>class</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-implementation-36803">Implementation</a> t =&gt; <a class="reference internal" href="#class-daml-finance-interface-instrument-swap-foreignexchange-factory-hasimplementation-79479">HasImplementation</a> t <strong>where</strong></p>
+</div>
+<div class="section" id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils" id="type-daml-finance-interface-instrument-swap-foreignexchange-factory-f-9376">
+<dt><strong>type</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-f-9376">F</a></dt><dd><p>= <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-factory-25462">Factory</a></p>
+<p>Type synonym for <code class="docutils literal notranslate"><span class="pre">Factory</span></code>.</p>
+</dd>
+</dl>
+<dl class="docutils" id="type-daml-finance-interface-instrument-swap-foreignexchange-factory-implementation-36803">
+<dt><strong>type</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-implementation-36803">Implementation</a> t</dt><dd><p>= (<a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104">HasToInterface</a> t <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-factory-25462">Factory</a>, <a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html#type-daml-finance-interface-util-disclosure-implementation-41553"><span class="std std-ref">Implementation</span></a> t)</p>
+<p>Type constraint for requiring templates to implement <code class="docutils literal notranslate"><span class="pre">Factory</span></code> along with <code class="docutils literal notranslate"><span class="pre">Disclosure</span></code>.</p>
+</dd>
+</dl>
+<dl class="docutils" id="type-daml-finance-interface-instrument-swap-foreignexchange-factory-v-39856">
+<dt><strong>type</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-v-39856">V</a></dt><dd><p>= <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-view-2924">View</a></p>
+<p>Type synonym for <code class="docutils literal notranslate"><span class="pre">View</span></code>.</p>
+</dd>
+</dl>
+<p id="type-daml-finance-interface-instrument-swap-foreignexchange-factory-view-2924"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-view-2924">View</a></p>
+<blockquote>
+<div><p>View of <code class="docutils literal notranslate"><span class="pre">Factory</span></code>.</p>
+<p id="constr-daml-finance-interface-instrument-swap-foreignexchange-factory-view-11227"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-foreignexchange-factory-view-11227">View</a></p>
+<blockquote>
+<div><table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>provider</td>
+<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932">Party</a></td>
+<td>The provider of the <code class="docutils literal notranslate"><span class="pre">Factory</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713">Eq</a> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-view-2924">View</a></p>
+<p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-ord-6395">Ord</a> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-view-2924">View</a></p>
+<p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360">Show</a> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-view-2924">View</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils" id="function-daml-finance-interface-instrument-swap-foreignexchange-factory-asdisclosure-17264">
+<dt><a class="reference internal" href="#function-daml-finance-interface-instrument-swap-foreignexchange-factory-asdisclosure-17264">asDisclosure</a></dt><dd>: <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-factory-25462">Factory</a> -&gt; <a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html#type-daml-finance-interface-util-disclosure-i-26993"><span class="std std-ref">I</span></a></dd>
+</dl>
+<dl class="docutils" id="function-daml-finance-interface-instrument-swap-foreignexchange-factory-createtick-54471">
+<dt><a class="reference internal" href="#function-daml-finance-interface-instrument-swap-foreignexchange-factory-createtick-54471">create’</a></dt><dd>: <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-factory-25462">Factory</a> -&gt; Create -&gt; <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072">Update</a> (<a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282">ContractId</a> <a class="reference internal" href="Daml-Finance-Interface-Instrument-Base-Instrument.html#type-daml-finance-interface-instrument-base-instrument-i-67236"><span class="std std-ref">I</span></a>)</dd>
+</dl>
+<dl class="docutils" id="function-daml-finance-interface-instrument-swap-foreignexchange-factory-remove-89997">
+<dt><a class="reference internal" href="#function-daml-finance-interface-instrument-swap-foreignexchange-factory-remove-89997">remove</a></dt><dd>: <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-foreignexchange-factory-factory-25462">Factory</a> -&gt; Remove -&gt; <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072">Update</a> ()</dd>
+</dl>
+</div>
+</div>
+
+
+              
+            </div>
+            
+            
+              <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Daml-Finance-Interface-Instrument-Swap-Currency-Types.html" class="da-btn da-btn-label btn-prev" title="Module Daml.Finance.Interface.Instrument.Swap.Currency.Types" accesskey="p" rel="prev">Previous</a>
+      
+      
+        <a href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Instrument.html" class="da-btn da-btn-label btn-next" title="Module Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Instrument" accesskey="n" rel="next">Next</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. Any unauthorized use, duplication or distribution is strictly prohibited. &#34;Digital Asset&#34; and &#34;Daml&#34; are Registered in the U.S. Patent and Trademark Office.
+
+    </p>
+  </div> 
+
+</footer>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved. -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+
+
+
+
+  <script type="text/javascript">
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+
+  
+    
+  
+  <div id="inpageContent"></div>
+  
+
+</body>
+</html>

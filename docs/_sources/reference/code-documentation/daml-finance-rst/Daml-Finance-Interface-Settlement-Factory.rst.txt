@@ -19,7 +19,7 @@ Interfaces
   
   + **Choice GetView**
     
-    Retrieves the instrument view\.
+    Retrieves the interface view\.
     
     .. list-table::
        :widths: 15 10 30
@@ -46,9 +46,9 @@ Interfaces
        * - instructors
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - Parties requesting to instruct a settlement\.
-       * - settler
-         - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-         - Party that triggers the final settlement\.
+       * - settlers
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Any of the parties can trigger the final settlement\.
        * - id
          - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
          - Factory identifier\.

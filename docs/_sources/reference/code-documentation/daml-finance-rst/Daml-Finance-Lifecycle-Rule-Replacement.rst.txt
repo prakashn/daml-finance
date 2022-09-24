@@ -22,11 +22,14 @@ Templates
      * - Field
        - Type
        - Description
-     * - provider
+     * - providers
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+       - Providers of the replacement rule\.
+     * - lifecycler
        - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-       - Provider of the replacement rule\.
+       - Party performing the lifecycling\.
      * - observers
-       - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Observers\.
   
   + **Choice Archive**

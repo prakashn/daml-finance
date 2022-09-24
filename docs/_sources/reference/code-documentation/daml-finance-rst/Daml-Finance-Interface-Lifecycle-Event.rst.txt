@@ -19,7 +19,7 @@ Interfaces
   
   + **Choice GetView**
     
-    Retrieves the instrument view\.
+    Retrieves the interface view\.
     
     .. list-table::
        :widths: 15 10 30
@@ -58,6 +58,12 @@ Data Types
   **instance** HasMethod :ref:`Instrument <type-daml-finance-interface-instrument-equity-instrument-instrument-99859>` \"declareStockSplit\" (DeclareStockSplit \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-lifecycle-event-i-17082_>`_))
   
   **instance** HasMethod :ref:`Election <type-daml-finance-interface-instrument-generic-election-election-25324>` \"asEvent\" `I <type-daml-finance-interface-lifecycle-event-i-17082_>`_
+  
+  **instance** HasMethod :ref:`Event <type-daml-finance-interface-lifecycle-event-distribution-event-73224>` \"asEvent\" `I <type-daml-finance-interface-lifecycle-event-i-17082_>`_
+  
+  **instance** HasMethod :ref:`Event <type-daml-finance-interface-lifecycle-event-replacement-event-46565>` \"asEvent\" `I <type-daml-finance-interface-lifecycle-event-i-17082_>`_
+  
+  **instance** HasMethod :ref:`Event <type-daml-finance-interface-lifecycle-event-time-event-90457>` \"asEvent\" `I <type-daml-finance-interface-lifecycle-event-i-17082_>`_
 
 .. _type-daml-finance-interface-lifecycle-event-implementation-22192:
 
@@ -90,6 +96,9 @@ Data Types
        * - Field
          - Type
          - Description
+       * - providers
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Providers of the event\.
        * - id
          - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
          - Identifier for the event\.

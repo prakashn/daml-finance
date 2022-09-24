@@ -22,8 +22,8 @@ Templates
      * - Field
        - Type
        - Description
-     * - provider
-       - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
+     * - providers
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Providers of the distribution event\.
      * - id
        - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
@@ -44,12 +44,14 @@ Templates
        - \[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\]
        - Distributed quantities per unit held\.
      * - observers
-       - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Observers\.
   
   + **Choice Archive**
     
 
+  + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-event-distribution-i-8313>` **for** `Event <type-daml-finance-lifecycle-event-distribution-event-46459_>`_
+  
   + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-event-i-17082>` **for** `Event <type-daml-finance-lifecycle-event-distribution-event-46459_>`_
 
 Data Types

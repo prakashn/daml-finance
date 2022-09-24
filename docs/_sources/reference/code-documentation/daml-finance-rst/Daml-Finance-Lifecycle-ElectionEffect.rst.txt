@@ -24,11 +24,11 @@ Templates
        - Type
        - Description
      * - provider
-       - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - The effect provider\.
-     * - settler
-       - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-       - The party settling the effect's consequences\.
+     * - settlers
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+       - Any of the parties can settle the effect's consequences\.
      * - custodian
        - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
        - The custodian of the holding put forward for election\.
@@ -60,7 +60,7 @@ Templates
        - `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
        - The effect's settlement date\.
      * - observers
-       - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+       - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - Observers\.
   
   + **Choice Archive**

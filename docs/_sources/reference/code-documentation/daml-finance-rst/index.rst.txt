@@ -12,22 +12,42 @@ Here is a complete list of modules in the financial library:
    :maxdepth: 3
    :titlesonly:
    
+   Daml.Finance.Data.Observable.Observation <Daml-Finance-Data-Observable-Observation>
+   Daml.Finance.Data.Reference.HolidayCalendar <Daml-Finance-Data-Reference-HolidayCalendar>
    Daml.Finance.Holding.Account <Daml-Finance-Holding-Account>
    Daml.Finance.Holding.Fungible <Daml-Finance-Holding-Fungible>
    Daml.Finance.Holding.NonFungible <Daml-Finance-Holding-NonFungible>
    Daml.Finance.Holding.NonTransferable <Daml-Finance-Holding-NonTransferable>
    Daml.Finance.Holding.Util <Daml-Finance-Holding-Util>
-   Daml.Finance.Instrument.Base.Instrument <Daml-Finance-Instrument-Base-Instrument>
-   Daml.Finance.Instrument.Bond.FixedRate <Daml-Finance-Instrument-Bond-FixedRate>
-   Daml.Finance.Instrument.Bond.FloatingRate <Daml-Finance-Instrument-Bond-FloatingRate>
-   Daml.Finance.Instrument.Bond.InflationLinked <Daml-Finance-Instrument-Bond-InflationLinked>
-   Daml.Finance.Instrument.Bond.Util <Daml-Finance-Instrument-Bond-Util>
-   Daml.Finance.Instrument.Bond.ZeroCoupon <Daml-Finance-Instrument-Bond-ZeroCoupon>
+   Daml.Finance.Instrument.Bond.FixedRate.Factory <Daml-Finance-Instrument-Bond-FixedRate-Factory>
+   Daml.Finance.Instrument.Bond.FixedRate.Instrument <Daml-Finance-Instrument-Bond-FixedRate-Instrument>
+   Daml.Finance.Instrument.Bond.FloatingRate.Factory <Daml-Finance-Instrument-Bond-FloatingRate-Factory>
+   Daml.Finance.Instrument.Bond.FloatingRate.Instrument <Daml-Finance-Instrument-Bond-FloatingRate-Instrument>
+   Daml.Finance.Instrument.Bond.InflationLinked.Factory <Daml-Finance-Instrument-Bond-InflationLinked-Factory>
+   Daml.Finance.Instrument.Bond.InflationLinked.Instrument <Daml-Finance-Instrument-Bond-InflationLinked-Instrument>
+   Daml.Finance.Instrument.Bond.ZeroCoupon.Factory <Daml-Finance-Instrument-Bond-ZeroCoupon-Factory>
+   Daml.Finance.Instrument.Bond.ZeroCoupon.Instrument <Daml-Finance-Instrument-Bond-ZeroCoupon-Instrument>
    Daml.Finance.Instrument.Equity.Factory <Daml-Finance-Instrument-Equity-Factory>
    Daml.Finance.Instrument.Equity.Instrument <Daml-Finance-Instrument-Equity-Instrument>
    Daml.Finance.Instrument.Generic.Election <Daml-Finance-Instrument-Generic-Election>
    Daml.Finance.Instrument.Generic.Factory <Daml-Finance-Instrument-Generic-Factory>
    Daml.Finance.Instrument.Generic.Instrument <Daml-Finance-Instrument-Generic-Instrument>
+   Daml.Finance.Instrument.Generic.Util <Daml-Finance-Instrument-Generic-Util>
+   Daml.Finance.Instrument.Swap.CreditDefault.Factory <Daml-Finance-Instrument-Swap-CreditDefault-Factory>
+   Daml.Finance.Instrument.Swap.CreditDefault.Instrument <Daml-Finance-Instrument-Swap-CreditDefault-Instrument>
+   Daml.Finance.Instrument.Swap.Currency.Factory <Daml-Finance-Instrument-Swap-Currency-Factory>
+   Daml.Finance.Instrument.Swap.Currency.Instrument <Daml-Finance-Instrument-Swap-Currency-Instrument>
+   Daml.Finance.Instrument.Swap.ForeignExchange.Factory <Daml-Finance-Instrument-Swap-ForeignExchange-Factory>
+   Daml.Finance.Instrument.Swap.ForeignExchange.Instrument <Daml-Finance-Instrument-Swap-ForeignExchange-Instrument>
+   Daml.Finance.Instrument.Swap.InterestRate.Factory <Daml-Finance-Instrument-Swap-InterestRate-Factory>
+   Daml.Finance.Instrument.Swap.InterestRate.Instrument <Daml-Finance-Instrument-Swap-InterestRate-Instrument>
+   Daml.Finance.Instrument.Token.Factory <Daml-Finance-Instrument-Token-Factory>
+   Daml.Finance.Instrument.Token.Instrument <Daml-Finance-Instrument-Token-Instrument>
+   Daml.Finance.Interface.Claims.Claim <Daml-Finance-Interface-Claims-Claim>
+   Daml.Finance.Interface.Claims.Types <Daml-Finance-Interface-Claims-Types>
+   Daml.Finance.Interface.Claims.Util <Daml-Finance-Interface-Claims-Util>
+   Daml.Finance.Interface.Claims.Util.Lifecycle <Daml-Finance-Interface-Claims-Util-Lifecycle>
+   Daml.Finance.Interface.Data.Observable <Daml-Finance-Interface-Data-Observable>
    Daml.Finance.Interface.Holding.Account <Daml-Finance-Interface-Holding-Account>
    Daml.Finance.Interface.Holding.Base <Daml-Finance-Interface-Holding-Base>
    Daml.Finance.Interface.Holding.Factory.Account <Daml-Finance-Interface-Holding-Factory-Account>
@@ -36,24 +56,45 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Holding.Lockable <Daml-Finance-Interface-Holding-Lockable>
    Daml.Finance.Interface.Holding.Transferable <Daml-Finance-Interface-Holding-Transferable>
    Daml.Finance.Interface.Holding.Util <Daml-Finance-Interface-Holding-Util>
-   Daml.Finance.Interface.Instrument.Base.Factory <Daml-Finance-Interface-Instrument-Base-Factory>
    Daml.Finance.Interface.Instrument.Base.Instrument <Daml-Finance-Interface-Instrument-Base-Instrument>
-   Daml.Finance.Interface.Instrument.Bond.FixedRate <Daml-Finance-Interface-Instrument-Bond-FixedRate>
-   Daml.Finance.Interface.Instrument.Bond.FloatingRate <Daml-Finance-Interface-Instrument-Bond-FloatingRate>
-   Daml.Finance.Interface.Instrument.Bond.InflationLinked <Daml-Finance-Interface-Instrument-Bond-InflationLinked>
-   Daml.Finance.Interface.Instrument.Bond.ZeroCoupon <Daml-Finance-Interface-Instrument-Bond-ZeroCoupon>
+   Daml.Finance.Interface.Instrument.Bond.FixedRate.Factory <Daml-Finance-Interface-Instrument-Bond-FixedRate-Factory>
+   Daml.Finance.Interface.Instrument.Bond.FixedRate.Instrument <Daml-Finance-Interface-Instrument-Bond-FixedRate-Instrument>
+   Daml.Finance.Interface.Instrument.Bond.FixedRate.Types <Daml-Finance-Interface-Instrument-Bond-FixedRate-Types>
+   Daml.Finance.Interface.Instrument.Bond.FloatingRate.Factory <Daml-Finance-Interface-Instrument-Bond-FloatingRate-Factory>
+   Daml.Finance.Interface.Instrument.Bond.FloatingRate.Instrument <Daml-Finance-Interface-Instrument-Bond-FloatingRate-Instrument>
+   Daml.Finance.Interface.Instrument.Bond.FloatingRate.Types <Daml-Finance-Interface-Instrument-Bond-FloatingRate-Types>
+   Daml.Finance.Interface.Instrument.Bond.InflationLinked.Factory <Daml-Finance-Interface-Instrument-Bond-InflationLinked-Factory>
+   Daml.Finance.Interface.Instrument.Bond.InflationLinked.Instrument <Daml-Finance-Interface-Instrument-Bond-InflationLinked-Instrument>
+   Daml.Finance.Interface.Instrument.Bond.InflationLinked.Types <Daml-Finance-Interface-Instrument-Bond-InflationLinked-Types>
+   Daml.Finance.Interface.Instrument.Bond.ZeroCoupon.Factory <Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Factory>
+   Daml.Finance.Interface.Instrument.Bond.ZeroCoupon.Instrument <Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Instrument>
+   Daml.Finance.Interface.Instrument.Bond.ZeroCoupon.Types <Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Types>
    Daml.Finance.Interface.Instrument.Equity.Factory <Daml-Finance-Interface-Instrument-Equity-Factory>
    Daml.Finance.Interface.Instrument.Equity.Instrument <Daml-Finance-Interface-Instrument-Equity-Instrument>
    Daml.Finance.Interface.Instrument.Generic.Election <Daml-Finance-Interface-Instrument-Generic-Election>
    Daml.Finance.Interface.Instrument.Generic.Factory <Daml-Finance-Interface-Instrument-Generic-Factory>
-   Daml.Finance.Interface.Instrument.Generic.HasClaims <Daml-Finance-Interface-Instrument-Generic-HasClaims>
-   Daml.Finance.Interface.Instrument.Generic.Types <Daml-Finance-Interface-Instrument-Generic-Types>
-   Daml.Finance.Interface.Instrument.Generic.Util.Claims <Daml-Finance-Interface-Instrument-Generic-Util-Claims>
-   Daml.Finance.Interface.Instrument.Generic.Util.Claims.Lifecycle <Daml-Finance-Interface-Instrument-Generic-Util-Claims-Lifecycle>
+   Daml.Finance.Interface.Instrument.Generic.Instrument <Daml-Finance-Interface-Instrument-Generic-Instrument>
+   Daml.Finance.Interface.Instrument.Swap.CreditDefault.Factory <Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory>
+   Daml.Finance.Interface.Instrument.Swap.CreditDefault.Instrument <Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument>
+   Daml.Finance.Interface.Instrument.Swap.CreditDefault.Types <Daml-Finance-Interface-Instrument-Swap-CreditDefault-Types>
+   Daml.Finance.Interface.Instrument.Swap.Currency.Factory <Daml-Finance-Interface-Instrument-Swap-Currency-Factory>
+   Daml.Finance.Interface.Instrument.Swap.Currency.Instrument <Daml-Finance-Interface-Instrument-Swap-Currency-Instrument>
+   Daml.Finance.Interface.Instrument.Swap.Currency.Types <Daml-Finance-Interface-Instrument-Swap-Currency-Types>
+   Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Factory <Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Factory>
+   Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Instrument <Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Instrument>
+   Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Types <Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Types>
+   Daml.Finance.Interface.Instrument.Swap.InterestRate.Factory <Daml-Finance-Interface-Instrument-Swap-InterestRate-Factory>
+   Daml.Finance.Interface.Instrument.Swap.InterestRate.Instrument <Daml-Finance-Interface-Instrument-Swap-InterestRate-Instrument>
+   Daml.Finance.Interface.Instrument.Swap.InterestRate.Types <Daml-Finance-Interface-Instrument-Swap-InterestRate-Types>
+   Daml.Finance.Interface.Instrument.Token.Factory <Daml-Finance-Interface-Instrument-Token-Factory>
+   Daml.Finance.Interface.Instrument.Token.Instrument <Daml-Finance-Interface-Instrument-Token-Instrument>
+   Daml.Finance.Interface.Instrument.Token.Types <Daml-Finance-Interface-Instrument-Token-Types>
    Daml.Finance.Interface.Lifecycle.Clock <Daml-Finance-Interface-Lifecycle-Clock>
    Daml.Finance.Interface.Lifecycle.Effect <Daml-Finance-Interface-Lifecycle-Effect>
    Daml.Finance.Interface.Lifecycle.Event <Daml-Finance-Interface-Lifecycle-Event>
-   Daml.Finance.Interface.Lifecycle.Observable <Daml-Finance-Interface-Lifecycle-Observable>
+   Daml.Finance.Interface.Lifecycle.Event.Distribution <Daml-Finance-Interface-Lifecycle-Event-Distribution>
+   Daml.Finance.Interface.Lifecycle.Event.Replacement <Daml-Finance-Interface-Lifecycle-Event-Replacement>
+   Daml.Finance.Interface.Lifecycle.Event.Time <Daml-Finance-Interface-Lifecycle-Event-Time>
    Daml.Finance.Interface.Lifecycle.Rule.Claim <Daml-Finance-Interface-Lifecycle-Rule-Claim>
    Daml.Finance.Interface.Lifecycle.Rule.Lifecycle <Daml-Finance-Interface-Lifecycle-Rule-Lifecycle>
    Daml.Finance.Interface.Settlement.Batch <Daml-Finance-Interface-Settlement-Batch>
@@ -68,16 +109,16 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Types.Date.Schedule <Daml-Finance-Interface-Types-Date-Schedule>
    Daml.Finance.Interface.Util.Common <Daml-Finance-Interface-Util-Common>
    Daml.Finance.Interface.Util.Disclosure <Daml-Finance-Interface-Util-Disclosure>
+   Daml.Finance.Lifecycle.DateClock <Daml-Finance-Lifecycle-DateClock>
    Daml.Finance.Lifecycle.Effect <Daml-Finance-Lifecycle-Effect>
    Daml.Finance.Lifecycle.ElectionEffect <Daml-Finance-Lifecycle-ElectionEffect>
+   Daml.Finance.Lifecycle.Event.DateClock <Daml-Finance-Lifecycle-Event-DateClock>
    Daml.Finance.Lifecycle.Event.Distribution <Daml-Finance-Lifecycle-Event-Distribution>
    Daml.Finance.Lifecycle.Event.Replacement <Daml-Finance-Lifecycle-Event-Replacement>
    Daml.Finance.Lifecycle.Rule.Claim <Daml-Finance-Lifecycle-Rule-Claim>
    Daml.Finance.Lifecycle.Rule.Distribution <Daml-Finance-Lifecycle-Rule-Distribution>
    Daml.Finance.Lifecycle.Rule.Replacement <Daml-Finance-Lifecycle-Rule-Replacement>
-   Daml.Finance.RefData.HolidayCalendar <Daml-Finance-RefData-HolidayCalendar>
-   Daml.Finance.RefData.Observation <Daml-Finance-RefData-Observation>
-   Daml.Finance.RefData.Time.DateClock <Daml-Finance-RefData-Time-DateClock>
+   Daml.Finance.Lifecycle.Types <Daml-Finance-Lifecycle-Types>
    Daml.Finance.Settlement.Batch <Daml-Finance-Settlement-Batch>
    Daml.Finance.Settlement.Factory <Daml-Finance-Settlement-Factory>
    Daml.Finance.Settlement.Instruction <Daml-Finance-Settlement-Instruction>

@@ -1,0 +1,72 @@
+.. Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved.
+.. SPDX-License-Identifier: Apache-2.0
+
+.. _module-daml-finance-lifecycle-dateclock-31311:
+
+Module Daml.Finance.Lifecycle.DateClock
+=======================================
+
+Templates
+---------
+
+.. _type-daml-finance-lifecycle-dateclock-dateclock-61982:
+
+**template** `DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982_>`_
+
+  A clock where time is discretized into dates\. Each date is mapped to UTC noon\.
+  
+  .. list-table::
+     :widths: 15 10 30
+     :header-rows: 1
+  
+     * - Field
+       - Type
+       - Description
+     * - providers
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+       - The clock's provider\.
+     * - date
+       - :ref:`Unit <type-daml-finance-lifecycle-types-unit-19576>`
+       - The clock's date\.
+     * - id
+       - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
+       - The clock's identifier\.
+     * - description
+       - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+       - The clock's description\.
+     * - observers
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+       - Observers of the events created from this clock\.
+  
+  + **Choice Archive**
+    
+  
+  + **Choice ToNext**
+    
+    Moves the clock to the next date and spawns an update event\.
+    
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+    
+       * - Field
+         - Type
+         - Description
+       * - eventId
+         - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
+         - Event identifier
+       * - eventDescription
+         - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+         - Event description
+
+  + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-clock-i-92808>` **for** `DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982_>`_
+
+Data Types
+----------
+
+.. _type-daml-finance-lifecycle-dateclock-t-67372:
+
+**type** `T <type-daml-finance-lifecycle-dateclock-t-67372_>`_
+  \= `DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982_>`_
+  
+  Type synonym for ``DateClock``\.

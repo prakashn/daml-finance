@@ -19,7 +19,7 @@ Interfaces
   
   + **Choice GetView**
     
-    Retrieves the instrument view\.
+    Retrieves the interface view\.
     
     .. list-table::
        :widths: 15 10 30

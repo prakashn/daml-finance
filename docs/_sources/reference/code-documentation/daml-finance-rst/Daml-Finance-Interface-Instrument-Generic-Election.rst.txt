@@ -33,15 +33,15 @@ Interfaces
          - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-clock-i-92808>`
          - current time\.
        * - observableCids
-         - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-observable-i-63746>`\]
+         - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-observable-i-4241>`\]
          - set of observables
-       * - settler
-         - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
+       * - settlers
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - parties responsible for settling effects
   
   + **Choice GetView**
     
-    Retrieves the instrument view\.
+    Retrieves the interface view\.
     
     .. list-table::
        :widths: 15 10 30
@@ -88,15 +88,15 @@ Interfaces
          - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Election <type-daml-finance-interface-instrument-generic-election-election-25324_>`_
          - The election\.
        * - observableCids
-         - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-observable-i-63746>`\]
+         - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-observable-i-4241>`\]
          - Set of observables\.
-       * - settler
-         - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
+       * - settlers
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - The party settling the transaction\.
   
   + **Choice Exercisable\_GetView**
     
-    Retrieves the instrument view\.
+    Retrieves the interface view\.
     
     .. list-table::
        :widths: 15 10 30
@@ -215,7 +215,7 @@ Data Types
          - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
          - A description of the instrument\.
        * - claim
-         - :ref:`C <type-daml-finance-interface-instrument-generic-types-c-8090>`
+         - :ref:`C <type-daml-finance-interface-claims-types-c-53263>`
          - The claim representation of the election (i\.e\., the elected sub\-tree)\.
        * - elector
          - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
@@ -227,7 +227,7 @@ Data Types
          - `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_
          - ``True`` if election is on behalf of the owner of the holding, ``False`` otherwise
        * - observers
-         - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+         - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
          - observers of the election
        * - amount
          - `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_

@@ -97,7 +97,7 @@ Interfaces
   
   + **Choice GetView**
     
-    Retrieves the instrument view\.
+    Retrieves the interface view\.
     
     .. list-table::
        :widths: 15 10 30
@@ -110,7 +110,7 @@ Interfaces
          - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
          - The party retrieving the view\.
   
-  + **Method asInstrument \:** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>`
+  + **Method asBaseInstrument \:** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>`
     
     Conversion to base ``Instrument`` interface\.
   
@@ -178,9 +178,9 @@ Data Types
 Functions
 ---------
 
-.. _function-daml-finance-interface-instrument-equity-instrument-asinstrument-86269:
+.. _function-daml-finance-interface-instrument-equity-instrument-asbaseinstrument-75198:
 
-`asInstrument <function-daml-finance-interface-instrument-equity-instrument-asinstrument-86269_>`_
+`asBaseInstrument <function-daml-finance-interface-instrument-equity-instrument-asbaseinstrument-75198_>`_
   \: `Instrument <type-daml-finance-interface-instrument-equity-instrument-instrument-99859_>`_ \-\> :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>`
 
 .. _function-daml-finance-interface-instrument-equity-instrument-declaredividend-19644:

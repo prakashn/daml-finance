@@ -31,8 +31,8 @@ Interfaces
        * - ruleName
          - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
          - The lifecycle rule to be processed\.
-       * - settler
-         - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
+       * - settlers
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - The party settling the effects\.
        * - eventCid
          - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-event-i-17082>`
@@ -41,12 +41,12 @@ Interfaces
          - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-clock-i-92808>`
          - Current time\. This is also an observable, but not a strictly 'Decimal' one\.
        * - observableCids
-         - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`Observable <type-daml-finance-interface-lifecycle-observable-observable-5365>`\]
+         - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`Observable <type-daml-finance-interface-data-observable-observable-13896>`\]
          - Set of numerical time\-dependent observables\.
   
   + **Choice GetView**
     
-    Retrieves the instrument view\.
+    Retrieves the interface view\.
     
     .. list-table::
        :widths: 15 10 30

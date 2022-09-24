@@ -44,7 +44,7 @@ Templates
        - `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_
        - Number of units of instrument to which the election applies\.
      * - claim
-       - :ref:`C <type-daml-finance-interface-instrument-generic-types-c-8090>`
+       - :ref:`C <type-daml-finance-interface-claims-types-c-53263>`
        - the elected sub\-tree\.
      * - electorIsOwner
        - `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_
@@ -53,7 +53,7 @@ Templates
        - `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_
        - Time at which the election is put forward\.
      * - observers
-       - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+       - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - A set of observers\.
   
   + **Choice Archive**
@@ -89,10 +89,10 @@ Templates
        - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
        - A human readable description of the election claim\.
      * - claim
-       - :ref:`C <type-daml-finance-interface-instrument-generic-types-c-8090>`
+       - :ref:`C <type-daml-finance-interface-claims-types-c-53263>`
        - the elected sub\-tree
      * - observers
-       - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - observers of the contract
      * - instrument
        - :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`

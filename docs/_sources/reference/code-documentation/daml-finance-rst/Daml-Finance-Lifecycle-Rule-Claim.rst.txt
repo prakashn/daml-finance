@@ -34,9 +34,9 @@ Templates
      * - factoryCid
        - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>`
        - Factory contract used to create a ``Batch`` of ``Instruction``\\s\.
-     * - settler
-       - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-       - Party triggering settlement of the instructions\.
+     * - settlers
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+       - Any of the parties can trigger the settlement of the instructions\.
   
   + **Choice Archive**
     

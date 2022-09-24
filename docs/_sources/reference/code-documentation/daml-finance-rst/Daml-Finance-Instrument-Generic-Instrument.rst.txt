@@ -39,13 +39,13 @@ Templates
        - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
        - A human readable description of the instrument\.
      * - claims
-       - :ref:`C <type-daml-finance-interface-instrument-generic-types-c-8090>`
+       - :ref:`C <type-daml-finance-interface-claims-types-c-53263>`
        - The claim tree\.
      * - acquisitionTime
        - `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_
        - The claim's acquisition time\. This usually corresponds to the start date of the contract\.
      * - observers
-       - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+       - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - Observers\.
      * - lastEventTimestamp
        - `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_
@@ -54,11 +54,13 @@ Templates
   + **Choice Archive**
     
 
+  + **interface instance** :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` **for** `Instrument <type-daml-finance-instrument-generic-instrument-instrument-96015_>`_
+  
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>` **for** `Instrument <type-daml-finance-instrument-generic-instrument-instrument-96015_>`_
   
   + **interface instance** :ref:`Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711>` **for** `Instrument <type-daml-finance-instrument-generic-instrument-instrument-96015_>`_
   
-  + **interface instance** :ref:`I <type-daml-finance-interface-instrument-generic-hasclaims-i-36868>` **for** `Instrument <type-daml-finance-instrument-generic-instrument-instrument-96015_>`_
+  + **interface instance** :ref:`I <type-daml-finance-interface-instrument-generic-instrument-i-26565>` **for** `Instrument <type-daml-finance-instrument-generic-instrument-instrument-96015_>`_
   
   + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>` **for** `Instrument <type-daml-finance-instrument-generic-instrument-instrument-96015_>`_
   

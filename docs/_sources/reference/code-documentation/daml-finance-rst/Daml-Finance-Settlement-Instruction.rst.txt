@@ -31,9 +31,12 @@ Templates
      * - signed
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Additional signatories, used to collect authorization\.
-     * - settler
-       - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-       - Party triggering the settlement\.
+     * - settlers
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+       - Any of the parties can trigger the settlement\.
+     * - tradeId
+       - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
+       - Trade identifier\.
      * - id
        - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
        - Instruction identifier\.
@@ -47,7 +50,7 @@ Templates
        - :ref:`Approval <type-daml-finance-interface-settlement-types-approval-84286>`
        - Receiving account\.
      * - observers
-       - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+       - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - Observers\.
   
   + **Choice Archive**

@@ -19,7 +19,7 @@ Interfaces
   
   + **Choice Allocate**
     
-    Allocate an asset to an instruction\.
+    Allocates this instruction and optionally returns a previously allocated (mutated) asset\.
     
     .. list-table::
        :widths: 15 10 30
@@ -34,7 +34,7 @@ Interfaces
   
   + **Choice Approve**
     
-    Approve this instruction\.
+    Approves this instruction\.
     
     .. list-table::
        :widths: 15 10 30
@@ -49,12 +49,28 @@ Interfaces
   
   + **Choice Execute**
     
-    Execute the instruction\.
+    Executes this instruction\.
     
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+    
+       * - Field
+         - Type
+         - Description
+       * - actors
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - The parties executing the instruction\.
+       * - undiscloseReceiverAccount
+         - `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_
+         - Indicator to undisclose the receiver account or not\.
+       * - undiscloseSenderAccount
+         - `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_
+         - Indicator to undisclose the sender account or not\.
   
   + **Choice GetView**
     
-    Retrieves the instrument view\.
+    Retrieves the interface view\.
     
     .. list-table::
        :widths: 15 10 30
@@ -67,7 +83,7 @@ Interfaces
          - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
          - The party retrieving the view\.
   
-  + **Method allocate \:** Allocate \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Instruction <type-daml-finance-interface-settlement-instruction-instruction-30569_>`_)
+  + **Method allocate \:** Allocate \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Instruction <type-daml-finance-interface-settlement-instruction-instruction-30569_>`_, `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`))
     
     Implementation of the ``Allocate`` choice\.
   
@@ -79,7 +95,7 @@ Interfaces
     
     Conversion to ``Disclosure`` interface\.
   
-  + **Method execute \:** `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`))
+  + **Method execute \:** Execute \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`))
     
     Implementation of the ``Execute`` choice\.
 
@@ -134,9 +150,9 @@ Data Types
        * - Field
          - Type
          - Description
-       * - settler
-         - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-         - Party which execute the Instruction\.
+       * - settlers
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Parties that can execute the Instruction\.
        * - step
          - :ref:`Step <type-daml-finance-interface-settlement-types-step-78661>`
          - Instruction details to execute\.
@@ -159,7 +175,7 @@ Functions
 .. _function-daml-finance-interface-settlement-instruction-allocate-71473:
 
 `allocate <function-daml-finance-interface-settlement-instruction-allocate-71473_>`_
-  \: `Instruction <type-daml-finance-interface-settlement-instruction-instruction-30569_>`_ \-\> Allocate \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Instruction <type-daml-finance-interface-settlement-instruction-instruction-30569_>`_)
+  \: `Instruction <type-daml-finance-interface-settlement-instruction-instruction-30569_>`_ \-\> Allocate \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Instruction <type-daml-finance-interface-settlement-instruction-instruction-30569_>`_, `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`))
 
 .. _function-daml-finance-interface-settlement-instruction-approve-37030:
 
@@ -169,4 +185,4 @@ Functions
 .. _function-daml-finance-interface-settlement-instruction-execute-46460:
 
 `execute <function-daml-finance-interface-settlement-instruction-execute-46460_>`_
-  \: `Instruction <type-daml-finance-interface-settlement-instruction-instruction-30569_>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`))
+  \: `Instruction <type-daml-finance-interface-settlement-instruction-instruction-30569_>`_ \-\> Execute \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`))

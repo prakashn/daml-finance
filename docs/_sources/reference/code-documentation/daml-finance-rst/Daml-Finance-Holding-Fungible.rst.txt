@@ -26,7 +26,7 @@ Templates
        - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
        - The factory's provider\.
      * - observers
-       - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+       - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - The factory's observers\.
   
   + **Choice Archive**
@@ -64,7 +64,7 @@ Templates
        - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`Lock <type-daml-finance-interface-holding-lockable-lock-96362>`
        - An optional lock of a holding\.
      * - observers
-       - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+       - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - Observers\.
   
   + **Choice Archive**

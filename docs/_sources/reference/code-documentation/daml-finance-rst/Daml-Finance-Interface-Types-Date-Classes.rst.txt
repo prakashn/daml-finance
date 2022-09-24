@@ -22,6 +22,6 @@ Typeclasses
   
   **instance** `HasUTCTimeConversion <class-daml-finance-interface-types-date-classes-hasutctimeconversion-83616_>`_ :ref:`Clock <type-daml-finance-interface-lifecycle-clock-clock-52275>`
   
-  **instance** `HasUTCTimeConversion <class-daml-finance-interface-types-date-classes-hasutctimeconversion-83616_>`_ :ref:`DateClock <type-daml-finance-refdata-time-dateclock-dateclock-68517>`
+  **instance** `HasUTCTimeConversion <class-daml-finance-interface-types-date-classes-hasutctimeconversion-83616_>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>`
   
-  **instance** `HasUTCTimeConversion <class-daml-finance-interface-types-date-classes-hasutctimeconversion-83616_>`_ :ref:`Unit <type-daml-finance-refdata-time-dateclock-unit-39282>`
+  **instance** `HasUTCTimeConversion <class-daml-finance-interface-types-date-classes-hasutctimeconversion-83616_>`_ :ref:`Unit <type-daml-finance-lifecycle-types-unit-19576>`

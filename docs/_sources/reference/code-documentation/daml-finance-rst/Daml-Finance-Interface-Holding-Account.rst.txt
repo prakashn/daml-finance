@@ -209,3 +209,17 @@ Functions
 
 `debit <function-daml-finance-interface-holding-account-debit-23513_>`_
   \: `Account <type-daml-finance-interface-holding-account-account-25212_>`_ \-\> Debit \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ ()
+
+.. _function-daml-finance-interface-holding-account-disclose-61184:
+
+`disclose <function-daml-finance-interface-holding-account-disclose-61184_>`_
+  \: (`Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_, :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`) \-\> `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_ \-\> :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>` \-\> `K <type-daml-finance-interface-holding-account-k-49276_>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-holding-account-i-40586_>`_)
+  
+  Disclose account\.
+
+.. _function-daml-finance-interface-holding-account-undisclose-79867:
+
+`undisclose <function-daml-finance-interface-holding-account-undisclose-79867_>`_
+  \: (`Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_, :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`) \-\> `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_ \-\> :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>` \-\> `K <type-daml-finance-interface-holding-account-k-49276_>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-holding-account-i-40586_>`_))
+  
+  Undisclose account\.

@@ -38,7 +38,7 @@ Interfaces
          - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
          - Human readable description of the account\.
        * - observers
-         - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+         - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
          - The account's observers\.
   
   + **Choice Remove**

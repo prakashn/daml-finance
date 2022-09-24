@@ -13,7 +13,7 @@ Interfaces
 
 **interface** `Factory <type-daml-finance-interface-instrument-generic-factory-factory-64962_>`_
 
-  Interface that allows implementing templates to create generic instruments\.
+  Interface that allows implementing templates to create generic instruments using Contingent Claims\.
   
   **viewtype** `V <type-daml-finance-interface-instrument-generic-factory-v-36292_>`_
   
@@ -35,7 +35,7 @@ Interfaces
          - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
          - A description of the instrument\.
        * - claims
-         - :ref:`C <type-daml-finance-interface-instrument-generic-types-c-8090>`
+         - :ref:`C <type-daml-finance-interface-claims-types-c-53263>`
          - The claim tree\.
        * - acquisitionTime
          - `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_
@@ -44,7 +44,7 @@ Interfaces
          - `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_
          - (Market) time of the last recorded lifecycle event\. If no event has occurred yet, the time of creation should be used\.
        * - observers
-         - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+         - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
          - The instrument's observers\.
   
   + **Choice Remove**

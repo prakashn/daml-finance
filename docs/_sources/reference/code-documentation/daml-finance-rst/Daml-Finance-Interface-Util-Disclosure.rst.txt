@@ -37,7 +37,7 @@ Interfaces
   
   + **Choice GetView**
     
-    Retrieves the instrument view\.
+    Retrieves the interface view\.
     
     .. list-table::
        :widths: 15 10 30
@@ -52,7 +52,7 @@ Interfaces
   
   + **Choice RemoveObservers**
     
-    Remove an observer context from the existing observers\.
+    Remove observers from a context\.
     Any party can undisclose itself\. None is returned if no update is needed\.
     
     .. list-table::
@@ -84,7 +84,7 @@ Interfaces
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - Party calling this choice\.
        * - newObservers
-         - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+         - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
          - Observers to set for this contract\. This overrides the existing observers\.
   
   + **Method archive' \:** `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Disclosure <type-daml-finance-interface-util-disclosure-disclosure-97052_>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ ()
@@ -121,21 +121,29 @@ Data Types
   
   **instance** HasMethod :ref:`Factory <type-daml-finance-interface-holding-factory-holding-factory-29039>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
   
-  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-base-factory-factory-67517>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
-  
   **instance** HasMethod :ref:`Instrument <type-daml-finance-interface-instrument-base-instrument-instrument-22935>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
   
-  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-bond-fixedrate-factory-27717>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
+  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-bond-fixedrate-factory-factory-49085>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
   
-  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-bond-floatingrate-factory-71700>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
+  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-bond-floatingrate-factory-factory-39036>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
   
-  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-bond-inflationlinked-factory-67758>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
+  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-bond-inflationlinked-factory-factory-80170>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
   
-  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-bond-zerocoupon-factory-76014>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
+  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-bond-zerocoupon-factory-factory-11542>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
   
   **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-equity-factory-factory-60517>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
   
   **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-generic-factory-factory-64962>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
+  
+  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-swap-creditdefault-factory-factory-17381>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
+  
+  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-swap-currency-factory-factory-84231>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
+  
+  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-swap-foreignexchange-factory-factory-25462>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
+  
+  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-swap-interestrate-factory-factory-25358>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
+  
+  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-token-factory-factory-52788>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
   
   **instance** HasMethod :ref:`Instruction <type-daml-finance-interface-settlement-instruction-instruction-30569>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
 
@@ -171,10 +179,10 @@ Data Types
          - Type
          - Description
        * - disclosureControllers
-         - `Set <https://docs.daml.com/daml/stdlib/DA-Set.html#type-da-set-types-set-90436>`_ :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - Disjunction choice controllers\.
        * - observers
-         - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+         - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
          - Observers with context\.
   
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-util-disclosure-view-8818_>`_
@@ -199,9 +207,9 @@ Functions
 .. _function-daml-finance-interface-util-disclosure-flattenobservers-47974:
 
 `flattenObservers <function-daml-finance-interface-util-disclosure-flattenobservers-47974_>`_
-  \: :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>` \-\> :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+  \: :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>` \-\> :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
   
-  Flattens observers into a ``Set Party`` for usage in template definitions\. For example\:
+  Flattens observers which use the ``PartiesMap`` into a ``Set Party`` for usage in template definitions\. For example\:
   
   .. code-block:: daml
   

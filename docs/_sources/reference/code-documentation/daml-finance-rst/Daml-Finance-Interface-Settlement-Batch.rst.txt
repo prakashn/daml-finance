@@ -19,7 +19,7 @@ Interfaces
   
   + **Choice GetView**
     
-    Retrieves the instrument view\.
+    Retrieves the interface view\.
     
     .. list-table::
        :widths: 15 10 30
@@ -36,8 +36,18 @@ Interfaces
     
     Execute settlement\.
     
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+    
+       * - Field
+         - Type
+         - Description
+       * - actors
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - The parties that executes the settlement\.
   
-  + **Method settle \:** `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`\]
+  + **Method settle \:** Settle \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`\]
     
     Implementation of the ``Settle`` choice\.
 
@@ -92,9 +102,9 @@ Data Types
        * - Field
          - Type
          - Description
-       * - settler
-         - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-         - Party triggering the settlement\.
+       * - settlers
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Parties that can trigger the final settlement\.
        * - steps
          - \[:ref:`Step <type-daml-finance-interface-settlement-types-step-78661>`\]
          - Settlement steps\.
@@ -115,4 +125,4 @@ Functions
 .. _function-daml-finance-interface-settlement-batch-settle-40325:
 
 `settle <function-daml-finance-interface-settlement-batch-settle-40325_>`_
-  \: `Batch <type-daml-finance-interface-settlement-batch-batch-97497_>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`\]
+  \: `Batch <type-daml-finance-interface-settlement-batch-batch-97497_>`_ \-\> Settle \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`\]

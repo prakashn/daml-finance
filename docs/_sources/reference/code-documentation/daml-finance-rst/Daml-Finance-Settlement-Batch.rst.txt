@@ -25,9 +25,9 @@ Templates
      * - requestors
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Parties requesting the settlement\.
-     * - settler
-       - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-       - Party triggering the settlement\.
+     * - settlers
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+       - Any of the parties can trigger the settlement\.
      * - id
        - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
        - Batch identifier\.

@@ -38,7 +38,7 @@ Interfaces
          - `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_
          - Number of units\.
        * - observers
-         - :ref:`Observers <type-daml-finance-interface-types-common-observers-17879>`
+         - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
          - Observers of the holding to be credited\.
   
   + **Choice Remove**
