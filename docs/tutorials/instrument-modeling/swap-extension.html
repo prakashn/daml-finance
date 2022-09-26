@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How to use the Bond extension package &mdash; Daml Finance  documentation</title>
+  <title>How to use the Swap extension package &mdash; Daml Finance  documentation</title>
   
 
   
@@ -46,8 +46,8 @@
   <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="How to lifecycle a bond instrument" href="bond-lifecycling.html" />
-  <link rel="prev" title="Instrument Modeling" href="intro.html" /> 
+  <link rel="next" title="How to use the Derivative extension to model generic instruments" href="derivative-extension.html" />
+  <link rel="prev" title="How to lifecycle a bond instrument" href="bond-lifecycling.html" /> 
 
   
   <link rel="icon" type="image/svg+xml"  href="../../_static/images/daml-logo-mark-light.svg">
@@ -113,9 +113,9 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="intro.html">Instrument Modeling</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">How to use the Bond extension package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bond-extension.html">How to use the Bond extension package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bond-lifecycling.html">How to lifecycle a bond instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="swap-extension.html">How to use the Swap extension package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How to use the Swap extension package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="derivative-extension.html">How to use the Derivative extension to model generic instruments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contingent-claims-instrument.html">How to implement a Contingent Claims-based instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims tree on ledger vs on-the-fly creation</a></li>
@@ -308,19 +308,17 @@
         
         <!-- Local TOC -->
         <div class="content-menu-toc"><ul>
-<li><a class="reference internal" href="#">How to use the Bond extension package</a><ul>
-<li><a class="reference internal" href="#how-to-use-the-bond-extension-in-your-app">How to use the Bond extension in your app</a></li>
-<li><a class="reference internal" href="#how-to-create-a-bond-instrument">How to create a bond instrument</a><ul>
-<li><a class="reference internal" href="#fixed-rate">Fixed rate</a></li>
-<li><a class="reference internal" href="#floating-rate">Floating rate</a></li>
-<li><a class="reference internal" href="#inflation-linked">Inflation linked</a></li>
-<li><a class="reference internal" href="#zero-coupon">Zero coupon</a></li>
+<li><a class="reference internal" href="#">How to use the Swap extension package</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#how-to-create-a-swap-instrument">How to create a swap instrument</a><ul>
+<li><a class="reference internal" href="#interest-rate">Interest rate</a></li>
+<li><a class="reference internal" href="#currency">Currency</a></li>
+<li><a class="reference internal" href="#foreign-exchange">Foreign exchange</a></li>
+<li><a class="reference internal" href="#credit-default">Credit default</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#frequently-asked-questions">Frequently Asked Questions</a><ul>
-<li><a class="reference internal" href="#how-do-i-transfer-or-trade-a-bond">How do I transfer or trade a bond?</a></li>
-<li><a class="reference internal" href="#how-do-i-process-coupon-payments-for-a-bond">How do I process coupon payments for a bond?</a></li>
-<li><a class="reference internal" href="#how-do-i-redeem-a-bond">How do I redeem a bond?</a></li>
+<li><a class="reference internal" href="#why-do-the-swaps-have-an-issuer">Why do the swaps have an issuer?</a></li>
 </ul>
 </li>
 </ul>
@@ -340,51 +338,51 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div itemprop="articleBody">
                 
-  <div class="section" id="how-to-use-the-bond-extension-package">
-<h1>How to use the Bond extension package<a class="headerlink" href="#how-to-use-the-bond-extension-package" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="how-to-use-the-swap-extension-package">
+<h1>How to use the Swap extension package<a class="headerlink" href="#how-to-use-the-swap-extension-package" title="Permalink to this headline">¶</a></h1>
 <p>To follow the script used in this tutorial you can <a class="reference external" href="https://github.com/digital-asset/daml-finance">clone the Daml Finance repository</a>.
-In particular, the Bond test folder <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Bond/Test/</span></code> is the starting point
+In particular, the Swap test folder <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Swap/Test/</span></code> is the starting point
 of this tutorial.</p>
-<div class="section" id="how-to-use-the-bond-extension-in-your-app">
-<h2>How to use the Bond extension in your app<a class="headerlink" href="#how-to-use-the-bond-extension-in-your-app" title="Permalink to this headline">¶</a></h2>
-<p>As explained in the <a class="reference internal" href="../getting-started/transfer.html#structure-of-code-dependencies"><span class="std std-ref">Getting Started</span></a> section
-and on the <a class="reference internal" href="../../overview/architecture.html"><span class="doc">Architecture</span></a> page,
-your app should only depend on the interface layer of Daml Finance.
-For bonds this means that you should only include the bond interface package:
-<code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Instrument.Bond</span></code>.</p>
-<p>Your initialization scripts are an exception to this, since they are only run once when your app is initialized.
-This would create the factories needed. Your app can then create bonds through these factory interfaces.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>The Swap extension has many similarities with the Bond extension. This tutorial builds on the Bond tutorials,
+in particular the <a class="reference internal" href="bond-extension.html"><span class="doc">Bond Extension</span></a> and the <a class="reference internal" href="bond-lifecycling.html"><span class="doc">Bond Lifecycling</span></a> tutorials.
+Please check them out before reading the Swap specifics below.</p>
 </div>
-<div class="section" id="how-to-create-a-bond-instrument">
-<h2>How to create a bond instrument<a class="headerlink" href="#how-to-create-a-bond-instrument" title="Permalink to this headline">¶</a></h2>
-<p>There are different types of bonds, which mainly differ in the way the coupon is defined.
-In order to create a bond instrument you first have to decide what type of bond you need.
-The bond extension package currently supports the following bond types:</p>
-<div class="section" id="fixed-rate">
-<h3>Fixed rate<a class="headerlink" href="#fixed-rate" title="Permalink to this headline">¶</a></h3>
-<p>Fixed rate bonds pay a constant coupon each coupon period. The coupon is quoted on a yearly basis (per annum, p.a.), but it could be paid more frequently.
-For example, a bond could have a 2% p.a. coupon and a 6M coupon period. That would mean
-a 1% coupon is paid twice a year.</p>
-<p>As an example we will create a bond instrument paying a 1.1% p.a. coupon with a 12M coupon period.
-This example is taken from <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Bond/Test/FixedRate.daml</span></code>,
+<div class="section" id="how-to-create-a-swap-instrument">
+<h2>How to create a swap instrument<a class="headerlink" href="#how-to-create-a-swap-instrument" title="Permalink to this headline">¶</a></h2>
+<p>There are different types of swaps, which differ both in the way regular payments are defined and whether notional is
+exchanged.
+In order to create a swap instrument you first have to decide what type of swap you need.
+The swap extension package currently supports the following types of swaps:</p>
+<div class="section" id="interest-rate">
+<h3>Interest rate<a class="headerlink" href="#interest-rate" title="Permalink to this headline">¶</a></h3>
+<p>Interest rate swap is the type of swap that shares most similarities with a bond.
+It has two legs: one which pays a fix rate and another one which pays a floating rate.
+These rates are paid at the end of every payment period.</p>
+<p>As an example we will create a swap instrument paying Libor 3M vs a 2.01% p.a. with a 3M payment period.
+This example is taken from <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Swap/Test/InterestRate.daml</span></code>,
 where all the details are available.</p>
 <p>We start by defining the terms:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kr">let</span><span class="w"></span>
 <span class="w">    </span><span class="n">issueDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">Jan</span><span class="w"> </span><span class="mi">16</span><span class="w"></span>
-<span class="w">    </span><span class="n">firstCouponDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">May</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
-<span class="w">    </span><span class="n">maturityDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2020</span><span class="w"> </span><span class="kt">May</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
-<span class="w">    </span><span class="n">couponRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">0.011</span><span class="w"></span>
-<span class="w">    </span><span class="n">couponPeriod</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="w"></span>
-<span class="w">    </span><span class="n">couponPeriodMultiplier</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">12</span><span class="w"></span>
-<span class="w">    </span><span class="n">dayCountConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Act365Fixed</span><span class="w"></span>
-<span class="w">    </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Following</span><span class="w"></span>
+<span class="w">    </span><span class="n">firstPaymentDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">Feb</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
+<span class="w">    </span><span class="n">maturityDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">May</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
+<span class="w">    </span><span class="n">referenceRateId</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;USD/LIBOR/3M&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">issuerPaysFix</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kc">False</span><span class="w"></span>
+<span class="w">    </span><span class="n">fixRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">0.0201</span><span class="w"></span>
+<span class="w">    </span><span class="n">paymentPeriod</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="w"></span>
+<span class="w">    </span><span class="n">paymentPeriodMultiplier</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="w">    </span><span class="n">dayCountConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Act360</span><span class="w"></span>
+<span class="w">    </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ModifiedFollowing</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The <a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-DayCount.html#type-daml-finance-interface-types-date-daycount-daycountconventionenum-67281"><span class="std std-ref">day count convention</span></a> is used to determine how many days (i.e. what fraction of a full year)
-each coupon period has. This will determine the exact coupon amount that will be paid each period.</p>
-<p>The <a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Calendar.html#type-daml-finance-interface-types-date-calendar-businessdayconventionenum-88986"><span class="std std-ref">business day convention</span></a> determines how a coupon date is adjusted if it
-falls on a non-business day.</p>
-<p>We can use these variables to create a <a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Schedule.html#constr-daml-finance-interface-types-date-schedule-periodicschedule-99705"><span class="std std-ref">PeriodicSchedule</span></a>:</p>
+<p>The floating leg depends on a reference rate, which is defined by the <em>referenceRateId</em> variable.</p>
+<p>The <em>issuerPaysFix</em> variable is used to specifiy whether the issuer pays the fix or the floating leg.
+This is not needed for bonds, because the regular payments are always in one direction (from the issuer to the holder).
+However, in the case of a swap with two counterparties A and B, we need the <em>issuerPaysFix</em> variable to specify who pays fix and who pays floating.
+In this example, the issuer pays the floating leg.</p>
+<p>Just as for bonds, we can use these variables to create a <a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Schedule.html#constr-daml-finance-interface-types-date-schedule-periodicschedule-99705"><span class="std std-ref">PeriodicSchedule</span></a>:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kr">let</span><span class="w"></span>
 <span class="w">    </span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">toGregorian</span><span class="w"> </span><span class="n">firstCouponDate</span><span class="w"></span>
 <span class="w">    </span><span class="n">periodicSchedule</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">PeriodicSchedule</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
@@ -406,106 +404,126 @@ falls on a non-business day.</p>
 <span class="w">      </span><span class="n">terminationDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">maturityDate</span><span class="w"></span>
 </pre></div>
 </div>
-<p>This is used to determine the periods that are used to calculate the coupon. There are a few things to note here:</p>
-<ul class="simple">
-<li>The <a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-RollConvention.html#type-daml-finance-interface-types-date-rollconvention-rollconventionenum-73360"><span class="std std-ref">RollConventionEnum</span></a> defines whether dates are rolled on month end or on a given date of the month. In our example above we went for the latter option.</li>
-<li>The <a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Schedule.html#type-daml-finance-interface-types-date-schedule-stubperiodtypeenum-69372"><span class="std std-ref">StubPeriodTypeEnum</span></a> allows you to explicitly specify what kind of stub period the bond should have. This is optional and not used in the example above. Instead, we defined the stub implicitly by specifying a <code class="docutils literal notranslate"><span class="pre">firstRegularPeriodStartDate</span></code>.</li>
-</ul>
-<p>Now that we have defined the terms we can create the bond instrument:</p>
-<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">cid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">@</span><span class="kt">Instrument</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">depository</span><span class="p">,</span><span class="w"> </span><span class="n">issuer</span><span class="p">]</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
-<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">FixedRate</span><span class="o">.</span><span class="kt">Instrument</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">depository</span><span class="p">;</span><span class="w"> </span><span class="n">issuer</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">description</span><span class="p">;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="o">.</span><span class="n">fromList</span><span class="w"> </span><span class="n">observers</span><span class="p">;</span><span class="w"> </span><span class="n">lastEventTimestamp</span><span class="p">;</span><span class="w"> </span><span class="n">periodicSchedule</span><span class="p">;</span><span class="w"> </span><span class="n">holidayCalendarIds</span><span class="p">;</span><span class="w"> </span><span class="n">calendarDataProvider</span><span class="p">;</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="p">;</span><span class="w"> </span><span class="n">couponRate</span><span class="p">;</span><span class="w"> </span><span class="n">currency</span><span class="w"></span>
+<p>Now that we have defined the terms we can create the swap instrument:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">cid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">depository</span><span class="p">,</span><span class="w"> </span><span class="n">issuer</span><span class="p">]</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">InterestRateSwap</span><span class="o">.</span><span class="kt">Instrument</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">depository</span><span class="p">;</span><span class="w"> </span><span class="n">issuer</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">description</span><span class="p">;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="o">.</span><span class="n">fromList</span><span class="w"> </span><span class="n">observers</span><span class="p">;</span><span class="w"> </span><span class="n">lastEventTimestamp</span><span class="p">;</span><span class="w"> </span><span class="n">periodicSchedule</span><span class="p">;</span><span class="w"> </span><span class="n">holidayCalendarIds</span><span class="p">;</span><span class="w"> </span><span class="n">calendarDataProvider</span><span class="p">;</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="p">;</span><span class="w"> </span><span class="n">issuerPaysFix</span><span class="p">;</span><span class="w"> </span><span class="n">fixRate</span><span class="p">;</span><span class="w"> </span><span class="n">referenceRateId</span><span class="p">;</span><span class="w"> </span><span class="n">currency</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Once the instrument is created, you can book a holding on it using <code class="docutils literal notranslate"><span class="pre">Account.credit</span></code>.</p>
+<p>Once the instrument is created, you can book a holding on it using <code class="docutils literal notranslate"><span class="pre">Account.credit</span></code>.
+Since the issuer pays the floating leg in our example, the owner of the holding receives the floating leg (and pays the fix leg).</p>
 </div>
-<div class="section" id="floating-rate">
-<h3>Floating rate<a class="headerlink" href="#floating-rate" title="Permalink to this headline">¶</a></h3>
-<p>Floating rate bonds pay a coupon which is determined by a reference rate.
-There is also a rate spread, which is paid in addition to the reference rate.</p>
-<p>Here is an example of a bond paying Euribor 3M + 1.1% p.a. with a 3M coupon period:</p>
+<div class="section" id="currency">
+<h3>Currency<a class="headerlink" href="#currency" title="Permalink to this headline">¶</a></h3>
+<p>Currency swaps are quite similar to interest rate swaps, except that the two legs are in different currencies.
+Consequently, we need to create two cash instruments:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">cashInstrumentCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="kt">Instrument</span><span class="o">.</span><span class="n">originate</span><span class="w"> </span><span class="n">custodian</span><span class="w"> </span><span class="n">issuer</span><span class="w"> </span><span class="s">&quot;USD&quot;</span><span class="w"> </span><span class="s">&quot;US Dollars&quot;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="n">now</span><span class="w"></span>
+<span class="w">  </span><span class="n">foreignCashInstrumentCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="kt">Instrument</span><span class="o">.</span><span class="n">originate</span><span class="w"> </span><span class="n">custodian</span><span class="w"> </span><span class="n">issuer</span><span class="w"> </span><span class="s">&quot;EUR&quot;</span><span class="w"> </span><span class="s">&quot;Euro&quot;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="n">now</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In the swap template they are referred to as <em>base currency</em> and <em>foreign currency</em>.</p>
+<p>Here is an example of a fix vs fix currency swap: 3% p.a. in USD vs 2% p.a. in EUR, payment every 3M:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kr">let</span><span class="w"></span>
 <span class="w">    </span><span class="n">issueDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">Jan</span><span class="w"> </span><span class="mi">16</span><span class="w"></span>
-<span class="w">    </span><span class="n">firstCouponDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">Feb</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
+<span class="w">    </span><span class="n">firstPaymentDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">Feb</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
 <span class="w">    </span><span class="n">maturityDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">May</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
-<span class="w">    </span><span class="n">referenceRateId</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;EUR/EURIBOR/3M&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="n">couponRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">0.011</span><span class="w"></span>
-<span class="w">    </span><span class="n">couponPeriod</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="w"></span>
-<span class="w">    </span><span class="n">couponPeriodMultiplier</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
-<span class="w">    </span><span class="n">dayCountConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Act365Fixed</span><span class="w"></span>
-<span class="w">    </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Following</span><span class="w"></span>
+<span class="w">    </span><span class="n">issuerPaysBase</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kc">False</span><span class="w"></span>
+<span class="w">    </span><span class="n">baseRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">0.03</span><span class="w"></span>
+<span class="w">    </span><span class="n">foreignRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">0.02</span><span class="w"></span>
+<span class="w">    </span><span class="n">fxRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">1.1</span><span class="w"></span>
+<span class="w">    </span><span class="n">paymentPeriod</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="w"></span>
+<span class="w">    </span><span class="n">paymentPeriodMultiplier</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="w">    </span><span class="n">dayCountConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Act360</span><span class="w"></span>
+<span class="w">    </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ModifiedFollowing</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Here is how we create the floating rate bond instrument:</p>
+<p>In this example, the issuer pays the foreign currency leg.</p>
+<p>In order to calculate the interest rate payments, a notional is required in each currency.
+The quantity of the holding refers to the notional of the base currency.
+The notional of the foreign currency is defined as the quantity of the holding multiplied by the specified <em>fxRate</em>.</p>
+<p>Here is how we create the currency swap instrument, using the two currencies defined above:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">cid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">depository</span><span class="p">,</span><span class="w"> </span><span class="n">issuer</span><span class="p">]</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
-<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">FloatingRate</span><span class="o">.</span><span class="kt">Instrument</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">depository</span><span class="p">;</span><span class="w"> </span><span class="n">issuer</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">description</span><span class="p">;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="o">.</span><span class="n">fromList</span><span class="w"> </span><span class="n">observers</span><span class="p">;</span><span class="w"> </span><span class="n">lastEventTimestamp</span><span class="p">;</span><span class="w"> </span><span class="n">periodicSchedule</span><span class="p">;</span><span class="w"> </span><span class="n">holidayCalendarIds</span><span class="p">;</span><span class="w"> </span><span class="n">calendarDataProvider</span><span class="p">;</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="p">;</span><span class="w"> </span><span class="n">couponSpread</span><span class="ow">=</span><span class="n">couponRate</span><span class="p">;</span><span class="w"> </span><span class="n">referenceRateId</span><span class="p">;</span><span class="w"> </span><span class="n">currency</span><span class="w"></span>
+<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">CurrencySwap</span><span class="o">.</span><span class="kt">Instrument</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">depository</span><span class="p">;</span><span class="w"> </span><span class="n">issuer</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">description</span><span class="p">;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="o">.</span><span class="n">fromList</span><span class="w"> </span><span class="n">observers</span><span class="p">;</span><span class="w"> </span><span class="n">lastEventTimestamp</span><span class="p">;</span><span class="w"> </span><span class="n">periodicSchedule</span><span class="p">;</span><span class="w"> </span><span class="n">holidayCalendarIds</span><span class="p">;</span><span class="w"> </span><span class="n">calendarDataProvider</span><span class="p">;</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="p">;</span><span class="w"> </span><span class="n">issuerPaysBase</span><span class="p">;</span><span class="w"> </span><span class="n">baseRate</span><span class="p">;</span><span class="w"> </span><span class="n">foreignRate</span><span class="p">;</span><span class="w"> </span><span class="n">baseCurrency</span><span class="p">;</span><span class="w"> </span><span class="n">foreignCurrency</span><span class="p">;</span><span class="w"> </span><span class="n">fxRate</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The reference rate is observed once at the beginning of each coupon period and used for
-the coupon payment at the end of that period.</p>
+<p>Once the instrument is created, you can book a holding on it.
+Since the issuer pays the foreign currency leg in our example, it means that the owner of the holding receives the foreign currency leg (and pays the base currency leg).</p>
 </div>
-<div class="section" id="inflation-linked">
-<h3>Inflation linked<a class="headerlink" href="#inflation-linked" title="Permalink to this headline">¶</a></h3>
-<p>Inflation linked bonds pay a fixed coupon rate at the end of every coupon period.
-The coupon is calculated based on a principal that is adjusted according to an inflation index,
-for example the Consumer Price Index (CPI) in the U.S.</p>
-<p>Here is an example of a bond paying 1.1% p.a. (on a CPI adjusted principal) with a 3M coupon period:</p>
+<div class="section" id="foreign-exchange">
+<h3>Foreign exchange<a class="headerlink" href="#foreign-exchange" title="Permalink to this headline">¶</a></h3>
+<p>Despite the similarities in name, foreign exchange swaps (or FX swaps) are quite different from currency swaps.
+An FX swap does not pay or receive interest.
+Instead, the two legs define an initial FX transaction and a final FX transaction.
+Each transaction requires an FX rate and a transaction date, which are predetermined between the counterparties.</p>
+<p>The FX transactions involve two currencies. In the swap template these are referred to as <em>base currency</em> and <em>foreign currency</em>.
+The convention is that the issuer pays the foreign currency in the initial transaction (and receives it in the final transaction).</p>
+<p>Here is an example of an USD vs EUR FX swap. First, we define the two cash instruments:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">cashInstrumentCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="kt">Instrument</span><span class="o">.</span><span class="n">originate</span><span class="w"> </span><span class="n">custodian</span><span class="w"> </span><span class="n">issuer</span><span class="w"> </span><span class="s">&quot;USD&quot;</span><span class="w"> </span><span class="s">&quot;US Dollars&quot;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="n">now</span><span class="w"></span>
+<span class="w">  </span><span class="n">foreignCashInstrumentCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="kt">Instrument</span><span class="o">.</span><span class="n">originate</span><span class="w"> </span><span class="n">custodian</span><span class="w"> </span><span class="n">issuer</span><span class="w"> </span><span class="s">&quot;EUR&quot;</span><span class="w"> </span><span class="s">&quot;Euro&quot;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="n">now</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Then, we define the transaction dates and FX rates:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kr">let</span><span class="w"></span>
 <span class="w">    </span><span class="n">issueDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">Jan</span><span class="w"> </span><span class="mi">16</span><span class="w"></span>
-<span class="w">    </span><span class="n">firstCouponDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">Feb</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
+<span class="w">    </span><span class="n">firstPaymentDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">Feb</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
 <span class="w">    </span><span class="n">maturityDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">May</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
-<span class="w">    </span><span class="n">inflationIndexId</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;CPI&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="n">couponRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">0.011</span><span class="w"></span>
-<span class="w">    </span><span class="n">couponPeriod</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="w"></span>
-<span class="w">    </span><span class="n">couponPeriodMultiplier</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
-<span class="w">    </span><span class="n">dayCountConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Act365Fixed</span><span class="w"></span>
-<span class="w">    </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Following</span><span class="w"></span>
+<span class="w">    </span><span class="n">firstFxRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">1.1</span><span class="w"></span>
+<span class="w">    </span><span class="n">finalFxRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">1.2</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Then, we create the inflation linked bond instrument:</p>
+<p>The <em>firstPaymentDate</em> variable defines the date of the initial FX transaction. Generally, this is on the issue date or shortly afterwards.</p>
+<p>Finally, we create the FX swap instrument:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">cid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">depository</span><span class="p">,</span><span class="w"> </span><span class="n">issuer</span><span class="p">]</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
-<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">InflationLinked</span><span class="o">.</span><span class="kt">Instrument</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">depository</span><span class="p">;</span><span class="w"> </span><span class="n">issuer</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">description</span><span class="p">;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="o">.</span><span class="n">fromList</span><span class="w"> </span><span class="n">observers</span><span class="p">;</span><span class="w"> </span><span class="n">lastEventTimestamp</span><span class="p">;</span><span class="w"> </span><span class="n">periodicSchedule</span><span class="p">;</span><span class="w"> </span><span class="n">holidayCalendarIds</span><span class="p">;</span><span class="w"> </span><span class="n">calendarDataProvider</span><span class="p">;</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="p">;</span><span class="w"> </span><span class="n">couponRate</span><span class="p">;</span><span class="w"> </span><span class="n">inflationIndexId</span><span class="p">;</span><span class="w"> </span><span class="n">currency</span><span class="p">;</span><span class="w"> </span><span class="n">inflationIndexBaseValue</span><span class="w"></span>
+<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">ForeignExchange</span><span class="o">.</span><span class="kt">Instrument</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">depository</span><span class="p">;</span><span class="w"> </span><span class="n">issuer</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">description</span><span class="p">;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="o">.</span><span class="n">fromList</span><span class="w"> </span><span class="n">observers</span><span class="p">;</span><span class="w"> </span><span class="n">lastEventTimestamp</span><span class="p">;</span><span class="w"> </span><span class="n">firstFxRate</span><span class="p">;</span><span class="w"> </span><span class="n">finalFxRate</span><span class="p">;</span><span class="w"> </span><span class="n">issueDate</span><span class="p">;</span><span class="w"> </span><span class="n">firstPaymentDate</span><span class="p">;</span><span class="w"> </span><span class="n">maturityDate</span><span class="p">,</span><span class="w"> </span><span class="n">baseCurrency</span><span class="p">;</span><span class="w"> </span><span class="n">foreignCurrency</span><span class="w"></span>
 </pre></div>
 </div>
-<p>At maturity, the greater of the adjusted principal and the original principal is redeemed.
-For clarity, this only applies to the redemption amount. The coupons are always calculated based on the adjusted principal.
-This means that in the case of deflation, the coupons would be lower than the specified coupon rate but the original principal would still be redeemed at maturity.</p>
+<p>Once the instrument is created, you can book a holding on it.
+Since the issuer pays the foreign currency in the initial transaction, it means that the owner of the holding receives the foreign currency in the initial transaction.
+In the final transaction the sides are reversed.</p>
 </div>
-<div class="section" id="zero-coupon">
-<h3>Zero coupon<a class="headerlink" href="#zero-coupon" title="Permalink to this headline">¶</a></h3>
-<p>A zero coupon bond does not pay any coupons at all.
-It only pays the redemption amount at maturity.</p>
-<p>Here is an example of a zero coupon bond:</p>
+<div class="section" id="credit-default">
+<h3>Credit default<a class="headerlink" href="#credit-default" title="Permalink to this headline">¶</a></h3>
+<p>A credit default swap (CDS) pays a protection amount in case of a credit default event, in exchange for a fix rate at the end of every payment period.
+The protection amount is defined as <em>1-recoveryRate</em>.</p>
+<p>If a credit event occurs, the swap expires after the protection amount has been paid (i.e. no more rate payments are required afterwards).</p>
+<p>Here is an example of a CDS that pays <em>1-recoveryRate</em> in the case of a default on TSLA bonds:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kr">let</span><span class="w"></span>
 <span class="w">    </span><span class="n">issueDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">Jan</span><span class="w"> </span><span class="mi">16</span><span class="w"></span>
-<span class="w">    </span><span class="n">maturityDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2020</span><span class="w"> </span><span class="kt">May</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
+<span class="w">    </span><span class="n">firstPaymentDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">Feb</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
+<span class="w">    </span><span class="n">maturityDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">May</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
+<span class="w">    </span><span class="n">defaultProbabilityReferenceId</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;TSLA-DEFAULT-PROB&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">recoveryRateReferenceId</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;TSLA-RECOVERY-RATE&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">issuerPaysFix</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kc">False</span><span class="w"></span>
+<span class="w">    </span><span class="n">fixRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">0.0201</span><span class="w"></span>
+<span class="w">    </span><span class="n">paymentPeriod</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="w"></span>
+<span class="w">    </span><span class="n">paymentPeriodMultiplier</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="w">    </span><span class="n">dayCountConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Act360</span><span class="w"></span>
+<span class="w">    </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ModifiedFollowing</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Finally, we create the zero coupon bond instrument:</p>
+<p>In our example, the issuer pays the protection leg of the swap.</p>
+<p>As you can see in this example, two observables are required for a CDS:</p>
+<ol class="arabic simple">
+<li><em>defaultProbabilityReferenceId</em>: The reference ID of the default probability observable. For example, in case of protection against a “TSLA bond payment default” this should be a valid reference to the “TSLA default probability”.</li>
+<li><em>recoveryRateReferenceId</em>: The reference ID of the recovery rate observable. For example, in case of a “TSLA bond payment default with a 60% recovery rate” this should be a valid reference to the “TSLA bond recovery rate”.</li>
+</ol>
+<p>Finally, we create the CDS instrument:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">cid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">depository</span><span class="p">,</span><span class="w"> </span><span class="n">issuer</span><span class="p">]</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
-<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">ZeroCoupon</span><span class="o">.</span><span class="kt">Instrument</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">depository</span><span class="p">;</span><span class="w"> </span><span class="n">issuer</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">description</span><span class="p">;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="o">.</span><span class="n">fromList</span><span class="w"> </span><span class="n">observers</span><span class="p">;</span><span class="w"> </span><span class="n">lastEventTimestamp</span><span class="p">;</span><span class="w"> </span><span class="n">issueDate</span><span class="p">;</span><span class="w"> </span><span class="n">maturityDate</span><span class="p">;</span><span class="w"> </span><span class="n">currency</span><span class="w"></span>
+<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">CreditDefaultSwap</span><span class="o">.</span><span class="kt">Instrument</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">depository</span><span class="p">;</span><span class="w"> </span><span class="n">issuer</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">description</span><span class="p">;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="o">.</span><span class="n">fromList</span><span class="w"> </span><span class="n">observers</span><span class="p">;</span><span class="w"> </span><span class="n">lastEventTimestamp</span><span class="p">;</span><span class="w"> </span><span class="n">periodicSchedule</span><span class="p">;</span><span class="w"> </span><span class="n">holidayCalendarIds</span><span class="p">;</span><span class="w"> </span><span class="n">calendarDataProvider</span><span class="p">;</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="p">;</span><span class="w"> </span><span class="n">issuerPaysFix</span><span class="p">;</span><span class="w"> </span><span class="n">fixRate</span><span class="p">;</span><span class="w"> </span><span class="n">defaultProbabilityReferenceId</span><span class="p">;</span><span class="w"> </span><span class="n">recoveryRateReferenceId</span><span class="p">;</span><span class="w"> </span><span class="n">currency</span><span class="w"></span>
 </pre></div>
 </div>
+<p>Once the instrument is created, you can book a holding on it.
+Since the issuer pays the protection leg, it means that the owner of the holding receives the protection leg (and pays the fix leg).</p>
 </div>
 </div>
 <div class="section" id="frequently-asked-questions">
 <h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="how-do-i-transfer-or-trade-a-bond">
-<h3>How do I transfer or trade a bond?<a class="headerlink" href="#how-do-i-transfer-or-trade-a-bond" title="Permalink to this headline">¶</a></h3>
-<p>When you have created a holding on a bond instrument this can be transfered to another party.
-This is described in the <a class="reference internal" href="../getting-started/transfer.html"><span class="doc">Getting Started: Transfer</span></a> tutorial.</p>
-<p>In order to trade a bond (transfer it in exchange for cash) you can also initiate a delivery versus payment with atomic settlement.
-This is described in the <a class="reference internal" href="../getting-started/settlement.html"><span class="doc">Getting Started: Settlement</span></a> tutorial.</p>
-</div>
-<div class="section" id="how-do-i-process-coupon-payments-for-a-bond">
-<h3>How do I process coupon payments for a bond?<a class="headerlink" href="#how-do-i-process-coupon-payments-for-a-bond" title="Permalink to this headline">¶</a></h3>
-<p>On the coupon payment date, the issuer will need to lifecycle the bond.
-This will result in a lifecycle effect for the coupon, which can be cash settled.
-This is described in detail in the <a class="reference internal" href="bond-lifecycling.html"><span class="doc">Bond Lifecycling</span></a> tutorial.</p>
-</div>
-<div class="section" id="how-do-i-redeem-a-bond">
-<h3>How do I redeem a bond?<a class="headerlink" href="#how-do-i-redeem-a-bond" title="Permalink to this headline">¶</a></h3>
-<p>On the redemption date, both the last coupon and the redemption amount with be paid.
-This is processed in the same way as a single coupon payment described above.</p>
+<div class="section" id="why-do-the-swaps-have-an-issuer">
+<h3>Why do the swaps have an issuer?<a class="headerlink" href="#why-do-the-swaps-have-an-issuer" title="Permalink to this headline">¶</a></h3>
+<p>In the case of bonds, the instrument has a well-defined issuer. This is not necessarily the case for swaps,
+where two counterparties A and B swap the payments associated with each leg. However, in practice
+one of the counterparties is often a swap dealer, who shares some of the characteristics of a bond issuer.
+For the purpose of lifecycling in Daml Finance, we require one of the counterparties to take the role as issuer.
+This counterparty will serve as calculation agent and provide the observables required to calculate the swap payments.</p>
 </div>
 </div>
 </div>
@@ -522,10 +540,10 @@ This is processed in the same way as a single coupon payment described above.</p
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="intro.html" class="da-btn da-btn-label btn-prev" title="Instrument Modeling" accesskey="p" rel="prev">Previous</a>
+        <a href="bond-lifecycling.html" class="da-btn da-btn-label btn-prev" title="How to lifecycle a bond instrument" accesskey="p" rel="prev">Previous</a>
       
       
-        <a href="bond-lifecycling.html" class="da-btn da-btn-label btn-next" title="How to lifecycle a bond instrument" accesskey="n" rel="next">Next</a>
+        <a href="derivative-extension.html" class="da-btn da-btn-label btn-next" title="How to use the Derivative extension to model generic instruments" accesskey="n" rel="next">Next</a>
       
     </div>
   

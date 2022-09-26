@@ -115,6 +115,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/instrument-modeling/intro.html">Instrument Modeling</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-extension.html">How to use the Bond extension package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html">How to lifecycle a bond instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/swap-extension.html">How to use the Swap extension package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/derivative-extension.html">How to use the Derivative extension to model generic instruments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html">How to implement a Contingent Claims-based instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims tree on ledger vs on-the-fly creation</a></li>
@@ -335,6 +336,8 @@
 <blockquote>
 <div><p>This template models a foreign exchange swap (FX Swap).
 It has two legs: an initial FX transaction and a final FX transaction.
+The instrument has a base currency and a foreign currency.
+The convention is that the issuer pays the foreign currency in the initial transaction (and receives it in the final transaction).
 Both FX rates and transaction dates are predetermined between the counterparties.
 For example: 1000k USD vs 1100k EUR (fx rate: 1.10) today
 1000k USD vs 1200k EUR (fx rate: 1.20) in 6 months</p>

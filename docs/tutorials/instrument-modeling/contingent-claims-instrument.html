@@ -115,6 +115,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="intro.html">Instrument Modeling</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="bond-extension.html">How to use the Bond extension package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bond-lifecycling.html">How to lifecycle a bond instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swap-extension.html">How to use the Swap extension package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="derivative-extension.html">How to use the Derivative extension to model generic instruments</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">How to implement a Contingent Claims-based instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims tree on ledger vs on-the-fly creation</a></li>
@@ -338,7 +339,7 @@ the <code class="docutils literal notranslate"><span class="pre">Contingent</spa
 As an example, we will see how the fixed rate bond instrument is implemented in Daml Finance.
 The goal is that you will learn how to implement your own instrument template, if you need an
 instrument type that is not already implemented in Daml Fincance.</p>
-<p>To follow the script used in this tutorial you can <a class="reference external" href="explore-library">clone the Daml Finance repository</a> repository.
+<p>To follow the script used in this tutorial you can <a class="reference external" href="https://github.com/digital-asset/daml-finance">clone the Daml Finance repository</a>.
 In particular, the file <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Bond/Test/FixedRate.daml</span></code> is the starting point
 of this tutorial. It also refers to some utility functions in <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Bond/Test/Util.daml</span></code>.</p>
 <div class="section" id="template-definition">
