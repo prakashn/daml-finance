@@ -363,7 +363,11 @@
 <td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952">Text</a></td>
 <td>Batch description.</td>
 </tr>
-<tr class="row-even"><td>stepsWithInstructionId</td>
+<tr class="row-even"><td>contextId</td>
+<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153">Optional</a> <a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-id-56542"><span class="std std-ref">Id</span></a></td>
+<td>Identifier to link a batch to a context (eg. the <code class="docutils literal notranslate"><span class="pre">Effect</span></code> it originated from).</td>
+</tr>
+<tr class="row-odd"><td>stepsWithInstructionId</td>
 <td>[(<a class="reference internal" href="Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-step-78661"><span class="std std-ref">Step</span></a>, <a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-id-56542"><span class="std std-ref">Id</span></a>)]</td>
 <td>The settlement <code class="docutils literal notranslate"><span class="pre">Step</span></code>\s and the identifiers of the corresponding <code class="docutils literal notranslate"><span class="pre">Instruction</span></code>\s.</td>
 </tr>
@@ -371,6 +375,7 @@
 </table>
 <ul class="simple">
 <li><strong>Choice Archive</strong></li>
+<li><strong>interface instance</strong> <a class="reference internal" href="Daml-Finance-Interface-Settlement-Batch.html#type-daml-finance-interface-settlement-batch-i-3768"><span class="std std-ref">I</span></a> <strong>for</strong> <a class="reference internal" href="#type-daml-finance-settlement-batch-batch-59698">Batch</a></li>
 </ul>
 </div></blockquote>
 </div>

@@ -83,29 +83,43 @@ Data Types
   
   **instance** `HasExerciseByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasexercisebykey-36549>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_) `Archive <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-template-archive-15178>`_ ()
   
+  **instance** `HasExerciseByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasexercisebykey-36549>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_) `Archive <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-template-archive-15178>`_ ()
+  
   **instance** `HasExerciseByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasexercisebykey-36549>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_) `Archive <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-template-archive-15178>`_ ()
   
   **instance** `HasFetchByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfetchbykey-54638>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
+  
+  **instance** `HasFetchByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfetchbykey-54638>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasFetchByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfetchbykey-54638>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasFromAnyContractKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfromanycontractkey-95587>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
+  **instance** `HasFromAnyContractKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfromanycontractkey-95587>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
+  
   **instance** `HasFromAnyContractKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfromanycontractkey-95587>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-haskey-87616>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
+  
+  **instance** `HasKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-haskey-87616>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-haskey-87616>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasLookupByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-haslookupbykey-92299>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
+  **instance** `HasLookupByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-haslookupbykey-92299>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
+  
   **instance** `HasLookupByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-haslookupbykey-92299>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasMaintainer <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasmaintainer-28932>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
+  **instance** `HasMaintainer <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasmaintainer-28932>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
+  
   **instance** `HasMaintainer <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasmaintainer-28932>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasToAnyContractKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hastoanycontractkey-35010>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
+  
+  **instance** `HasToAnyContractKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hastoanycontractkey-35010>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasToAnyContractKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hastoanycontractkey-35010>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
 
@@ -158,29 +172,43 @@ Data Types
   
   **instance** `HasExerciseByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasexercisebykey-36549>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_) `Archive <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-template-archive-15178>`_ ()
   
+  **instance** `HasExerciseByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasexercisebykey-36549>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_) `Archive <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-template-archive-15178>`_ ()
+  
   **instance** `HasExerciseByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasexercisebykey-36549>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_) `Archive <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-template-archive-15178>`_ ()
   
   **instance** `HasFetchByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfetchbykey-54638>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
+  
+  **instance** `HasFetchByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfetchbykey-54638>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasFetchByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfetchbykey-54638>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasFromAnyContractKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfromanycontractkey-95587>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
+  **instance** `HasFromAnyContractKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfromanycontractkey-95587>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
+  
   **instance** `HasFromAnyContractKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfromanycontractkey-95587>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-haskey-87616>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
+  
+  **instance** `HasKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-haskey-87616>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-haskey-87616>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasLookupByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-haslookupbykey-92299>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
+  **instance** `HasLookupByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-haslookupbykey-92299>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
+  
   **instance** `HasLookupByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-haslookupbykey-92299>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasMaintainer <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasmaintainer-28932>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
+  **instance** `HasMaintainer <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasmaintainer-28932>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
+  
   **instance** `HasMaintainer <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasmaintainer-28932>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasToAnyContractKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hastoanycontractkey-35010>`_ :ref:`DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
+  
+  **instance** `HasToAnyContractKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hastoanycontractkey-35010>`_ :ref:`Batch <type-daml-finance-settlement-batch-batch-59698>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
   
   **instance** `HasToAnyContractKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hastoanycontractkey-35010>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` (`Parties <type-daml-finance-interface-types-common-parties-68320_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_, `Id <type-daml-finance-interface-types-common-id-56542_>`_)
 

@@ -13,7 +13,7 @@ Interfaces
 
 **interface** `Instrument <type-daml-finance-interface-instrument-swap-creditdefault-instrument-instrument-24051_>`_
 
-  Instrument interface representing a currency swap\.
+  Instrument interface representing a credit default swap\.
   
   **viewtype** `V <type-daml-finance-interface-instrument-swap-creditdefault-instrument-v-30855_>`_
   
@@ -73,7 +73,7 @@ Data Types
          - Description
        * - creditDefault
          - :ref:`CreditDefault <type-daml-finance-interface-instrument-swap-creditdefault-types-creditdefault-84256>`
-         - Attributes of a currency swap\.
+         - Attributes of a credit default swap\.
   
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-instrument-swap-creditdefault-instrument-view-10941_>`_
   

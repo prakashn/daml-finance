@@ -34,12 +34,17 @@ Templates
      * - description
        - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
        - Batch description\.
+     * - contextId
+       - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
+       - Identifier to link a batch to a context (eg\. the ``Effect`` it originated from)\.
      * - stepsWithInstructionId
        - \[(:ref:`Step <type-daml-finance-interface-settlement-types-step-78661>`, :ref:`Id <type-daml-finance-interface-types-common-id-56542>`)\]
        - The settlement ``Step``\\s and the identifiers of the corresponding ``Instruction``\\s\.
   
   + **Choice Archive**
     
+
+  + **interface instance** :ref:`I <type-daml-finance-interface-settlement-batch-i-3768>` **for** `Batch <type-daml-finance-settlement-batch-batch-59698_>`_
 
 Data Types
 ----------

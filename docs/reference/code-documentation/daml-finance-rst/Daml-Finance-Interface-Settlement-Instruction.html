@@ -489,17 +489,37 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>settlers</td>
+<tr class="row-even"><td>requestors</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
+<td>Parties that instructed settlement.</td>
+</tr>
+<tr class="row-odd"><td>settlers</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
 <td>Parties that can execute the Instruction.</td>
+</tr>
+<tr class="row-even"><td>signed</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
+<td>Additional signatories, used to collect authorization.</td>
+</tr>
+<tr class="row-odd"><td>batchId</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-id-56542"><span class="std std-ref">Id</span></a></td>
+<td>Batch identifier.</td>
+</tr>
+<tr class="row-even"><td>id</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-id-56542"><span class="std std-ref">Id</span></a></td>
+<td>Instruction identifier.</td>
 </tr>
 <tr class="row-odd"><td>step</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-step-78661"><span class="std std-ref">Step</span></a></td>
 <td>Instruction details to execute.</td>
 </tr>
-<tr class="row-even"><td>id</td>
-<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-id-56542"><span class="std std-ref">Id</span></a></td>
-<td>Instruction identifier.</td>
+<tr class="row-even"><td>allocation</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-allocation-46483"><span class="std std-ref">Allocation</span></a></td>
+<td>Allocation from the sender.</td>
+</tr>
+<tr class="row-odd"><td>approval</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-approval-84286"><span class="std std-ref">Approval</span></a></td>
+<td>Approval from the receiver.</td>
 </tr>
 </tbody>
 </table>

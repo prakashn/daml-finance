@@ -33,10 +33,13 @@ Interfaces
          - The party claiming the effect\.
        * - holdingCids
          - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-base-i-67605>`\]
-         - The positions to process as part of the claim\.
+         - The holdings to process\.
        * - effectCid
          - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>`
-         - The effect to settle\.
+         - The effect to process\.
+       * - batchId
+         - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
+         - Identifier used for the generated settlement batch\.
   
   + **Choice GetView**
     
@@ -132,6 +135,25 @@ Data Types
   
   `View <constr-daml-finance-interface-lifecycle-rule-claim-view-9331_>`_
   
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+    
+       * - Field
+         - Type
+         - Description
+       * - providers
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Providers of the claim rule\. Together with the actors of the ``ClaimEffect`` choice the authorization requirements to upgrade the holdings being claimed have to be met\.
+       * - claimers
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Any of the parties can claim an effect\.
+       * - settlers
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Any of the parties can trigger settlement of the resulting batch\.
+       * - settlementFactoryCid
+         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>`
+         - Settlement factory contract used to create a ``Batch`` of ``Instruction``\\s\.
   
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-lifecycle-rule-claim-view-67522_>`_
   

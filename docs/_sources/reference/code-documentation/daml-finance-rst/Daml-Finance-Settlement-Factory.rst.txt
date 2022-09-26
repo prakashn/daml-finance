@@ -33,6 +33,8 @@ Templates
   + **Choice Archive**
     
 
+  + **interface instance** :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>` **for** `Factory <type-daml-finance-settlement-factory-factory-53518_>`_
+
 .. _type-daml-finance-settlement-factory-factorywithintermediaries-72365:
 
 **template** `FactoryWithIntermediaries <type-daml-finance-settlement-factory-factorywithintermediaries-72365_>`_
@@ -61,6 +63,8 @@ Templates
   
   + **Choice Archive**
     
+
+  + **interface instance** :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>` **for** `FactoryWithIntermediaries <type-daml-finance-settlement-factory-factorywithintermediaries-72365_>`_
 
 Data Types
 ----------

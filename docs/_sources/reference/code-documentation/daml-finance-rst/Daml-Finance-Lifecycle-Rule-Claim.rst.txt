@@ -22,21 +22,18 @@ Templates
      * - Field
        - Type
        - Description
-     * - custodian
-       - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-       - Custodian of the holding upon which an effect can be claimed\.
-     * - owner
-       - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-       - Owner of the holding upon which an effect can be claimed\.
+     * - providers
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+       - Providers of the claim rule\. Together with the actors of the ``ClaimEffect`` choice the authorization requirements to upgrade the holdings being claimed have to be met\.
      * - claimers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
-       - Parties granted the ability to claim an effect\.
-     * - factoryCid
-       - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>`
-       - Factory contract used to create a ``Batch`` of ``Instruction``\\s\.
+       - Any of the parties can claim an effect\.
      * - settlers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
-       - Any of the parties can trigger the settlement of the instructions\.
+       - Any of the parties can trigger settlement of the resulting batch\.
+     * - settlementFactoryCid
+       - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>`
+       - Settlement factory contract used to create a ``Batch`` of ``Instruction``\\s\.
   
   + **Choice Archive**
     

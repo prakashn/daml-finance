@@ -347,25 +347,21 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>custodian</td>
-<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932">Party</a></td>
-<td>Custodian of the holding upon which an effect can be claimed.</td>
-</tr>
-<tr class="row-odd"><td>owner</td>
-<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932">Party</a></td>
-<td>Owner of the holding upon which an effect can be claimed.</td>
-</tr>
-<tr class="row-even"><td>claimers</td>
+<tr class="row-even"><td>providers</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
-<td>Parties granted the ability to claim an effect.</td>
+<td>Providers of the claim rule. Together with the actors of the <code class="docutils literal notranslate"><span class="pre">ClaimEffect</span></code> choice the authorization requirements to upgrade the holdings being claimed have to be met.</td>
 </tr>
-<tr class="row-odd"><td>factoryCid</td>
-<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282">ContractId</a> <a class="reference internal" href="Daml-Finance-Interface-Settlement-Factory.html#type-daml-finance-interface-settlement-factory-i-11228"><span class="std std-ref">I</span></a></td>
-<td>Factory contract used to create a <code class="docutils literal notranslate"><span class="pre">Batch</span></code> of <code class="docutils literal notranslate"><span class="pre">Instruction</span></code>\s.</td>
+<tr class="row-odd"><td>claimers</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
+<td>Any of the parties can claim an effect.</td>
 </tr>
 <tr class="row-even"><td>settlers</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
-<td>Any of the parties can trigger the settlement of the instructions.</td>
+<td>Any of the parties can trigger settlement of the resulting batch.</td>
+</tr>
+<tr class="row-odd"><td>settlementFactoryCid</td>
+<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282">ContractId</a> <a class="reference internal" href="Daml-Finance-Interface-Settlement-Factory.html#type-daml-finance-interface-settlement-factory-i-11228"><span class="std std-ref">I</span></a></td>
+<td>Settlement factory contract used to create a <code class="docutils literal notranslate"><span class="pre">Batch</span></code> of <code class="docutils literal notranslate"><span class="pre">Instruction</span></code>\s.</td>
 </tr>
 </tbody>
 </table>

@@ -150,15 +150,30 @@ Data Types
        * - Field
          - Type
          - Description
+       * - requestors
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Parties that instructed settlement\.
        * - settlers
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - Parties that can execute the Instruction\.
-       * - step
-         - :ref:`Step <type-daml-finance-interface-settlement-types-step-78661>`
-         - Instruction details to execute\.
+       * - signed
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Additional signatories, used to collect authorization\.
+       * - batchId
+         - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
+         - Batch identifier\.
        * - id
          - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
          - Instruction identifier\.
+       * - step
+         - :ref:`Step <type-daml-finance-interface-settlement-types-step-78661>`
+         - Instruction details to execute\.
+       * - allocation
+         - :ref:`Allocation <type-daml-finance-interface-settlement-types-allocation-46483>`
+         - Allocation from the sender\.
+       * - approval
+         - :ref:`Approval <type-daml-finance-interface-settlement-types-approval-84286>`
+         - Approval from the receiver\.
   
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-settlement-instruction-view-45863_>`_
   

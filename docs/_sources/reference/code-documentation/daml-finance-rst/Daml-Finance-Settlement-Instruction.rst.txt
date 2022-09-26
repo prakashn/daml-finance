@@ -28,13 +28,13 @@ Templates
      * - requestors
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Parties requesting the settlement\.
-     * - signed
-       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
-       - Additional signatories, used to collect authorization\.
      * - settlers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Any of the parties can trigger the settlement\.
-     * - tradeId
+     * - signed
+       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+       - Additional signatories, used to collect authorization\.
+     * - batchId
        - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
        - Trade identifier\.
      * - id
@@ -45,10 +45,10 @@ Templates
        - Settlement step\.
      * - allocation
        - :ref:`Allocation <type-daml-finance-interface-settlement-types-allocation-46483>`
-       - Allocated holding and its template type rep text representation\.
+       - Allocation from the sender\.
      * - approval
        - :ref:`Approval <type-daml-finance-interface-settlement-types-approval-84286>`
-       - Receiving account\.
+       - Approval from the receiver\.
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - Observers\.

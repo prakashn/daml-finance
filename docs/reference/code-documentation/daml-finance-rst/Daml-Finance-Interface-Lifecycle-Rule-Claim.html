@@ -359,11 +359,15 @@
 </tr>
 <tr class="row-odd"><td>holdingCids</td>
 <td>[<a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282">ContractId</a> <a class="reference internal" href="Daml-Finance-Interface-Holding-Base.html#type-daml-finance-interface-holding-base-i-67605"><span class="std std-ref">I</span></a>]</td>
-<td>The positions to process as part of the claim.</td>
+<td>The holdings to process.</td>
 </tr>
 <tr class="row-even"><td>effectCid</td>
 <td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282">ContractId</a> <a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Effect.html#type-daml-finance-interface-lifecycle-effect-i-11106"><span class="std std-ref">I</span></a></td>
-<td>The effect to settle.</td>
+<td>The effect to process.</td>
+</tr>
+<tr class="row-odd"><td>batchId</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-id-56542"><span class="std std-ref">Id</span></a></td>
+<td>Identifier used for the generated settlement batch.</td>
 </tr>
 </tbody>
 </table>
@@ -458,6 +462,39 @@
 <blockquote>
 <div><p>View for <code class="docutils literal notranslate"><span class="pre">Settlement</span></code>.</p>
 <p id="constr-daml-finance-interface-lifecycle-rule-claim-view-9331"><a class="reference internal" href="#constr-daml-finance-interface-lifecycle-rule-claim-view-9331">View</a></p>
+<blockquote>
+<div><table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>providers</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
+<td>Providers of the claim rule. Together with the actors of the <code class="docutils literal notranslate"><span class="pre">ClaimEffect</span></code> choice the authorization requirements to upgrade the holdings being claimed have to be met.</td>
+</tr>
+<tr class="row-odd"><td>claimers</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
+<td>Any of the parties can claim an effect.</td>
+</tr>
+<tr class="row-even"><td>settlers</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
+<td>Any of the parties can trigger settlement of the resulting batch.</td>
+</tr>
+<tr class="row-odd"><td>settlementFactoryCid</td>
+<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282">ContractId</a> <a class="reference internal" href="Daml-Finance-Interface-Settlement-Factory.html#type-daml-finance-interface-settlement-factory-i-11228"><span class="std std-ref">I</span></a></td>
+<td>Settlement factory contract used to create a <code class="docutils literal notranslate"><span class="pre">Batch</span></code> of <code class="docutils literal notranslate"><span class="pre">Instruction</span></code>\s.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
 <p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713">Eq</a> <a class="reference internal" href="#type-daml-finance-interface-lifecycle-rule-claim-view-67522">View</a></p>
 <p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-ord-6395">Ord</a> <a class="reference internal" href="#type-daml-finance-interface-lifecycle-rule-claim-view-67522">View</a></p>
 <p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360">Show</a> <a class="reference internal" href="#type-daml-finance-interface-lifecycle-rule-claim-view-67522">View</a></p>

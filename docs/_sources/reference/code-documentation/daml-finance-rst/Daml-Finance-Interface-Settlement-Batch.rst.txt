@@ -102,18 +102,24 @@ Data Types
        * - Field
          - Type
          - Description
+       * - requestors
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Parties requesting the settlement\.
        * - settlers
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - Parties that can trigger the final settlement\.
-       * - steps
-         - \[:ref:`Step <type-daml-finance-interface-settlement-types-step-78661>`\]
-         - Settlement steps\.
        * - id
          - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
          - Batch identifier\.
        * - description
          - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
          - Batch description\.
+       * - contextId
+         - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
+         - Identifier to link a batch to a context (eg\. the ``Effect`` it originated from)\.
+       * - steps
+         - \[:ref:`Step <type-daml-finance-interface-settlement-types-step-78661>`\]
+         - Settlement steps\.
   
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-settlement-batch-view-33973_>`_
   

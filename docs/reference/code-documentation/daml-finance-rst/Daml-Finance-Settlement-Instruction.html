@@ -355,15 +355,15 @@
 <td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
 <td>Parties requesting the settlement.</td>
 </tr>
-<tr class="row-odd"><td>signed</td>
-<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
-<td>Additional signatories, used to collect authorization.</td>
-</tr>
-<tr class="row-even"><td>settlers</td>
+<tr class="row-odd"><td>settlers</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
 <td>Any of the parties can trigger the settlement.</td>
 </tr>
-<tr class="row-odd"><td>tradeId</td>
+<tr class="row-even"><td>signed</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
+<td>Additional signatories, used to collect authorization.</td>
+</tr>
+<tr class="row-odd"><td>batchId</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-id-56542"><span class="std std-ref">Id</span></a></td>
 <td>Trade identifier.</td>
 </tr>
@@ -377,11 +377,11 @@
 </tr>
 <tr class="row-even"><td>allocation</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-allocation-46483"><span class="std std-ref">Allocation</span></a></td>
-<td>Allocated holding and its template type rep text representation.</td>
+<td>Allocation from the sender.</td>
 </tr>
 <tr class="row-odd"><td>approval</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-approval-84286"><span class="std std-ref">Approval</span></a></td>
-<td>Receiving account.</td>
+<td>Approval from the receiver.</td>
 </tr>
 <tr class="row-even"><td>observers</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-partiesmap-27543"><span class="std std-ref">PartiesMap</span></a></td>
