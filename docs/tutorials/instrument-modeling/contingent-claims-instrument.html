@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How to implement a Contingent Claims-based instrument &mdash; Daml Finance  documentation</title>
+  <title>How to Implement a Contingent Claims-Based Instrument &mdash; Daml Finance  documentation</title>
   
 
   
@@ -46,8 +46,8 @@
   <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="Contingent Claims tree on ledger vs on-the-fly creation" href="contingent-claims-on-ledger-vs-on-the-fly.html" />
-  <link rel="prev" title="How to use the Derivative extension to model generic instruments" href="derivative-extension.html" /> 
+  <link rel="next" title="Contingent Claims Tree on Ledger vs On-the-Fly Creation" href="contingent-claims-on-ledger-vs-on-the-fly.html" />
+  <link rel="prev" title="How To Use the Derivative Extension To Model Generic Instruments" href="derivative-extension.html" /> 
 
   
   <link rel="icon" type="image/svg+xml"  href="../../_static/images/daml-logo-mark-light.svg">
@@ -93,7 +93,7 @@
 <p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/asset-model.html">Asset model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/asset-model.html">Asset Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/settlement.html">Settlement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/lifecycling.html">Lifecycling</a></li>
 </ul>
@@ -113,12 +113,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="intro.html">Instrument Modeling</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="bond-extension.html">How to use the Bond extension package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bond-lifecycling.html">How to lifecycle a bond instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="swap-extension.html">How to use the Swap extension package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="derivative-extension.html">How to use the Derivative extension to model generic instruments</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">How to implement a Contingent Claims-based instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims tree on ledger vs on-the-fly creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bond-extension.html">How to Use the Bond Extension Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bond-lifecycling.html">How to Lifecycle a Bond Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swap-extension.html">How To Use the Swap Extension Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="derivative-extension.html">How To Use the Derivative Extension To Model Generic Instruments</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How to Implement a Contingent Claims-Based Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims Tree on Ledger vs On-the-Fly Creation</a></li>
 </ul>
 </li>
 </ul>
@@ -147,6 +147,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Factory.html">Daml.Finance.Instrument.Generic.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Instrument.html">Daml.Finance.Instrument.Generic.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Factory.html">Daml.Finance.Instrument.Swap.Asset.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Instrument.Swap.Asset.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Instrument.Swap.CreditDefault.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Instrument.Swap.CreditDefault.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Currency-Factory.html">Daml.Finance.Instrument.Swap.Currency.Factory</a></li>
@@ -188,6 +190,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Election.html">Daml.Finance.Interface.Instrument.Generic.Election</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Factory.html">Daml.Finance.Interface.Instrument.Generic.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Instrument.html">Daml.Finance.Interface.Instrument.Generic.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Factory.html">Daml.Finance.Interface.Instrument.Swap.Asset.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Asset.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Types.html">Daml.Finance.Interface.Instrument.Swap.Asset.Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Types.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Types</a></li>
@@ -308,12 +313,12 @@
         
         <!-- Local TOC -->
         <div class="content-menu-toc"><ul>
-<li><a class="reference internal" href="#">How to implement a Contingent Claims-based instrument</a><ul>
-<li><a class="reference internal" href="#template-definition">Template definition</a></li>
-<li><a class="reference internal" href="#hasclaims-interface">HasClaims interface</a></li>
-<li><a class="reference internal" href="#how-to-define-the-redemption-claim">How to define the redemption claim</a></li>
-<li><a class="reference internal" href="#how-to-define-the-coupon-claims">How to define the coupon claims</a></li>
-<li><a class="reference internal" href="#how-the-instrument-evolves-over-time">How the instrument evolves over time</a></li>
+<li><a class="reference internal" href="#">How to Implement a Contingent Claims-Based Instrument</a><ul>
+<li><a class="reference internal" href="#template-definition">Template Definition</a></li>
+<li><a class="reference internal" href="#hasclaims-interface">HasClaims Interface</a></li>
+<li><a class="reference internal" href="#how-to-define-the-redemption-claim">How to Define the Redemption Claim</a></li>
+<li><a class="reference internal" href="#how-to-define-the-coupon-claims">How to Define the Coupon Claims</a></li>
+<li><a class="reference internal" href="#how-the-instrument-evolves-over-time">How the Instrument Evolves Over Time</a></li>
 <li><a class="reference internal" href="#observables">Observables</a></li>
 </ul>
 </li>
@@ -333,7 +338,7 @@
             <div itemprop="articleBody">
                 
   <div class="section" id="how-to-implement-a-contingent-claims-based-instrument">
-<h1>How to implement a Contingent Claims-based instrument<a class="headerlink" href="#how-to-implement-a-contingent-claims-based-instrument" title="Permalink to this headline">¶</a></h1>
+<h1>How to Implement a Contingent Claims-Based Instrument<a class="headerlink" href="#how-to-implement-a-contingent-claims-based-instrument" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter we will look at how to create a strongly typed instrument, which leverages
 the <code class="docutils literal notranslate"><span class="pre">Contingent</span> <span class="pre">Claims</span></code> library.
 As an example, we will see how the fixed rate bond instrument is implemented in Daml Finance.
@@ -343,7 +348,7 @@ instrument type that is not already implemented in Daml Fincance.</p>
 In particular, the file <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Bond/Test/FixedRate.daml</span></code> is the starting point
 of this tutorial. It also refers to some utility functions in <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Bond/Test/Util.daml</span></code>.</p>
 <div class="section" id="template-definition">
-<h2>Template definition<a class="headerlink" href="#template-definition" title="Permalink to this headline">¶</a></h2>
+<h2>Template Definition<a class="headerlink" href="#template-definition" title="Permalink to this headline">¶</a></h2>
 <p>We start by defining a new template for the instrument. Here are the first few lines of the fixed rate instrument:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="c1">-- | This template models a fixed rate bond.</span><span class="w"></span>
 <span class="c1">-- It pays a fixed coupon rate at the end of every coupon period.</span><span class="w"></span>
@@ -381,14 +386,15 @@ of this tutorial. It also refers to some utility functions in <code class="docut
 dynamically, as described in the next sections.</p>
 </div>
 <div class="section" id="hasclaims-interface">
-<h2>HasClaims interface<a class="headerlink" href="#hasclaims-interface" title="Permalink to this headline">¶</a></h2>
+<h2>HasClaims Interface<a class="headerlink" href="#hasclaims-interface" title="Permalink to this headline">¶</a></h2>
 <p>In order for the instrument to work with the general Daml Finance lifecycling framework
 we will implement the HasClaims interface. This provides a generic mechanism to
 process coupon payments and the redemption amount. The good thing here is that it will
 work in a similar way for all instrument types, regardless of their economic terms.</p>
 <p>Here is a high level implementation of HasClaims:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">interface</span><span class="w"> </span><span class="kr">instance</span><span class="w"> </span><span class="kt">Claim</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="kt">Instrument</span><span class="w"> </span><span class="kr">where</span><span class="w"></span>
-<span class="w">      </span><span class="n">view</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Claim</span><span class="o">.</span><span class="kt">View</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">acquisitionTime</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">dateToDateClockTime</span><span class="w"> </span><span class="n">periodicSchedule</span><span class="o">.</span><span class="n">effectiveDate</span><span class="w"></span>
+<span class="w">      </span><span class="n">view</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Claim</span><span class="o">.</span><span class="kt">View</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">instrument</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">instrumentKey</span><span class="p">;</span><span class="w"> </span><span class="n">acquisitionTime</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">dateToDateClockTime</span><span class="w"> </span><span class="n">periodicSchedule</span><span class="o">.</span><span class="n">effectiveDate</span><span class="w"></span>
+<span class="w">      </span><span class="n">asBaseInstrument</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">toInterface</span><span class="w"> </span><span class="o">@</span><span class="kt">BaseInstrument</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="kr">this</span><span class="w"></span>
 <span class="w">      </span><span class="n">getClaims</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
 <span class="w">        </span><span class="c1">-- get the initial claims tree (as of the bond&#39;s acquisition time)</span><span class="w"></span>
 <span class="w">        </span><span class="n">schedule</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">rollPaymentSchedule</span><span class="w"> </span><span class="n">periodicSchedule</span><span class="w"> </span><span class="n">holidayCalendarIds</span><span class="w"> </span><span class="n">issuer</span><span class="w"> </span><span class="n">calendarDataProvider</span><span class="w"></span>
@@ -407,7 +413,7 @@ The redemption claim is also created.
 Finally, the the coupon claims and the redemption claim define the economic terms of the instrument.</p>
 </div>
 <div class="section" id="how-to-define-the-redemption-claim">
-<h2>How to define the redemption claim<a class="headerlink" href="#how-to-define-the-redemption-claim" title="Permalink to this headline">¶</a></h2>
+<h2>How to Define the Redemption Claim<a class="headerlink" href="#how-to-define-the-redemption-claim" title="Permalink to this headline">¶</a></h2>
 <p>In the above example, we see that the redemption claim depends on the currency and the maturity date.</p>
 <p>We will now create a <code class="docutils literal notranslate"><span class="pre">Contingent</span> <span class="pre">Claims</span></code> representation of the actual redemption claim:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="c1">-- | Create an FX adjusted principal claim.</span><span class="w"></span>
@@ -422,7 +428,7 @@ Finally, the the coupon claims and the redemption claim define the economic term
 </div>
 </div>
 <div class="section" id="how-to-define-the-coupon-claims">
-<h2>How to define the coupon claims<a class="headerlink" href="#how-to-define-the-coupon-claims" title="Permalink to this headline">¶</a></h2>
+<h2>How to Define the Coupon Claims<a class="headerlink" href="#how-to-define-the-coupon-claims" title="Permalink to this headline">¶</a></h2>
 <p>The coupon claims are a bit more complicated to define.
 We need to take a schedule of adjusted coupon dates and the day count convention into account.</p>
 <p>Here is how we create the <code class="docutils literal notranslate"><span class="pre">Contingent</span> <span class="pre">Claims</span></code> representation of the coupons:</p>
@@ -440,7 +446,7 @@ We need to take a schedule of adjusted coupon dates and the day count convention
 We then create each coupon claim in a way similar to the redemption claim above.</p>
 </div>
 <div class="section" id="how-the-instrument-evolves-over-time">
-<h2>How the instrument evolves over time<a class="headerlink" href="#how-the-instrument-evolves-over-time" title="Permalink to this headline">¶</a></h2>
+<h2>How the Instrument Evolves Over Time<a class="headerlink" href="#how-the-instrument-evolves-over-time" title="Permalink to this headline">¶</a></h2>
 <p>The bond instrument gives the holder the right to receive future coupons and the redemption amount.
 At issuance, this means all the coupons, since they are all in the future.
 However, when the first coupon is paid, the holder of the instrument is no longer entitled to receive this coupon again.
@@ -555,10 +561,10 @@ types of observables, for example an FX rate or a stock price.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="derivative-extension.html" class="da-btn da-btn-label btn-prev" title="How to use the Derivative extension to model generic instruments" accesskey="p" rel="prev">Previous</a>
+        <a href="derivative-extension.html" class="da-btn da-btn-label btn-prev" title="How To Use the Derivative Extension To Model Generic Instruments" accesskey="p" rel="prev">Previous</a>
       
       
-        <a href="contingent-claims-on-ledger-vs-on-the-fly.html" class="da-btn da-btn-label btn-next" title="Contingent Claims tree on ledger vs on-the-fly creation" accesskey="n" rel="next">Next</a>
+        <a href="contingent-claims-on-ledger-vs-on-the-fly.html" class="da-btn da-btn-label btn-next" title="Contingent Claims Tree on Ledger vs On-the-Fly Creation" accesskey="n" rel="next">Next</a>
       
     </div>
   

@@ -43,15 +43,18 @@ Interfaces
        * - Field
          - Type
          - Description
+       * - actors
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Parties authorizing the transfer\.
        * - newOwnerAccount
          - :ref:`AccountKey <type-daml-finance-interface-types-common-accountkey-85835>`
-         - Account contract id of the parties to transfer the contract to
+         - Account contract id of the parties to transfer the contract to\.
   
   + **Method asLockable \:** :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`
     
     Conversion to ``Lockable`` interface\.
   
-  + **Method transfer \:** Transfer \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Transferable <type-daml-finance-interface-holding-transferable-transferable-24986_>`_)
+  + **Method transfer \:** `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-holding-transferable-i-13335_>`_ \-\> Transfer \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Transferable <type-daml-finance-interface-holding-transferable-transferable-24986_>`_)
     
     Implementation of the ``Transfer`` choice\.
 
@@ -73,7 +76,11 @@ Data Types
   
   Type synonym for ``Transferable``\.
   
+  **instance** HasMethod :ref:`Account <type-daml-finance-interface-holding-account-account-25212>` \"transfer\" (Transfer \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-holding-transferable-i-13335_>`_))
+  
   **instance** HasMethod :ref:`Fungible <type-daml-finance-interface-holding-fungible-fungible-60176>` \"asTransferable\" `I <type-daml-finance-interface-holding-transferable-i-13335_>`_
+  
+  **instance** HasMethod `Transferable <type-daml-finance-interface-holding-transferable-transferable-24986_>`_ \"transfer\" (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-holding-transferable-i-13335_>`_ \-\> Transfer \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Transferable <type-daml-finance-interface-holding-transferable-transferable-24986_>`_))
   
   **instance** HasMethod :ref:`Batch <type-daml-finance-interface-settlement-batch-batch-97497>` \"settle\" (Settle \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-holding-transferable-i-13335_>`_\])
   
@@ -106,6 +113,22 @@ Data Types
   
   `View <constr-daml-finance-interface-holding-transferable-view-20453_>`_
   
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+    
+       * - Field
+         - Type
+         - Description
+       * - instrument
+         - :ref:`InstrumentKey <type-daml-finance-interface-types-common-instrumentkey-59982>`
+         - Instrument being held\.
+       * - account
+         - :ref:`AccountKey <type-daml-finance-interface-types-common-accountkey-85835>`
+         - Key of the account holding the assets\.
+       * - amount
+         - `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_
+         - Size of the holding\.
   
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-holding-transferable-view-41948_>`_
   
@@ -124,4 +147,4 @@ Functions
 .. _function-daml-finance-interface-holding-transferable-transfer-91982:
 
 `transfer <function-daml-finance-interface-holding-transferable-transfer-91982_>`_
-  \: `Transferable <type-daml-finance-interface-holding-transferable-transferable-24986_>`_ \-\> Transfer \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Transferable <type-daml-finance-interface-holding-transferable-transferable-24986_>`_)
+  \: `Transferable <type-daml-finance-interface-holding-transferable-transferable-24986_>`_ \-\> `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-holding-transferable-i-13335_>`_ \-\> Transfer \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Transferable <type-daml-finance-interface-holding-transferable-transferable-24986_>`_)

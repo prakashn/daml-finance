@@ -31,6 +31,9 @@ Interfaces
        * - creditDefault
          - :ref:`CreditDefault <type-daml-finance-interface-instrument-swap-creditdefault-types-creditdefault-84256>`
          - Attributes to create a credit default swap\.
+       * - observers
+         - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
+         - The instrument's observers\.
   
   + **Choice Remove**
     

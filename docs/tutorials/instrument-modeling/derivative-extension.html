@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How to use the Derivative extension to model generic instruments &mdash; Daml Finance  documentation</title>
+  <title>How To Use the Derivative Extension To Model Generic Instruments &mdash; Daml Finance  documentation</title>
   
 
   
@@ -46,8 +46,8 @@
   <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="How to implement a Contingent Claims-based instrument" href="contingent-claims-instrument.html" />
-  <link rel="prev" title="How to use the Swap extension package" href="swap-extension.html" /> 
+  <link rel="next" title="How to Implement a Contingent Claims-Based Instrument" href="contingent-claims-instrument.html" />
+  <link rel="prev" title="How To Use the Swap Extension Package" href="swap-extension.html" /> 
 
   
   <link rel="icon" type="image/svg+xml"  href="../../_static/images/daml-logo-mark-light.svg">
@@ -93,7 +93,7 @@
 <p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/asset-model.html">Asset model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/asset-model.html">Asset Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/settlement.html">Settlement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/lifecycling.html">Lifecycling</a></li>
 </ul>
@@ -113,12 +113,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="intro.html">Instrument Modeling</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="bond-extension.html">How to use the Bond extension package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bond-lifecycling.html">How to lifecycle a bond instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="swap-extension.html">How to use the Swap extension package</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">How to use the Derivative extension to model generic instruments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contingent-claims-instrument.html">How to implement a Contingent Claims-based instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims tree on ledger vs on-the-fly creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bond-extension.html">How to Use the Bond Extension Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bond-lifecycling.html">How to Lifecycle a Bond Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swap-extension.html">How To Use the Swap Extension Package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How To Use the Derivative Extension To Model Generic Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims Tree on Ledger vs On-the-Fly Creation</a></li>
 </ul>
 </li>
 </ul>
@@ -147,6 +147,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Factory.html">Daml.Finance.Instrument.Generic.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Instrument.html">Daml.Finance.Instrument.Generic.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Factory.html">Daml.Finance.Instrument.Swap.Asset.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Instrument.Swap.Asset.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Instrument.Swap.CreditDefault.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Instrument.Swap.CreditDefault.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Currency-Factory.html">Daml.Finance.Instrument.Swap.Currency.Factory</a></li>
@@ -188,6 +190,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Election.html">Daml.Finance.Interface.Instrument.Generic.Election</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Factory.html">Daml.Finance.Interface.Instrument.Generic.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Instrument.html">Daml.Finance.Interface.Instrument.Generic.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Factory.html">Daml.Finance.Interface.Instrument.Swap.Asset.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Asset.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Types.html">Daml.Finance.Interface.Instrument.Swap.Asset.Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Types.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Types</a></li>
@@ -308,14 +313,14 @@
         
         <!-- Local TOC -->
         <div class="content-menu-toc"><ul>
-<li><a class="reference internal" href="#">How to use the Derivative extension to model generic instruments</a><ul>
-<li><a class="reference internal" href="#how-to-create-a-generic-instrument">How to create a generic instrument</a><ul>
-<li><a class="reference internal" href="#defining-the-claim">Defining the claim</a></li>
+<li><a class="reference internal" href="#">How To Use the Derivative Extension To Model Generic Instruments</a><ul>
+<li><a class="reference internal" href="#how-to-create-a-generic-instrument">How To Create a Generic Instrument</a><ul>
+<li><a class="reference internal" href="#define-the-claim">Define the Claim</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#how-to-trade-and-transfer-a-generic-instrument">How to trade and transfer a generic instrument</a></li>
-<li><a class="reference internal" href="#how-to-process-lifecycle-events">How to process lifecycle events</a></li>
-<li><a class="reference internal" href="#how-to-redeem-a-generic-instrument">How to redeem a generic instrument</a></li>
+<li><a class="reference internal" href="#how-to-trade-and-transfer-a-generic-instrument">How To Trade and Transfer a Generic Instrument</a></li>
+<li><a class="reference internal" href="#how-to-process-lifecycle-events">How to Process Lifecycle Events</a></li>
+<li><a class="reference internal" href="#how-to-redeem-a-generic-instrument">How to Redeem a Generic Instrument</a></li>
 </ul>
 </li>
 </ul>
@@ -334,16 +339,16 @@
             <div itemprop="articleBody">
                 
   <div class="section" id="how-to-use-the-derivative-extension-to-model-generic-instruments">
-<h1>How to use the Derivative extension to model generic instruments<a class="headerlink" href="#how-to-use-the-derivative-extension-to-model-generic-instruments" title="Permalink to this headline">¶</a></h1>
+<h1>How To Use the Derivative Extension To Model Generic Instruments<a class="headerlink" href="#how-to-use-the-derivative-extension-to-model-generic-instruments" title="Permalink to this headline">¶</a></h1>
 <p>To follow the script used in this tutorial you can <a class="reference external" href="https://github.com/digital-asset/daml-finance">clone the Daml Finance repository</a>.
 In particular, the file <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Generic/Test/Intermediated/BondCoupon.daml</span></code> is the starting point
 of this tutorial.</p>
 <div class="section" id="how-to-create-a-generic-instrument">
-<h2>How to create a generic instrument<a class="headerlink" href="#how-to-create-a-generic-instrument" title="Permalink to this headline">¶</a></h2>
+<h2>How To Create a Generic Instrument<a class="headerlink" href="#how-to-create-a-generic-instrument" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Derivative</span></code> extension provides a flexible framework to model generic instruments in Daml Finance.
 It encapsulates the <code class="docutils literal notranslate"><span class="pre">Contingent</span> <span class="pre">Claims</span></code> library, which allows us to model the economic terms of an instrument.</p>
-<div class="section" id="defining-the-claim">
-<h3>Defining the claim<a class="headerlink" href="#defining-the-claim" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="define-the-claim">
+<h3>Define the Claim<a class="headerlink" href="#define-the-claim" title="Permalink to this headline">¶</a></h3>
 <p>Consider a fixed rate bond which pays a 4% p.a. coupon with a 6M coupon period.
 Assume there are two coupons remaining until maturity: one today and one in 180 days.
 This could be modeled in the following way using <code class="docutils literal notranslate"><span class="pre">Contingent</span> <span class="pre">Claims</span></code>:</p>
@@ -367,20 +372,20 @@ This could be modeled in the following way using <code class="docutils literal n
 </div>
 </div>
 <div class="section" id="how-to-trade-and-transfer-a-generic-instrument">
-<h2>How to trade and transfer a generic instrument<a class="headerlink" href="#how-to-trade-and-transfer-a-generic-instrument" title="Permalink to this headline">¶</a></h2>
+<h2>How To Trade and Transfer a Generic Instrument<a class="headerlink" href="#how-to-trade-and-transfer-a-generic-instrument" title="Permalink to this headline">¶</a></h2>
 <p>When you have created a holding on the instrument above it can be transfered to another party.
 This is described in <a class="reference internal" href="../getting-started/transfer.html"><span class="doc">Getting Started: Transfer</span></a>.</p>
 <p>In order to trade the instrument (transfer it in exchange for cash) you can also initiate a delivery versus payment with atomic settlement.
 This is described in <a class="reference internal" href="../getting-started/settlement.html"><span class="doc">Getting Started: Settlement</span></a>.</p>
 </div>
 <div class="section" id="how-to-process-lifecycle-events">
-<h2>How to process lifecycle events<a class="headerlink" href="#how-to-process-lifecycle-events" title="Permalink to this headline">¶</a></h2>
+<h2>How to Process Lifecycle Events<a class="headerlink" href="#how-to-process-lifecycle-events" title="Permalink to this headline">¶</a></h2>
 <p>On a coupon payment date of the bond instrument above, the issuer will need to lifecycle the instrument.
 This will result in a lifecycle effect for the coupon, which can be cash settled.
 This is described in detail in <a class="reference internal" href="../getting-started/lifecycling.html"><span class="doc">Getting Started: Lifecycling</span></a>.</p>
 </div>
 <div class="section" id="how-to-redeem-a-generic-instrument">
-<h2>How to redeem a generic instrument<a class="headerlink" href="#how-to-redeem-a-generic-instrument" title="Permalink to this headline">¶</a></h2>
+<h2>How to Redeem a Generic Instrument<a class="headerlink" href="#how-to-redeem-a-generic-instrument" title="Permalink to this headline">¶</a></h2>
 <p>On the redemption date, both the last coupon and the redemption amount with be paid.
 This is processed in the same way as a single coupon payment described above.</p>
 </div>
@@ -398,10 +403,10 @@ This is processed in the same way as a single coupon payment described above.</p
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="swap-extension.html" class="da-btn da-btn-label btn-prev" title="How to use the Swap extension package" accesskey="p" rel="prev">Previous</a>
+        <a href="swap-extension.html" class="da-btn da-btn-label btn-prev" title="How To Use the Swap Extension Package" accesskey="p" rel="prev">Previous</a>
       
       
-        <a href="contingent-claims-instrument.html" class="da-btn da-btn-label btn-next" title="How to implement a Contingent Claims-based instrument" accesskey="n" rel="next">Next</a>
+        <a href="contingent-claims-instrument.html" class="da-btn da-btn-label btn-next" title="How to Implement a Contingent Claims-Based Instrument" accesskey="n" rel="next">Next</a>
       
     </div>
   

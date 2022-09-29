@@ -238,6 +238,10 @@ Data Types
        * - instrument
          - :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`
          - the instrument to which the election applies
+  
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-instrument-generic-election-view-99038_>`_
+  
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `View <type-daml-finance-interface-instrument-generic-election-view-99038_>`_
 
 Functions
 ---------

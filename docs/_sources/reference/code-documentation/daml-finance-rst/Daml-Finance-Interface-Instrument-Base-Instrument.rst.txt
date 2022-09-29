@@ -58,6 +58,8 @@ Data Types
   
   Type synonym for ``Instrument``\.
   
+  **instance** HasMethod :ref:`Claim <type-daml-finance-interface-claims-claim-claim-8835>` \"asBaseInstrument\" `I <type-daml-finance-interface-instrument-base-instrument-i-67236_>`_
+  
   **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-bond-fixedrate-factory-factory-49085>` \"create'\" (Create \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-instrument-base-instrument-i-67236_>`_))
   
   **instance** HasMethod :ref:`Instrument <type-daml-finance-interface-instrument-bond-fixedrate-instrument-instrument-55963>` \"asBaseInstrument\" `I <type-daml-finance-interface-instrument-base-instrument-i-67236_>`_
@@ -81,6 +83,10 @@ Data Types
   **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-generic-factory-factory-64962>` \"create'\" (Create \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-instrument-base-instrument-i-67236_>`_))
   
   **instance** HasMethod :ref:`Instrument <type-daml-finance-interface-instrument-generic-instrument-instrument-11652>` \"asBaseInstrument\" `I <type-daml-finance-interface-instrument-base-instrument-i-67236_>`_
+  
+  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-swap-asset-factory-factory-87851>` \"create'\" (Create \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-instrument-base-instrument-i-67236_>`_))
+  
+  **instance** HasMethod :ref:`Instrument <type-daml-finance-interface-instrument-swap-asset-instrument-instrument-70853>` \"asBaseInstrument\" `I <type-daml-finance-interface-instrument-base-instrument-i-67236_>`_
   
   **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-swap-creditdefault-factory-factory-17381>` \"create'\" (Create \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-instrument-base-instrument-i-67236_>`_))
   

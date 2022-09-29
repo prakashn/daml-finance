@@ -31,6 +31,9 @@ Interfaces
        * - token
          - :ref:`Token <type-daml-finance-interface-instrument-token-types-token-10344>`
          - Attributes to create a token\.
+       * - observers
+         - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
+         - The instrument's observers\.
   
   + **Choice Remove**
     

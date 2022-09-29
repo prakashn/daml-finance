@@ -59,6 +59,17 @@ Functions
   This means that the calculation agent needs to provide such an Observable, irrespective of
   the kind of reference rate used (e\.g\. a forward looking LIBOR or a backward looking SOFR\-COMPOUND)\.
 
+.. _function-daml-finance-instrument-generic-util-createassetperformancepaymentclaims-50033:
+
+`createAssetPerformancePaymentClaims <function-daml-finance-instrument-generic-util-createassetperformancepaymentclaims-50033_>`_
+  \: \[:ref:`SchedulePeriod <type-daml-finance-interface-types-date-schedule-scheduleperiod-76784>`\] \-\> :ref:`PeriodicSchedule <type-daml-finance-interface-types-date-schedule-periodicschedule-97930>` \-\> `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_ \-\> `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_ \-\> :ref:`DayCountConventionEnum <type-daml-finance-interface-types-date-daycount-daycountconventionenum-67281>` \-\> :ref:`Deliverable <type-daml-finance-interface-claims-types-deliverable-19293>` \-\> :ref:`Observable <type-daml-finance-interface-claims-types-observable-47872>` \-\> :ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`
+  
+  Calculate the asset performance for each payment date and create claims\.
+  The performance is calculated using the reference asset from the start date to the end date of each payment period\.
+  The reference asset Observable needs to contain the appropriate type of fixings\:
+  unadjusted fixings in case of a price return asset swap
+  adjusted fixings in case of a total return asset swap
+
 .. _function-daml-finance-instrument-generic-util-createfxadjustedprincipalclaim-74425:
 
 `createFxAdjustedPrincipalClaim <function-daml-finance-instrument-generic-util-createfxadjustedprincipalclaim-74425_>`_

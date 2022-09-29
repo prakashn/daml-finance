@@ -124,7 +124,7 @@ Data Types
        * - Field
          - Type
          - Description
-       * - locker
+       * - lockers
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - Parties which are locking the contract\.
        * - context
@@ -187,6 +187,12 @@ Data Types
        * - lock
          - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `Lock <type-daml-finance-interface-holding-lockable-lock-96362_>`_
          - When a contract is locked, contains the locking details\.
+       * - instrument
+         - :ref:`InstrumentKey <type-daml-finance-interface-types-common-instrumentkey-59982>`
+         - Instrument being held\.
+       * - account
+         - :ref:`AccountKey <type-daml-finance-interface-types-common-accountkey-85835>`
+         - Key of the account holding the assets\.
   
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-holding-lockable-view-47884_>`_
   
@@ -209,3 +215,10 @@ Functions
 
 `release <function-daml-finance-interface-holding-lockable-release-71_>`_
   \: `Lockable <type-daml-finance-interface-holding-lockable-lockable-97810_>`_ \-\> Release \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Lockable <type-daml-finance-interface-holding-lockable-lockable-97810_>`_)
+
+.. _function-daml-finance-interface-holding-lockable-getlockers-45966:
+
+`getLockers <function-daml-finance-interface-holding-lockable-getlockers-45966_>`_
+  \: `HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t `I <type-daml-finance-interface-holding-lockable-i-28871_>`_ \=\> t \-\> :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+  
+  Get the lockers of a lockable holding\.

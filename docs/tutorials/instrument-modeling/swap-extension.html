@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How to use the Swap extension package &mdash; Daml Finance  documentation</title>
+  <title>How To Use the Swap Extension Package &mdash; Daml Finance  documentation</title>
   
 
   
@@ -46,8 +46,8 @@
   <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="How to use the Derivative extension to model generic instruments" href="derivative-extension.html" />
-  <link rel="prev" title="How to lifecycle a bond instrument" href="bond-lifecycling.html" /> 
+  <link rel="next" title="How To Use the Derivative Extension To Model Generic Instruments" href="derivative-extension.html" />
+  <link rel="prev" title="How to Lifecycle a Bond Instrument" href="bond-lifecycling.html" /> 
 
   
   <link rel="icon" type="image/svg+xml"  href="../../_static/images/daml-logo-mark-light.svg">
@@ -93,7 +93,7 @@
 <p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/asset-model.html">Asset model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/asset-model.html">Asset Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/settlement.html">Settlement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/lifecycling.html">Lifecycling</a></li>
 </ul>
@@ -113,12 +113,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="intro.html">Instrument Modeling</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="bond-extension.html">How to use the Bond extension package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bond-lifecycling.html">How to lifecycle a bond instrument</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">How to use the Swap extension package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="derivative-extension.html">How to use the Derivative extension to model generic instruments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contingent-claims-instrument.html">How to implement a Contingent Claims-based instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims tree on ledger vs on-the-fly creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bond-extension.html">How to Use the Bond Extension Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bond-lifecycling.html">How to Lifecycle a Bond Instrument</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How To Use the Swap Extension Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="derivative-extension.html">How To Use the Derivative Extension To Model Generic Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims Tree on Ledger vs On-the-Fly Creation</a></li>
 </ul>
 </li>
 </ul>
@@ -147,6 +147,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Factory.html">Daml.Finance.Instrument.Generic.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Instrument.html">Daml.Finance.Instrument.Generic.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Factory.html">Daml.Finance.Instrument.Swap.Asset.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Instrument.Swap.Asset.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Instrument.Swap.CreditDefault.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Instrument.Swap.CreditDefault.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Currency-Factory.html">Daml.Finance.Instrument.Swap.Currency.Factory</a></li>
@@ -188,6 +190,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Election.html">Daml.Finance.Interface.Instrument.Generic.Election</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Factory.html">Daml.Finance.Interface.Instrument.Generic.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Instrument.html">Daml.Finance.Interface.Instrument.Generic.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Factory.html">Daml.Finance.Interface.Instrument.Swap.Asset.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Asset.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Types.html">Daml.Finance.Interface.Instrument.Swap.Asset.Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Types.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Types</a></li>
@@ -308,13 +313,14 @@
         
         <!-- Local TOC -->
         <div class="content-menu-toc"><ul>
-<li><a class="reference internal" href="#">How to use the Swap extension package</a><ul>
+<li><a class="reference internal" href="#">How To Use the Swap Extension Package</a><ul>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li><a class="reference internal" href="#how-to-create-a-swap-instrument">How to create a swap instrument</a><ul>
-<li><a class="reference internal" href="#interest-rate">Interest rate</a></li>
+<li><a class="reference internal" href="#how-to-create-a-swap-instrument">How To Create a Swap Instrument</a><ul>
+<li><a class="reference internal" href="#interest-rate">Interest Rate</a></li>
 <li><a class="reference internal" href="#currency">Currency</a></li>
-<li><a class="reference internal" href="#foreign-exchange">Foreign exchange</a></li>
-<li><a class="reference internal" href="#credit-default">Credit default</a></li>
+<li><a class="reference internal" href="#foreign-exchange">Foreign Exchange</a></li>
+<li><a class="reference internal" href="#credit-default">Credit Default</a></li>
+<li><a class="reference internal" href="#asset">Asset</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#frequently-asked-questions">Frequently Asked Questions</a><ul>
@@ -339,7 +345,7 @@
             <div itemprop="articleBody">
                 
   <div class="section" id="how-to-use-the-swap-extension-package">
-<h1>How to use the Swap extension package<a class="headerlink" href="#how-to-use-the-swap-extension-package" title="Permalink to this headline">¶</a></h1>
+<h1>How To Use the Swap Extension Package<a class="headerlink" href="#how-to-use-the-swap-extension-package" title="Permalink to this headline">¶</a></h1>
 <p>To follow the script used in this tutorial you can <a class="reference external" href="https://github.com/digital-asset/daml-finance">clone the Daml Finance repository</a>.
 In particular, the Swap test folder <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Swap/Test/</span></code> is the starting point
 of this tutorial.</p>
@@ -350,13 +356,13 @@ in particular the <a class="reference internal" href="bond-extension.html"><span
 Please check them out before reading the Swap specifics below.</p>
 </div>
 <div class="section" id="how-to-create-a-swap-instrument">
-<h2>How to create a swap instrument<a class="headerlink" href="#how-to-create-a-swap-instrument" title="Permalink to this headline">¶</a></h2>
+<h2>How To Create a Swap Instrument<a class="headerlink" href="#how-to-create-a-swap-instrument" title="Permalink to this headline">¶</a></h2>
 <p>There are different types of swaps, which differ both in the way regular payments are defined and whether notional is
 exchanged.
 In order to create a swap instrument you first have to decide what type of swap you need.
 The swap extension package currently supports the following types of swaps:</p>
 <div class="section" id="interest-rate">
-<h3>Interest rate<a class="headerlink" href="#interest-rate" title="Permalink to this headline">¶</a></h3>
+<h3>Interest Rate<a class="headerlink" href="#interest-rate" title="Permalink to this headline">¶</a></h3>
 <p>Interest rate swap is the type of swap that shares most similarities with a bond.
 It has two legs: one which pays a fix rate and another one which pays a floating rate.
 These rates are paid at the end of every payment period.</p>
@@ -449,7 +455,7 @@ The notional of the foreign currency is defined as the quantity of the holding m
 Since the issuer pays the foreign currency leg in our example, it means that the owner of the holding receives the foreign currency leg (and pays the base currency leg).</p>
 </div>
 <div class="section" id="foreign-exchange">
-<h3>Foreign exchange<a class="headerlink" href="#foreign-exchange" title="Permalink to this headline">¶</a></h3>
+<h3>Foreign Exchange<a class="headerlink" href="#foreign-exchange" title="Permalink to this headline">¶</a></h3>
 <p>Despite the similarities in name, foreign exchange swaps (or FX swaps) are quite different from currency swaps.
 An FX swap does not pay or receive interest.
 Instead, the two legs define an initial FX transaction and a final FX transaction.
@@ -481,7 +487,7 @@ Since the issuer pays the foreign currency in the initial transaction, it means 
 In the final transaction the sides are reversed.</p>
 </div>
 <div class="section" id="credit-default">
-<h3>Credit default<a class="headerlink" href="#credit-default" title="Permalink to this headline">¶</a></h3>
+<h3>Credit Default<a class="headerlink" href="#credit-default" title="Permalink to this headline">¶</a></h3>
 <p>A credit default swap (CDS) pays a protection amount in case of a credit default event, in exchange for a fix rate at the end of every payment period.
 The protection amount is defined as <em>1-recoveryRate</em>.</p>
 <p>If a credit event occurs, the swap expires after the protection amount has been paid (i.e. no more rate payments are required afterwards).</p>
@@ -514,6 +520,46 @@ The protection amount is defined as <em>1-recoveryRate</em>.</p>
 <p>Once the instrument is created, you can book a holding on it.
 Since the issuer pays the protection leg, it means that the owner of the holding receives the protection leg (and pays the fix leg).</p>
 </div>
+<div class="section" id="asset">
+<h3>Asset<a class="headerlink" href="#asset" title="Permalink to this headline">¶</a></h3>
+<p>An asset swap is a general type of swap with two legs: one which pays a fix rate and another one which pays the performance of an asset.
+It can be used to model:</p>
+<ul class="simple">
+<li>equity swaps</li>
+<li>some types of commodity swaps (of the form <em>performance vs rate</em>)</li>
+<li>other swaps with the same payoff on other asset types.</li>
+</ul>
+<p>Here is an example of an asset swap that pays AAPL total return vs 2.01% fix p.a., payment every 3M:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kr">let</span><span class="w"></span>
+<span class="w">    </span><span class="n">issueDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">Jan</span><span class="w"> </span><span class="mi">16</span><span class="w"></span>
+<span class="w">    </span><span class="n">firstPaymentDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">Feb</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
+<span class="w">    </span><span class="n">maturityDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">May</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
+<span class="w">    </span><span class="n">referenceAssetId</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;AAPL-CLOSE-ADJ&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">issuerPaysFix</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kc">False</span><span class="w"></span>
+<span class="w">    </span><span class="n">fixRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">0.0201</span><span class="w"></span>
+<span class="w">    </span><span class="n">paymentPeriod</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="w"></span>
+<span class="w">    </span><span class="n">paymentPeriodMultiplier</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="w">    </span><span class="n">dayCountConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Act360</span><span class="w"></span>
+<span class="w">    </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ModifiedFollowing</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In our example, the issuer pays the asset leg of the swap.</p>
+<p>One observable is required: <em>referenceAssetId</em>.
+The template calculates the performance for each payment period using this observable.
+Performance is calculated from the start date to the end date of each payment period.
+The reference asset Observable needs to contain the appropriate type of fixings:</p>
+<ul class="simple">
+<li><em>unadjusted</em> fixings in case of a <em>price return</em> asset swap</li>
+<li><em>adjusted</em> fixings in case of a <em>total return</em> asset swap</li>
+</ul>
+<p>Finally, we create the asset swap instrument:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">cid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">depository</span><span class="p">,</span><span class="w"> </span><span class="n">issuer</span><span class="p">]</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">AssetSwap</span><span class="o">.</span><span class="kt">Instrument</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">depository</span><span class="p">;</span><span class="w"> </span><span class="n">issuer</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">description</span><span class="p">;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="o">.</span><span class="n">fromList</span><span class="w"> </span><span class="n">observers</span><span class="p">;</span><span class="w"> </span><span class="n">lastEventTimestamp</span><span class="p">;</span><span class="w"> </span><span class="n">periodicSchedule</span><span class="p">;</span><span class="w"> </span><span class="n">holidayCalendarIds</span><span class="p">;</span><span class="w"> </span><span class="n">calendarDataProvider</span><span class="p">;</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="p">;</span><span class="w"> </span><span class="n">issuerPaysFix</span><span class="p">;</span><span class="w"> </span><span class="n">fixRate</span><span class="p">;</span><span class="w"> </span><span class="n">referenceAssetId</span><span class="p">;</span><span class="w"> </span><span class="n">currency</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Once the instrument is created, you can book a holding on it.
+Since the issuer pays the asset leg, it means that the owner of the holding receives the asset leg (and pays the fix leg).</p>
+</div>
 </div>
 <div class="section" id="frequently-asked-questions">
 <h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
@@ -540,10 +586,10 @@ This counterparty will serve as calculation agent and provide the observables re
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="bond-lifecycling.html" class="da-btn da-btn-label btn-prev" title="How to lifecycle a bond instrument" accesskey="p" rel="prev">Previous</a>
+        <a href="bond-lifecycling.html" class="da-btn da-btn-label btn-prev" title="How to Lifecycle a Bond Instrument" accesskey="p" rel="prev">Previous</a>
       
       
-        <a href="derivative-extension.html" class="da-btn da-btn-label btn-next" title="How to use the Derivative extension to model generic instruments" accesskey="n" rel="next">Next</a>
+        <a href="derivative-extension.html" class="da-btn da-btn-label btn-next" title="How To Use the Derivative Extension To Model Generic Instruments" accesskey="n" rel="next">Next</a>
       
     </div>
   

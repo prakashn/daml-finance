@@ -31,6 +31,9 @@ Interfaces
        * - fixedRate
          - :ref:`FixedRate <type-daml-finance-interface-instrument-bond-fixedrate-types-fixedrate-80866>`
          - Attributes to create a fixed rate bond\.
+       * - observers
+         - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
+         - The instrument's observers\.
   
   + **Choice Remove**
     
@@ -43,7 +46,7 @@ Interfaces
        * - Field
          - Type
          - Description
-       * - instrumentKey
+       * - instrument
          - :ref:`InstrumentKey <type-daml-finance-interface-types-common-instrumentkey-59982>`
          - The instrument's key\.
   

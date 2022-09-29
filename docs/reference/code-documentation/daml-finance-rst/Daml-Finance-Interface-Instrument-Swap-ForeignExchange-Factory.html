@@ -93,7 +93,7 @@
 <p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../concepts/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../concepts/asset-model.html">Asset model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts/asset-model.html">Asset Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../concepts/settlement.html">Settlement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../concepts/lifecycling.html">Lifecycling</a></li>
 </ul>
@@ -113,12 +113,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/instrument-modeling/intro.html">Instrument Modeling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-extension.html">How to use the Bond extension package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html">How to lifecycle a bond instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/swap-extension.html">How to use the Swap extension package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/derivative-extension.html">How to use the Derivative extension to model generic instruments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html">How to implement a Contingent Claims-based instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims tree on ledger vs on-the-fly creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-extension.html">How to Use the Bond Extension Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html">How to Lifecycle a Bond Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/swap-extension.html">How To Use the Swap Extension Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/derivative-extension.html">How To Use the Derivative Extension To Model Generic Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims Tree on Ledger vs On-the-Fly Creation</a></li>
 </ul>
 </li>
 </ul>
@@ -147,6 +147,8 @@
 <li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Factory.html">Daml.Finance.Instrument.Generic.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Instrument.html">Daml.Finance.Instrument.Generic.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Asset-Factory.html">Daml.Finance.Instrument.Swap.Asset.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Instrument.Swap.Asset.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Instrument.Swap.CreditDefault.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Instrument.Swap.CreditDefault.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Currency-Factory.html">Daml.Finance.Instrument.Swap.Currency.Factory</a></li>
@@ -188,6 +190,9 @@
 <li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Election.html">Daml.Finance.Interface.Instrument.Generic.Election</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Factory.html">Daml.Finance.Interface.Instrument.Generic.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Instrument.html">Daml.Finance.Interface.Instrument.Generic.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Factory.html">Daml.Finance.Interface.Instrument.Swap.Asset.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Asset.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Types.html">Daml.Finance.Interface.Instrument.Swap.Asset.Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Types.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Types</a></li>
@@ -357,6 +362,10 @@
 <tr class="row-even"><td>foreignExchange</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Types.html#type-daml-finance-interface-instrument-swap-foreignexchange-types-foreignexchange-32192"><span class="std std-ref">ForeignExchange</span></a></td>
 <td>Attributes to create an FX swap.</td>
+</tr>
+<tr class="row-odd"><td>observers</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-partiesmap-27543"><span class="std std-ref">PartiesMap</span></a></td>
+<td>The instrument’s observers.</td>
 </tr>
 </tbody>
 </table>

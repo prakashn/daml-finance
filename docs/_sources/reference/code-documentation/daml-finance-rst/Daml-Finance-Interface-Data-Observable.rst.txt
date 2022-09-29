@@ -109,6 +109,9 @@ Data Types
        * - id
          - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
          - Textual reference to the observable\.
+       * - observations
+         - `Map <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-map-90052>`_ `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_ `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_
+         - The time\-dependent values\.
   
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-data-observable-view-36370_>`_
   

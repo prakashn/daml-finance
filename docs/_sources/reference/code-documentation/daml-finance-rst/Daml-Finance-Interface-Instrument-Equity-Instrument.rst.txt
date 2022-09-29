@@ -168,6 +168,16 @@ Data Types
   
   `View <constr-daml-finance-interface-instrument-equity-instrument-view-37680_>`_
   
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+    
+       * - Field
+         - Type
+         - Description
+       * - instrument
+         - :ref:`InstrumentKey <type-daml-finance-interface-types-common-instrumentkey-59982>`
+         - The instrument's key\.
   
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-instrument-equity-instrument-view-54781_>`_
   

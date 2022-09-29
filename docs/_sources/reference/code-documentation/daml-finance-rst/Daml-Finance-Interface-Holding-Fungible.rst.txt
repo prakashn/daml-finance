@@ -158,6 +158,12 @@ Data Types
        * - Field
          - Type
          - Description
+       * - instrument
+         - :ref:`InstrumentKey <type-daml-finance-interface-types-common-instrumentkey-59982>`
+         - The instrument of which units are held\.
+       * - amount
+         - `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_
+         - Size of the holding\.
        * - modifiers
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - Parties which have the authorization to modify a fungible asset\.

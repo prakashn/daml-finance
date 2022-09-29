@@ -31,6 +31,9 @@ Interfaces
        * - zeroCoupon
          - :ref:`ZeroCoupon <type-daml-finance-interface-instrument-bond-zerocoupon-types-zerocoupon-49144>`
          - Attributes to create a zero coupon bond\.
+       * - observers
+         - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
+         - The instrument's observers\.
   
   + **Choice Remove**
     

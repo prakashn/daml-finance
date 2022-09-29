@@ -80,10 +80,21 @@ Data Types
   
   `View <constr-daml-finance-interface-instrument-generic-instrument-view-99577_>`_
   
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+    
+       * - Field
+         - Type
+         - Description
+       * - instrument
+         - :ref:`InstrumentKey <type-daml-finance-interface-types-common-instrumentkey-59982>`
+         - The instrument's key\.
+       * - claims
+         - :ref:`C <type-daml-finance-interface-claims-types-c-53263>`
+         - The claim tree\.
   
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-instrument-generic-instrument-view-27278_>`_
-  
-  **instance** `Ord <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-ord-6395>`_ `View <type-daml-finance-interface-instrument-generic-instrument-view-27278_>`_
   
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `View <type-daml-finance-interface-instrument-generic-instrument-view-27278_>`_
 

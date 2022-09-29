@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Contingent Claims tree on ledger vs on-the-fly creation &mdash; Daml Finance  documentation</title>
+  <title>Contingent Claims Tree on Ledger vs On-the-Fly Creation &mdash; Daml Finance  documentation</title>
   
 
   
@@ -47,7 +47,7 @@
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
   <link rel="next" title="Glossary" href="../../reference/glossary.html" />
-  <link rel="prev" title="How to implement a Contingent Claims-based instrument" href="contingent-claims-instrument.html" /> 
+  <link rel="prev" title="How to Implement a Contingent Claims-Based Instrument" href="contingent-claims-instrument.html" /> 
 
   
   <link rel="icon" type="image/svg+xml"  href="../../_static/images/daml-logo-mark-light.svg">
@@ -93,7 +93,7 @@
 <p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/asset-model.html">Asset model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/asset-model.html">Asset Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/settlement.html">Settlement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/lifecycling.html">Lifecycling</a></li>
 </ul>
@@ -113,12 +113,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="intro.html">Instrument Modeling</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="bond-extension.html">How to use the Bond extension package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bond-lifecycling.html">How to lifecycle a bond instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="swap-extension.html">How to use the Swap extension package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="derivative-extension.html">How to use the Derivative extension to model generic instruments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contingent-claims-instrument.html">How to implement a Contingent Claims-based instrument</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Contingent Claims tree on ledger vs on-the-fly creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bond-extension.html">How to Use the Bond Extension Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bond-lifecycling.html">How to Lifecycle a Bond Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swap-extension.html">How To Use the Swap Extension Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="derivative-extension.html">How To Use the Derivative Extension To Model Generic Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Contingent Claims Tree on Ledger vs On-the-Fly Creation</a></li>
 </ul>
 </li>
 </ul>
@@ -147,6 +147,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Factory.html">Daml.Finance.Instrument.Generic.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Instrument.html">Daml.Finance.Instrument.Generic.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Factory.html">Daml.Finance.Instrument.Swap.Asset.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Instrument.Swap.Asset.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Instrument.Swap.CreditDefault.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Instrument.Swap.CreditDefault.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Currency-Factory.html">Daml.Finance.Instrument.Swap.Currency.Factory</a></li>
@@ -188,6 +190,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Election.html">Daml.Finance.Interface.Instrument.Generic.Election</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Factory.html">Daml.Finance.Interface.Instrument.Generic.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Instrument.html">Daml.Finance.Interface.Instrument.Generic.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Factory.html">Daml.Finance.Interface.Instrument.Swap.Asset.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Asset.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Types.html">Daml.Finance.Interface.Instrument.Swap.Asset.Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Types.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Types</a></li>
@@ -308,13 +313,13 @@
         
         <!-- Local TOC -->
         <div class="content-menu-toc"><ul>
-<li><a class="reference internal" href="#">Contingent Claims tree on ledger vs on-the-fly creation</a><ul>
-<li><a class="reference internal" href="#different-ways-to-create-and-store-the-contingent-claims-tree">Different ways to create and store the Contingent Claims tree</a><ul>
-<li><a class="reference internal" href="#explicitly-storing-the-contingent-claims-tree-on-the-ledger">Explicitly storing the contingent-claims tree on the ledger</a></li>
-<li><a class="reference internal" href="#calculating-the-contingent-claims-tree-on-the-fly">Calculating the contingent-claims tree on-the-fly</a></li>
+<li><a class="reference internal" href="#">Contingent Claims Tree on Ledger vs On-the-Fly Creation</a><ul>
+<li><a class="reference internal" href="#different-ways-to-create-and-store-the-contingent-claims-tree">Different Ways to Create and Store the Contingent Claims Tree</a><ul>
+<li><a class="reference internal" href="#explicitly-storing-the-contingent-claims-tree-on-the-ledger">Explicitly Storing the Contingent Claims Tree on the Ledger</a></li>
+<li><a class="reference internal" href="#calculating-the-contingent-claims-tree-on-the-fly">Calculating the Contingent Claims Tree On-the-Fly</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#which-is-the-preferred-way">Which is the preferred way?</a></li>
+<li><a class="reference internal" href="#which-is-preferred">Which Is Preferred?</a></li>
 </ul>
 </li>
 </ul>
@@ -333,12 +338,12 @@
             <div itemprop="articleBody">
                 
   <div class="section" id="contingent-claims-tree-on-ledger-vs-on-the-fly-creation">
-<h1>Contingent Claims tree on ledger vs on-the-fly creation<a class="headerlink" href="#contingent-claims-tree-on-ledger-vs-on-the-fly-creation" title="Permalink to this headline">¶</a></h1>
+<h1>Contingent Claims Tree on Ledger vs On-the-Fly Creation<a class="headerlink" href="#contingent-claims-tree-on-ledger-vs-on-the-fly-creation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="different-ways-to-create-and-store-the-contingent-claims-tree">
-<h2>Different ways to create and store the Contingent Claims tree<a class="headerlink" href="#different-ways-to-create-and-store-the-contingent-claims-tree" title="Permalink to this headline">¶</a></h2>
+<h2>Different Ways to Create and Store the Contingent Claims Tree<a class="headerlink" href="#different-ways-to-create-and-store-the-contingent-claims-tree" title="Permalink to this headline">¶</a></h2>
 <p>We have now seen two different ways of modeling a fixed coupon bond using <code class="docutils literal notranslate"><span class="pre">Contingent</span> <span class="pre">Claims</span></code>:</p>
 <div class="section" id="explicitly-storing-the-contingent-claims-tree-on-the-ledger">
-<h3>Explicitly storing the contingent-claims tree on the ledger<a class="headerlink" href="#explicitly-storing-the-contingent-claims-tree-on-the-ledger" title="Permalink to this headline">¶</a></h3>
+<h3>Explicitly Storing the Contingent Claims Tree on the Ledger<a class="headerlink" href="#explicitly-storing-the-contingent-claims-tree-on-the-ledger" title="Permalink to this headline">¶</a></h3>
 <p>When we use the <a class="reference internal" href="derivative-extension.html"><span class="doc">Derivative extension</span></a> we create the
 claims tree at instrument inception and store this representation explicitly
 on the ledger. Since the tree is stored statically it can only change if the instrument is
@@ -348,7 +353,7 @@ However, in the event of a change in a holiday calendar (which could be used to 
 coupon payment dates), the tree will not automatically change.</p>
 </div>
 <div class="section" id="calculating-the-contingent-claims-tree-on-the-fly">
-<h3>Calculating the contingent-claims tree on-the-fly<a class="headerlink" href="#calculating-the-contingent-claims-tree-on-the-fly" title="Permalink to this headline">¶</a></h3>
+<h3>Calculating the Contingent Claims Tree On-the-Fly<a class="headerlink" href="#calculating-the-contingent-claims-tree-on-the-fly" title="Permalink to this headline">¶</a></h3>
 <p>When we create a <a class="reference internal" href="contingent-claims-instrument.html"><span class="doc">strongly typed bond instrument</span></a>
 only the key parameters of the bond are stored on the ledger. The claims tree
 is not, it is created on-the-fly, when needed (for example, in the case of lifecycling).
@@ -356,8 +361,8 @@ Consequently, if a holiday calendar changes, this will automatically impact the 
 the next time it is dynamically created.</p>
 </div>
 </div>
-<div class="section" id="which-is-the-preferred-way">
-<h2>Which is the preferred way?<a class="headerlink" href="#which-is-the-preferred-way" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="which-is-preferred">
+<h2>Which Is Preferred?<a class="headerlink" href="#which-is-preferred" title="Permalink to this headline">¶</a></h2>
 <p>Both options are possible, this is more a matter of personal preference. They both have
 their pros and cons.</p>
 <p>The on-the-fly approach has the
@@ -383,7 +388,7 @@ trade it could be useful to have it on ledger from a transparancy point of view.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="contingent-claims-instrument.html" class="da-btn da-btn-label btn-prev" title="How to implement a Contingent Claims-based instrument" accesskey="p" rel="prev">Previous</a>
+        <a href="contingent-claims-instrument.html" class="da-btn da-btn-label btn-prev" title="How to Implement a Contingent Claims-Based Instrument" accesskey="p" rel="prev">Previous</a>
       
       
         <a href="../../reference/glossary.html" class="da-btn da-btn-label btn-next" title="Glossary" accesskey="n" rel="next">Next</a>

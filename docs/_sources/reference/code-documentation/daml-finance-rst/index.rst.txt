@@ -33,6 +33,8 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Instrument.Generic.Factory <Daml-Finance-Instrument-Generic-Factory>
    Daml.Finance.Instrument.Generic.Instrument <Daml-Finance-Instrument-Generic-Instrument>
    Daml.Finance.Instrument.Generic.Util <Daml-Finance-Instrument-Generic-Util>
+   Daml.Finance.Instrument.Swap.Asset.Factory <Daml-Finance-Instrument-Swap-Asset-Factory>
+   Daml.Finance.Instrument.Swap.Asset.Instrument <Daml-Finance-Instrument-Swap-Asset-Instrument>
    Daml.Finance.Instrument.Swap.CreditDefault.Factory <Daml-Finance-Instrument-Swap-CreditDefault-Factory>
    Daml.Finance.Instrument.Swap.CreditDefault.Instrument <Daml-Finance-Instrument-Swap-CreditDefault-Instrument>
    Daml.Finance.Instrument.Swap.Currency.Factory <Daml-Finance-Instrument-Swap-Currency-Factory>
@@ -74,6 +76,9 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Instrument.Generic.Election <Daml-Finance-Interface-Instrument-Generic-Election>
    Daml.Finance.Interface.Instrument.Generic.Factory <Daml-Finance-Interface-Instrument-Generic-Factory>
    Daml.Finance.Interface.Instrument.Generic.Instrument <Daml-Finance-Interface-Instrument-Generic-Instrument>
+   Daml.Finance.Interface.Instrument.Swap.Asset.Factory <Daml-Finance-Interface-Instrument-Swap-Asset-Factory>
+   Daml.Finance.Interface.Instrument.Swap.Asset.Instrument <Daml-Finance-Interface-Instrument-Swap-Asset-Instrument>
+   Daml.Finance.Interface.Instrument.Swap.Asset.Types <Daml-Finance-Interface-Instrument-Swap-Asset-Types>
    Daml.Finance.Interface.Instrument.Swap.CreditDefault.Factory <Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory>
    Daml.Finance.Interface.Instrument.Swap.CreditDefault.Instrument <Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument>
    Daml.Finance.Interface.Instrument.Swap.CreditDefault.Types <Daml-Finance-Interface-Instrument-Swap-CreditDefault-Types>

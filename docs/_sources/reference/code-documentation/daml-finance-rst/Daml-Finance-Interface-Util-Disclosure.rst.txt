@@ -135,6 +135,8 @@ Data Types
   
   **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-generic-factory-factory-64962>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
   
+  **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-swap-asset-factory-factory-87851>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
+  
   **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-swap-creditdefault-factory-factory-17381>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_
   
   **instance** HasMethod :ref:`Factory <type-daml-finance-interface-instrument-swap-currency-factory-factory-84231>` \"asDisclosure\" `I <type-daml-finance-interface-util-disclosure-i-26993_>`_

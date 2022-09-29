@@ -31,6 +31,9 @@ Interfaces
        * - floatingRate
          - :ref:`FloatingRate <type-daml-finance-interface-instrument-bond-floatingrate-types-floatingrate-27992>`
          - Attributes to create a floating rate bond\.
+       * - observers
+         - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
+         - The instrument's observers\.
   
   + **Choice Remove**
     

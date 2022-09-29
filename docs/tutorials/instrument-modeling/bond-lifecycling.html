@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How to lifecycle a bond instrument &mdash; Daml Finance  documentation</title>
+  <title>How to Lifecycle a Bond Instrument &mdash; Daml Finance  documentation</title>
   
 
   
@@ -46,8 +46,8 @@
   <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="How to use the Swap extension package" href="swap-extension.html" />
-  <link rel="prev" title="How to use the Bond extension package" href="bond-extension.html" /> 
+  <link rel="next" title="How To Use the Swap Extension Package" href="swap-extension.html" />
+  <link rel="prev" title="How to Use the Bond Extension Package" href="bond-extension.html" /> 
 
   
   <link rel="icon" type="image/svg+xml"  href="../../_static/images/daml-logo-mark-light.svg">
@@ -93,7 +93,7 @@
 <p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/asset-model.html">Asset model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/asset-model.html">Asset Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/settlement.html">Settlement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/lifecycling.html">Lifecycling</a></li>
 </ul>
@@ -113,12 +113,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="intro.html">Instrument Modeling</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="bond-extension.html">How to use the Bond extension package</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">How to lifecycle a bond instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="swap-extension.html">How to use the Swap extension package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="derivative-extension.html">How to use the Derivative extension to model generic instruments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contingent-claims-instrument.html">How to implement a Contingent Claims-based instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims tree on ledger vs on-the-fly creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bond-extension.html">How to Use the Bond Extension Package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How to Lifecycle a Bond Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swap-extension.html">How To Use the Swap Extension Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="derivative-extension.html">How To Use the Derivative Extension To Model Generic Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims Tree on Ledger vs On-the-Fly Creation</a></li>
 </ul>
 </li>
 </ul>
@@ -147,6 +147,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Factory.html">Daml.Finance.Instrument.Generic.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Instrument.html">Daml.Finance.Instrument.Generic.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Factory.html">Daml.Finance.Instrument.Swap.Asset.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Instrument.Swap.Asset.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Instrument.Swap.CreditDefault.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Instrument.Swap.CreditDefault.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Currency-Factory.html">Daml.Finance.Instrument.Swap.Currency.Factory</a></li>
@@ -188,6 +190,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Election.html">Daml.Finance.Interface.Instrument.Generic.Election</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Factory.html">Daml.Finance.Interface.Instrument.Generic.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Instrument.html">Daml.Finance.Interface.Instrument.Generic.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Factory.html">Daml.Finance.Interface.Instrument.Swap.Asset.Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Asset.Instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Asset-Types.html">Daml.Finance.Interface.Instrument.Swap.Asset.Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Instrument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-CreditDefault-Types.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Types</a></li>
@@ -308,11 +313,11 @@
         
         <!-- Local TOC -->
         <div class="content-menu-toc"><ul>
-<li><a class="reference internal" href="#">How to lifecycle a bond instrument</a><ul>
-<li><a class="reference internal" href="#creating-a-fixed-rate-bond-instrument">Creating a fixed-rate bond instrument</a></li>
-<li><a class="reference internal" href="#defining-the-clock-for-time-based-events">Defining the clock for time-based events</a></li>
-<li><a class="reference internal" href="#lifecycling-the-bond-instrument">Lifecycling the bond instrument</a></li>
-<li><a class="reference internal" href="#settling-the-instructions">Settling the instructions</a></li>
+<li><a class="reference internal" href="#">How to Lifecycle a Bond Instrument</a><ul>
+<li><a class="reference internal" href="#create-a-fixed-rate-bond-instrument">Create a Fixed-Rate Bond Instrument</a></li>
+<li><a class="reference internal" href="#define-the-clock-for-time-based-events">Define the Clock for Time-Based Events</a></li>
+<li><a class="reference internal" href="#lifecycle-the-bond-instrument">Lifecycle the Bond Instrument</a></li>
+<li><a class="reference internal" href="#settle-the-instructions">Settle the Instructions</a></li>
 </ul>
 </li>
 </ul>
@@ -331,7 +336,7 @@
             <div itemprop="articleBody">
                 
   <div class="section" id="how-to-lifecycle-a-bond-instrument">
-<h1>How to lifecycle a bond instrument<a class="headerlink" href="#how-to-lifecycle-a-bond-instrument" title="Permalink to this headline">¶</a></h1>
+<h1>How to Lifecycle a Bond Instrument<a class="headerlink" href="#how-to-lifecycle-a-bond-instrument" title="Permalink to this headline">¶</a></h1>
 <p>This tutorial describes the <a class="reference internal" href="../../reference/glossary.html#lifecycling"><span class="std std-ref">lifecycle</span></a> flow of a bond instrument between two counterparties.
 We will illustrate the following steps:</p>
 <ol class="arabic simple">
@@ -343,8 +348,8 @@ We will illustrate the following steps:</p>
 <p>To follow the script used in this tutorial you can <a class="reference external" href="https://github.com/digital-asset/daml-finance">clone the Daml Finance repository</a>.
 In particular, the file <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Bond/Test/FixedRate.daml</span></code> is the starting point
 of this tutorial. It also refers to some utility functions in <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Bond/Test/Util.daml</span></code>.</p>
-<div class="section" id="creating-a-fixed-rate-bond-instrument">
-<h2>Creating a fixed-rate bond instrument<a class="headerlink" href="#creating-a-fixed-rate-bond-instrument" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-a-fixed-rate-bond-instrument">
+<h2>Create a Fixed-Rate Bond Instrument<a class="headerlink" href="#create-a-fixed-rate-bond-instrument" title="Permalink to this headline">¶</a></h2>
 <p>We start by defining a fixed rate bond, which pays a 1.1% coupon every year.</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kr">let</span><span class="w"></span>
 <span class="w">    </span><span class="n">issueDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="kt">Jan</span><span class="w"> </span><span class="mi">16</span><span class="w"></span>
@@ -366,9 +371,9 @@ of this tutorial. It also refers to some utility functions in <code class="docut
 </pre></div>
 </div>
 </div>
-<div class="section" id="defining-the-clock-for-time-based-events">
-<h2>Defining the clock for time-based events<a class="headerlink" href="#defining-the-clock-for-time-based-events" title="Permalink to this headline">¶</a></h2>
-<p>Since the bond pays a coupon on a yearly basis, we talk about a time-based event.
+<div class="section" id="define-the-clock-for-time-based-events">
+<h2>Define the Clock for Time-Based Events<a class="headerlink" href="#define-the-clock-for-time-based-events" title="Permalink to this headline">¶</a></h2>
+<p>Since the bond pays a coupon on a yearly basis, payment is a time-based event.
 The requirement to pay the coupon is governed by actual time.
 However, in a trading and settlement system, it is useful to be able to control
 the time variable, in order to simulate previous/future payments, or to have some flexibility
@@ -379,8 +384,8 @@ regarding when to process events.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="lifecycling-the-bond-instrument">
-<h2>Lifecycling the bond instrument<a class="headerlink" href="#lifecycling-the-bond-instrument" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lifecycle-the-bond-instrument">
+<h2>Lifecycle the Bond Instrument<a class="headerlink" href="#lifecycle-the-bond-instrument" title="Permalink to this headline">¶</a></h2>
 <p>We use the <code class="docutils literal notranslate"><span class="pre">Lifecyclable</span></code> interface, which is defined in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Lifecycle.Lifecyclable</span></code>.</p>
 <p>The issuer of the bond is responsible for initiating the coupon payment,
 by calling <code class="docutils literal notranslate"><span class="pre">Lifecycle</span></code> on the coupon date:</p>
@@ -395,8 +400,8 @@ is a clock event, since the coupon is defined by the passage of time.</p>
 If there is nothing to lifecycle, for example because there is no coupon to be paid today, <code class="docutils literal notranslate"><span class="pre">effectCids</span></code> would be empty.
 The <code class="docutils literal notranslate"><span class="pre">Effect</span></code> interface is defined in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Lifecycle.Effect</span></code>.</p>
 </div>
-<div class="section" id="settling-the-instructions">
-<h2>Settling the instructions<a class="headerlink" href="#settling-the-instructions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="settle-the-instructions">
+<h2>Settle the Instructions<a class="headerlink" href="#settle-the-instructions" title="Permalink to this headline">¶</a></h2>
 <p>In order to process the effect(s) of the lifecycling (in this case: pay the coupon), we need to create settlement instructions.
 We start by creating a settlement factory:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="c1">-- Create settlement factory</span><span class="w"></span>
@@ -427,11 +432,11 @@ We start by creating a settlement factory:</p>
 <span class="w">    </span><span class="p">[</span><span class="n">custodianCashInstructionCid</span><span class="p">]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">instructionCids</span><span class="w"></span>
 
 <span class="w">  </span><span class="c1">-- Allocate instructions</span><span class="w"></span>
-<span class="w">  </span><span class="p">(</span><span class="n">custodianCashInstructionCid</span><span class="p">,</span><span class="w"> </span><span class="kr">_</span><span class="p">)</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">custodian</span><span class="p">]</span><span class="w"> </span><span class="n">readAs</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">custodianCashInstructionCid</span><span class="w"> </span><span class="kt">Instruction</span><span class="o">.</span><span class="kt">Allocate</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">allocation</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Pledge</span><span class="w"> </span><span class="n">custodianCashTransferableCid</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="n">custodianCashInstructionCid</span><span class="p">,</span><span class="w"> </span><span class="kr">_</span><span class="p">)</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">custodian</span><span class="p">]</span><span class="w"> </span><span class="n">readAs</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">custodianCashInstructionCid</span><span class="w"> </span><span class="kt">Instruction</span><span class="o">.</span><span class="kt">Allocate</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">actors</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">custodian</span><span class="p">;</span><span class="w"> </span><span class="n">allocation</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Pledge</span><span class="w"> </span><span class="n">custodianCashTransferableCid</span><span class="w"></span>
 
 <span class="w">  </span><span class="c1">-- Approve instructions</span><span class="w"></span>
 <span class="w">  </span><span class="n">custodianCashInstructionCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">investor</span><span class="p">]</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
-<span class="w">    </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">custodianCashInstructionCid</span><span class="w"> </span><span class="kt">Instruction</span><span class="o">.</span><span class="kt">Approve</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">approval</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">TakeDelivery</span><span class="w"> </span><span class="n">investorAccount</span><span class="w"></span>
+<span class="w">    </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">custodianCashInstructionCid</span><span class="w"> </span><span class="kt">Instruction</span><span class="o">.</span><span class="kt">Approve</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">actors</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">investor</span><span class="p">;</span><span class="w"> </span><span class="n">approval</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">TakeDelivery</span><span class="w"> </span><span class="n">investorAccount</span><span class="w"></span>
 
 <span class="w">  </span><span class="c1">-- Settle batch</span><span class="w"></span>
 <span class="w">  </span><span class="kr">let</span><span class="w"> </span><span class="n">settlerUsed</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">toList</span><span class="w"> </span><span class="n">settlers</span><span class="w"></span>
@@ -440,9 +445,9 @@ We start by creating a settlement factory:</p>
 </div>
 <dl class="docutils">
 <dt>This is the result of the settlement:</dt><dd><ul class="simple">
-<li>The investor receives cash for the coupon.</li>
-<li>The investor receives a new version of the bond instrument, which excludes today’s coupon (it only contains future coupons and the redemption amount).</li>
-<li>The issuer receives the original version of the bond instrument, which can be archived.</li>
+<li>The investor receives cash for the coupon</li>
+<li>The investor receives a new version of the bond instrument, which excludes today’s coupon (it only contains future coupons and the redemption amount)</li>
+<li>The issuer receives the original version of the bond instrument, which can be archived</li>
 </ul>
 </dd>
 </dl>
@@ -461,10 +466,10 @@ We start by creating a settlement factory:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="bond-extension.html" class="da-btn da-btn-label btn-prev" title="How to use the Bond extension package" accesskey="p" rel="prev">Previous</a>
+        <a href="bond-extension.html" class="da-btn da-btn-label btn-prev" title="How to Use the Bond Extension Package" accesskey="p" rel="prev">Previous</a>
       
       
-        <a href="swap-extension.html" class="da-btn da-btn-label btn-next" title="How to use the Swap extension package" accesskey="n" rel="next">Next</a>
+        <a href="swap-extension.html" class="da-btn da-btn-label btn-next" title="How To Use the Swap Extension Package" accesskey="n" rel="next">Next</a>
       
     </div>
   

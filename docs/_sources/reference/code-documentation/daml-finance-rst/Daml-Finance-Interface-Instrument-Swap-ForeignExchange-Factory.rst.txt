@@ -31,6 +31,9 @@ Interfaces
        * - foreignExchange
          - :ref:`ForeignExchange <type-daml-finance-interface-instrument-swap-foreignexchange-types-foreignexchange-32192>`
          - Attributes to create an FX swap\.
+       * - observers
+         - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
+         - The instrument's observers\.
   
   + **Choice Remove**
     

@@ -82,6 +82,9 @@ Data Types
        * - Field
          - Type
          - Description
+       * - id
+         - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
+         - The clock's identifier\.
        * - clockTime
          - `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_
          - The clock's time expressed in UTC time\.

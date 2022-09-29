@@ -94,13 +94,3 @@ Data Types
   \= `NonFungible <type-daml-finance-holding-nonfungible-nonfungible-53393_>`_
   
   Type synonym for ``NonFungible``\.
-
-Functions
----------
-
-.. _function-daml-finance-holding-nonfungible-transferimpl-58266:
-
-`transferImpl <function-daml-finance-holding-nonfungible-transferimpl-58266_>`_
-  \: :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>` \-\> Transfer \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`)
-  
-  Implementatino of the transfer choice\.

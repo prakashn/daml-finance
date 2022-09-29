@@ -28,6 +28,9 @@ Interfaces
        * - Field
          - Type
          - Description
+       * - actors
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Actors allocating the instruction\.
        * - allocation
          - :ref:`Allocation <type-daml-finance-interface-settlement-types-allocation-46483>`
          - Allocation of an instruction\.
@@ -43,6 +46,9 @@ Interfaces
        * - Field
          - Type
          - Description
+       * - actors
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Actors approving the instruction\.
        * - approval
          - :ref:`Approval <type-daml-finance-interface-settlement-types-approval-84286>`
          - Approval of an instruction\.

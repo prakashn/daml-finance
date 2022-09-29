@@ -36,7 +36,7 @@ Interfaces
   
   + **Choice Debit**
     
-    Destroys an existing ``Holding``\.
+    Removes an existing ``Holding``\.
     
     .. list-table::
        :widths: 15 10 30
@@ -64,6 +64,24 @@ Interfaces
          - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
          - The party fetching the view\.
   
+  + **Choice Transfer**
+    
+    Transfers a ``Transferable`` to this ``Account``\.
+    
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+    
+       * - Field
+         - Type
+         - Description
+       * - actors
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Additional controllers of the choice\.
+       * - transferableCid
+         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`
+         - The ``Transferable``'s contract id\.
+  
   + **Method asDisclosure \:** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>`
     
     Conversion to ``Disclosure`` interface\.
@@ -79,6 +97,10 @@ Interfaces
   + **Method getKey \:** :ref:`AccountKey <type-daml-finance-interface-types-common-accountkey-85835>`
     
     Get the unique key of the ``Account``\.
+  
+  + **Method transfer \:** Transfer \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`)
+    
+    Implementation of the ``Transfer`` choice\.
 
 Typeclasses
 -----------
@@ -121,6 +143,36 @@ Data Types
   
   Type synonym for ``Reference``\. This type is currently used as a work\-around given the lack of interface keys\.
 
+.. _type-daml-finance-interface-holding-account-transferors-14316:
+
+**data** `Transferors <type-daml-finance-interface-holding-account-transferors-14316_>`_
+
+  Parties involved in transfers\.
+  
+  .. _constr-daml-finance-interface-holding-account-transferors-48585:
+  
+  `Transferors <constr-daml-finance-interface-holding-account-transferors-48585_>`_
+  
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+    
+       * - Field
+         - Type
+         - Description
+       * - instructors
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Parties instructing a transfer (outgoing)\.
+       * - approvers
+         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
+         - Parties approving a transfer (incoming)\.
+  
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `Transferors <type-daml-finance-interface-holding-account-transferors-14316_>`_
+  
+  **instance** `Ord <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-ord-6395>`_ `Transferors <type-daml-finance-interface-holding-account-transferors-14316_>`_
+  
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `Transferors <type-daml-finance-interface-holding-account-transferors-14316_>`_
+
 .. _type-daml-finance-interface-holding-account-v-99213:
 
 **type** `V <type-daml-finance-interface-holding-account-v-99213_>`_
@@ -160,10 +212,11 @@ Data Types
        * - holdingFactoryCid
          - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`F <type-daml-finance-interface-holding-factory-holding-f-13397>`
          - Associated holding factory\.
+       * - controllers
+         - `Transferors <type-daml-finance-interface-holding-account-transferors-14316_>`_
+         - Parties controlling transfers\.
   
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-holding-account-view-30739_>`_
-  
-  **instance** `Ord <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-ord-6395>`_ `View <type-daml-finance-interface-holding-account-view-30739_>`_
   
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `View <type-daml-finance-interface-holding-account-view-30739_>`_
 
@@ -209,6 +262,11 @@ Functions
 
 `debit <function-daml-finance-interface-holding-account-debit-23513_>`_
   \: `Account <type-daml-finance-interface-holding-account-account-25212_>`_ \-\> Debit \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ ()
+
+.. _function-daml-finance-interface-holding-account-transfer-41985:
+
+`transfer <function-daml-finance-interface-holding-account-transfer-41985_>`_
+  \: `Account <type-daml-finance-interface-holding-account-account-25212_>`_ \-\> Transfer \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`)
 
 .. _function-daml-finance-interface-holding-account-disclose-61184:
 
