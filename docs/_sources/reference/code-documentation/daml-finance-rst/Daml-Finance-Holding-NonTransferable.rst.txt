@@ -14,11 +14,11 @@ Templates
 **template** `Factory <type-daml-finance-holding-nontransferable-factory-31443_>`_
 
   Implementation of the corresponding Holding Factory\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -28,12 +28,13 @@ Templates
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - The factory's observers\.
-  
-  + **Choice Archive**
-    
 
-  + **interface instance** :ref:`F <type-daml-finance-interface-holding-factory-holding-f-13397>` **for** `Factory <type-daml-finance-holding-nontransferable-factory-31443_>`_
-  
+  + **Choice Archive**
+
+    (no fields)
+
+  + **interface instance** :ref:`F <type-daml-finance-interface-holding-factory-f-28062>` **for** `Factory <type-daml-finance-holding-nontransferable-factory-31443_>`_
+
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Factory <type-daml-finance-holding-nontransferable-factory-31443_>`_
 
 .. _type-daml-finance-holding-nontransferable-nontransferable-68229:
@@ -43,11 +44,11 @@ Templates
   Implementation of a non\-transferable holding\.
   ``NonTransferable`` implements the interface ``Lockable.I`` (which requires ``Base.I``, and
   ``Disclosure.I`` to be implemented as well)\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -66,14 +67,15 @@ Templates
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - Observers\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-base-i-67605>` **for** `NonTransferable <type-daml-finance-holding-nontransferable-nontransferable-68229_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>` **for** `NonTransferable <type-daml-finance-holding-nontransferable-nontransferable-68229_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `NonTransferable <type-daml-finance-holding-nontransferable-nontransferable-68229_>`_
 
 Data Types
@@ -83,12 +85,12 @@ Data Types
 
 **type** `F <type-daml-finance-holding-nontransferable-f-30033_>`_
   \= `Factory <type-daml-finance-holding-nontransferable-factory-31443_>`_
-  
+
   Type synonym for ``Factory``\.
 
 .. _type-daml-finance-holding-nontransferable-t-90863:
 
 **type** `T <type-daml-finance-holding-nontransferable-t-90863_>`_
   \= `NonTransferable <type-daml-finance-holding-nontransferable-nontransferable-68229_>`_
-  
+
   Type synonym for ``NonTransferable``\.

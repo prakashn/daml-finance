@@ -14,11 +14,11 @@ Templates
 **template** `Factory <type-daml-finance-holding-nonfungible-factory-4448_>`_
 
   Implementation of the corresponding Holding Factory\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -28,12 +28,13 @@ Templates
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - The factory's observers\.
-  
-  + **Choice Archive**
-    
 
-  + **interface instance** :ref:`F <type-daml-finance-interface-holding-factory-holding-f-13397>` **for** `Factory <type-daml-finance-holding-nonfungible-factory-4448_>`_
-  
+  + **Choice Archive**
+
+    (no fields)
+
+  + **interface instance** :ref:`F <type-daml-finance-interface-holding-factory-f-28062>` **for** `Factory <type-daml-finance-holding-nonfungible-factory-4448_>`_
+
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Factory <type-daml-finance-holding-nonfungible-factory-4448_>`_
 
 .. _type-daml-finance-holding-nonfungible-nonfungible-53393:
@@ -43,11 +44,11 @@ Templates
   Implementation of a non\-fungible holding\.
   ``NonFungible`` implements the interface ``Transferable.I`` (which requires ``Lockable.I``,
   ``Base.I``, and ``Disclosure.I`` to be implemented as well)\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -66,16 +67,17 @@ Templates
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - Observers\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-base-i-67605>` **for** `NonFungible <type-daml-finance-holding-nonfungible-nonfungible-53393_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>` **for** `NonFungible <type-daml-finance-holding-nonfungible-nonfungible-53393_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>` **for** `NonFungible <type-daml-finance-holding-nonfungible-nonfungible-53393_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `NonFungible <type-daml-finance-holding-nonfungible-nonfungible-53393_>`_
 
 Data Types
@@ -85,12 +87,12 @@ Data Types
 
 **type** `F <type-daml-finance-holding-nonfungible-f-56290_>`_
   \= `Factory <type-daml-finance-holding-nonfungible-factory-4448_>`_
-  
+
   Type synonym for ``Factory``\.
 
 .. _type-daml-finance-holding-nonfungible-t-34500:
 
 **type** `T <type-daml-finance-holding-nonfungible-t-34500_>`_
   \= `NonFungible <type-daml-finance-holding-nonfungible-nonfungible-53393_>`_
-  
+
   Type synonym for ``NonFungible``\.

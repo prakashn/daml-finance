@@ -14,14 +14,14 @@ Templates
 **template** `Instruction <type-daml-finance-settlement-instruction-instruction-35758_>`_
 
   Instruction is used to settle a single settlement ``Step``\. In order to settle the instruction,
-  
+
   * the sender must allocate a suitable transferable holding\.
   * the receiver must define the receiving account\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -52,12 +52,13 @@ Templates
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - Observers\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-settlement-instruction-i-90342>` **for** `Instruction <type-daml-finance-settlement-instruction-instruction-35758_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Instruction <type-daml-finance-settlement-instruction-instruction-35758_>`_
 
 Data Types
@@ -67,5 +68,5 @@ Data Types
 
 **type** `T <type-daml-finance-settlement-instruction-t-45988_>`_
   \= `Instruction <type-daml-finance-settlement-instruction-instruction-35758_>`_
-  
+
   Type synonym for ``Instruction``\.

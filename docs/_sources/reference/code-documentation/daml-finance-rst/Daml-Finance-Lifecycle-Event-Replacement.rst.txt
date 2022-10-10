@@ -14,11 +14,11 @@ Templates
 **template** `Event <type-daml-finance-lifecycle-event-replacement-event-16120_>`_
 
   Event contract for the replacement of units of an instrument with a basket of other instruments (e\.g\. stock merger)\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -43,12 +43,13 @@ Templates
      * - observers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Observers\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-event-i-17082>` **for** `Event <type-daml-finance-lifecycle-event-replacement-event-16120_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-event-replacement-i-34852>` **for** `Event <type-daml-finance-lifecycle-event-replacement-event-16120_>`_
 
 Data Types
@@ -58,5 +59,5 @@ Data Types
 
 **type** `T <type-daml-finance-lifecycle-event-replacement-t-85632_>`_
   \= `Event <type-daml-finance-lifecycle-event-replacement-event-16120_>`_
-  
+
   Type synonym for ``Event``\.

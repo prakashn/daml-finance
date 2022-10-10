@@ -11,10 +11,11 @@ Here is a complete list of modules in the financial library:
 .. toctree::
    :maxdepth: 3
    :titlesonly:
-   
+
+   Daml.Finance.Account.Account <Daml-Finance-Account-Account>
+   Daml.Finance.Account.Util <Daml-Finance-Account-Util>
    Daml.Finance.Data.Observable.Observation <Daml-Finance-Data-Observable-Observation>
    Daml.Finance.Data.Reference.HolidayCalendar <Daml-Finance-Data-Reference-HolidayCalendar>
-   Daml.Finance.Holding.Account <Daml-Finance-Holding-Account>
    Daml.Finance.Holding.Fungible <Daml-Finance-Holding-Fungible>
    Daml.Finance.Holding.NonFungible <Daml-Finance-Holding-NonFungible>
    Daml.Finance.Holding.NonTransferable <Daml-Finance-Holding-NonTransferable>
@@ -41,19 +42,22 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Instrument.Swap.Currency.Instrument <Daml-Finance-Instrument-Swap-Currency-Instrument>
    Daml.Finance.Instrument.Swap.ForeignExchange.Factory <Daml-Finance-Instrument-Swap-ForeignExchange-Factory>
    Daml.Finance.Instrument.Swap.ForeignExchange.Instrument <Daml-Finance-Instrument-Swap-ForeignExchange-Instrument>
+   Daml.Finance.Instrument.Swap.Fpml.Factory <Daml-Finance-Instrument-Swap-Fpml-Factory>
+   Daml.Finance.Instrument.Swap.Fpml.Instrument <Daml-Finance-Instrument-Swap-Fpml-Instrument>
    Daml.Finance.Instrument.Swap.InterestRate.Factory <Daml-Finance-Instrument-Swap-InterestRate-Factory>
    Daml.Finance.Instrument.Swap.InterestRate.Instrument <Daml-Finance-Instrument-Swap-InterestRate-Instrument>
    Daml.Finance.Instrument.Token.Factory <Daml-Finance-Instrument-Token-Factory>
    Daml.Finance.Instrument.Token.Instrument <Daml-Finance-Instrument-Token-Instrument>
+   Daml.Finance.Interface.Account.Account <Daml-Finance-Interface-Account-Account>
+   Daml.Finance.Interface.Account.Factory <Daml-Finance-Interface-Account-Factory>
+   Daml.Finance.Interface.Account.Util <Daml-Finance-Interface-Account-Util>
    Daml.Finance.Interface.Claims.Claim <Daml-Finance-Interface-Claims-Claim>
    Daml.Finance.Interface.Claims.Types <Daml-Finance-Interface-Claims-Types>
    Daml.Finance.Interface.Claims.Util <Daml-Finance-Interface-Claims-Util>
    Daml.Finance.Interface.Claims.Util.Lifecycle <Daml-Finance-Interface-Claims-Util-Lifecycle>
    Daml.Finance.Interface.Data.Observable <Daml-Finance-Interface-Data-Observable>
-   Daml.Finance.Interface.Holding.Account <Daml-Finance-Interface-Holding-Account>
    Daml.Finance.Interface.Holding.Base <Daml-Finance-Interface-Holding-Base>
-   Daml.Finance.Interface.Holding.Factory.Account <Daml-Finance-Interface-Holding-Factory-Account>
-   Daml.Finance.Interface.Holding.Factory.Holding <Daml-Finance-Interface-Holding-Factory-Holding>
+   Daml.Finance.Interface.Holding.Factory <Daml-Finance-Interface-Holding-Factory>
    Daml.Finance.Interface.Holding.Fungible <Daml-Finance-Interface-Holding-Fungible>
    Daml.Finance.Interface.Holding.Lockable <Daml-Finance-Interface-Holding-Lockable>
    Daml.Finance.Interface.Holding.Transferable <Daml-Finance-Interface-Holding-Transferable>
@@ -88,6 +92,9 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Factory <Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Factory>
    Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Instrument <Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Instrument>
    Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Types <Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Types>
+   Daml.Finance.Interface.Instrument.Swap.Fpml.Factory <Daml-Finance-Interface-Instrument-Swap-Fpml-Factory>
+   Daml.Finance.Interface.Instrument.Swap.Fpml.Instrument <Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument>
+   Daml.Finance.Interface.Instrument.Swap.Fpml.Types <Daml-Finance-Interface-Instrument-Swap-Fpml-Types>
    Daml.Finance.Interface.Instrument.Swap.InterestRate.Factory <Daml-Finance-Interface-Instrument-Swap-InterestRate-Factory>
    Daml.Finance.Interface.Instrument.Swap.InterestRate.Instrument <Daml-Finance-Interface-Instrument-Swap-InterestRate-Instrument>
    Daml.Finance.Interface.Instrument.Swap.InterestRate.Types <Daml-Finance-Interface-Instrument-Swap-InterestRate-Types>
@@ -112,6 +119,7 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Types.Date.DayCount <Daml-Finance-Interface-Types-Date-DayCount>
    Daml.Finance.Interface.Types.Date.RollConvention <Daml-Finance-Interface-Types-Date-RollConvention>
    Daml.Finance.Interface.Types.Date.Schedule <Daml-Finance-Interface-Types-Date-Schedule>
+   Daml.Finance.Interface.Types.Fpml <Daml-Finance-Interface-Types-Fpml>
    Daml.Finance.Interface.Util.Common <Daml-Finance-Interface-Util-Common>
    Daml.Finance.Interface.Util.Disclosure <Daml-Finance-Interface-Util-Disclosure>
    Daml.Finance.Lifecycle.DateClock <Daml-Finance-Lifecycle-DateClock>

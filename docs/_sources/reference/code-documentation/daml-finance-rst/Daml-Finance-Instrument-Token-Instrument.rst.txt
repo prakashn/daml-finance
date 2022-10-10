@@ -14,11 +14,11 @@ Templates
 **template** `Instrument <type-daml-finance-instrument-token-instrument-instrument-62305_>`_
 
   Implementation of an Instrument which does not define any lifecycling logic\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -43,14 +43,15 @@ Templates
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - Observers\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>` **for** `Instrument <type-daml-finance-instrument-token-instrument-instrument-62305_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-token-instrument-i-72687>` **for** `Instrument <type-daml-finance-instrument-token-instrument-instrument-62305_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Instrument <type-daml-finance-instrument-token-instrument-instrument-62305_>`_
 
 Data Types
@@ -60,5 +61,5 @@ Data Types
 
 **type** `T <type-daml-finance-instrument-token-instrument-t-51655_>`_
   \= `Instrument <type-daml-finance-instrument-token-instrument-instrument-62305_>`_
-  
+
   Type synonym for ``Instrument``\.

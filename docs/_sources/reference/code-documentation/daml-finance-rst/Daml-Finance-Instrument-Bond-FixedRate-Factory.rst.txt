@@ -14,11 +14,11 @@ Templates
 **template** `Factory <type-daml-finance-instrument-bond-fixedrate-factory-factory-92840_>`_
 
   Factory template for instrument creation\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -28,12 +28,13 @@ Templates
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - The factory's observers\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`Factory <type-daml-finance-interface-instrument-bond-fixedrate-factory-factory-49085>` **for** `Factory <type-daml-finance-instrument-bond-fixedrate-factory-factory-92840_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Factory <type-daml-finance-instrument-bond-fixedrate-factory-factory-92840_>`_
 
 Data Types
@@ -43,5 +44,5 @@ Data Types
 
 **type** `F <type-daml-finance-instrument-bond-fixedrate-factory-f-52010_>`_
   \= `Factory <type-daml-finance-instrument-bond-fixedrate-factory-factory-92840_>`_
-  
+
   Type synonym for ``Factory``\.

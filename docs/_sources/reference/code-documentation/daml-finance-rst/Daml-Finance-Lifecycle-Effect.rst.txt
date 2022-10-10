@@ -14,15 +14,15 @@ Templates
 **template** `Effect <type-daml-finance-lifecycle-effect-effect-18432_>`_
 
   A contract encoding the consequences of a lifecycle event for one unit of the target instrument\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
-     * - provider
+     * - providers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - The effect provider\.
      * - settlers
@@ -52,9 +52,10 @@ Templates
      * - observers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Observers\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>` **for** `Effect <type-daml-finance-lifecycle-effect-effect-18432_>`_
 
@@ -65,5 +66,5 @@ Data Types
 
 **type** `T <type-daml-finance-lifecycle-effect-t-84092_>`_
   \= `Effect <type-daml-finance-lifecycle-effect-effect-18432_>`_
-  
+
   Type synonym for ``Effect``\.

@@ -14,15 +14,15 @@ Data Types
 **data** `FixedRate <type-daml-finance-interface-instrument-bond-fixedrate-types-fixedrate-80866_>`_
 
   Describes the attributes of a Fixed Rate Bond\.
-  
+
   .. _constr-daml-finance-interface-instrument-bond-fixedrate-types-fixedrate-27839:
-  
+
   `FixedRate <constr-daml-finance-interface-instrument-bond-fixedrate-types-fixedrate-27839_>`_
-  
+
     .. list-table::
        :widths: 15 10 30
        :header-rows: 1
-    
+
        * - Field
          - Type
          - Description
@@ -53,7 +53,7 @@ Data Types
        * - lastEventTimestamp
          - `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_
          - (Market) time of the last recorded lifecycle event\. If no event has occurred yet, the time of creation should be used\.
-  
+
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `FixedRate <type-daml-finance-interface-instrument-bond-fixedrate-types-fixedrate-80866_>`_
-  
+
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `FixedRate <type-daml-finance-interface-instrument-bond-fixedrate-types-fixedrate-80866_>`_

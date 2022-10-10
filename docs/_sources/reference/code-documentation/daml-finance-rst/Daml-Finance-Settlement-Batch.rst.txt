@@ -14,11 +14,11 @@ Templates
 **template** `Batch <type-daml-finance-settlement-batch-batch-59698_>`_
 
   Allows you to atomically settle a set of settlement ``Step``\\s\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -40,9 +40,10 @@ Templates
      * - stepsWithInstructionId
        - \[(:ref:`Step <type-daml-finance-interface-settlement-types-step-78661>`, :ref:`Id <type-daml-finance-interface-types-common-id-56542>`)\]
        - The settlement ``Step``\\s and the identifiers of the corresponding ``Instruction``\\s\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-settlement-batch-i-3768>` **for** `Batch <type-daml-finance-settlement-batch-batch-59698_>`_
 
@@ -53,5 +54,5 @@ Data Types
 
 **type** `T <type-daml-finance-settlement-batch-t-36750_>`_
   \= `Batch <type-daml-finance-settlement-batch-batch-59698_>`_
-  
+
   Type synonym for ``Batch``\.

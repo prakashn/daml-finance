@@ -15,15 +15,15 @@ Templates
 
   A contract encoding the consequences of an election for one unit of the target instrument\.
   It needs to be claimed with a holding of the right amount and is consumed after claiming\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
-     * - provider
+     * - providers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - The effect provider\.
      * - settlers
@@ -62,9 +62,10 @@ Templates
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - Observers\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>` **for** `ElectionEffect <type-daml-finance-lifecycle-electioneffect-electioneffect-28146_>`_
 
@@ -75,5 +76,5 @@ Data Types
 
 **type** `T <type-daml-finance-lifecycle-electioneffect-t-5245_>`_
   \= `ElectionEffect <type-daml-finance-lifecycle-electioneffect-electioneffect-28146_>`_
-  
+
   Type synonym for ``ElectionEffect``\.

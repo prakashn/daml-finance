@@ -14,17 +14,17 @@ Templates
 **template** `DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982_>`_
 
   A clock where time is discretized into dates\. Each date is mapped to UTC noon\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
      * - providers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
-       - The clock's provider\.
+       - The clock's providers\.
      * - date
        - :ref:`Unit <type-daml-finance-lifecycle-types-unit-19576>`
        - The clock's date\.
@@ -37,18 +37,19 @@ Templates
      * - observers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Observers of the events created from this clock\.
-  
+
   + **Choice Archive**
-    
-  
+
+    (no fields)
+
   + **Choice ToNext**
-    
+
     Moves the clock to the next date and spawns an update event\.
-    
+
     .. list-table::
        :widths: 15 10 30
        :header-rows: 1
-    
+
        * - Field
          - Type
          - Description
@@ -68,5 +69,5 @@ Data Types
 
 **type** `T <type-daml-finance-lifecycle-dateclock-t-67372_>`_
   \= `DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982_>`_
-  
+
   Type synonym for ``DateClock``\.

@@ -14,13 +14,13 @@ Data Types
 **data** `Token <type-daml-finance-interface-instrument-token-types-token-10344_>`_
 
   .. _constr-daml-finance-interface-instrument-token-types-token-24647:
-  
+
   `Token <constr-daml-finance-interface-instrument-token-types-token-24647_>`_
-  
+
     .. list-table::
        :widths: 15 10 30
        :header-rows: 1
-    
+
        * - Field
          - Type
          - Description
@@ -33,7 +33,7 @@ Data Types
        * - validAsOf
          - `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_
          - Timestamp as of which the instrument is valid\.
-  
+
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `Token <type-daml-finance-interface-instrument-token-types-token-10344_>`_
-  
+
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `Token <type-daml-finance-interface-instrument-token-types-token-10344_>`_

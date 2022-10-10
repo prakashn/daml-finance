@@ -14,11 +14,11 @@ Templates
 **template** `Factory <type-daml-finance-holding-fungible-factory-35358_>`_
 
   Implementation of the corresponding Holding Factory\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -28,12 +28,13 @@ Templates
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - The factory's observers\.
-  
-  + **Choice Archive**
-    
 
-  + **interface instance** :ref:`F <type-daml-finance-interface-holding-factory-holding-f-13397>` **for** `Factory <type-daml-finance-holding-fungible-factory-35358_>`_
-  
+  + **Choice Archive**
+
+    (no fields)
+
+  + **interface instance** :ref:`F <type-daml-finance-interface-holding-factory-f-28062>` **for** `Factory <type-daml-finance-holding-fungible-factory-35358_>`_
+
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Factory <type-daml-finance-holding-fungible-factory-35358_>`_
 
 .. _type-daml-finance-holding-fungible-fungible-28517:
@@ -43,11 +44,11 @@ Templates
   Implementation of a fungible holding\.
   ``Fungible`` implements the interface ``Fungible.I`` (which requires ``Transferable.I``, ``Lockable.I``,
   ``Base.I``, and ``Disclosure.I`` to be implemented as well)\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -66,18 +67,19 @@ Templates
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - Observers\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-base-i-67605>` **for** `Fungible <type-daml-finance-holding-fungible-fungible-28517_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-fungible-i-96400>` **for** `Fungible <type-daml-finance-holding-fungible-fungible-28517_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>` **for** `Fungible <type-daml-finance-holding-fungible-fungible-28517_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>` **for** `Fungible <type-daml-finance-holding-fungible-fungible-28517_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Fungible <type-daml-finance-holding-fungible-fungible-28517_>`_
 
 Data Types
@@ -87,12 +89,12 @@ Data Types
 
 **type** `F <type-daml-finance-holding-fungible-f-92968_>`_
   \= `Factory <type-daml-finance-holding-fungible-factory-35358_>`_
-  
+
   Type synonym for ``Factory``\.
 
 .. _type-daml-finance-holding-fungible-t-53798:
 
 **type** `T <type-daml-finance-holding-fungible-t-53798_>`_
   \= `Fungible <type-daml-finance-holding-fungible-fungible-28517_>`_
-  
+
   Type synonym for ``Fungible``\.

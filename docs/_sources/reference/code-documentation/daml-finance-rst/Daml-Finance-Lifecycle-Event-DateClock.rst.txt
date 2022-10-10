@@ -13,12 +13,12 @@ Templates
 
 **template** `Event <type-daml-finance-lifecycle-event-dateclock-event-8880_>`_
 
-  Event signalling the update of a clock\. It can trigger the execution of lifecycle rules for some instruments\.
-  
+  Event signalling the update of a (local date) clock\. It can trigger the execution of lifecycle rules for some instruments\.
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -37,12 +37,13 @@ Templates
      * - observers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - The clock's observers\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-event-i-17082>` **for** `Event <type-daml-finance-lifecycle-event-dateclock-event-8880_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-event-time-i-23752>` **for** `Event <type-daml-finance-lifecycle-event-dateclock-event-8880_>`_
 
 Data Types
@@ -52,5 +53,5 @@ Data Types
 
 **type** `T <type-daml-finance-lifecycle-event-dateclock-t-24296_>`_
   \= `Event <type-daml-finance-lifecycle-event-dateclock-event-8880_>`_
-  
+
   Type synonym for ``DateClock``\.

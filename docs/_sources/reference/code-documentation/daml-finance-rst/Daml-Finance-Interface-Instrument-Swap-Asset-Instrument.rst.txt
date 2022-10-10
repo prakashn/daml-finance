@@ -14,12 +14,10 @@ Interfaces
 **interface** `Instrument <type-daml-finance-interface-instrument-swap-asset-instrument-instrument-70853_>`_
 
   Instrument interface representing an asset swap\.
-  
-  **viewtype** `V <type-daml-finance-interface-instrument-swap-asset-instrument-v-63013_>`_
-  
-  
+
+
   + **Method asBaseInstrument \:** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>`
-    
+
     Conversion to ``Base Instrument`` interface\.
 
 Typeclasses
@@ -37,21 +35,21 @@ Data Types
 
 **type** `I <type-daml-finance-interface-instrument-swap-asset-instrument-i-73906_>`_
   \= `Instrument <type-daml-finance-interface-instrument-swap-asset-instrument-instrument-70853_>`_
-  
+
   Type synonym for ``Instrument``\.
 
 .. _type-daml-finance-interface-instrument-swap-asset-instrument-implementation-60856:
 
 **type** `Implementation <type-daml-finance-interface-instrument-swap-asset-instrument-implementation-60856_>`_ t
   \= (`HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t `Instrument <type-daml-finance-interface-instrument-swap-asset-instrument-instrument-70853_>`_, :ref:`Implementation <type-daml-finance-interface-instrument-base-instrument-implementation-67110>` t, :ref:`Implementation <type-daml-finance-interface-util-disclosure-implementation-41553>` t)
-  
+
   Type constraint requiring templates to implement ``Instrument``, base ``Instrument`` along with ``Disclosure``\.
 
 .. _type-daml-finance-interface-instrument-swap-asset-instrument-v-63013:
 
 **type** `V <type-daml-finance-interface-instrument-swap-asset-instrument-v-63013_>`_
   \= `View <type-daml-finance-interface-instrument-swap-asset-instrument-view-15851_>`_
-  
+
   Type synonym for ``View``\.
 
 .. _type-daml-finance-interface-instrument-swap-asset-instrument-view-15851:
@@ -59,24 +57,24 @@ Data Types
 **data** `View <type-daml-finance-interface-instrument-swap-asset-instrument-view-15851_>`_
 
   View of ``Instrument``\.
-  
+
   .. _constr-daml-finance-interface-instrument-swap-asset-instrument-view-35794:
-  
+
   `View <constr-daml-finance-interface-instrument-swap-asset-instrument-view-35794_>`_
-  
+
     .. list-table::
        :widths: 15 10 30
        :header-rows: 1
-    
+
        * - Field
          - Type
          - Description
        * - asset
          - :ref:`Asset <type-daml-finance-interface-instrument-swap-asset-types-asset-84576>`
          - Attributes of an asset swap\.
-  
+
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-instrument-swap-asset-instrument-view-15851_>`_
-  
+
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `View <type-daml-finance-interface-instrument-swap-asset-instrument-view-15851_>`_
 
 Functions

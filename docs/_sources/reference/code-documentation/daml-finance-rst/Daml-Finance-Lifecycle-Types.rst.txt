@@ -14,16 +14,16 @@ Data Types
 **data** `Unit <type-daml-finance-lifecycle-types-unit-19576_>`_
 
   A ``Date`` which can be converted to ``Time`` (it is converted to UTC noon)\.
-  
+
   .. _constr-daml-finance-lifecycle-types-unit-24399:
-  
+
   `Unit <constr-daml-finance-lifecycle-types-unit-24399_>`_ `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
-  
-  
+
+
   **instance** :ref:`HasUTCTimeConversion <class-daml-finance-interface-types-date-classes-hasutctimeconversion-83616>` `Unit <type-daml-finance-lifecycle-types-unit-19576_>`_
-  
+
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `Unit <type-daml-finance-lifecycle-types-unit-19576_>`_
-  
+
   **instance** `Ord <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-ord-6395>`_ `Unit <type-daml-finance-lifecycle-types-unit-19576_>`_
-  
+
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `Unit <type-daml-finance-lifecycle-types-unit-19576_>`_

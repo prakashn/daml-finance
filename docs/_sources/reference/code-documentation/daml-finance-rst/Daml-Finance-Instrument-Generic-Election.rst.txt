@@ -14,11 +14,11 @@ Templates
 **template** `Election <type-daml-finance-instrument-generic-election-election-43107_>`_
 
   An election, such as the exercise of an option\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -55,14 +55,15 @@ Templates
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - A set of observers\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-generic-election-i-85653>` **for** `Election <type-daml-finance-instrument-generic-election-election-43107_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-event-i-17082>` **for** `Election <type-daml-finance-instrument-generic-election-election-43107_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Election <type-daml-finance-instrument-generic-election-election-43107_>`_
 
 .. _type-daml-finance-instrument-generic-election-electionfactory-8458:
@@ -71,11 +72,11 @@ Templates
 
   Helper contract to delegate the right to create ``Election``\\s referencing a specific ``Instrument``\.
   The provider delegates the ability to create ``Election``\\s to any party that has visibility on the ``ElectionFactory`` contract\. In order to create the ``Election``, a valid ``Holding`` must be presented which identifies the choice controller as either the owner or the custodian to the ``Holding``\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -97,18 +98,19 @@ Templates
      * - instrument
        - :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`
        - key of the instrument to which the election applies
-  
+
   + **Choice Archive**
-    
-  
+
+    (no fields)
+
   + **Choice CreateElection**
-    
+
     Creates an ``Election`` on an instrument\. This choice must be exercised by the ``elector``\.
-    
+
     .. list-table::
        :widths: 15 10 30
        :header-rows: 1
-    
+
        * - Field
          - Type
          - Description
@@ -132,5 +134,5 @@ Data Types
 
 **type** `T <type-daml-finance-instrument-generic-election-t-9669_>`_
   \= `Election <type-daml-finance-instrument-generic-election-election-43107_>`_
-  
+
   Type synonym for ``Election``\.

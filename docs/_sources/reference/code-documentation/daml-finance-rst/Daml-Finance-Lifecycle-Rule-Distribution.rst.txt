@@ -14,15 +14,15 @@ Templates
 **template** `Rule <type-daml-finance-lifecycle-rule-distribution-rule-66267_>`_
 
   Rule contract that defines the distribution of units of an instrument for each unit of a target instrument (e\.g\., share or cash dividends)\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
-     * - provider
+     * - providers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Providers of the distribution rule\.
      * - lifecycler
@@ -31,9 +31,10 @@ Templates
      * - observers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Observers of the distributin rule\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>` **for** `Rule <type-daml-finance-lifecycle-rule-distribution-rule-66267_>`_
 
@@ -44,5 +45,5 @@ Data Types
 
 **type** `T <type-daml-finance-lifecycle-rule-distribution-t-91388_>`_
   \= `Rule <type-daml-finance-lifecycle-rule-distribution-rule-66267_>`_
-  
+
   Type synonym for ``Rule``\.

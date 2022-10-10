@@ -15,11 +15,11 @@ Templates
 
   Factory template that implements the ``Factory`` interface\.
   It is used to create a set of settlement ``Instruction``\\s, and a ``Batch`` to atomically settle them\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -29,9 +29,10 @@ Templates
      * - observers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Observers\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>` **for** `Factory <type-daml-finance-settlement-factory-factory-53518_>`_
 
@@ -43,11 +44,11 @@ Templates
   It is used to create a set of settlement ``Instruction``\\s, and a ``Batch`` to atomically settle them\.
   For each instrument to settle as part of the batch, a hierarchy of intermediaries is specified in ``paths``\.
   This hierarchy is used to generate the settlement instructions\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -60,9 +61,10 @@ Templates
      * - paths
        - `Map <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-map-90052>`_ `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_ `Path <type-daml-finance-settlement-factory-path-70278_>`_
        - Hierarchical paths used to settle holding transfers\. A path is specified for each instrument label\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>` **for** `FactoryWithIntermediaries <type-daml-finance-settlement-factory-factorywithintermediaries-72365_>`_
 
@@ -74,15 +76,15 @@ Data Types
 **data** `Path <type-daml-finance-settlement-factory-path-70278_>`_
 
   Data type that describes a hierarchical account structure between two parties for holdings on an instrument\.
-  
+
   .. _constr-daml-finance-settlement-factory-path-19123:
-  
+
   `Path <constr-daml-finance-settlement-factory-path-19123_>`_
-  
+
     .. list-table::
        :widths: 15 10 30
        :header-rows: 1
-    
+
        * - Field
          - Type
          - Description
@@ -92,7 +94,7 @@ Data Types
        * - receiverPath
          - \[`Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_\]
          - Path from the receiver to the root custodian of the holding\. If the receiver ``p`` is the root custodian, it should be ``[p, p]``\.
-  
+
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `Path <type-daml-finance-settlement-factory-path-70278_>`_
-  
+
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `Path <type-daml-finance-settlement-factory-path-70278_>`_

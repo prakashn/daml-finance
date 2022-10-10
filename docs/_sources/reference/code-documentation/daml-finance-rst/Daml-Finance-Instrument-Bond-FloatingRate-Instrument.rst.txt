@@ -18,11 +18,11 @@ Templates
   This consists of a reference rate (observed at the beginning of the coupon period) plus a coupon spread\.
   For example\: 3M Euribor \+ 0\.5%\.
   FLOATING\_RATE\_BOND\_TEMPLATE\_UNTIL\_REFRATE\_BEGIN
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -68,18 +68,19 @@ Templates
      * - lastEventTimestamp
        - `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_
        - (Market) time of the last recorded lifecycle event\. If no event has occurred yet, the time of creation should be used\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` **for** `Instrument <type-daml-finance-instrument-bond-floatingrate-instrument-instrument-67025_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>` **for** `Instrument <type-daml-finance-instrument-bond-floatingrate-instrument-instrument-67025_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-bond-floatingrate-instrument-i-64015>` **for** `Instrument <type-daml-finance-instrument-bond-floatingrate-instrument-instrument-67025_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>` **for** `Instrument <type-daml-finance-instrument-bond-floatingrate-instrument-instrument-67025_>`_
-  
+
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Instrument <type-daml-finance-instrument-bond-floatingrate-instrument-instrument-67025_>`_
 
 Data Types
@@ -89,5 +90,5 @@ Data Types
 
 **type** `T <type-daml-finance-instrument-bond-floatingrate-instrument-t-57047_>`_
   \= `Instrument <type-daml-finance-instrument-bond-floatingrate-instrument-instrument-67025_>`_
-  
+
   Type synonym for ``Instrument``\.

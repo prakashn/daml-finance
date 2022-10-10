@@ -15,11 +15,11 @@ Templates
 
   An implementation of ``Observable`` that explicitly stores time\-dependent numerical values\.
   It can be used for e\.g\. equity or rate fixings\.
-  
+
   .. list-table::
      :widths: 15 10 30
      :header-rows: 1
-  
+
      * - Field
        - Type
        - Description
@@ -35,6 +35,7 @@ Templates
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - Observers\.
-  
+
   + **Choice Archive**
-    
+
+    (no fields)

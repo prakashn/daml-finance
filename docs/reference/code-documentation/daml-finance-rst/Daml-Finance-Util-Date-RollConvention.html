@@ -82,170 +82,876 @@
           
           
           
-          <ul>
+          <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../index.html">Daml Finance Documentation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Overview</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../overview/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../overview/architecture.html">Architecture</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Concepts</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../concepts/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../concepts/asset-model.html">Asset Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../concepts/settlement.html">Settlement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../concepts/lifecycling.html">Lifecycling</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Packages</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../packages/intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../packages/core-interfaces.html">Core Interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../packages/core-implementations.html">Core Implementations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../packages/instrument-extensions.html">Instrument Extensions</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/getting-started/intro.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/getting-started/transfer.html">Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/getting-started/settlement.html">Settlement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/getting-started/lifecycling.html">Lifecycling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/index.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../overview/intro.html">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/intro.html#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/intro.html#design-goals">Design Goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/intro.html#scope">Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/intro.html#use-cases">Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/intro.html#exploring-the-library">Exploring the Library</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/instrument-modeling/intro.html">Instrument Modeling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-extension.html">How to Use the Bond Extension Package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html">How to Lifecycle a Bond Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/swap-extension.html">How To Use the Swap Extension Package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/derivative-extension.html">How To Use the Derivative Extension To Model Generic Instruments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims Tree on Ledger vs On-the-Fly Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../overview/architecture.html">Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/architecture.html#interface-layer">Interface Layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/architecture.html#implementation-layer">Implementation Layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/architecture.html#how-to-use-the-library">How To Use the Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/architecture.html#extension-points">Extension Points</a></li>
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Daml Finance</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Data-Observable-Observation.html">Daml.Finance.Data.Observable.Observation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Data-Reference-HolidayCalendar.html">Daml.Finance.Data.Reference.HolidayCalendar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Holding-Account.html">Daml.Finance.Holding.Account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Holding-Fungible.html">Daml.Finance.Holding.Fungible</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Holding-NonFungible.html">Daml.Finance.Holding.NonFungible</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Holding-NonTransferable.html">Daml.Finance.Holding.NonTransferable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Holding-Util.html">Daml.Finance.Holding.Util</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FixedRate-Factory.html">Daml.Finance.Instrument.Bond.FixedRate.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FixedRate-Instrument.html">Daml.Finance.Instrument.Bond.FixedRate.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FloatingRate-Factory.html">Daml.Finance.Instrument.Bond.FloatingRate.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FloatingRate-Instrument.html">Daml.Finance.Instrument.Bond.FloatingRate.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-InflationLinked-Factory.html">Daml.Finance.Instrument.Bond.InflationLinked.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-InflationLinked-Instrument.html">Daml.Finance.Instrument.Bond.InflationLinked.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-ZeroCoupon-Factory.html">Daml.Finance.Instrument.Bond.ZeroCoupon.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Bond-ZeroCoupon-Instrument.html">Daml.Finance.Instrument.Bond.ZeroCoupon.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Equity-Factory.html">Daml.Finance.Instrument.Equity.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Equity-Instrument.html">Daml.Finance.Instrument.Equity.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Election.html">Daml.Finance.Instrument.Generic.Election</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Factory.html">Daml.Finance.Instrument.Generic.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Instrument.html">Daml.Finance.Instrument.Generic.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Asset-Factory.html">Daml.Finance.Instrument.Swap.Asset.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Instrument.Swap.Asset.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Instrument.Swap.CreditDefault.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Instrument.Swap.CreditDefault.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Currency-Factory.html">Daml.Finance.Instrument.Swap.Currency.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Currency-Instrument.html">Daml.Finance.Instrument.Swap.Currency.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-ForeignExchange-Factory.html">Daml.Finance.Instrument.Swap.ForeignExchange.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-ForeignExchange-Instrument.html">Daml.Finance.Instrument.Swap.ForeignExchange.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-InterestRate-Factory.html">Daml.Finance.Instrument.Swap.InterestRate.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Swap-InterestRate-Instrument.html">Daml.Finance.Instrument.Swap.InterestRate.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Token-Factory.html">Daml.Finance.Instrument.Token.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Instrument-Token-Instrument.html">Daml.Finance.Instrument.Token.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Claims-Claim.html">Daml.Finance.Interface.Claims.Claim</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Claims-Types.html">Daml.Finance.Interface.Claims.Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Claims-Util.html">Daml.Finance.Interface.Claims.Util</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Claims-Util-Lifecycle.html">Daml.Finance.Interface.Claims.Util.Lifecycle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Data-Observable.html">Daml.Finance.Interface.Data.Observable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Account.html">Daml.Finance.Interface.Holding.Account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Base.html">Daml.Finance.Interface.Holding.Base</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Factory-Account.html">Daml.Finance.Interface.Holding.Factory.Account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Factory-Holding.html">Daml.Finance.Interface.Holding.Factory.Holding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Fungible.html">Daml.Finance.Interface.Holding.Fungible</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Lockable.html">Daml.Finance.Interface.Holding.Lockable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Transferable.html">Daml.Finance.Interface.Holding.Transferable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Holding-Util.html">Daml.Finance.Interface.Holding.Util</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Base-Instrument.html">Daml.Finance.Interface.Instrument.Base.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Factory.html">Daml.Finance.Interface.Instrument.Bond.FixedRate.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Instrument.html">Daml.Finance.Interface.Instrument.Bond.FixedRate.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Types.html">Daml.Finance.Interface.Instrument.Bond.FixedRate.Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Factory.html">Daml.Finance.Interface.Instrument.Bond.FloatingRate.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Instrument.html">Daml.Finance.Interface.Instrument.Bond.FloatingRate.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Types.html">Daml.Finance.Interface.Instrument.Bond.FloatingRate.Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Factory.html">Daml.Finance.Interface.Instrument.Bond.InflationLinked.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Instrument.html">Daml.Finance.Interface.Instrument.Bond.InflationLinked.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Types.html">Daml.Finance.Interface.Instrument.Bond.InflationLinked.Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Factory.html">Daml.Finance.Interface.Instrument.Bond.ZeroCoupon.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Instrument.html">Daml.Finance.Interface.Instrument.Bond.ZeroCoupon.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Types.html">Daml.Finance.Interface.Instrument.Bond.ZeroCoupon.Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Factory.html">Daml.Finance.Interface.Instrument.Equity.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Instrument.html">Daml.Finance.Interface.Instrument.Equity.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Election.html">Daml.Finance.Interface.Instrument.Generic.Election</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Factory.html">Daml.Finance.Interface.Instrument.Generic.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Instrument.html">Daml.Finance.Interface.Instrument.Generic.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Factory.html">Daml.Finance.Interface.Instrument.Swap.Asset.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Asset.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Types.html">Daml.Finance.Interface.Instrument.Swap.Asset.Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Types.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Factory.html">Daml.Finance.Interface.Instrument.Swap.Currency.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Currency.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Types.html">Daml.Finance.Interface.Instrument.Swap.Currency.Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Factory.html">Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Instrument.html">Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Types.html">Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Factory.html">Daml.Finance.Interface.Instrument.Swap.InterestRate.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Instrument.html">Daml.Finance.Interface.Instrument.Swap.InterestRate.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Types.html">Daml.Finance.Interface.Instrument.Swap.InterestRate.Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Factory.html">Daml.Finance.Interface.Instrument.Token.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Instrument.html">Daml.Finance.Interface.Instrument.Token.Instrument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Types.html">Daml.Finance.Interface.Instrument.Token.Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Clock.html">Daml.Finance.Interface.Lifecycle.Clock</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Effect.html">Daml.Finance.Interface.Lifecycle.Effect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event.html">Daml.Finance.Interface.Lifecycle.Event</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Distribution.html">Daml.Finance.Interface.Lifecycle.Event.Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Replacement.html">Daml.Finance.Interface.Lifecycle.Event.Replacement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Time.html">Daml.Finance.Interface.Lifecycle.Event.Time</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Claim.html">Daml.Finance.Interface.Lifecycle.Rule.Claim</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Lifecycle.html">Daml.Finance.Interface.Lifecycle.Rule.Lifecycle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Batch.html">Daml.Finance.Interface.Settlement.Batch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Factory.html">Daml.Finance.Interface.Settlement.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Instruction.html">Daml.Finance.Interface.Settlement.Instruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Types.html">Daml.Finance.Interface.Settlement.Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html">Daml.Finance.Interface.Types.Common</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-Calendar.html">Daml.Finance.Interface.Types.Date.Calendar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-Classes.html">Daml.Finance.Interface.Types.Date.Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-DayCount.html">Daml.Finance.Interface.Types.Date.DayCount</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-RollConvention.html">Daml.Finance.Interface.Types.Date.RollConvention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-Schedule.html">Daml.Finance.Interface.Types.Date.Schedule</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Util-Common.html">Daml.Finance.Interface.Util.Common</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html">Daml.Finance.Interface.Util.Disclosure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-DateClock.html">Daml.Finance.Lifecycle.DateClock</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Effect.html">Daml.Finance.Lifecycle.Effect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-ElectionEffect.html">Daml.Finance.Lifecycle.ElectionEffect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-DateClock.html">Daml.Finance.Lifecycle.Event.DateClock</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-Distribution.html">Daml.Finance.Lifecycle.Event.Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-Replacement.html">Daml.Finance.Lifecycle.Event.Replacement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Claim.html">Daml.Finance.Lifecycle.Rule.Claim</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Distribution.html">Daml.Finance.Lifecycle.Rule.Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Replacement.html">Daml.Finance.Lifecycle.Rule.Replacement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Lifecycle-Types.html">Daml.Finance.Lifecycle.Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Settlement-Batch.html">Daml.Finance.Settlement.Batch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Settlement-Factory.html">Daml.Finance.Settlement.Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Util-Common.html">Daml.Finance.Util.Common</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Util-Date-Calendar.html">Daml.Finance.Util.Date.Calendar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Util-Date-DayCount.html">Daml.Finance.Util.Date.DayCount</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Daml.Finance.Util.Date.RollConvention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Daml-Finance-Util-Date-Schedule.html">Daml.Finance.Util.Date.Schedule</a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts/index.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../concepts/intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../concepts/asset-model.html">Asset Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/asset-model.html#instrument">Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/asset-model.html#signatories">Signatories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/asset-model.html#keys-and-versioning">Keys and Versioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/asset-model.html#implementations">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/asset-model.html#holding">Holding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/asset-model.html#signatories-1">Signatories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/asset-model.html#properties-of-holdings">Properties of Holdings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/asset-model.html#implementations-1">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/asset-model.html#account">Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/asset-model.html#signatories-2">Signatories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/asset-model.html#keys">Keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/asset-model.html#implementations-2">Implementations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../concepts/settlement.html">Settlement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/settlement.html#step">Step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/settlement.html#instruction">Instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/settlement.html#batch">Batch</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../concepts/lifecycling.html">Lifecycling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/lifecycling.html#events">Events</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#intrinsic">Intrinsic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#extrinsic">Extrinsic</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/lifecycling.html#instrument-versions">Instrument Versions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/lifecycling.html#effects">Effects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../packages/index.html">Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../packages/intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../packages/core-interfaces.html">Core Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../packages/core-implementations.html">Core Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../packages/instrument-extensions.html">Instrument Extensions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/instrument-extensions.html#tokens">Tokens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/instrument-extensions.html#bonds">Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/instrument-extensions.html#swaps">Swaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/instrument-extensions.html#equity">Equity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/instrument-extensions.html#generic">Generic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/getting-started/intro.html">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/getting-started/transfer.html">Transfer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/transfer.html#download-the-code-for-the-tutorial">Download the Code for the Tutorial</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/transfer.html#structure-of-the-code-and-dependencies">Structure of the Code and Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/transfer.html#run-the-transfer-script">Run the Transfer Script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/transfer.html#frequently-asked-questions">Frequently Asked Questions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/transfer.html#exercises">Exercises</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/transfer.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/getting-started/settlement.html">Settlement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/settlement.html#overview-of-the-process">Overview of the Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/settlement.html#run-the-script">Run the Script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/settlement.html#frequently-asked-questions">Frequently Asked Questions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/settlement.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/getting-started/lifecycling.html">Lifecycling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/lifecycling.html#overview-of-the-process">Overview of the Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/lifecycling.html#run-the-script">Run the Script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/lifecycling.html#frequently-asked-questions">Frequently Asked Questions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/lifecycling.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/getting-started/intro.html#daml-finance">Daml Finance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/getting-started/intro.html#daml-finance-reference-app">Daml Finance Reference App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/getting-started/intro.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/instrument-modeling/intro.html">Instrument Modeling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-extension.html">How to Use the Bond Extension Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-extension.html#how-to-use-the-bond-extension-in-your-application">How to Use the Bond Extension in Your Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-extension.html#how-to-create-a-bond-instrument">How to Create a Bond Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-extension.html#frequently-asked-questions">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html">How to Lifecycle a Bond Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html#create-a-fixed-rate-bond-instrument">Create a Fixed-Rate Bond Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html#define-the-clock-for-time-based-events">Define the Clock for Time-Based Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html#lifecycle-the-bond-instrument">Lifecycle the Bond Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html#settle-the-instructions">Settle the Instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/instrument-modeling/swap-extension.html">How To Use the Swap Extension Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/swap-extension.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/swap-extension.html#how-to-create-a-swap-instrument">How To Create a Swap Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/swap-extension.html#frequently-asked-questions">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/instrument-modeling/derivative-extension.html">How To Use the Derivative Extension To Model Generic Instruments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/derivative-extension.html#how-to-create-a-generic-instrument">How To Create a Generic Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/derivative-extension.html#how-to-trade-and-transfer-a-generic-instrument">How To Trade and Transfer a Generic Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/derivative-extension.html#how-to-process-lifecycle-events">How to Process Lifecycle Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/derivative-extension.html#how-to-redeem-a-generic-instrument">How to Redeem a Generic Instrument</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html#template-definition">Template Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html#hasclaims-interface">HasClaims Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html#how-to-define-the-redemption-claim">How to Define the Redemption Claim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html#how-to-define-the-coupon-claims">How to Define the Coupon Claims</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html#how-the-instrument-evolves-over-time">How the Instrument Evolves Over Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html#observables">Observables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-on-ledger-vs-on-the-fly.html">Contingent Claims Tree on Ledger vs On-the-Fly Creation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-on-ledger-vs-on-the-fly.html#different-ways-to-create-and-store-the-contingent-claims-tree">Different Ways to Create and Store the Contingent Claims Tree</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-on-ledger-vs-on-the-fly.html#which-is-preferred">Which Is Preferred?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../glossary.html">Glossary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#account">Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#instrument">Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#holding">Holding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#custodian">Custodian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#owner">Owner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#depository">Depository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#issuer">Issuer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#fungibility">Fungibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#transferability">Transferability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#locking">Locking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#crediting-debiting">Crediting / Debiting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#disclosure">Disclosure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#settlement">Settlement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html#lifecycling">Lifecycling</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Daml Finance</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Account-Account.html">Daml.Finance.Account.Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Account-Account.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Account-Account.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Account-Util.html">Daml.Finance.Account.Util</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Account-Util.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Data-Observable-Observation.html">Daml.Finance.Data.Observable.Observation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Data-Observable-Observation.html#templates">Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Data-Reference-HolidayCalendar.html">Daml.Finance.Data.Reference.HolidayCalendar</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Data-Reference-HolidayCalendar.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Data-Reference-HolidayCalendar.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Holding-Fungible.html">Daml.Finance.Holding.Fungible</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Holding-Fungible.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Holding-Fungible.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Holding-NonFungible.html">Daml.Finance.Holding.NonFungible</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Holding-NonFungible.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Holding-NonFungible.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Holding-NonTransferable.html">Daml.Finance.Holding.NonTransferable</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Holding-NonTransferable.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Holding-NonTransferable.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Holding-Util.html">Daml.Finance.Holding.Util</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Holding-Util.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FixedRate-Factory.html">Daml.Finance.Instrument.Bond.FixedRate.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FixedRate-Factory.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FixedRate-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FixedRate-Instrument.html">Daml.Finance.Instrument.Bond.FixedRate.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FixedRate-Instrument.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FixedRate-Instrument.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FloatingRate-Factory.html">Daml.Finance.Instrument.Bond.FloatingRate.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FloatingRate-Factory.html#templates">Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FloatingRate-Instrument.html">Daml.Finance.Instrument.Bond.FloatingRate.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FloatingRate-Instrument.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-FloatingRate-Instrument.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Bond-InflationLinked-Factory.html">Daml.Finance.Instrument.Bond.InflationLinked.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-InflationLinked-Factory.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-InflationLinked-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Bond-InflationLinked-Instrument.html">Daml.Finance.Instrument.Bond.InflationLinked.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-InflationLinked-Instrument.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-InflationLinked-Instrument.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Bond-ZeroCoupon-Factory.html">Daml.Finance.Instrument.Bond.ZeroCoupon.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-ZeroCoupon-Factory.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-ZeroCoupon-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Bond-ZeroCoupon-Instrument.html">Daml.Finance.Instrument.Bond.ZeroCoupon.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-ZeroCoupon-Instrument.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Bond-ZeroCoupon-Instrument.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Equity-Factory.html">Daml.Finance.Instrument.Equity.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Equity-Factory.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Equity-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Equity-Instrument.html">Daml.Finance.Instrument.Equity.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Equity-Instrument.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Equity-Instrument.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Election.html">Daml.Finance.Instrument.Generic.Election</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Election.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Election.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Factory.html">Daml.Finance.Instrument.Generic.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Factory.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Instrument.html">Daml.Finance.Instrument.Generic.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Instrument.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Instrument.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Util.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Asset-Factory.html">Daml.Finance.Instrument.Swap.Asset.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Asset-Factory.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Asset-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Instrument.Swap.Asset.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Asset-Instrument.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Asset-Instrument.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Instrument.Swap.CreditDefault.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Factory.html#templates">Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Instrument.Swap.CreditDefault.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Currency-Factory.html">Daml.Finance.Instrument.Swap.Currency.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Currency-Factory.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Currency-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Currency-Instrument.html">Daml.Finance.Instrument.Swap.Currency.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Currency-Instrument.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Currency-Instrument.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-ForeignExchange-Factory.html">Daml.Finance.Instrument.Swap.ForeignExchange.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-ForeignExchange-Factory.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-ForeignExchange-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-ForeignExchange-Instrument.html">Daml.Finance.Instrument.Swap.ForeignExchange.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-ForeignExchange-Instrument.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-ForeignExchange-Instrument.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Fpml-Factory.html">Daml.Finance.Instrument.Swap.Fpml.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Fpml-Factory.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Fpml-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Fpml-Instrument.html">Daml.Finance.Instrument.Swap.Fpml.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Fpml-Instrument.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Fpml-Instrument.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-InterestRate-Factory.html">Daml.Finance.Instrument.Swap.InterestRate.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-InterestRate-Factory.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-InterestRate-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-InterestRate-Instrument.html">Daml.Finance.Instrument.Swap.InterestRate.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-InterestRate-Instrument.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-InterestRate-Instrument.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Token-Factory.html">Daml.Finance.Instrument.Token.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Token-Factory.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Token-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Token-Instrument.html">Daml.Finance.Instrument.Token.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Token-Instrument.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Token-Instrument.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Account-Account.html">Daml.Finance.Interface.Account.Account</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Account-Account.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Account-Account.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Account-Account.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Account-Account.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Account-Factory.html">Daml.Finance.Interface.Account.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Account-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Account-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Account-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Account-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Account-Util.html">Daml.Finance.Interface.Account.Util</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Account-Util.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Claims-Claim.html">Daml.Finance.Interface.Claims.Claim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Claim.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Claim.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Claim.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Claims-Types.html">Daml.Finance.Interface.Claims.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Claims-Util.html">Daml.Finance.Interface.Claims.Util</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Util.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Claims-Util-Lifecycle.html">Daml.Finance.Interface.Claims.Util.Lifecycle</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Util-Lifecycle.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Data-Observable.html">Daml.Finance.Interface.Data.Observable</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-Observable.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-Observable.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-Observable.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-Observable.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Holding-Base.html">Daml.Finance.Interface.Holding.Base</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Base.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Base.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Base.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Base.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Holding-Factory.html">Daml.Finance.Interface.Holding.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Holding-Fungible.html">Daml.Finance.Interface.Holding.Fungible</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Fungible.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Fungible.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Fungible.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Fungible.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Holding-Lockable.html">Daml.Finance.Interface.Holding.Lockable</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Lockable.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Lockable.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Lockable.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Lockable.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Holding-Transferable.html">Daml.Finance.Interface.Holding.Transferable</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Transferable.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Transferable.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Transferable.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Transferable.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Holding-Util.html">Daml.Finance.Interface.Holding.Util</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Util.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Base-Instrument.html">Daml.Finance.Interface.Instrument.Base.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Base-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Base-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Base-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Base-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Factory.html">Daml.Finance.Interface.Instrument.Bond.FixedRate.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Instrument.html">Daml.Finance.Interface.Instrument.Bond.FixedRate.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Types.html">Daml.Finance.Interface.Instrument.Bond.FixedRate.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FixedRate-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Factory.html">Daml.Finance.Interface.Instrument.Bond.FloatingRate.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Instrument.html">Daml.Finance.Interface.Instrument.Bond.FloatingRate.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Types.html">Daml.Finance.Interface.Instrument.Bond.FloatingRate.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-FloatingRate-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Factory.html">Daml.Finance.Interface.Instrument.Bond.InflationLinked.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Instrument.html">Daml.Finance.Interface.Instrument.Bond.InflationLinked.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Types.html">Daml.Finance.Interface.Instrument.Bond.InflationLinked.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-InflationLinked-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Factory.html">Daml.Finance.Interface.Instrument.Bond.ZeroCoupon.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Instrument.html">Daml.Finance.Interface.Instrument.Bond.ZeroCoupon.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Types.html">Daml.Finance.Interface.Instrument.Bond.ZeroCoupon.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Bond-ZeroCoupon-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Factory.html">Daml.Finance.Interface.Instrument.Equity.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Instrument.html">Daml.Finance.Interface.Instrument.Equity.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Equity-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Election.html">Daml.Finance.Interface.Instrument.Generic.Election</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Election.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Election.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Election.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Election.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Factory.html">Daml.Finance.Interface.Instrument.Generic.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Instrument.html">Daml.Finance.Interface.Instrument.Generic.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Generic-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Factory.html">Daml.Finance.Interface.Instrument.Swap.Asset.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Asset.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Types.html">Daml.Finance.Interface.Instrument.Swap.Asset.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Asset-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Types.html">Daml.Finance.Interface.Instrument.Swap.CreditDefault.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Factory.html">Daml.Finance.Interface.Instrument.Swap.Currency.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Currency.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Types.html">Daml.Finance.Interface.Instrument.Swap.Currency.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Currency-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Factory.html">Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Instrument.html">Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Types.html">Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Fpml-Factory.html">Daml.Finance.Interface.Instrument.Swap.Fpml.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Fpml-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Fpml-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Fpml-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Fpml-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Fpml.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Fpml-Types.html">Daml.Finance.Interface.Instrument.Swap.Fpml.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-Fpml-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Factory.html">Daml.Finance.Interface.Instrument.Swap.InterestRate.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Instrument.html">Daml.Finance.Interface.Instrument.Swap.InterestRate.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Types.html">Daml.Finance.Interface.Instrument.Swap.InterestRate.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-InterestRate-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Factory.html">Daml.Finance.Interface.Instrument.Token.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Instrument.html">Daml.Finance.Interface.Instrument.Token.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Types.html">Daml.Finance.Interface.Instrument.Token.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Clock.html">Daml.Finance.Interface.Lifecycle.Clock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Clock.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Clock.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Clock.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Effect.html">Daml.Finance.Interface.Lifecycle.Effect</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Effect.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Effect.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Effect.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Effect.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event.html">Daml.Finance.Interface.Lifecycle.Event</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Distribution.html">Daml.Finance.Interface.Lifecycle.Event.Distribution</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Distribution.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Distribution.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Distribution.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Distribution.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Replacement.html">Daml.Finance.Interface.Lifecycle.Event.Replacement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Replacement.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Replacement.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Replacement.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Replacement.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Time.html">Daml.Finance.Interface.Lifecycle.Event.Time</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Time.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Time.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Time.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Event-Time.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Claim.html">Daml.Finance.Interface.Lifecycle.Rule.Claim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Claim.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Claim.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Claim.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Claim.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Lifecycle.html">Daml.Finance.Interface.Lifecycle.Rule.Lifecycle</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Lifecycle.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Lifecycle.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Lifecycle.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Rule-Lifecycle.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Batch.html">Daml.Finance.Interface.Settlement.Batch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Batch.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Batch.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Batch.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Batch.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Factory.html">Daml.Finance.Interface.Settlement.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Factory.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Factory.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Factory.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Factory.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Instruction.html">Daml.Finance.Interface.Settlement.Instruction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Instruction.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Instruction.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Instruction.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Instruction.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Types.html">Daml.Finance.Interface.Settlement.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html">Daml.Finance.Interface.Types.Common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-Calendar.html">Daml.Finance.Interface.Types.Date.Calendar</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-Calendar.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-Classes.html">Daml.Finance.Interface.Types.Date.Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-Classes.html#typeclasses">Typeclasses</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-DayCount.html">Daml.Finance.Interface.Types.Date.DayCount</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-DayCount.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-RollConvention.html">Daml.Finance.Interface.Types.Date.RollConvention</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-RollConvention.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-Schedule.html">Daml.Finance.Interface.Types.Date.Schedule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Types-Date-Schedule.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Types-Fpml.html">Daml.Finance.Interface.Types.Fpml</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Types-Fpml.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Util-Common.html">Daml.Finance.Interface.Util.Common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Util-Common.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html">Daml.Finance.Interface.Util.Disclosure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-DateClock.html">Daml.Finance.Lifecycle.DateClock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-DateClock.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-DateClock.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-Effect.html">Daml.Finance.Lifecycle.Effect</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Effect.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Effect.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-ElectionEffect.html">Daml.Finance.Lifecycle.ElectionEffect</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-ElectionEffect.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-ElectionEffect.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-DateClock.html">Daml.Finance.Lifecycle.Event.DateClock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-DateClock.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-DateClock.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-Distribution.html">Daml.Finance.Lifecycle.Event.Distribution</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-Distribution.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-Distribution.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-Replacement.html">Daml.Finance.Lifecycle.Event.Replacement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-Replacement.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-Replacement.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Claim.html">Daml.Finance.Lifecycle.Rule.Claim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Claim.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Claim.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Distribution.html">Daml.Finance.Lifecycle.Rule.Distribution</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Distribution.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Distribution.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Replacement.html">Daml.Finance.Lifecycle.Rule.Replacement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Replacement.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Replacement.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-Types.html">Daml.Finance.Lifecycle.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Types.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Settlement-Batch.html">Daml.Finance.Settlement.Batch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Settlement-Batch.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Settlement-Batch.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Settlement-Factory.html">Daml.Finance.Settlement.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Settlement-Factory.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Settlement-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Settlement-Instruction.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Settlement-Instruction.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Util-Common.html">Daml.Finance.Util.Common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Util-Common.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Util-Date-Calendar.html">Daml.Finance.Util.Date.Calendar</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Util-Date-Calendar.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Util-Date-DayCount.html">Daml.Finance.Util.Date.DayCount</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Util-Date-DayCount.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Daml.Finance.Util.Date.RollConvention</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Util-Date-Schedule.html">Daml.Finance.Util.Date.Schedule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Util-Date-Schedule.html#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

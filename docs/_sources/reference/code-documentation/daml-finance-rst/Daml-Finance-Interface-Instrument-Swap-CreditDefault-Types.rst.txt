@@ -14,13 +14,13 @@ Data Types
 **data** `CreditDefault <type-daml-finance-interface-instrument-swap-creditdefault-types-creditdefault-84256_>`_
 
   .. _constr-daml-finance-interface-instrument-swap-creditdefault-types-creditdefault-2497:
-  
+
   `CreditDefault <constr-daml-finance-interface-instrument-swap-creditdefault-types-creditdefault-2497_>`_
-  
+
     .. list-table::
        :widths: 15 10 30
        :header-rows: 1
-    
+
        * - Field
          - Type
          - Description
@@ -60,7 +60,7 @@ Data Types
        * - lastEventTimestamp
          - `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_
          - (Market) time of the last recorded lifecycle event\. If no event has occurred yet, the time of creation should be used\.
-  
+
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `CreditDefault <type-daml-finance-interface-instrument-swap-creditdefault-types-creditdefault-84256_>`_
-  
+
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `CreditDefault <type-daml-finance-interface-instrument-swap-creditdefault-types-creditdefault-84256_>`_

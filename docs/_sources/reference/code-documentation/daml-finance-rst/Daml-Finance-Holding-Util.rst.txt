@@ -13,33 +13,33 @@ Functions
 
 `reapplyLocks <function-daml-finance-holding-util-reapplylocks-44958_>`_
   \: `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>` \-\> :ref:`Lock <type-daml-finance-interface-holding-lockable-lock-96362>` \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`)
-  
+
   Utility function to reapply holding locks\.
 
 .. _function-daml-finance-holding-util-releaseall-28087:
 
 `releaseAll <function-daml-finance-holding-util-releaseall-28087_>`_
   \: `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>` \-\> :ref:`Lock <type-daml-finance-interface-holding-lockable-lock-96362>` \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`)
-  
+
   Utility function to unlock all holding locks\.
 
 .. _function-daml-finance-holding-util-transferimpl-88690:
 
 `transferImpl <function-daml-finance-holding-util-transferimpl-88690_>`_
   \: `HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>` \=\> `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ t \-\> Transfer \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`)
-  
+
   Implementation of transfer for the Transferable interface\.
 
 .. _function-daml-finance-holding-util-acquireimpl-34800:
 
 `acquireImpl <function-daml-finance-holding-util-acquireimpl-34800_>`_
   \: (`HasCreate <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hascreate-45738>`_ t, `HasField <https://docs.daml.com/daml/stdlib/DA-Record.html#class-da-internal-record-hasfield-52839>`_ \"lock\" t (`Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`Lock <type-daml-finance-interface-holding-lockable-lock-96362>`), `HasFromInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hasfrominterface-43863>`_ t :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`, `HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`) \=\> t \-\> :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>` \-\> Acquire \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`)
-  
+
   Default implementation of ``acquire`` from the Lockable interface\.
 
 .. _function-daml-finance-holding-util-releaseimpl-24083:
 
 `releaseImpl <function-daml-finance-holding-util-releaseimpl-24083_>`_
   \: (`HasCreate <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hascreate-45738>`_ t, `HasField <https://docs.daml.com/daml/stdlib/DA-Record.html#class-da-internal-record-hasfield-52839>`_ \"lock\" t (`Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`Lock <type-daml-finance-interface-holding-lockable-lock-96362>`), `HasFromInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hasfrominterface-43863>`_ t :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`, `HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`) \=\> t \-\> :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>` \-\> Release \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`)
-  
+
   Default implementation of release from the Lockable interface\.
