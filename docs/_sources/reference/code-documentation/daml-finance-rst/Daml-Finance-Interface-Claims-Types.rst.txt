@@ -34,7 +34,7 @@ Data Types
 
 **data** `Pending <type-daml-finance-interface-claims-types-pending-95419_>`_
 
-  Type used to record pending payments
+  Type used to record pending payments\.
 
   .. _constr-daml-finance-interface-claims-types-pending-66756:
 
@@ -68,7 +68,7 @@ Data Types
 
 **data** `TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494_>`_
 
-  A claim and a textual tag
+  A claim and a textual tag\.
 
   .. _constr-daml-finance-interface-claims-types-taggedclaim-33377:
 

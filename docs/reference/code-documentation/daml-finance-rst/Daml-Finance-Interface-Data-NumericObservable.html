@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Module Daml.Finance.Instrument.Swap.CreditDefault.Factory &mdash; Daml Finance  documentation</title>
+  <title>Module Daml.Finance.Interface.Data.NumericObservable &mdash; Daml Finance  documentation</title>
   
 
   
@@ -46,8 +46,8 @@
   <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
   <link rel="index" title="Index" href="../../../genindex.html" />
   <link rel="search" title="Search" href="../../../search.html" />
-  <link rel="next" title="Module Daml.Finance.Instrument.Swap.CreditDefault.Instrument" href="Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html" />
-  <link rel="prev" title="Module Daml.Finance.Instrument.Swap.Asset.Instrument" href="Daml-Finance-Instrument-Swap-Asset-Instrument.html" /> 
+  <link rel="next" title="Module Daml.Finance.Interface.Data.TimeObservable" href="Daml-Finance-Interface-Data-TimeObservable.html" />
+  <link rel="prev" title="Module Daml.Finance.Interface.Claims.Util.Lifecycle" href="Daml-Finance-Interface-Claims-Util-Lifecycle.html" /> 
 
   
   <link rel="icon" type="image/svg+xml"  href="../../../_static/images/daml-logo-mark-light.svg">
@@ -371,8 +371,8 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Asset-Instrument.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Daml.Finance.Instrument.Swap.CreditDefault.Factory</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#templates">Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Factory.html">Daml.Finance.Instrument.Swap.CreditDefault.Factory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Factory.html#templates">Templates</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html">Daml.Finance.Instrument.Swap.CreditDefault.Instrument</a><ul>
@@ -471,11 +471,11 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Util-Lifecycle.html#functions">Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Data-NumericObservable.html">Daml.Finance.Interface.Data.NumericObservable</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-NumericObservable.html#interfaces">Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-NumericObservable.html#typeclasses">Typeclasses</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-NumericObservable.html#data-types">Data Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-NumericObservable.html#functions">Functions</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Daml.Finance.Interface.Data.NumericObservable</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Data-TimeObservable.html">Daml.Finance.Interface.Data.TimeObservable</a><ul>
@@ -1024,8 +1024,11 @@
         
         <!-- Local TOC -->
         <div class="content-menu-toc"><ul>
-<li><a class="reference internal" href="#">Module Daml.Finance.Instrument.Swap.CreditDefault.Factory</a><ul>
-<li><a class="reference internal" href="#templates">Templates</a></li>
+<li><a class="reference internal" href="#">Module Daml.Finance.Interface.Data.NumericObservable</a><ul>
+<li><a class="reference internal" href="#interfaces">Interfaces</a></li>
+<li><a class="reference internal" href="#typeclasses">Typeclasses</a></li>
+<li><a class="reference internal" href="#data-types">Data Types</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
 </ul>
@@ -1043,14 +1046,96 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div itemprop="articleBody">
                 
-  <div class="section" id="module-daml-finance-instrument-swap-creditdefault-factory">
-<span id="module-daml-finance-instrument-swap-creditdefault-factory-17039"></span><h1>Module Daml.Finance.Instrument.Swap.CreditDefault.Factory<a class="headerlink" href="#module-daml-finance-instrument-swap-creditdefault-factory" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="templates">
-<h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
-<p id="type-daml-finance-instrument-swap-creditdefault-factory-factory-20084"><strong>template</strong> <a class="reference internal" href="#type-daml-finance-instrument-swap-creditdefault-factory-factory-20084">Factory</a></p>
+  <div class="section" id="module-daml-finance-interface-data-numericobservable">
+<span id="module-daml-finance-interface-data-numericobservable-76523"></span><h1>Module Daml.Finance.Interface.Data.NumericObservable<a class="headerlink" href="#module-daml-finance-interface-data-numericobservable" title="Permalink to this headline">¶</a></h1>
+<p>This module defines an interface for a <code class="docutils literal notranslate"><span class="pre">NumericObservable</span></code>, which is used to inspect time-dependent numerical values.</p>
+<div class="section" id="interfaces">
+<h2>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h2>
+<p id="type-daml-finance-interface-data-numericobservable-numericobservable-42918"><strong>interface</strong> <a class="reference internal" href="#type-daml-finance-interface-data-numericobservable-numericobservable-42918">NumericObservable</a></p>
 <blockquote>
-<div><p>Factory template for instrument creation.</p>
+<div><p>An interface to inspect some (time-dependent) numerical values (e.g. a stock price or an interest rate fixing) required when processing a lifecycle rule.</p>
+<ul>
+<li><p class="first"><strong>Choice GetView</strong></p>
+<p>Retrieves the interface view.</p>
 <table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>viewer</td>
+<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932">Party</a></td>
+<td>The party retrieving the view.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first"><strong>Choice Observe</strong></p>
+<p>Observe the <code class="docutils literal notranslate"><span class="pre">Observable</span></code>.</p>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>actors</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
+<td>Parties calling this ‘Observe’ choice.</td>
+</tr>
+<tr class="row-odd"><td>t</td>
+<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886">Time</a></td>
+<td>Time at which the value is observed.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first"><strong>Method observe :</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886">Time</a> -&gt; <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072">Update</a> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135">Decimal</a></p>
+<p>Implementation of the <code class="docutils literal notranslate"><span class="pre">Observe</span></code> choice.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="typeclasses">
+<h2>Typeclasses<a class="headerlink" href="#typeclasses" title="Permalink to this headline">¶</a></h2>
+<p id="class-daml-finance-interface-data-numericobservable-hasimplementation-16979"><strong>class</strong> <a class="reference internal" href="#type-daml-finance-interface-data-numericobservable-implementation-36145">Implementation</a> t =&gt; <a class="reference internal" href="#class-daml-finance-interface-data-numericobservable-hasimplementation-16979">HasImplementation</a> t <strong>where</strong></p>
+</div>
+<div class="section" id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils" id="type-daml-finance-interface-data-numericobservable-i-62705">
+<dt><strong>type</strong> <a class="reference internal" href="#type-daml-finance-interface-data-numericobservable-i-62705">I</a></dt><dd><p>= <a class="reference internal" href="#type-daml-finance-interface-data-numericobservable-numericobservable-42918">NumericObservable</a></p>
+<p>Type synonym for <code class="docutils literal notranslate"><span class="pre">Observable</span></code>.</p>
+</dd>
+</dl>
+<dl class="docutils" id="type-daml-finance-interface-data-numericobservable-implementation-36145">
+<dt><strong>type</strong> <a class="reference internal" href="#type-daml-finance-interface-data-numericobservable-implementation-36145">Implementation</a> t</dt><dd><p>= <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104">HasToInterface</a> t <a class="reference internal" href="#type-daml-finance-interface-data-numericobservable-i-62705">I</a></p>
+<p>Type constraint for requiring templates to implement <code class="docutils literal notranslate"><span class="pre">Observable</span></code>.</p>
+</dd>
+</dl>
+<dl class="docutils" id="type-daml-finance-interface-data-numericobservable-v-69318">
+<dt><strong>type</strong> <a class="reference internal" href="#type-daml-finance-interface-data-numericobservable-v-69318">V</a></dt><dd><p>= <a class="reference internal" href="#type-daml-finance-interface-data-numericobservable-view-44210">View</a></p>
+<p>Type synonym for <code class="docutils literal notranslate"><span class="pre">View</span></code>.</p>
+</dd>
+</dl>
+<p id="type-daml-finance-interface-data-numericobservable-view-44210"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-data-numericobservable-view-44210">View</a></p>
+<blockquote>
+<div><p>View for <code class="docutils literal notranslate"><span class="pre">Observable</span></code>.</p>
+<p id="constr-daml-finance-interface-data-numericobservable-view-85507"><a class="reference internal" href="#constr-daml-finance-interface-data-numericobservable-view-85507">View</a></p>
+<blockquote>
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1065,24 +1150,28 @@
 <tbody valign="top">
 <tr class="row-even"><td>provider</td>
 <td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932">Party</a></td>
-<td>The factory’s provider.</td>
+<td>Party providing the observations.</td>
 </tr>
-<tr class="row-odd"><td>observers</td>
-<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-partiesmap-27543"><span class="std std-ref">PartiesMap</span></a></td>
-<td>The factory’s observers.</td>
+<tr class="row-odd"><td>id</td>
+<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-id-56542"><span class="std std-ref">Id</span></a></td>
+<td>Textual reference to the observable.</td>
+</tr>
+<tr class="row-even"><td>observations</td>
+<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-map-90052">Map</a> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886">Time</a> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135">Decimal</a></td>
+<td>The time-dependent values.</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><p class="first"><strong>Choice Archive</strong></p>
-<p>(no fields)</p>
-</li>
-<li><p class="first"><strong>interface instance</strong> <a class="reference internal" href="Daml-Finance-Interface-Instrument-Swap-CreditDefault-Factory.html#type-daml-finance-interface-instrument-swap-creditdefault-factory-factory-17381"><span class="std std-ref">Factory</span></a> <strong>for</strong> <a class="reference internal" href="#type-daml-finance-instrument-swap-creditdefault-factory-factory-20084">Factory</a></p>
-</li>
-<li><p class="first"><strong>interface instance</strong> <a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html#type-daml-finance-interface-util-disclosure-i-26993"><span class="std std-ref">I</span></a> <strong>for</strong> <a class="reference internal" href="#type-daml-finance-instrument-swap-creditdefault-factory-factory-20084">Factory</a></p>
-</li>
-</ul>
 </div></blockquote>
+<p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713">Eq</a> <a class="reference internal" href="#type-daml-finance-interface-data-numericobservable-view-44210">View</a></p>
+<p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360">Show</a> <a class="reference internal" href="#type-daml-finance-interface-data-numericobservable-view-44210">View</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils" id="function-daml-finance-interface-data-numericobservable-observe-48182">
+<dt><a class="reference internal" href="#function-daml-finance-interface-data-numericobservable-observe-48182">observe</a></dt><dd>: <a class="reference internal" href="#type-daml-finance-interface-data-numericobservable-numericobservable-42918">NumericObservable</a> -&gt; <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886">Time</a> -&gt; <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072">Update</a> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135">Decimal</a></dd>
+</dl>
 </div>
 </div>
 
@@ -1098,10 +1187,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Daml-Finance-Instrument-Swap-Asset-Instrument.html" class="da-btn da-btn-label btn-prev" title="Module Daml.Finance.Instrument.Swap.Asset.Instrument" accesskey="p" rel="prev">Previous</a>
+        <a href="Daml-Finance-Interface-Claims-Util-Lifecycle.html" class="da-btn da-btn-label btn-prev" title="Module Daml.Finance.Interface.Claims.Util.Lifecycle" accesskey="p" rel="prev">Previous</a>
       
       
-        <a href="Daml-Finance-Instrument-Swap-CreditDefault-Instrument.html" class="da-btn da-btn-label btn-next" title="Module Daml.Finance.Instrument.Swap.CreditDefault.Instrument" accesskey="n" rel="next">Next</a>
+        <a href="Daml-Finance-Interface-Data-TimeObservable.html" class="da-btn da-btn-label btn-next" title="Module Daml.Finance.Interface.Data.TimeObservable" accesskey="n" rel="next">Next</a>
       
     </div>
   

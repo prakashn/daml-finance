@@ -33,9 +33,6 @@ Data Types
        * - swapStreams
          - \[:ref:`SwapStream <type-daml-finance-interface-types-fpml-swapstream-99592>`\]
          - Each element describes a stream of swap payments, for example a regular fixed or floating rate\.
-       * - issueDate
-         - `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
-         - The issue date of the instrument\.
        * - issuerPartyRef
          - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
          - Used to the identify which counterparty is the issuer in the swapStream\.

@@ -28,10 +28,10 @@ Interfaces
          - Type
          - Description
        * - clockCid
-         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-clock-i-92808>`
+         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-timeobservable-i-64066>`
          - current time\.
        * - observableCids
-         - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-observable-i-4241>`\]
+         - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-numericobservable-i-62705>`\]
          - set of observables
        * - settlers
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
@@ -78,13 +78,13 @@ Interfaces
          - Type
          - Description
        * - clockCid
-         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-clock-i-92808>`
+         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-timeobservable-i-64066>`
          - Current time\. This is also an observable, but not a strictly 'Decimal' one\.
        * - electionCid
          - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Election <type-daml-finance-interface-instrument-generic-election-election-25324_>`_
          - The election\.
        * - observableCids
-         - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-observable-i-4241>`\]
+         - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-numericobservable-i-62705>`\]
          - Set of observables\.
        * - settlers
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`

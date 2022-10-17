@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Module Daml.Finance.Lifecycle.DateClock &mdash; Daml Finance  documentation</title>
+  <title>Module Daml.Finance.Interface.Data.TimeObservable &mdash; Daml Finance  documentation</title>
   
 
   
@@ -46,8 +46,8 @@
   <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
   <link rel="index" title="Index" href="../../../genindex.html" />
   <link rel="search" title="Search" href="../../../search.html" />
-  <link rel="next" title="Module Daml.Finance.Lifecycle.Effect" href="Daml-Finance-Lifecycle-Effect.html" />
-  <link rel="prev" title="Module Daml.Finance.Interface.Util.Disclosure" href="Daml-Finance-Interface-Util-Disclosure.html" /> 
+  <link rel="next" title="Module Daml.Finance.Interface.Holding.Base" href="Daml-Finance-Interface-Holding-Base.html" />
+  <link rel="prev" title="Module Daml.Finance.Interface.Data.NumericObservable" href="Daml-Finance-Interface-Data-NumericObservable.html" /> 
 
   
   <link rel="icon" type="image/svg+xml"  href="../../../_static/images/daml-logo-mark-light.svg">
@@ -269,6 +269,11 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Data-Reference-HolidayCalendar.html#data-types">Data Types</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Data-Time-DateClock.html">Daml.Finance.Data.Time.DateClock</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Data-Time-DateClock.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Data-Time-DateClock.html#data-types">Data Types</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Holding-Fungible.html">Daml.Finance.Holding.Fungible</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Holding-Fungible.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Holding-Fungible.html#data-types">Data Types</a></li>
@@ -405,6 +410,11 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Fpml-Instrument.html#data-types">Data Types</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Fpml-Util.html">Daml.Finance.Instrument.Swap.Fpml.Util</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Fpml-Util.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Fpml-Util.html#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-InterestRate-Factory.html">Daml.Finance.Instrument.Swap.InterestRate.Factory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-InterestRate-Factory.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Swap-InterestRate-Factory.html#data-types">Data Types</a></li>
@@ -461,11 +471,17 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Util-Lifecycle.html#functions">Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Data-Observable.html">Daml.Finance.Interface.Data.Observable</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-Observable.html#interfaces">Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-Observable.html#typeclasses">Typeclasses</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-Observable.html#data-types">Data Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-Observable.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Data-NumericObservable.html">Daml.Finance.Interface.Data.NumericObservable</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-NumericObservable.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-NumericObservable.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-NumericObservable.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Data-NumericObservable.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Daml.Finance.Interface.Data.TimeObservable</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-types">Data Types</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Holding-Base.html">Daml.Finance.Interface.Holding.Base</a><ul>
@@ -747,12 +763,6 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Instrument-Token-Types.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Clock.html">Daml.Finance.Interface.Lifecycle.Clock</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Clock.html#interfaces">Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Clock.html#typeclasses">Typeclasses</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Clock.html#data-types">Data Types</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Effect.html">Daml.Finance.Interface.Lifecycle.Effect</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Effect.html#interfaces">Interfaces</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Effect.html#typeclasses">Typeclasses</a></li>
@@ -864,11 +874,6 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html#typeclasses">Typeclasses</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Util-Disclosure.html#functions">Functions</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Daml.Finance.Lifecycle.DateClock</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#templates">Templates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#data-types">Data Types</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-Effect.html">Daml.Finance.Lifecycle.Effect</a><ul>
@@ -1019,8 +1024,9 @@
         
         <!-- Local TOC -->
         <div class="content-menu-toc"><ul>
-<li><a class="reference internal" href="#">Module Daml.Finance.Lifecycle.DateClock</a><ul>
-<li><a class="reference internal" href="#templates">Templates</a></li>
+<li><a class="reference internal" href="#">Module Daml.Finance.Interface.Data.TimeObservable</a><ul>
+<li><a class="reference internal" href="#interfaces">Interfaces</a></li>
+<li><a class="reference internal" href="#typeclasses">Typeclasses</a></li>
 <li><a class="reference internal" href="#data-types">Data Types</a></li>
 </ul>
 </li>
@@ -1039,14 +1045,67 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div itemprop="articleBody">
                 
-  <div class="section" id="module-daml-finance-lifecycle-dateclock">
-<span id="module-daml-finance-lifecycle-dateclock-31311"></span><h1>Module Daml.Finance.Lifecycle.DateClock<a class="headerlink" href="#module-daml-finance-lifecycle-dateclock" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="templates">
-<h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
-<p id="type-daml-finance-lifecycle-dateclock-dateclock-61982"><strong>template</strong> <a class="reference internal" href="#type-daml-finance-lifecycle-dateclock-dateclock-61982">DateClock</a></p>
+  <div class="section" id="module-daml-finance-interface-data-timeobservable">
+<span id="module-daml-finance-interface-data-timeobservable-98854"></span><h1>Module Daml.Finance.Interface.Data.TimeObservable<a class="headerlink" href="#module-daml-finance-interface-data-timeobservable" title="Permalink to this headline">¶</a></h1>
+<p>This module defines an interface for a <code class="docutils literal notranslate"><span class="pre">TimeObservable</span></code>, which is implemented by templates exposing time information.</p>
+<div class="section" id="interfaces">
+<h2>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h2>
+<p id="type-daml-finance-interface-data-timeobservable-timeobservable-99410"><strong>interface</strong> <a class="reference internal" href="#type-daml-finance-interface-data-timeobservable-timeobservable-99410">TimeObservable</a></p>
 <blockquote>
-<div><p>A clock where time is discretized into dates. Each date is mapped to UTC noon.</p>
+<div><p>An interface to inspect a time value.</p>
+<ul>
+<li><p class="first"><strong>Choice GetView</strong></p>
+<p>Retrieves the interface view.</p>
 <table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>viewer</td>
+<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932">Party</a></td>
+<td>The party retrieving the view.</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="typeclasses">
+<h2>Typeclasses<a class="headerlink" href="#typeclasses" title="Permalink to this headline">¶</a></h2>
+<p id="class-daml-finance-interface-data-timeobservable-hasimplementation-24778"><strong>class</strong> <a class="reference internal" href="#type-daml-finance-interface-data-timeobservable-implementation-85128">Implementation</a> t =&gt; <a class="reference internal" href="#class-daml-finance-interface-data-timeobservable-hasimplementation-24778">HasImplementation</a> t <strong>where</strong></p>
+</div>
+<div class="section" id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils" id="type-daml-finance-interface-data-timeobservable-i-64066">
+<dt><strong>type</strong> <a class="reference internal" href="#type-daml-finance-interface-data-timeobservable-i-64066">I</a></dt><dd><p>= <a class="reference internal" href="#type-daml-finance-interface-data-timeobservable-timeobservable-99410">TimeObservable</a></p>
+<p>Type synonym for <code class="docutils literal notranslate"><span class="pre">TimeObservable</span></code>.</p>
+</dd>
+</dl>
+<dl class="docutils" id="type-daml-finance-interface-data-timeobservable-implementation-85128">
+<dt><strong>type</strong> <a class="reference internal" href="#type-daml-finance-interface-data-timeobservable-implementation-85128">Implementation</a> t</dt><dd><p>= <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104">HasToInterface</a> t <a class="reference internal" href="#type-daml-finance-interface-data-timeobservable-i-64066">I</a></p>
+<p>Type constraint for requiring interface implementations for <code class="docutils literal notranslate"><span class="pre">TimeObservable</span></code>.</p>
+</dd>
+</dl>
+<dl class="docutils" id="type-daml-finance-interface-data-timeobservable-v-92213">
+<dt><strong>type</strong> <a class="reference internal" href="#type-daml-finance-interface-data-timeobservable-v-92213">V</a></dt><dd><p>= <a class="reference internal" href="#type-daml-finance-interface-data-timeobservable-view-87451">View</a></p>
+<p>Type synonym for <code class="docutils literal notranslate"><span class="pre">View</span></code>.</p>
+</dd>
+</dl>
+<p id="type-daml-finance-interface-data-timeobservable-view-87451"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-data-timeobservable-view-87451">View</a></p>
+<blockquote>
+<div><p>View for <code class="docutils literal notranslate"><span class="pre">TimeObservable</span></code>.</p>
+<p id="constr-daml-finance-interface-data-timeobservable-view-88132"><a class="reference internal" href="#constr-daml-finance-interface-data-timeobservable-view-88132">View</a></p>
+<blockquote>
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1061,68 +1120,22 @@
 <tbody valign="top">
 <tr class="row-even"><td>providers</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
-<td>The clock’s providers.</td>
+<td>Parties providing the observation.</td>
 </tr>
-<tr class="row-odd"><td>date</td>
-<td><a class="reference internal" href="Daml-Finance-Lifecycle-Types.html#type-daml-finance-lifecycle-types-unit-19576"><span class="std std-ref">Unit</span></a></td>
-<td>The clock’s date.</td>
-</tr>
-<tr class="row-even"><td>id</td>
+<tr class="row-odd"><td>id</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-id-56542"><span class="std std-ref">Id</span></a></td>
-<td>The clock’s identifier.</td>
+<td>Textual reference to the observable.</td>
 </tr>
-<tr class="row-odd"><td>description</td>
-<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952">Text</a></td>
-<td>The clock’s description.</td>
-</tr>
-<tr class="row-even"><td>observers</td>
-<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-parties-68320"><span class="std std-ref">Parties</span></a></td>
-<td>Observers of the events created from this clock.</td>
+<tr class="row-even"><td>time</td>
+<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886">Time</a></td>
+<td>The observed UTC time.</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><p class="first"><strong>Choice Archive</strong></p>
-<p>(no fields)</p>
-</li>
-<li><p class="first"><strong>Choice ToNext</strong></p>
-<p>Moves the clock to the next date and spawns an update event.</p>
-<table border="1" class="colwidths-given docutils align-default">
-<colgroup>
-<col width="27%" />
-<col width="18%" />
-<col width="55%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Field</th>
-<th class="head">Type</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>eventId</td>
-<td><a class="reference internal" href="Daml-Finance-Interface-Types-Common.html#type-daml-finance-interface-types-common-id-56542"><span class="std std-ref">Id</span></a></td>
-<td>Event identifier</td>
-</tr>
-<tr class="row-odd"><td>eventDescription</td>
-<td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952">Text</a></td>
-<td>Event description</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li><p class="first"><strong>interface instance</strong> <a class="reference internal" href="Daml-Finance-Interface-Lifecycle-Clock.html#type-daml-finance-interface-lifecycle-clock-i-92808"><span class="std std-ref">I</span></a> <strong>for</strong> <a class="reference internal" href="#type-daml-finance-lifecycle-dateclock-dateclock-61982">DateClock</a></p>
-</li>
-</ul>
 </div></blockquote>
-</div>
-<div class="section" id="data-types">
-<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils" id="type-daml-finance-lifecycle-dateclock-t-67372">
-<dt><strong>type</strong> <a class="reference internal" href="#type-daml-finance-lifecycle-dateclock-t-67372">T</a></dt><dd><p>= <a class="reference internal" href="#type-daml-finance-lifecycle-dateclock-dateclock-61982">DateClock</a></p>
-<p>Type synonym for <code class="docutils literal notranslate"><span class="pre">DateClock</span></code>.</p>
-</dd>
-</dl>
+<p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713">Eq</a> <a class="reference internal" href="#type-daml-finance-interface-data-timeobservable-view-87451">View</a></p>
+<p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360">Show</a> <a class="reference internal" href="#type-daml-finance-interface-data-timeobservable-view-87451">View</a></p>
+</div></blockquote>
 </div>
 </div>
 
@@ -1138,10 +1151,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Daml-Finance-Interface-Util-Disclosure.html" class="da-btn da-btn-label btn-prev" title="Module Daml.Finance.Interface.Util.Disclosure" accesskey="p" rel="prev">Previous</a>
+        <a href="Daml-Finance-Interface-Data-NumericObservable.html" class="da-btn da-btn-label btn-prev" title="Module Daml.Finance.Interface.Data.NumericObservable" accesskey="p" rel="prev">Previous</a>
       
       
-        <a href="Daml-Finance-Lifecycle-Effect.html" class="da-btn da-btn-label btn-next" title="Module Daml.Finance.Lifecycle.Effect" accesskey="n" rel="next">Next</a>
+        <a href="Daml-Finance-Interface-Holding-Base.html" class="da-btn da-btn-label btn-next" title="Module Daml.Finance.Interface.Holding.Base" accesskey="n" rel="next">Next</a>
       
     </div>
   

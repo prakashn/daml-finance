@@ -65,12 +65,6 @@ Interfaces
        * - actors
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - The parties executing the instruction\.
-       * - undiscloseReceiverAccount
-         - `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_
-         - Indicator to undisclose the receiver account or not\.
-       * - undiscloseSenderAccount
-         - `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_
-         - Indicator to undisclose the sender account or not\.
 
   + **Choice GetView**
 

@@ -16,6 +16,7 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Account.Util <Daml-Finance-Account-Util>
    Daml.Finance.Data.Observable.Observation <Daml-Finance-Data-Observable-Observation>
    Daml.Finance.Data.Reference.HolidayCalendar <Daml-Finance-Data-Reference-HolidayCalendar>
+   Daml.Finance.Data.Time.DateClock <Daml-Finance-Data-Time-DateClock>
    Daml.Finance.Holding.Fungible <Daml-Finance-Holding-Fungible>
    Daml.Finance.Holding.NonFungible <Daml-Finance-Holding-NonFungible>
    Daml.Finance.Holding.NonTransferable <Daml-Finance-Holding-NonTransferable>
@@ -44,6 +45,7 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Instrument.Swap.ForeignExchange.Instrument <Daml-Finance-Instrument-Swap-ForeignExchange-Instrument>
    Daml.Finance.Instrument.Swap.Fpml.Factory <Daml-Finance-Instrument-Swap-Fpml-Factory>
    Daml.Finance.Instrument.Swap.Fpml.Instrument <Daml-Finance-Instrument-Swap-Fpml-Instrument>
+   Daml.Finance.Instrument.Swap.Fpml.Util <Daml-Finance-Instrument-Swap-Fpml-Util>
    Daml.Finance.Instrument.Swap.InterestRate.Factory <Daml-Finance-Instrument-Swap-InterestRate-Factory>
    Daml.Finance.Instrument.Swap.InterestRate.Instrument <Daml-Finance-Instrument-Swap-InterestRate-Instrument>
    Daml.Finance.Instrument.Token.Factory <Daml-Finance-Instrument-Token-Factory>
@@ -55,7 +57,8 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Claims.Types <Daml-Finance-Interface-Claims-Types>
    Daml.Finance.Interface.Claims.Util <Daml-Finance-Interface-Claims-Util>
    Daml.Finance.Interface.Claims.Util.Lifecycle <Daml-Finance-Interface-Claims-Util-Lifecycle>
-   Daml.Finance.Interface.Data.Observable <Daml-Finance-Interface-Data-Observable>
+   Daml.Finance.Interface.Data.NumericObservable <Daml-Finance-Interface-Data-NumericObservable>
+   Daml.Finance.Interface.Data.TimeObservable <Daml-Finance-Interface-Data-TimeObservable>
    Daml.Finance.Interface.Holding.Base <Daml-Finance-Interface-Holding-Base>
    Daml.Finance.Interface.Holding.Factory <Daml-Finance-Interface-Holding-Factory>
    Daml.Finance.Interface.Holding.Fungible <Daml-Finance-Interface-Holding-Fungible>
@@ -101,7 +104,6 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Instrument.Token.Factory <Daml-Finance-Interface-Instrument-Token-Factory>
    Daml.Finance.Interface.Instrument.Token.Instrument <Daml-Finance-Interface-Instrument-Token-Instrument>
    Daml.Finance.Interface.Instrument.Token.Types <Daml-Finance-Interface-Instrument-Token-Types>
-   Daml.Finance.Interface.Lifecycle.Clock <Daml-Finance-Interface-Lifecycle-Clock>
    Daml.Finance.Interface.Lifecycle.Effect <Daml-Finance-Interface-Lifecycle-Effect>
    Daml.Finance.Interface.Lifecycle.Event <Daml-Finance-Interface-Lifecycle-Event>
    Daml.Finance.Interface.Lifecycle.Event.Distribution <Daml-Finance-Interface-Lifecycle-Event-Distribution>
@@ -122,7 +124,6 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Types.Fpml <Daml-Finance-Interface-Types-Fpml>
    Daml.Finance.Interface.Util.Common <Daml-Finance-Interface-Util-Common>
    Daml.Finance.Interface.Util.Disclosure <Daml-Finance-Interface-Util-Disclosure>
-   Daml.Finance.Lifecycle.DateClock <Daml-Finance-Lifecycle-DateClock>
    Daml.Finance.Lifecycle.Effect <Daml-Finance-Lifecycle-Effect>
    Daml.Finance.Lifecycle.ElectionEffect <Daml-Finance-Lifecycle-ElectionEffect>
    Daml.Finance.Lifecycle.Event.DateClock <Daml-Finance-Lifecycle-Event-DateClock>

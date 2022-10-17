@@ -26,7 +26,7 @@ Functions
 .. _function-daml-finance-interface-claims-util-lifecycle-lifecycleclaims-11711:
 
 `lifecycleClaims <function-daml-finance-interface-claims-util-lifecycle-lifecycleclaims-11711_>`_
-  \: \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-observable-i-4241>`\] \-\> `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_ \-\> \[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\] \-\> \[Event\] \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (\[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\], \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\])
+  \: \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-numericobservable-i-62705>`\] \-\> `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_ \-\> \[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\] \-\> \[Event\] \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (\[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\], \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\])
 
   Lifecycle a set of claims at specified events\.
 
@@ -40,7 +40,7 @@ Functions
 .. _function-daml-finance-interface-claims-util-lifecycle-lifecycle-32990:
 
 `lifecycle <function-daml-finance-interface-claims-util-lifecycle-lifecycle-32990_>`_
-  \: \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-observable-i-4241>`\] \-\> :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` \-\> \[Event\] \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (\[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\], \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\])
+  \: \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-numericobservable-i-62705>`\] \-\> :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` \-\> \[Event\] \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (\[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\], \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\])
 
   Lifecycle a claim instrument at specified events\.
 

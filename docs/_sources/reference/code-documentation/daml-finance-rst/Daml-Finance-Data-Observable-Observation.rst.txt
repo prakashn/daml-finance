@@ -13,7 +13,7 @@ Templates
 
 **template** `Observation <type-daml-finance-data-observable-observation-observation-49393_>`_
 
-  An implementation of ``Observable`` that explicitly stores time\-dependent numerical values\.
+  An implementation of ``NumericObservable`` that explicitly stores time\-dependent numerical values\.
   It can be used for e\.g\. equity or rate fixings\.
 
   .. list-table::

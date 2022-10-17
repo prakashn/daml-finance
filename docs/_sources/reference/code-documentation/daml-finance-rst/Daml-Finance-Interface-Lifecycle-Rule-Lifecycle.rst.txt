@@ -35,11 +35,11 @@ Interfaces
        * - eventCid
          - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-event-i-17082>`
          - The event\.
-       * - clockCid
-         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-clock-i-92808>`
-         - Current time\. This is also an observable, but not a strictly 'Decimal' one\.
+       * - timeObservableCid
+         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-timeobservable-i-64066>`
+         - Current time\.
        * - observableCids
-         - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`Observable <type-daml-finance-interface-data-observable-observable-13896>`\]
+         - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-numericobservable-i-62705>`\]
          - Set of numerical time\-dependent observables\.
 
   + **Choice GetView**

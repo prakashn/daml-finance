@@ -1,19 +1,21 @@
 .. Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved.
 .. SPDX-License-Identifier: Apache-2.0
 
-.. _module-daml-finance-lifecycle-dateclock-31311:
+.. _module-daml-finance-data-time-dateclock-65212:
 
-Module Daml.Finance.Lifecycle.DateClock
+Module Daml.Finance.Data.Time.DateClock
 =======================================
 
 Templates
 ---------
 
-.. _type-daml-finance-lifecycle-dateclock-dateclock-61982:
+.. _type-daml-finance-data-time-dateclock-dateclock-90915:
 
-**template** `DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982_>`_
+**template** `DateClock <type-daml-finance-data-time-dateclock-dateclock-90915_>`_
 
-  A clock where time is discretized into dates\. Each date is mapped to UTC noon\.
+  A ``DateClock`` is a subdivision of the Time continuum into dates\.
+  Each date is mapped to UTC noon\.
+  Updating the clock spawns a ``ClockUpdateEvent``\.
 
   .. list-table::
      :widths: 15 10 30
@@ -60,14 +62,14 @@ Templates
          - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
          - Event description
 
-  + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-clock-i-92808>` **for** `DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982_>`_
+  + **interface instance** :ref:`I <type-daml-finance-interface-data-timeobservable-i-64066>` **for** `DateClock <type-daml-finance-data-time-dateclock-dateclock-90915_>`_
 
 Data Types
 ----------
 
-.. _type-daml-finance-lifecycle-dateclock-t-67372:
+.. _type-daml-finance-data-time-dateclock-t-81049:
 
-**type** `T <type-daml-finance-lifecycle-dateclock-t-67372_>`_
-  \= `DateClock <type-daml-finance-lifecycle-dateclock-dateclock-61982_>`_
+**type** `T <type-daml-finance-data-time-dateclock-t-81049_>`_
+  \= `DateClock <type-daml-finance-data-time-dateclock-dateclock-90915_>`_
 
   Type synonym for ``DateClock``\.

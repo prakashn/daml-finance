@@ -32,7 +32,7 @@ Interfaces
 
   + **Choice Transfer**
 
-    Transfer a contract to a new owner
+    Transfer a contract to a new owner\.
 
     .. list-table::
        :widths: 15 10 30

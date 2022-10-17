@@ -13,6 +13,8 @@ Data Types
 
 **data** `Calculation <type-daml-finance-interface-types-fpml-calculation-4299_>`_
 
+  The parameters used in the calculation of fixed or floating rate period amounts\.
+
   .. _constr-daml-finance-interface-types-fpml-calculation-18276:
 
   `Calculation <constr-daml-finance-interface-types-fpml-calculation-18276_>`_
@@ -24,6 +26,9 @@ Data Types
        * - Field
          - Type
          - Description
+       * - notionalSchedule
+         - `NotionalSchedule <type-daml-finance-interface-types-fpml-notionalschedule-32412_>`_
+         -
        * - floatingRateCalculation
          - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `FloatingRateCalculation <type-daml-finance-interface-types-fpml-floatingratecalculation-36179_>`_
          -
@@ -41,6 +46,8 @@ Data Types
 .. _type-daml-finance-interface-types-fpml-calculationperiodamount-83216:
 
 **data** `CalculationPeriodAmount <type-daml-finance-interface-types-fpml-calculationperiodamount-83216_>`_
+
+  The calculation period amount parameters\.
 
   .. _constr-daml-finance-interface-types-fpml-calculationperiodamount-65511:
 
@@ -64,6 +71,8 @@ Data Types
 .. _type-daml-finance-interface-types-fpml-calculationperioddates-60238:
 
 **data** `CalculationPeriodDates <type-daml-finance-interface-types-fpml-calculationperioddates-60238_>`_
+
+  The calculation periods dates schedule\.
 
   .. _constr-daml-finance-interface-types-fpml-calculationperioddates-43215:
 
@@ -102,6 +111,8 @@ Data Types
 .. _type-daml-finance-interface-types-fpml-calculationperioddatesadjustments-39191:
 
 **data** `CalculationPeriodDatesAdjustments <type-daml-finance-interface-types-fpml-calculationperioddatesadjustments-39191_>`_
+
+  The business day convention to apply to each calculation period end date if it would otherwise fall on a day that is not a business day in the specified financial business centers\.
 
   .. _constr-daml-finance-interface-types-fpml-calculationperioddatesadjustments-66760:
 
@@ -245,6 +256,8 @@ Data Types
 
 **data** `FixingDates <type-daml-finance-interface-types-fpml-fixingdates-75150_>`_
 
+  Specifies the fixing date relative to the reset date in terms of a business days offset and an associated set of financial business centers\.
+
   .. _constr-daml-finance-interface-types-fpml-fixingdates-54037:
 
   `FixingDates <constr-daml-finance-interface-types-fpml-fixingdates-54037_>`_
@@ -308,9 +321,65 @@ Data Types
 
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `FloatingRateCalculation <type-daml-finance-interface-types-fpml-floatingratecalculation-36179_>`_
 
+.. _type-daml-finance-interface-types-fpml-notionalschedule-32412:
+
+**data** `NotionalSchedule <type-daml-finance-interface-types-fpml-notionalschedule-32412_>`_
+
+  The notional amount or notional amount schedule\.
+
+  .. _constr-daml-finance-interface-types-fpml-notionalschedule-31041:
+
+  `NotionalSchedule <constr-daml-finance-interface-types-fpml-notionalschedule-31041_>`_
+
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - notionalStepSchedule
+         - `NotionalStepSchedule <type-daml-finance-interface-types-fpml-notionalstepschedule-56726_>`_
+         -
+
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `NotionalSchedule <type-daml-finance-interface-types-fpml-notionalschedule-32412_>`_
+
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `NotionalSchedule <type-daml-finance-interface-types-fpml-notionalschedule-32412_>`_
+
+.. _type-daml-finance-interface-types-fpml-notionalstepschedule-56726:
+
+**data** `NotionalStepSchedule <type-daml-finance-interface-types-fpml-notionalstepschedule-56726_>`_
+
+  The notional amount or notional amount schedule expressed as explicit outstanding notional amounts and dates\.
+  Currently, only an initial value is supported, which corresponds to a fix notional (of each leg, individually)\.
+
+  .. _constr-daml-finance-interface-types-fpml-notionalstepschedule-15359:
+
+  `NotionalStepSchedule <constr-daml-finance-interface-types-fpml-notionalstepschedule-15359_>`_
+
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - initialValue
+         - `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_
+         -
+       * - currency
+         - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+         -
+
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `NotionalStepSchedule <type-daml-finance-interface-types-fpml-notionalstepschedule-56726_>`_
+
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `NotionalStepSchedule <type-daml-finance-interface-types-fpml-notionalstepschedule-56726_>`_
+
 .. _type-daml-finance-interface-types-fpml-resetdates-76649:
 
 **data** `ResetDates <type-daml-finance-interface-types-fpml-resetdates-76649_>`_
+
+  The reset dates schedule\. This only applies for a floating rate stream\.
 
   .. _constr-daml-finance-interface-types-fpml-resetdates-51780:
 
@@ -337,6 +406,8 @@ Data Types
 .. _type-daml-finance-interface-types-fpml-resetfrequency-8884:
 
 **data** `ResetFrequency <type-daml-finance-interface-types-fpml-resetfrequency-8884_>`_
+
+  The frequency at which reset dates occur\.
 
   .. _constr-daml-finance-interface-types-fpml-resetfrequency-20741:
 
@@ -411,9 +482,95 @@ Data Types
 
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `SpreadSchedule <type-daml-finance-interface-types-fpml-spreadschedule-94683_>`_
 
+.. _type-daml-finance-interface-types-fpml-stubcalculationperiodamount-24100:
+
+**data** `StubCalculationPeriodAmount <type-daml-finance-interface-types-fpml-stubcalculationperiodamount-24100_>`_
+
+  The stub calculation period amount parameters\. This element must only be included if there is an initial or final stub calculation period\. Even then, it must only be included if either the stub references a different floating rate tenor to the regular calculation periods, or if the stub is calculated as a linear interpolation of two different floating rate tenors, or if a specific stub rate or stub amount has been negotiated\.
+
+  .. _constr-daml-finance-interface-types-fpml-stubcalculationperiodamount-73687:
+
+  `StubCalculationPeriodAmount <constr-daml-finance-interface-types-fpml-stubcalculationperiodamount-73687_>`_
+
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - initialStub
+         - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `StubValue <type-daml-finance-interface-types-fpml-stubvalue-73357_>`_
+         -
+       * - finalStub
+         - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `StubValue <type-daml-finance-interface-types-fpml-stubvalue-73357_>`_
+         -
+
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `StubCalculationPeriodAmount <type-daml-finance-interface-types-fpml-stubcalculationperiodamount-24100_>`_
+
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `StubCalculationPeriodAmount <type-daml-finance-interface-types-fpml-stubcalculationperiodamount-24100_>`_
+
+.. _type-daml-finance-interface-types-fpml-stubfloatingrate-53983:
+
+**data** `StubFloatingRate <type-daml-finance-interface-types-fpml-stubfloatingrate-53983_>`_
+
+  The rates to be applied to the initial or final stub may be the linear interpolation of two different rates\.
+
+  .. _constr-daml-finance-interface-types-fpml-stubfloatingrate-55058:
+
+  `StubFloatingRate <constr-daml-finance-interface-types-fpml-stubfloatingrate-55058_>`_
+
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - floatingRateIndex
+         - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+         -
+       * - indexTenor
+         - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`Period <type-daml-finance-interface-types-date-rollconvention-period-21180>`
+         -
+
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `StubFloatingRate <type-daml-finance-interface-types-fpml-stubfloatingrate-53983_>`_
+
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `StubFloatingRate <type-daml-finance-interface-types-fpml-stubfloatingrate-53983_>`_
+
+.. _type-daml-finance-interface-types-fpml-stubvalue-73357:
+
+**data** `StubValue <type-daml-finance-interface-types-fpml-stubvalue-73357_>`_
+
+  Specifies how the stub amount is calculated\. A single floating rate tenor different to that used for the regular part of the calculation periods schedule may be specified, or two floating tenors may be specified\. If two floating rate tenors are specified then Linear Interpolation (in accordance with the 2000 ISDA Definitions, Section 8\.3\. Interpolation) is assumed to apply\. Alternatively, an actual known stub rate or stub amount may be specified\.
+
+  .. _constr-daml-finance-interface-types-fpml-stubvalue-42818:
+
+  `StubValue <constr-daml-finance-interface-types-fpml-stubvalue-42818_>`_
+
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - stubRate
+         - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_
+         -
+       * - floatingRate
+         - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ \[`StubFloatingRate <type-daml-finance-interface-types-fpml-stubfloatingrate-53983_>`_\]
+         -
+
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `StubValue <type-daml-finance-interface-types-fpml-stubvalue-73357_>`_
+
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `StubValue <type-daml-finance-interface-types-fpml-stubvalue-73357_>`_
+
 .. _type-daml-finance-interface-types-fpml-swapstream-99592:
 
 **data** `SwapStream <type-daml-finance-interface-types-fpml-swapstream-99592_>`_
+
+  The swap streams, describing each leg of the swap\.
 
   .. _constr-daml-finance-interface-types-fpml-swapstream-25525:
 
@@ -437,6 +594,9 @@ Data Types
          -
        * - calculationPeriodAmount
          - `CalculationPeriodAmount <type-daml-finance-interface-types-fpml-calculationperiodamount-83216_>`_
+         -
+       * - stubCalculationPeriodAmount
+         - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `StubCalculationPeriodAmount <type-daml-finance-interface-types-fpml-stubcalculationperiodamount-24100_>`_
          -
 
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `SwapStream <type-daml-finance-interface-types-fpml-swapstream-99592_>`_
