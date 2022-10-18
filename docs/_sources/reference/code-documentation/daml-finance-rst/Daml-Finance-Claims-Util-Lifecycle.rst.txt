@@ -1,52 +1,52 @@
 .. Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved.
 .. SPDX-License-Identifier: Apache-2.0
 
-.. _module-daml-finance-interface-claims-util-lifecycle-60221:
+.. _module-daml-finance-claims-util-lifecycle-9534:
 
-Module Daml.Finance.Interface.Claims.Util.Lifecycle
-===================================================
+Module Daml.Finance.Claims.Util.Lifecycle
+=========================================
 
 Functions
 ---------
 
-.. _function-daml-finance-interface-claims-util-lifecycle-timeevent-75347:
+.. _function-daml-finance-claims-util-lifecycle-timeevent-31130:
 
-`timeEvent <function-daml-finance-interface-claims-util-lifecycle-timeevent-75347_>`_
+`timeEvent <function-daml-finance-claims-util-lifecycle-timeevent-31130_>`_
   \: `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_ \-\> Event
 
   Constructor for a time event\.
 
-.. _function-daml-finance-interface-claims-util-lifecycle-electionevent-14293:
+.. _function-daml-finance-claims-util-lifecycle-electionevent-57428:
 
-`electionEvent <function-daml-finance-interface-claims-util-lifecycle-electionevent-14293_>`_
+`electionEvent <function-daml-finance-claims-util-lifecycle-electionevent-57428_>`_
   \: `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_ \-\> `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_ \-\> :ref:`C <type-daml-finance-interface-claims-types-c-53263>` \-\> Event
 
   Constructor for an election event\.
 
-.. _function-daml-finance-interface-claims-util-lifecycle-lifecycleclaims-11711:
+.. _function-daml-finance-claims-util-lifecycle-lifecycleclaims-92142:
 
-`lifecycleClaims <function-daml-finance-interface-claims-util-lifecycle-lifecycleclaims-11711_>`_
+`lifecycleClaims <function-daml-finance-claims-util-lifecycle-lifecycleclaims-92142_>`_
   \: \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-numericobservable-i-62705>`\] \-\> `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_ \-\> \[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\] \-\> \[Event\] \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (\[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\], \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\])
 
   Lifecycle a set of claims at specified events\.
 
-.. _function-daml-finance-interface-claims-util-lifecycle-net-27021:
+.. _function-daml-finance-claims-util-lifecycle-net-8204:
 
-`net <function-daml-finance-interface-claims-util-lifecycle-net-27021_>`_
+`net <function-daml-finance-claims-util-lifecycle-net-8204_>`_
   \: \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\] \-\> \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\]
 
-  Net claims that have the same instrument (regardless of tags)\.
+  Net pending payments on the same instrument (regardless of tags)\.
 
-.. _function-daml-finance-interface-claims-util-lifecycle-lifecycle-32990:
+.. _function-daml-finance-claims-util-lifecycle-lifecycle-85331:
 
-`lifecycle <function-daml-finance-interface-claims-util-lifecycle-lifecycle-32990_>`_
+`lifecycle <function-daml-finance-claims-util-lifecycle-lifecycle-85331_>`_
   \: \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-numericobservable-i-62705>`\] \-\> :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` \-\> \[Event\] \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (\[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\], \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\])
 
   Lifecycle a claim instrument at specified events\.
 
-.. _function-daml-finance-interface-claims-util-lifecycle-splitpending-87382:
+.. _function-daml-finance-claims-util-lifecycle-splitpending-12793:
 
-`splitPending <function-daml-finance-interface-claims-util-lifecycle-splitpending-87382_>`_
+`splitPending <function-daml-finance-claims-util-lifecycle-splitpending-12793_>`_
   \: \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\] \-\> (\[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\], \[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\])
 
   Map pending settlements into corresponding instrument quantities and split them into consumed and produced\.

@@ -12,9 +12,9 @@ Data Types
 .. _type-daml-finance-interface-claims-types-c-53263:
 
 **type** `C <type-daml-finance-interface-claims-types-c-53263_>`_
-  \= Claim `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_ `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ `Deliverable <type-daml-finance-interface-claims-types-deliverable-19293_>`_ `Observable <type-daml-finance-interface-claims-types-observable-47872_>`_
+  \= :ref:`Claim <type-contingentclaims-core-internal-claim-claim-35538>` `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_ `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ `Deliverable <type-daml-finance-interface-claims-types-deliverable-19293_>`_ `Observable <type-daml-finance-interface-claims-types-observable-47872_>`_
 
-  The specialized claim type
+  The specialized claim type\.
 
 .. _type-daml-finance-interface-claims-types-deliverable-19293:
 

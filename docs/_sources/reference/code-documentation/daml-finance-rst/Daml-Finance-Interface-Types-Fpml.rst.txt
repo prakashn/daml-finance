@@ -9,6 +9,70 @@ Module Daml.Finance.Interface.Types.Fpml
 Data Types
 ----------
 
+.. _type-daml-finance-interface-types-fpml-adjustabledate-24028:
+
+**data** `AdjustableDate <type-daml-finance-interface-types-fpml-adjustabledate-24028_>`_
+
+  A type for defining a date that shall be subject to
+  adjustment if it would otherwise fall on a day that
+  is not a business day in the specified business
+  centers, together with the convention for adjusting
+  the date\.
+
+  .. _constr-daml-finance-interface-types-fpml-adjustabledate-84513:
+
+  `AdjustableDate <constr-daml-finance-interface-types-fpml-adjustabledate-84513_>`_
+
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - unadjustedDate
+         - `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
+         - A date subject to adjustment\.
+       * - dateAdjustments
+         - `BusinessDayAdjustments <type-daml-finance-interface-types-fpml-businessdayadjustments-91773_>`_
+         - The business day convention and financial business centers used for adjusting the date if it would otherwise fall on a day that is not a business date in the specified business centers\. adjustedDate \: Optional IdentifiedDate \^ The date once the adjustment has been performed\. (Note that this date may change if the business center holidays change)\.
+
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `AdjustableDate <type-daml-finance-interface-types-fpml-adjustabledate-24028_>`_
+
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `AdjustableDate <type-daml-finance-interface-types-fpml-adjustabledate-24028_>`_
+
+.. _type-daml-finance-interface-types-fpml-businessdayadjustments-91773:
+
+**data** `BusinessDayAdjustments <type-daml-finance-interface-types-fpml-businessdayadjustments-91773_>`_
+
+  A type defining the business day convention and
+  financial business centers used for adjusting any
+  relevant date if it would otherwise fall on a day
+  that is not a business day in the specified business
+  centers\.
+
+  .. _constr-daml-finance-interface-types-fpml-businessdayadjustments-44336:
+
+  `BusinessDayAdjustments <constr-daml-finance-interface-types-fpml-businessdayadjustments-44336_>`_
+
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - businessDayConvention
+         - :ref:`BusinessDayConventionEnum <type-daml-finance-interface-types-date-calendar-businessdayconventionenum-88986>`
+         - The convention for adjusting a date if it would otherwise fall on a day that is not a business day\.
+       * - businessCenters
+         - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ \[`Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_\]
+         -
+
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `BusinessDayAdjustments <type-daml-finance-interface-types-fpml-businessdayadjustments-91773_>`_
+
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `BusinessDayAdjustments <type-daml-finance-interface-types-fpml-businessdayadjustments-91773_>`_
+
 .. _type-daml-finance-interface-types-fpml-calculation-4299:
 
 **data** `Calculation <type-daml-finance-interface-types-fpml-calculation-4299_>`_
@@ -85,11 +149,14 @@ Data Types
        * - Field
          - Type
          - Description
+       * - id
+         - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+         -
        * - effectiveDate
-         - `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
+         - `AdjustableDate <type-daml-finance-interface-types-fpml-adjustabledate-24028_>`_
          -
        * - terminationDate
-         - `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
+         - `AdjustableDate <type-daml-finance-interface-types-fpml-adjustabledate-24028_>`_
          -
        * - calculationPeriodDatesAdjustments
          - `CalculationPeriodDatesAdjustments <type-daml-finance-interface-types-fpml-calculationperioddatesadjustments-39191_>`_
@@ -173,6 +240,31 @@ Data Types
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `CalculationPeriodFrequency <type-daml-finance-interface-types-fpml-calculationperiodfrequency-98627_>`_
 
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `CalculationPeriodFrequency <type-daml-finance-interface-types-fpml-calculationperiodfrequency-98627_>`_
+
+.. _type-daml-finance-interface-types-fpml-daterelativetoenum-3953:
+
+**data** `DateRelativeToEnum <type-daml-finance-interface-types-fpml-daterelativetoenum-3953_>`_
+
+  The specification of whether payments/resets occur relative to
+  the first or last day of a calculation period\.
+
+  .. _constr-daml-finance-interface-types-fpml-calculationperiodstartdate-39112:
+
+  `CalculationPeriodStartDate <constr-daml-finance-interface-types-fpml-calculationperiodstartdate-39112_>`_
+
+    Payments/Resets will occur relative to the first day of each
+    calculation period\.
+
+  .. _constr-daml-finance-interface-types-fpml-calculationperiodenddate-69485:
+
+  `CalculationPeriodEndDate <constr-daml-finance-interface-types-fpml-calculationperiodenddate-69485_>`_
+
+    Payments/Resets will occur relative to the last day of each
+    calculation period\.
+
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `DateRelativeToEnum <type-daml-finance-interface-types-fpml-daterelativetoenum-3953_>`_
+
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `DateRelativeToEnum <type-daml-finance-interface-types-fpml-daterelativetoenum-3953_>`_
 
 .. _type-daml-finance-interface-types-fpml-daytypeenum-19293:
 
@@ -375,6 +467,74 @@ Data Types
 
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `NotionalStepSchedule <type-daml-finance-interface-types-fpml-notionalstepschedule-56726_>`_
 
+.. _type-daml-finance-interface-types-fpml-paymentdates-29710:
+
+**data** `PaymentDates <type-daml-finance-interface-types-fpml-paymentdates-29710_>`_
+
+  The payment dates schedule\.
+
+  .. _constr-daml-finance-interface-types-fpml-paymentdates-88491:
+
+  `PaymentDates <constr-daml-finance-interface-types-fpml-paymentdates-88491_>`_
+
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - calculationPeriodDatesReference
+         - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+         -
+       * - paymentFrequency
+         - `PaymentFrequency <type-daml-finance-interface-types-fpml-paymentfrequency-31051_>`_
+         -
+       * - firstPaymentDate
+         - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
+         -
+       * - lastRegularPaymentDate
+         - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
+         -
+       * - payRelativeTo
+         - `DateRelativeToEnum <type-daml-finance-interface-types-fpml-daterelativetoenum-3953_>`_
+         -
+       * - paymentDatesAdjustments
+         - `BusinessDayAdjustments <type-daml-finance-interface-types-fpml-businessdayadjustments-91773_>`_
+         -
+
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `PaymentDates <type-daml-finance-interface-types-fpml-paymentdates-29710_>`_
+
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `PaymentDates <type-daml-finance-interface-types-fpml-paymentdates-29710_>`_
+
+.. _type-daml-finance-interface-types-fpml-paymentfrequency-31051:
+
+**data** `PaymentFrequency <type-daml-finance-interface-types-fpml-paymentfrequency-31051_>`_
+
+  The frequency at which regular payment dates occur\. If the payment frequency is equal to the frequency defined in the calculation period dates component then one calculation period contributes to each payment amount\. If the payment frequency is less frequent than the frequency defined in the calculation period dates component then more than one calculation period will contribute to the payment amount\. A payment frequency more frequent than the calculation period frequency or one that is not a multiple of the calculation period frequency is invalid\. If the payment frequency is of value T (term), the period is defined by the swap\\swapStream\\calculationPerioDates\\effectiveDate and the swap\\swapStream\\calculationPerioDates\\terminationDate\.
+
+  .. _constr-daml-finance-interface-types-fpml-paymentfrequency-16810:
+
+  `PaymentFrequency <constr-daml-finance-interface-types-fpml-paymentfrequency-16810_>`_
+
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - periodMultiplier
+         - `Int <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-int-37261>`_
+         -
+       * - period
+         - :ref:`PeriodEnum <type-daml-finance-interface-types-date-rollconvention-periodenum-51659>`
+         -
+
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `PaymentFrequency <type-daml-finance-interface-types-fpml-paymentfrequency-31051_>`_
+
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `PaymentFrequency <type-daml-finance-interface-types-fpml-paymentfrequency-31051_>`_
+
 .. _type-daml-finance-interface-types-fpml-resetdates-76649:
 
 **data** `ResetDates <type-daml-finance-interface-types-fpml-resetdates-76649_>`_
@@ -392,16 +552,53 @@ Data Types
        * - Field
          - Type
          - Description
+       * - calculationPeriodDatesReference
+         - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+         -
        * - resetRelativeTo
-         - `ResetRelativeToEnum <type-daml-finance-interface-types-fpml-resetrelativetoenum-36193_>`_
+         - `DateRelativeToEnum <type-daml-finance-interface-types-fpml-daterelativetoenum-3953_>`_
          -
        * - fixingDates
          - `FixingDates <type-daml-finance-interface-types-fpml-fixingdates-75150_>`_
+         -
+       * - resetFrequency
+         - `ResetFrequency <type-daml-finance-interface-types-fpml-resetfrequency-8884_>`_
+         -
+       * - resetDatesAdjustments
+         - `ResetDatesAdjustments <type-daml-finance-interface-types-fpml-resetdatesadjustments-82458_>`_
          -
 
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `ResetDates <type-daml-finance-interface-types-fpml-resetdates-76649_>`_
 
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `ResetDates <type-daml-finance-interface-types-fpml-resetdates-76649_>`_
+
+.. _type-daml-finance-interface-types-fpml-resetdatesadjustments-82458:
+
+**data** `ResetDatesAdjustments <type-daml-finance-interface-types-fpml-resetdatesadjustments-82458_>`_
+
+  The business day convention to apply to each reset date if it would otherwise fall on a day that is not a business day in the specified financial business centers\.
+
+  .. _constr-daml-finance-interface-types-fpml-resetdatesadjustments-19797:
+
+  `ResetDatesAdjustments <constr-daml-finance-interface-types-fpml-resetdatesadjustments-19797_>`_
+
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - businessDayConvention
+         - :ref:`BusinessDayConventionEnum <type-daml-finance-interface-types-date-calendar-businessdayconventionenum-88986>`
+         -
+       * - businessCenters
+         - \[`Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_\]
+         -
+
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `ResetDatesAdjustments <type-daml-finance-interface-types-fpml-resetdatesadjustments-82458_>`_
+
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `ResetDatesAdjustments <type-daml-finance-interface-types-fpml-resetdatesadjustments-82458_>`_
 
 .. _type-daml-finance-interface-types-fpml-resetfrequency-8884:
 
@@ -430,31 +627,6 @@ Data Types
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `ResetFrequency <type-daml-finance-interface-types-fpml-resetfrequency-8884_>`_
 
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `ResetFrequency <type-daml-finance-interface-types-fpml-resetfrequency-8884_>`_
-
-.. _type-daml-finance-interface-types-fpml-resetrelativetoenum-36193:
-
-**data** `ResetRelativeToEnum <type-daml-finance-interface-types-fpml-resetrelativetoenum-36193_>`_
-
-  The specification of whether resets occur relative to
-  the first or last day of a calculation period\.
-
-  .. _constr-daml-finance-interface-types-fpml-calculationperiodstartdate-39112:
-
-  `CalculationPeriodStartDate <constr-daml-finance-interface-types-fpml-calculationperiodstartdate-39112_>`_
-
-    Resets will occur relative to the first day of each
-    calculation period\.
-
-  .. _constr-daml-finance-interface-types-fpml-calculationperiodenddate-69485:
-
-  `CalculationPeriodEndDate <constr-daml-finance-interface-types-fpml-calculationperiodenddate-69485_>`_
-
-    Resets will occur relative to the last day of each
-    calculation period\.
-
-  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `ResetRelativeToEnum <type-daml-finance-interface-types-fpml-resetrelativetoenum-36193_>`_
-
-  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `ResetRelativeToEnum <type-daml-finance-interface-types-fpml-resetrelativetoenum-36193_>`_
 
 .. _type-daml-finance-interface-types-fpml-spreadschedule-94683:
 
@@ -499,6 +671,9 @@ Data Types
        * - Field
          - Type
          - Description
+       * - calculationPeriodDatesReference
+         - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+         -
        * - initialStub
          - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `StubValue <type-daml-finance-interface-types-fpml-stubvalue-73357_>`_
          -
@@ -586,8 +761,14 @@ Data Types
        * - payerPartyReference
          - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
          -
+       * - receiverPartyReference
+         - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+         -
        * - calculationPeriodDates
          - `CalculationPeriodDates <type-daml-finance-interface-types-fpml-calculationperioddates-60238_>`_
+         -
+       * - paymentDates
+         - `PaymentDates <type-daml-finance-interface-types-fpml-paymentdates-29710_>`_
          -
        * - resetDates
          - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `ResetDates <type-daml-finance-interface-types-fpml-resetdates-76649_>`_

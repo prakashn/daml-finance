@@ -26,14 +26,14 @@ Functions
 .. _function-daml-finance-instrument-generic-util-prepareandtagclaims-93565:
 
 `prepareAndTagClaims <function-daml-finance-instrument-generic-util-prepareandtagclaims-93565_>`_
-  \: \[Claim `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_ `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ :ref:`Deliverable <type-daml-finance-interface-claims-types-deliverable-19293>` :ref:`Observable <type-daml-finance-interface-claims-types-observable-47872>`\] \-\> `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_ \-\> :ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`
+  \: \[:ref:`Claim <type-contingentclaims-core-internal-claim-claim-35538>` `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_ `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ :ref:`Deliverable <type-daml-finance-interface-claims-types-deliverable-19293>` :ref:`Observable <type-daml-finance-interface-claims-types-observable-47872>`\] \-\> `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_ \-\> :ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`
 
   Convert the claims to UTCTime and tag them\.
 
 .. _function-daml-finance-instrument-generic-util-createfixratepaymentclaimslist-27323:
 
 `createFixRatePaymentClaimsList <function-daml-finance-instrument-generic-util-createfixratepaymentclaimslist-27323_>`_
-  \: \[:ref:`SchedulePeriod <type-daml-finance-interface-types-date-schedule-scheduleperiod-76784>`\] \-\> :ref:`PeriodicSchedule <type-daml-finance-interface-types-date-schedule-periodicschedule-97930>` \-\> `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_ \-\> `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ \-\> `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_ \-\> :ref:`DayCountConventionEnum <type-daml-finance-interface-types-date-daycount-daycountconventionenum-67281>` \-\> `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ \-\> :ref:`Deliverable <type-daml-finance-interface-claims-types-deliverable-19293>` \-\> \[Claim `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_ `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ :ref:`Deliverable <type-daml-finance-interface-claims-types-deliverable-19293>` :ref:`Observable <type-daml-finance-interface-claims-types-observable-47872>`\]
+  \: \[:ref:`SchedulePeriod <type-daml-finance-interface-types-date-schedule-scheduleperiod-76784>`\] \-\> :ref:`PeriodicSchedule <type-daml-finance-interface-types-date-schedule-periodicschedule-97930>` \-\> `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_ \-\> `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ \-\> `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_ \-\> :ref:`DayCountConventionEnum <type-daml-finance-interface-types-date-daycount-daycountconventionenum-67281>` \-\> `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ \-\> :ref:`Deliverable <type-daml-finance-interface-claims-types-deliverable-19293>` \-\> \[:ref:`Claim <type-contingentclaims-core-internal-claim-claim-35538>` `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_ `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ :ref:`Deliverable <type-daml-finance-interface-claims-types-deliverable-19293>` :ref:`Observable <type-daml-finance-interface-claims-types-observable-47872>`\]
 
 .. _function-daml-finance-instrument-generic-util-createfixratepaymentclaims-45471:
 
@@ -85,13 +85,6 @@ Functions
   Create an FX adjusted principal claim\.
   This can be used for both FX swaps (using the appropriate FX rate) and single currency bonds (setting the FX rate to 1\.0)\.
 
-.. _function-daml-finance-instrument-generic-util-createpaymentperiodicschedule-96990:
-
-`createPaymentPeriodicSchedule <function-daml-finance-instrument-generic-util-createpaymentperiodicschedule-96990_>`_
-  \: :ref:`SwapStream <type-daml-finance-interface-types-fpml-swapstream-99592>` \-\> :ref:`PeriodicSchedule <type-daml-finance-interface-types-date-schedule-periodicschedule-97930>`
-
-  Create a schedule for periodic payments\.
-
 .. _function-daml-finance-instrument-generic-util-datetodateclocktime-38974:
 
 `dateToDateClockTime <function-daml-finance-instrument-generic-util-datetodateclocktime-38974_>`_
@@ -104,7 +97,7 @@ Functions
 .. _function-daml-finance-instrument-generic-util-mapclaimtoutctime-33526:
 
 `mapClaimToUTCTime <function-daml-finance-instrument-generic-util-mapclaimtoutctime-33526_>`_
-  \: Claim `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_ `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ :ref:`Deliverable <type-daml-finance-interface-claims-types-deliverable-19293>` :ref:`Observable <type-daml-finance-interface-claims-types-observable-47872>` \-\> :ref:`C <type-daml-finance-interface-claims-types-c-53263>`
+  \: :ref:`Claim <type-contingentclaims-core-internal-claim-claim-35538>` `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_ `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ :ref:`Deliverable <type-daml-finance-interface-claims-types-deliverable-19293>` :ref:`Observable <type-daml-finance-interface-claims-types-observable-47872>` \-\> :ref:`C <type-daml-finance-interface-claims-types-c-53263>`
 
   Maps a ``Date`` claim to a ``Time`` claim using the rule in the ``DateClock``\.
   From the Daml\.Finance\.Instrument\.Generics\.Test file, but could not import here (duplicated for now)\.

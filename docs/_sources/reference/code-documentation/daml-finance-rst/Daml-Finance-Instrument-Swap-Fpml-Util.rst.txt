@@ -12,10 +12,38 @@ Data Types
 .. _type-daml-finance-instrument-swap-fpml-util-o-46768:
 
 **type** `O <type-daml-finance-instrument-swap-fpml-util-o-46768_>`_
-  \= Observation `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_ `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ :ref:`Observable <type-daml-finance-interface-claims-types-observable-47872>`
+  \= :ref:`Observation <type-contingentclaims-core-observation-observation-91686>` `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_ `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ :ref:`Observable <type-daml-finance-interface-claims-types-observable-47872>`
 
 Functions
 ---------
+
+.. _function-daml-finance-instrument-swap-fpml-util-createcalculationperiodicschedule-96000:
+
+`createCalculationPeriodicSchedule <function-daml-finance-instrument-swap-fpml-util-createcalculationperiodicschedule-96000_>`_
+  \: :ref:`CalculationPeriodDates <type-daml-finance-interface-types-fpml-calculationperioddates-60238>` \-\> :ref:`PeriodicSchedule <type-daml-finance-interface-types-date-schedule-periodicschedule-97930>`
+
+  Create a schedule for calculation periods\.
+
+.. _function-daml-finance-instrument-swap-fpml-util-createpaymentperiodicschedule-77689:
+
+`createPaymentPeriodicSchedule <function-daml-finance-instrument-swap-fpml-util-createpaymentperiodicschedule-77689_>`_
+  \: :ref:`SwapStream <type-daml-finance-interface-types-fpml-swapstream-99592>` \-\> :ref:`PeriodicSchedule <type-daml-finance-interface-types-date-schedule-periodicschedule-97930>`
+
+  Create a schedule for payment periods\.
+
+.. _function-daml-finance-instrument-swap-fpml-util-getcalendarsandadjust-68138:
+
+`getCalendarsAndAdjust <function-daml-finance-instrument-swap-fpml-util-getcalendarsandadjust-68138_>`_
+  \: `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_ \-\> :ref:`BusinessDayAdjustments <type-daml-finance-interface-types-fpml-businessdayadjustments-91773>` \-\> `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_ \-\> `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
+
+  Retrieve holiday calendars and adjust a date as specified in a BusinessDayAdjustments FpML element
+
+.. _function-daml-finance-instrument-swap-fpml-util-adjustdateaccordingtobusinessdayadjustments-16993:
+
+`adjustDateAccordingToBusinessDayAdjustments <function-daml-finance-instrument-swap-fpml-util-adjustdateaccordingtobusinessdayadjustments-16993_>`_
+  \: `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_ \-\> :ref:`BusinessDayAdjustments <type-daml-finance-interface-types-fpml-businessdayadjustments-91773>` \-\> `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_ \-\> `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
+
+  Adjust a date as specified in a BusinessDayAdjustments FpML element (or not at all if NoAdjustment)
 
 .. _function-daml-finance-instrument-swap-fpml-util-calculateclaimsfromfixswapstream-11157:
 

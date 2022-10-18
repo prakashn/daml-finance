@@ -12,8 +12,17 @@ Here is a complete list of modules in the financial library:
    :maxdepth: 3
    :titlesonly:
 
+   ContingentClaims.Core.Builders <ContingentClaims-Core-Builders>
+   ContingentClaims.Core.Claim <ContingentClaims-Core-Claim>
+   ContingentClaims.Core.Observation <ContingentClaims-Core-Observation>
+   ContingentClaims.Core.Util.Recursion <ContingentClaims-Core-Util-Recursion>
+   ContingentClaims.Lifecycle.Lifecycle <ContingentClaims-Lifecycle-Lifecycle>
+   ContingentClaims.Lifecycle.Util <ContingentClaims-Lifecycle-Util>
+   ContingentClaims.Valuation.Stochastic <ContingentClaims-Valuation-Stochastic>
    Daml.Finance.Account.Account <Daml-Finance-Account-Account>
    Daml.Finance.Account.Util <Daml-Finance-Account-Util>
+   Daml.Finance.Claims.Util <Daml-Finance-Claims-Util>
+   Daml.Finance.Claims.Util.Lifecycle <Daml-Finance-Claims-Util-Lifecycle>
    Daml.Finance.Data.Observable.Observation <Daml-Finance-Data-Observable-Observation>
    Daml.Finance.Data.Reference.HolidayCalendar <Daml-Finance-Data-Reference-HolidayCalendar>
    Daml.Finance.Data.Time.DateClock <Daml-Finance-Data-Time-DateClock>
@@ -55,8 +64,6 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Account.Util <Daml-Finance-Interface-Account-Util>
    Daml.Finance.Interface.Claims.Claim <Daml-Finance-Interface-Claims-Claim>
    Daml.Finance.Interface.Claims.Types <Daml-Finance-Interface-Claims-Types>
-   Daml.Finance.Interface.Claims.Util <Daml-Finance-Interface-Claims-Util>
-   Daml.Finance.Interface.Claims.Util.Lifecycle <Daml-Finance-Interface-Claims-Util-Lifecycle>
    Daml.Finance.Interface.Data.NumericObservable <Daml-Finance-Interface-Data-NumericObservable>
    Daml.Finance.Interface.Data.TimeObservable <Daml-Finance-Interface-Data-TimeObservable>
    Daml.Finance.Interface.Holding.Base <Daml-Finance-Interface-Holding-Base>

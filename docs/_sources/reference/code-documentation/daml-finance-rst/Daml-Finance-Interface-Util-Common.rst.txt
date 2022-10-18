@@ -21,4 +21,4 @@ Functions
 `fetchInterfaceByKey <function-daml-finance-interface-util-common-fetchinterfacebykey-89757_>`_
   \: (`HasFetchByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfetchbykey-54638>`_ t k, `HasField <https://docs.daml.com/daml/stdlib/DA-Record.html#class-da-internal-record-hasfield-52839>`_ \"cid\" t (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ i), `HasFetch <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasfetch-52387>`_ i) \=\> k \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ i
 
-  Let us fetch an interface by key
+  Fetch an interface by key\.
