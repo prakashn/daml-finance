@@ -17,7 +17,7 @@ Interfaces
 
   + **Choice Apply**
 
-    applies the election to the instrument, returning the new instrument as well
+    Applies the election to the instrument, returning the new instrument as well
     as the corresponding effects\. The election is archived as part of this choice\.
 
     .. list-table::
@@ -29,13 +29,10 @@ Interfaces
          - Description
        * - clockCid
          - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-timeobservable-i-64066>`
-         - current time\.
+         - Current time\.
        * - observableCids
          - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-numericobservable-i-62705>`\]
-         - set of observables
-       * - settlers
-         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
-         - parties responsible for settling effects
+         - Set of observables\.
 
   + **Choice GetView**
 
@@ -86,9 +83,6 @@ Interfaces
        * - observableCids
          - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-numericobservable-i-62705>`\]
          - Set of observables\.
-       * - settlers
-         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
-         - The party settling the transaction\.
 
   + **Choice Exercisable\_GetView**
 

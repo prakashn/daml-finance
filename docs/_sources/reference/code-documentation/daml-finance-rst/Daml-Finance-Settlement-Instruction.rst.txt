@@ -15,8 +15,8 @@ Templates
 
   Instruction is used to settle a single settlement ``Step``\. In order to settle the instruction,
 
-  * the sender must allocate a suitable transferable holding\.
-  * the receiver must define the receiving account\.
+  * the sender must allocate a suitable holding
+  * the receiver must define the receiving account
 
   .. list-table::
      :widths: 15 10 30

@@ -31,7 +31,7 @@ Data Types
          - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
          - The description of the swap\.
        * - swapStreams
-         - \[:ref:`SwapStream <type-daml-finance-interface-types-fpml-swapstream-99592>`\]
+         - \[:ref:`SwapStream <type-daml-finance-interface-instrument-swap-fpml-fpmltypes-swapstream-38811>`\]
          - Each element describes a stream of swap payments, for example a regular fixed or floating rate\.
        * - issuerPartyRef
          - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
@@ -39,9 +39,9 @@ Data Types
        * - calendarDataProvider
          - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
          - The reference data provider to use for the holiday calendar\.
-       * - currency
-         - :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`
-         - The currency of the swap\. For example, if the swap pays in USD this should be a USD cash instrument\.
+       * - currencies
+         - \[:ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`\]
+         - The currencies of the different swap legs, one for each swapStream\. For example, if one leg pays in USD this should be a USD cash instrument\.
        * - lastEventTimestamp
          - `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_
          - (Market) time of the last recorded lifecycle event\. If no event has occurred yet, the time of creation should be used\.

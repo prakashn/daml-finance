@@ -157,9 +157,6 @@ Data Types
        * - providers
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - The parties providing the claim processing\.
-       * - settlers
-         - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
-         - The parties that can settle the consequence of the effect\.
        * - targetInstrument
          - :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`
          - A holding on this instrument is required to claim the effect\.
@@ -175,12 +172,12 @@ Data Types
        * - settlementDate
          - `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
          - The effect's settlement date\.
-       * - consumed
+       * - otherConsumed
          - \[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\]
-         - Consumed quantities (not including the target instrument)\.
-       * - produced
+         - Consumed quantities (in addition to the target instrument)\.
+       * - otherProduced
          - \[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\]
-         - Produced quantities (not including the produced instrument)\.
+         - Produced quantities (in addition to the produced instrument)\.
 
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-lifecycle-effect-view-32411_>`_
 

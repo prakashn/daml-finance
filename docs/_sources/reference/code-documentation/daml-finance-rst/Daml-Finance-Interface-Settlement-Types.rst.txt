@@ -23,7 +23,7 @@ Data Types
 
   .. _constr-daml-finance-interface-settlement-types-pledge-99803:
 
-  `Pledge <constr-daml-finance-interface-settlement-types-pledge-99803_>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`)
+  `Pledge <constr-daml-finance-interface-settlement-types-pledge-99803_>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-base-i-67605>`)
 
     Settle the instruction with the pledged asset\.
 

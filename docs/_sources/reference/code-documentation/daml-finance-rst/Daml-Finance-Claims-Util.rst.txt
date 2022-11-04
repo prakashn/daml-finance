@@ -12,7 +12,7 @@ Functions
 .. _function-daml-finance-claims-util-iszero-74676:
 
 `isZero <function-daml-finance-claims-util-iszero-74676_>`_
-  \: :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_
+  \: `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_ \-\> :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_
 
   Checks if all input claims are zero\.
 

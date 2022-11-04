@@ -59,7 +59,7 @@ Templates
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Observers\.
      * - paths
-       - `Map <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-map-90052>`_ `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_ `Path <type-daml-finance-settlement-factory-path-70278_>`_
+       - `Map <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-map-90052>`_ `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_ :ref:`Hierarchy <type-daml-finance-settlement-hierarchy-hierarchy-68950>`
        - Hierarchical paths used to settle holding transfers\. A path is specified for each instrument label\.
 
   + **Choice Archive**
@@ -67,34 +67,3 @@ Templates
     (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>` **for** `FactoryWithIntermediaries <type-daml-finance-settlement-factory-factorywithintermediaries-72365_>`_
-
-Data Types
-----------
-
-.. _type-daml-finance-settlement-factory-path-70278:
-
-**data** `Path <type-daml-finance-settlement-factory-path-70278_>`_
-
-  Data type that describes a hierarchical account structure between two parties for holdings on an instrument\.
-
-  .. _constr-daml-finance-settlement-factory-path-19123:
-
-  `Path <constr-daml-finance-settlement-factory-path-19123_>`_
-
-    .. list-table::
-       :widths: 15 10 30
-       :header-rows: 1
-
-       * - Field
-         - Type
-         - Description
-       * - senderPath
-         - \[`Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_\]
-         - Path from the sender to the root custodian of the holding\. If the sender ``p`` is the root custodian, it should be ``[p, p]``\.
-       * - receiverPath
-         - \[`Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_\]
-         - Path from the receiver to the root custodian of the holding\. If the receiver ``p`` is the root custodian, it should be ``[p, p]``\.
-
-  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `Path <type-daml-finance-settlement-factory-path-70278_>`_
-
-  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `Path <type-daml-finance-settlement-factory-path-70278_>`_

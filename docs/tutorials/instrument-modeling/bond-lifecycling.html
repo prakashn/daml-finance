@@ -103,32 +103,51 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/index.html">Concepts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/intro.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/asset-model.html">Asset Model</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/asset-model.html#instrument">Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#signatories">Signatories</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#keys-and-versioning">Keys and Versioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#interfaces">Interfaces</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#implementations">Implementations</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/asset-model.html#holding">Holding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#signatories-1">Signatories</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#properties-of-holdings">Properties of Holdings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#implementations-1">Implementations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#implementations-1">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#id3">Implementations</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/asset-model.html#account">Account</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#signatories-2">Signatories</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#keys">Keys</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#implementations-2">Implementations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#implementations-2">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#id6">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/asset-model.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#currency">Currency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#equity">Equity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#otc-swap">OTC Swap</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/settlement.html">Settlement</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/settlement.html#step">Step</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/settlement.html#instruction">Instruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/settlement.html#batch">Batch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/settlement.html#workflow">Workflow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#instruct">Instruct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#allocate-and-approve">Allocate and Approve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#execute">Execute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#remarks">Remarks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/settlement.html#the-components-in-detail">The components in detail</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#settlement-factory">Settlement factory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#instruction">Instruction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#batch">Batch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/settlement.html#remarks-and-further-references">Remarks and further references</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/lifecycling.html">Lifecycling</a><ul>
@@ -504,6 +523,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html">Daml.Finance.Interface.Claims.Claim</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#typeclasses">Typeclasses</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#functions">Functions</a></li>
 </ul>
@@ -757,6 +777,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-Factory.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-FpmlTypes.html">Daml.Finance.Interface.Instrument.Swap.Fpml.FpmlTypes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-FpmlTypes.html#data-types">Data Types</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Fpml.Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html#interfaces">Interfaces</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html#typeclasses">Typeclasses</a></li>
@@ -902,10 +926,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Schedule.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Fpml.html">Daml.Finance.Interface.Types.Fpml</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Fpml.html#data-types">Data Types</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Util-Common.html">Daml.Finance.Interface.Util.Common</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Util-Common.html#functions">Functions</a></li>
 </ul>
@@ -968,7 +988,11 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Factory.html">Daml.Finance.Settlement.Factory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Factory.html#templates">Templates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Hierarchy.html">Daml.Finance.Settlement.Hierarchy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Hierarchy.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Hierarchy.html#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a><ul>
@@ -1120,7 +1144,7 @@ of this tutorial. It also refers to some utility functions in <code class="docut
 </pre></div>
 </div>
 <p>We also credit the account of an investor:</p>
-<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">investorBondTransferableCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="kt">Account</span><span class="o">.</span><span class="n">credit</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="n">bondInstrument</span><span class="w"> </span><span class="n">redemptionAmount</span><span class="w"> </span><span class="n">investorAccount</span><span class="w"></span>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">investorBondHoldingCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="kt">Account</span><span class="o">.</span><span class="n">credit</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="n">bondInstrument</span><span class="w"> </span><span class="n">redemptionAmount</span><span class="w"> </span><span class="n">investorAccount</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -1144,7 +1168,7 @@ regarding when to process events.</p>
 by calling <code class="docutils literal notranslate"><span class="pre">Lifecycle</span></code> on the coupon date:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="c1">-- Try to lifecycle instrument</span><span class="w"></span>
 <span class="w">  </span><span class="p">(</span><span class="n">lifecycleCid</span><span class="p">,</span><span class="w"> </span><span class="n">effectCids</span><span class="p">)</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="kt">Instrument</span><span class="o">.</span><span class="n">submitExerciseInterfaceByKeyCmd</span><span class="w"> </span><span class="o">@</span><span class="kt">Lifecycle</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="p">[</span><span class="n">issuer</span><span class="p">]</span><span class="w"> </span><span class="n">readAs</span><span class="w"> </span><span class="n">instrument</span><span class="w"></span>
-<span class="w">    </span><span class="kt">Lifecycle</span><span class="o">.</span><span class="kt">Evolve</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">settlers</span><span class="p">;</span><span class="w"> </span><span class="n">eventCid</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">clockEventCid</span><span class="p">;</span><span class="w"> </span><span class="n">observableCids</span><span class="p">;</span><span class="w"> </span><span class="n">ruleName</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Time&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">timeObservableCid</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">clockCid</span><span class="w"></span>
+<span class="w">    </span><span class="kt">Lifecycle</span><span class="o">.</span><span class="kt">Evolve</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">eventCid</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">clockEventCid</span><span class="p">;</span><span class="w"> </span><span class="n">observableCids</span><span class="p">;</span><span class="w"> </span><span class="n">ruleName</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;Time&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">timeObservableCid</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">clockCid</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This internally uses the <code class="docutils literal notranslate"><span class="pre">Event</span></code> interface, which is defined in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Lifecycle.Event</span></code>. In our case, the event
@@ -1157,46 +1181,178 @@ The <code class="docutils literal notranslate"><span class="pre">Effect</span></
 <h2>Settle the Instructions<a class="headerlink" href="#settle-the-instructions" title="Permalink to this headline">¶</a></h2>
 <p>In order to process the effect(s) of the lifecycling (in this case: pay the coupon), we need to create settlement instructions.
 We start by creating a settlement factory:</p>
-<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="c1">-- Create settlement factory</span><span class="w"></span>
-<span class="w">  </span><span class="n">settlementFactoryCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="n">investor</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">Factory</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">investor</span><span class="p">;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">empty</span><span class="w"></span>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="nf">settlementFactoryCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="n">investor</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">Factory</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">investor</span><span class="p">;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">empty</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The investor then claims the effect:</p>
-<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="c1">-- Claim effect</span><span class="w"></span>
-<span class="w">  </span><span class="n">lifecycleClaimRuleCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">@</span><span class="kt">Claim</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">custodian</span><span class="p">,</span><span class="w"> </span><span class="n">investor</span><span class="p">]</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
-<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">Claim</span><span class="o">.</span><span class="kt">Rule</span><span class="w"></span>
-<span class="w">      </span><span class="kr">with</span><span class="w"></span>
-<span class="w">        </span><span class="n">providers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">fromList</span><span class="w"> </span><span class="p">[</span><span class="n">custodian</span><span class="p">,</span><span class="w"> </span><span class="n">investor</span><span class="p">]</span><span class="w"></span>
-<span class="w">        </span><span class="n">claimers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">investor</span><span class="w"></span>
-<span class="w">        </span><span class="n">settlers</span><span class="w"></span>
-<span class="w">        </span><span class="n">settlementFactoryCid</span><span class="w"></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- Copyright (c) 2022 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved.
+-- SPDX-License-Identifier: Apache-2.0
 
-<span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">investor</span><span class="p">]</span><span class="w"> </span><span class="n">readAs</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
-<span class="w">    </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">lifecycleClaimRuleCid</span><span class="w"> </span><span class="kt">Claim</span><span class="o">.</span><span class="kt">ClaimEffect</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
-<span class="w">      </span><span class="n">claimer</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">investor</span><span class="w"></span>
-<span class="w">      </span><span class="n">holdingCids</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">@</span><span class="kt">Base</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="n">investorBondTransferableCid</span><span class="p">]</span><span class="w"></span>
-<span class="w">      </span><span class="n">effectCid</span><span class="w"></span>
-<span class="w">      </span><span class="n">batchId</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="s">&quot;CouponSettlement&quot;</span><span class="w"></span>
+module Daml.Finance.Instrument.Bond.Test.Util where
+
+import DA.Date
+import DA.List (sort)
+import DA.Map qualified as M (fromList)
+import DA.Set (empty, singleton)
+import Daml.Finance.Instrument.Bond.FixedRate.Instrument qualified as FixedRate (Instrument(..))
+import Daml.Finance.Instrument.Bond.FloatingRate.Instrument qualified as FloatingRate (Instrument(..))
+import Daml.Finance.Instrument.Bond.InflationLinked.Instrument qualified as InflationLinked (Instrument(..))
+import Daml.Finance.Instrument.Bond.ZeroCoupon.Instrument qualified as ZeroCoupon (Instrument(..))
+import Daml.Finance.Interface.Claims.Types (Deliverable)
+import Daml.Finance.Interface.Data.NumericObservable qualified as NumericObservable (I)
+import Daml.Finance.Interface.Instrument.Base.Instrument qualified as Instrument (GetView(..), K, I, Q, toKey)
+import Daml.Finance.Interface.Lifecycle.Effect qualified as Effect (I, GetView(..))
+import Daml.Finance.Interface.Lifecycle.Rule.Lifecycle qualified as Lifecycle (I, Evolve(..))
+import Daml.Finance.Interface.Types.Common
+import Daml.Finance.Interface.Types.Date.Calendar (BusinessDayAdjustment(..), BusinessDayConventionEnum)
+import Daml.Finance.Interface.Types.Date.DayCount (DayCountConventionEnum)
+import Daml.Finance.Interface.Types.Date.RollConvention (PeriodEnum, RollConventionEnum(..))
+import Daml.Finance.Interface.Types.Date.Schedule (Frequency(..), PeriodicSchedule(..))
+import Daml.Finance.Test.Util.Instrument (createReference)
+import Daml.Finance.Test.Util.Instrument qualified as Instrument (submitExerciseInterfaceByKeyCmd)
+import Daml.Finance.Test.Util.Lifecycle (createClockAndEvent)
+import Daml.Script
+
+-- | Create a schedule for periodic payments.
+createPaymentPeriodicSchedule : Date -&gt; [Text] -&gt; BusinessDayConventionEnum -&gt; PeriodEnum -&gt; Int -&gt; Date -&gt; Date -&gt; PeriodicSchedule
+createPaymentPeriodicSchedule firstCouponDate holidayCalendarIds businessDayConvention couponPeriod couponPeriodMultiplier issueDate maturityDate = do
+  -- CREATE_BOND_PERIODIC_SCHEDULE_BEGIN
+  let
+    (y, m, d) = toGregorian firstCouponDate
+    periodicSchedule = PeriodicSchedule with
+      businessDayAdjustment =
+        BusinessDayAdjustment with
+          calendarIds = holidayCalendarIds
+          convention = businessDayConvention
+      effectiveDateBusinessDayAdjustment = None
+      terminationDateBusinessDayAdjustment = None
+      frequency =
+        Frequency with
+          rollConvention = DOM d
+          period = couponPeriod
+          periodMultiplier = couponPeriodMultiplier
+      effectiveDate = issueDate
+      firstRegularPeriodStartDate = Some firstCouponDate
+      lastRegularPeriodEndDate = Some maturityDate
+      stubPeriodType = None
+      terminationDate = maturityDate
+  -- CREATE_BOND_PERIODIC_SCHEDULE_END
+  periodicSchedule
+
+originateFixedRateBond : Party -&gt; Party -&gt; Text -&gt; Text -&gt; [(Text, Parties)] -&gt; Time -&gt; Date -&gt; [Text] -&gt; Party -&gt; Date-&gt; Date -&gt; DayCountConventionEnum -&gt; BusinessDayConventionEnum -&gt; Decimal -&gt; PeriodEnum -&gt; Int -&gt; Instrument.K -&gt; Script Instrument.K
+originateFixedRateBond depository issuer label description observers lastEventTimestamp issueDate holidayCalendarIds calendarDataProvider firstCouponDate maturityDate dayCountConvention businessDayConvention couponRate couponPeriod couponPeriodMultiplier currency = do
+  let
+    periodicSchedule = createPaymentPeriodicSchedule firstCouponDate holidayCalendarIds businessDayConvention couponPeriod couponPeriodMultiplier issueDate maturityDate
+  -- CREATE_FIXED_RATE_BOND_INSTRUMENT_BEGIN
+  cid &lt;- toInterfaceContractId @Instrument.I &lt;$&gt; submitMulti [depository, issuer] [] do
+    createCmd FixedRate.Instrument with depository; issuer; id = Id label; version = &quot;0&quot;; description; observers = M.fromList observers; lastEventTimestamp; periodicSchedule; holidayCalendarIds; calendarDataProvider; dayCountConvention; couponRate; currency
+  -- CREATE_FIXED_RATE_BOND_INSTRUMENT_END
+  createReference cid depository issuer observers
+
+originateZeroCouponBond : Party -&gt; Party -&gt; Text -&gt; Text -&gt; [(Text, Parties)] -&gt; Time -&gt; Date -&gt; Date -&gt; Deliverable -&gt; Script Instrument.K
+originateZeroCouponBond depository issuer label description observers lastEventTimestamp issueDate maturityDate currency = do
+  -- CREATE_ZERO_COUPON_BOND_INSTRUMENT_BEGIN
+  cid &lt;- toInterfaceContractId &lt;$&gt; submitMulti [depository, issuer] [] do
+    createCmd ZeroCoupon.Instrument with depository; issuer; id = Id label; version = &quot;0&quot;; description; observers = M.fromList observers; lastEventTimestamp; issueDate; maturityDate; currency
+  -- CREATE_ZERO_COUPON_BOND_INSTRUMENT_END
+  createReference cid depository issuer observers
+
+originateFloatingRateBond : Party -&gt; Party -&gt; Text -&gt; Text -&gt; [(Text, Parties)] -&gt; Time -&gt; Date -&gt; [Text] -&gt; Party -&gt; Date -&gt; Date -&gt; DayCountConventionEnum -&gt; BusinessDayConventionEnum -&gt; Decimal -&gt; PeriodEnum -&gt; Int -&gt; Instrument.K -&gt; Text -&gt; Script Instrument.K
+originateFloatingRateBond depository issuer label description observers lastEventTimestamp issueDate holidayCalendarIds calendarDataProvider firstCouponDate maturityDate dayCountConvention businessDayConvention couponRate couponPeriod couponPeriodMultiplier currency referenceRateId = do
+  let
+    periodicSchedule = createPaymentPeriodicSchedule firstCouponDate holidayCalendarIds businessDayConvention couponPeriod couponPeriodMultiplier issueDate maturityDate
+  -- CREATE_FLOATING_RATE_BOND_INSTRUMENT_BEGIN
+  cid &lt;- toInterfaceContractId &lt;$&gt; submitMulti [depository, issuer] [] do
+    createCmd FloatingRate.Instrument with depository; issuer; id = Id label; version = &quot;0&quot;; description; observers = M.fromList observers; lastEventTimestamp; periodicSchedule; holidayCalendarIds; calendarDataProvider; dayCountConvention; couponSpread=couponRate; referenceRateId; currency
+  -- CREATE_FLOATING_RATE_BOND_INSTRUMENT_END
+  createReference cid depository issuer observers
+
+originateInflationLinkedBond : Party -&gt; Party -&gt; Text -&gt; Text -&gt; [(Text, Parties)] -&gt; Time -&gt; Date -&gt; [Text] -&gt; Party -&gt; Date -&gt; Date -&gt; DayCountConventionEnum -&gt; BusinessDayConventionEnum -&gt; Decimal -&gt; PeriodEnum -&gt; Int -&gt; Instrument.K -&gt; Text -&gt; Decimal -&gt; Script Instrument.K
+originateInflationLinkedBond depository issuer label description observers lastEventTimestamp issueDate holidayCalendarIds calendarDataProvider firstCouponDate maturityDate dayCountConvention businessDayConvention couponRate couponPeriod couponPeriodMultiplier currency inflationIndexId inflationIndexBaseValue = do
+  let
+    periodicSchedule = createPaymentPeriodicSchedule firstCouponDate holidayCalendarIds businessDayConvention couponPeriod couponPeriodMultiplier issueDate maturityDate
+  -- CREATE_INFLATION_LINKED_BOND_INSTRUMENT_BEGIN
+  cid &lt;- toInterfaceContractId &lt;$&gt; submitMulti [depository, issuer] [] do
+    createCmd InflationLinked.Instrument with depository; issuer; id = Id label; version = &quot;0&quot;; description; observers = M.fromList observers; lastEventTimestamp; periodicSchedule; holidayCalendarIds; calendarDataProvider; dayCountConvention; couponRate; inflationIndexId; currency; inflationIndexBaseValue
+  -- CREATE_INFLATION_LINKED_BOND_INSTRUMENT_END
+  createReference cid depository issuer observers
+
+-- | Lifecycle the instrument as of this date. This is a general function that can be used for both bonds and swaps.
+lifecycleInstrument : [Party] -&gt; Date -&gt; Instrument.K -&gt; Party -&gt; [ContractId NumericObservable.I] -&gt; Script (ContractId Lifecycle.I, [ContractId Effect.I])
+lifecycleInstrument readAs today instrument issuer observableCids = do
+  -- CREATE_CLOCK_FOR_BOND_LIFECYCLING_BEGIN
+  -- create clock and clock update event
+  (clockCid, clockEventCid) &lt;- createClockAndEvent (singleton issuer) today empty
+  -- CREATE_CLOCK_FOR_BOND_LIFECYCLING_END
+
+  -- LIFECYCLE_BOND_BEGIN
+  -- Try to lifecycle instrument
+  (lifecycleCid, effectCids) &lt;- Instrument.submitExerciseInterfaceByKeyCmd @Lifecycle.I [issuer] readAs instrument
+    Lifecycle.Evolve with eventCid = clockEventCid; observableCids; ruleName = &quot;Time&quot;; timeObservableCid = clockCid
+  -- LIFECYCLE_BOND_END
+
+  pure (lifecycleCid, effectCids)
+
+-- | Verify a that there are no lifecycle effects of the instrument on this date. This is a general function that can be used for both bonds and swaps.
+verifyNoLifecycleEffects : [Party] -&gt; Date -&gt; Instrument.K -&gt; Party -&gt; [ContractId NumericObservable.I] -&gt; Script ()
+verifyNoLifecycleEffects readAs today instrument issuer observableCids = do
+  (bondLifecycleCid2, effectCids) &lt;- lifecycleInstrument readAs today instrument issuer observableCids
+  assertMsg (&quot;There should be no lifecycle effects on &quot; &lt;&gt; show today) (null effectCids)
+
+-- | Verify the payments from a payment date of a bond (excluding settlement)
+lifecycleAndVerifyBondPaymentEffects : [Party] -&gt; Date -&gt; Instrument.K -&gt; Party -&gt; [ContractId NumericObservable.I] -&gt; [Instrument.Q] -&gt; [Instrument.Q] -&gt; Script Instrument.K
+lifecycleAndVerifyBondPaymentEffects readAs today instrument issuer observableCids expectedConsumedQuantities expectedProducedQuantities = do
+  (bondLifecycleCid, [effectCid]) &lt;- lifecycleInstrument readAs today instrument issuer observableCids
+
+  newBondInstrumentKey &lt;- submit issuer do
+    Instrument.toKey &lt;$&gt; exerciseCmd @Instrument.I (coerceContractId bondLifecycleCid) Instrument.GetView with viewer = issuer
+
+  -- Get the effect
+  effectView &lt;- submit issuer do
+    exerciseCmd effectCid Effect.GetView with viewer = issuer
+
+  -- Verify that the consumed/produced quantities match the expected ones
+  assertMsg &quot;The consumed quantities do not match the expected ones&quot; (sort expectedConsumedQuantities == sort effectView.otherConsumed)
+  assertMsg &quot;The produced quantities do not match the expected ones&quot; (sort expectedProducedQuantities == sort effectView.otherProduced)
+
+  pure newBondInstrumentKey
+</pre></div>
+</div>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Claim effect</span><span class="w"></span>
+<span class="nf">lifecycleClaimRuleCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">@</span><span class="kt">Claim</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">custodian</span><span class="p">,</span><span class="w"> </span><span class="n">investor</span><span class="p">]</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">  </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">Claim</span><span class="o">.</span><span class="kt">Rule</span><span class="w"></span>
+<span class="w">    </span><span class="kr">with</span><span class="w"></span>
+<span class="w">      </span><span class="n">providers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">fromList</span><span class="w"> </span><span class="p">[</span><span class="n">custodian</span><span class="p">,</span><span class="w"> </span><span class="n">investor</span><span class="p">]</span><span class="w"></span>
+<span class="w">      </span><span class="n">claimers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">investor</span><span class="w"></span>
+<span class="w">      </span><span class="n">settlers</span><span class="w"></span>
+<span class="w">      </span><span class="n">settlementFactoryCid</span><span class="w"></span>
+
+<span class="nf">result</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">investor</span><span class="p">]</span><span class="w"> </span><span class="n">readAs</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">  </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">lifecycleClaimRuleCid</span><span class="w"> </span><span class="kt">Claim</span><span class="o">.</span><span class="kt">ClaimEffect</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
+<span class="w">    </span><span class="n">claimer</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">investor</span><span class="w"></span>
+<span class="w">    </span><span class="n">holdingCids</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">@</span><span class="kt">Base</span><span class="o">.</span><span class="kt">I</span><span class="w"> </span><span class="n">investorBondTransferableCid</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="n">effectCid</span><span class="w"></span>
+<span class="w">    </span><span class="n">batchId</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="s">&quot;CouponSettlement&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Claiming the effect has two consequences:
 - the investor’s holding is upgraded to the new instrument version (the one where the coupon has been paid)
 - settlement instructions are generated in order to process the coupon payment</p>
 <p>Finally, the settlement instructions are allocated, approved and then settled.</p>
-<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kr">let</span><span class="w"></span>
-<span class="w">    </span><span class="kt">Some</span><span class="w"> </span><span class="p">[</span><span class="n">investorBondHoldingCid</span><span class="p">]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">newInstrumentHoldingCids</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="n">custodianCashInstructionCid</span><span class="p">]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">instructionCids</span><span class="w"></span>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="kr">let</span><span class="w"></span>
+<span class="w">  </span><span class="kt">Some</span><span class="w"> </span><span class="p">[</span><span class="n">investorBondHoldingCid</span><span class="p">]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">newInstrumentHoldingCids</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="n">custodianCashInstructionCid</span><span class="p">]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">instructionCids</span><span class="w"></span>
 
-<span class="w">  </span><span class="c1">-- Allocate instructions</span><span class="w"></span>
-<span class="w">  </span><span class="p">(</span><span class="n">custodianCashInstructionCid</span><span class="p">,</span><span class="w"> </span><span class="kr">_</span><span class="p">)</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">custodian</span><span class="p">]</span><span class="w"> </span><span class="n">readAs</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">custodianCashInstructionCid</span><span class="w"> </span><span class="kt">Instruction</span><span class="o">.</span><span class="kt">Allocate</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">actors</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">custodian</span><span class="p">;</span><span class="w"> </span><span class="n">allocation</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Pledge</span><span class="w"> </span><span class="n">custodianCashTransferableCid</span><span class="w"></span>
+<span class="c1">-- Allocate instructions</span><span class="w"></span>
+<span class="p">(</span><span class="n">custodianCashInstructionCid</span><span class="p">,</span><span class="w"> </span><span class="kr">_</span><span class="p">)</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">custodian</span><span class="p">]</span><span class="w"> </span><span class="n">readAs</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">custodianCashInstructionCid</span><span class="w"> </span><span class="kt">Instruction</span><span class="o">.</span><span class="kt">Allocate</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">actors</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">custodian</span><span class="p">;</span><span class="w"> </span><span class="n">allocation</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Pledge</span><span class="w"> </span><span class="n">custodianCashTransferableCid</span><span class="w"></span>
 
-<span class="w">  </span><span class="c1">-- Approve instructions</span><span class="w"></span>
-<span class="w">  </span><span class="n">custodianCashInstructionCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="n">investor</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
-<span class="w">    </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">custodianCashInstructionCid</span><span class="w"> </span><span class="kt">Instruction</span><span class="o">.</span><span class="kt">Approve</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">actors</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">investor</span><span class="p">;</span><span class="w"> </span><span class="n">approval</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">TakeDelivery</span><span class="w"> </span><span class="n">investorAccount</span><span class="w"></span>
+<span class="c1">-- Approve instructions</span><span class="w"></span>
+<span class="nf">custodianCashInstructionCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="n">investor</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">  </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">custodianCashInstructionCid</span><span class="w"> </span><span class="kt">Instruction</span><span class="o">.</span><span class="kt">Approve</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">actors</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">investor</span><span class="p">;</span><span class="w"> </span><span class="n">approval</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">TakeDelivery</span><span class="w"> </span><span class="n">investorAccount</span><span class="w"></span>
 
-<span class="w">  </span><span class="c1">-- Settle batch</span><span class="w"></span>
-<span class="w">  </span><span class="kr">let</span><span class="w"> </span><span class="n">settlerUsed</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">toList</span><span class="w"> </span><span class="n">settlers</span><span class="w"></span>
-<span class="w">  </span><span class="p">[</span><span class="n">investorCashTransferableCid</span><span class="p">]</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">settlerUsed</span><span class="p">]</span><span class="w"> </span><span class="n">readAs</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">batchCid</span><span class="w"> </span><span class="kt">Batch</span><span class="o">.</span><span class="kt">Settle</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">actors</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">settlerUsed</span><span class="w"></span>
+<span class="c1">-- Settle batch</span><span class="w"></span>
+<span class="kr">let</span><span class="w"> </span><span class="n">settlerUsed</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">toList</span><span class="w"> </span><span class="n">settlers</span><span class="w"></span>
+<span class="p">[</span><span class="n">investorCashTransferableCid</span><span class="p">]</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">settlerUsed</span><span class="p">]</span><span class="w"> </span><span class="n">readAs</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="n">exerciseCmd</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">batchCid</span><span class="w"> </span><span class="kt">Batch</span><span class="o">.</span><span class="kt">Settle</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">actors</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">settlerUsed</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Following settlement, the investor receives a cash holding for the due coupon amount.</p>

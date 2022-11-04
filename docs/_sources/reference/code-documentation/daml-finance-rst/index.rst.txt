@@ -103,6 +103,7 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Instrument <Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Instrument>
    Daml.Finance.Interface.Instrument.Swap.ForeignExchange.Types <Daml-Finance-Interface-Instrument-Swap-ForeignExchange-Types>
    Daml.Finance.Interface.Instrument.Swap.Fpml.Factory <Daml-Finance-Interface-Instrument-Swap-Fpml-Factory>
+   Daml.Finance.Interface.Instrument.Swap.Fpml.FpmlTypes <Daml-Finance-Interface-Instrument-Swap-Fpml-FpmlTypes>
    Daml.Finance.Interface.Instrument.Swap.Fpml.Instrument <Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument>
    Daml.Finance.Interface.Instrument.Swap.Fpml.Types <Daml-Finance-Interface-Instrument-Swap-Fpml-Types>
    Daml.Finance.Interface.Instrument.Swap.InterestRate.Factory <Daml-Finance-Interface-Instrument-Swap-InterestRate-Factory>
@@ -128,7 +129,6 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Types.Date.DayCount <Daml-Finance-Interface-Types-Date-DayCount>
    Daml.Finance.Interface.Types.Date.RollConvention <Daml-Finance-Interface-Types-Date-RollConvention>
    Daml.Finance.Interface.Types.Date.Schedule <Daml-Finance-Interface-Types-Date-Schedule>
-   Daml.Finance.Interface.Types.Fpml <Daml-Finance-Interface-Types-Fpml>
    Daml.Finance.Interface.Util.Common <Daml-Finance-Interface-Util-Common>
    Daml.Finance.Interface.Util.Disclosure <Daml-Finance-Interface-Util-Disclosure>
    Daml.Finance.Lifecycle.Effect <Daml-Finance-Lifecycle-Effect>
@@ -142,6 +142,7 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Lifecycle.Types <Daml-Finance-Lifecycle-Types>
    Daml.Finance.Settlement.Batch <Daml-Finance-Settlement-Batch>
    Daml.Finance.Settlement.Factory <Daml-Finance-Settlement-Factory>
+   Daml.Finance.Settlement.Hierarchy <Daml-Finance-Settlement-Hierarchy>
    Daml.Finance.Settlement.Instruction <Daml-Finance-Settlement-Instruction>
    Daml.Finance.Util.Common <Daml-Finance-Util-Common>
    Daml.Finance.Util.Date.Calendar <Daml-Finance-Util-Date-Calendar>

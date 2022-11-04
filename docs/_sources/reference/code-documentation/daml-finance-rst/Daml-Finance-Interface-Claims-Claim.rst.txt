@@ -17,7 +17,7 @@ Interfaces
 
   + **Choice GetClaims**
 
-    Retrieves the list of claims representing the instrument\.
+    Retrieves the list of claims representing the instrument\. This might involve fetching reference data, such as calendars, on which the actor must have visibility\.
 
     .. list-table::
        :widths: 15 10 30
@@ -26,7 +26,7 @@ Interfaces
        * - Field
          - Type
          - Description
-       * - viewer
+       * - actor
          - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
          - The party retrieving the claims\.
 
@@ -49,9 +49,17 @@ Interfaces
 
     Conversion to base ``Instrument`` interface\.
 
-  + **Method getClaims \:** `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\]
+  + **Method getClaims \:** GetClaims \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\]
 
     The list of claims representing the instrument\.
+
+Typeclasses
+-----------
+
+.. _class-daml-finance-interface-claims-claim-hasimplementation-88500:
+
+**class** `Implementation <type-daml-finance-interface-claims-claim-implementation-40844_>`_ t \=\> `HasImplementation <class-daml-finance-interface-claims-claim-hasimplementation-88500_>`_ t **where**
+
 
 Data Types
 ----------
@@ -110,15 +118,20 @@ Data Types
 Functions
 ---------
 
+.. _function-daml-finance-interface-claims-claim-asbaseinstrument-6172:
+
+`asBaseInstrument <function-daml-finance-interface-claims-claim-asbaseinstrument-6172_>`_
+  \: `Claim <type-daml-finance-interface-claims-claim-claim-8835_>`_ \-\> :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>`
+
 .. _function-daml-finance-interface-claims-claim-getclaims-52748:
 
 `getClaims <function-daml-finance-interface-claims-claim-getclaims-52748_>`_
-  \: `Claim <type-daml-finance-interface-claims-claim-claim-8835_>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\]
+  \: `Claim <type-daml-finance-interface-claims-claim-claim-8835_>`_ \-\> GetClaims \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\]
 
 .. _function-daml-finance-interface-claims-claim-getclaim-12044:
 
 `getClaim <function-daml-finance-interface-claims-claim-getclaim-12044_>`_
-  \: `Claim <type-daml-finance-interface-claims-claim-claim-8835_>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ :ref:`C <type-daml-finance-interface-claims-types-c-53263>`
+  \: `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_ \-\> `Claim <type-daml-finance-interface-claims-claim-claim-8835_>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ :ref:`C <type-daml-finance-interface-claims-types-c-53263>`
 
   Retrieves the single claim representing the template\. An error is thrown if there are zero or more than one claims\.
 

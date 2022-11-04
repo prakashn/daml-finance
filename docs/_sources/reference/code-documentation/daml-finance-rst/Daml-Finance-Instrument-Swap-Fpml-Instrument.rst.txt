@@ -39,7 +39,7 @@ Templates
        - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
        - A description of the instrument\.
      * - swapStreams
-       - \[:ref:`SwapStream <type-daml-finance-interface-types-fpml-swapstream-99592>`\]
+       - \[:ref:`SwapStream <type-daml-finance-interface-instrument-swap-fpml-fpmltypes-swapstream-38811>`\]
        - Each element describes a stream of swap payments, for example a regular fixed or floating rate\.
      * - issuerPartyRef
        - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
@@ -47,9 +47,9 @@ Templates
      * - calendarDataProvider
        - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
        - The reference data provider to use for the holiday calendar\.
-     * - currency
-       - :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`
-       - The currency of the swap\. For example, if the swap pays in USD this should be a USD cash instrument\.
+     * - currencies
+       - \[:ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`\]
+       - The currencies of the different swap legs, one for each swapStream\. For example, if one leg pays in USD this should be a USD cash instrument\.
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
        - The observers of the instrument\.

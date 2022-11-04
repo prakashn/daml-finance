@@ -13,7 +13,8 @@ Interfaces
 
 **interface** `Batch <type-daml-finance-interface-settlement-batch-batch-97497_>`_
 
-  An interface for atomically settling ``Transferable``\\s\.
+  An interface for atomically settling a batch of ``Instruction``\\s\.
+  The corresponding Instructions are referenced by key\.
 
   + **Choice GetView**
 
@@ -45,7 +46,7 @@ Interfaces
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - The parties that executes the settlement\.
 
-  + **Method settle \:** Settle \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`\]
+  + **Method settle \:** Settle \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-base-i-67605>`\]
 
     Implementation of the ``Settle`` choice\.
 
@@ -129,4 +130,4 @@ Functions
 .. _function-daml-finance-interface-settlement-batch-settle-40325:
 
 `settle <function-daml-finance-interface-settlement-batch-settle-40325_>`_
-  \: `Batch <type-daml-finance-interface-settlement-batch-batch-97497_>`_ \-\> Settle \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>`\]
+  \: `Batch <type-daml-finance-interface-settlement-batch-batch-97497_>`_ \-\> Settle \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-base-i-67605>`\]
