@@ -34,6 +34,9 @@ Templates
      * - settlementFactoryCid
        - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>`
        - Settlement factory contract used to create a ``Batch`` of ``Instruction``\\s\.
+     * - netInstructions
+       - `Bool <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-bool-66265>`_
+       - Configure whether netting should be enabled for quantities having the same (instrument, sender, receiver)\.
 
   + **Choice Archive**
 

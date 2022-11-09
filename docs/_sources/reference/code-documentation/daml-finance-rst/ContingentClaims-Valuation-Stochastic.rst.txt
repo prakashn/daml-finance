@@ -341,6 +341,7 @@ Functions
   expressions are defined as E1\-E10 in the Eber/Peyton\-Jones paper\. If you
   squint you can almost see they correspond one\-to\-one to the formulae in our
   whitepaper\.
+  This is still an experimental feature\.
 
 .. _function-contingentclaims-valuation-stochastic-simplify-57423:
 
@@ -351,3 +352,4 @@ Functions
 
   1. using simple identities and ring laws
   2. change of numeraire technique\.
+     This is still an experimental feature\.

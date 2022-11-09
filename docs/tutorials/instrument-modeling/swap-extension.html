@@ -30,6 +30,7 @@
   <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
   <script src="../../_static/jquery.js"></script>
   <script src="../../_static/underscore.js"></script>
+  <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
   <script src="../../_static/doctools.js"></script>
   <script src="../../_static/clipboard.min.js"></script>
   <script src="../../_static/copybutton.js"></script>
@@ -46,7 +47,7 @@
   <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="How To Use the Derivative Extension To Model Generic Instruments" href="derivative-extension.html" />
+  <link rel="next" title="How To Use the Generic Extension To Model Generic Instruments" href="generic-extension.html" />
   <link rel="prev" title="How to Lifecycle a Bond Instrument" href="bond-lifecycling.html" /> 
 
   
@@ -103,32 +104,51 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/index.html">Concepts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../concepts/intro.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/asset-model.html">Asset Model</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/asset-model.html#instrument">Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#signatories">Signatories</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#keys-and-versioning">Keys and Versioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#interfaces">Interfaces</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#implementations">Implementations</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/asset-model.html#holding">Holding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#signatories-1">Signatories</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#properties-of-holdings">Properties of Holdings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#implementations-1">Implementations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#implementations-1">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#id3">Implementations</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../concepts/asset-model.html#account">Account</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#signatories-2">Signatories</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#keys">Keys</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#implementations-2">Implementations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#implementations-2">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#id6">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/asset-model.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#currency">Currency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#equity">Equity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/asset-model.html#otc-swap">OTC Swap</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/settlement.html">Settlement</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/settlement.html#step">Step</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/settlement.html#instruction">Instruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../concepts/settlement.html#batch">Batch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/settlement.html#workflow">Workflow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#instruct">Instruct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#allocate-and-approve">Allocate and Approve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#execute">Execute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#remarks">Remarks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/settlement.html#the-components-in-detail">The components in detail</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#settlement-factory">Settlement factory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#instruction">Instruction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/settlement.html#batch">Batch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/settlement.html#remarks-and-further-references">Remarks and further references</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../concepts/lifecycling.html">Lifecycling</a><ul>
@@ -215,11 +235,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#frequently-asked-questions">Frequently Asked Questions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="derivative-extension.html">How To Use the Derivative Extension To Model Generic Instruments</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="derivative-extension.html#how-to-create-a-generic-instrument">How To Create a Generic Instrument</a></li>
-<li class="toctree-l4"><a class="reference internal" href="derivative-extension.html#how-to-trade-and-transfer-a-generic-instrument">How To Trade and Transfer a Generic Instrument</a></li>
-<li class="toctree-l4"><a class="reference internal" href="derivative-extension.html#how-to-process-lifecycle-events">How to Process Lifecycle Events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="derivative-extension.html#how-to-redeem-a-generic-instrument">How to Redeem a Generic Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generic-extension.html">How To Use the Generic Extension To Model Generic Instruments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generic-extension.html#how-to-create-a-generic-instrument">How To Create a Generic Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generic-extension.html#how-to-trade-and-transfer-a-generic-instrument">How To Trade and Transfer a Generic Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generic-extension.html#how-to-process-lifecycle-events">How to Process Lifecycle Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generic-extension.html#how-to-redeem-a-generic-instrument">How to Redeem a Generic Instrument</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a><ul>
@@ -504,6 +524,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html">Daml.Finance.Interface.Claims.Claim</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#typeclasses">Typeclasses</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#functions">Functions</a></li>
 </ul>
@@ -757,6 +778,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-Factory.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-FpmlTypes.html">Daml.Finance.Interface.Instrument.Swap.Fpml.FpmlTypes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-FpmlTypes.html#data-types">Data Types</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Fpml.Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html#interfaces">Interfaces</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html#typeclasses">Typeclasses</a></li>
@@ -902,10 +927,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Schedule.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Fpml.html">Daml.Finance.Interface.Types.Fpml</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Fpml.html#data-types">Data Types</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Util-Common.html">Daml.Finance.Interface.Util.Common</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Util-Common.html#functions">Functions</a></li>
 </ul>
@@ -957,6 +978,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Replacement.html#data-types">Data Types</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Util.html">Daml.Finance.Lifecycle.Rule.Util</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Util.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Util.html#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Types.html">Daml.Finance.Lifecycle.Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Types.html#data-types">Data Types</a></li>
 </ul>
@@ -968,7 +994,11 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Factory.html">Daml.Finance.Settlement.Factory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Factory.html#templates">Templates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Hierarchy.html">Daml.Finance.Settlement.Hierarchy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Hierarchy.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Hierarchy.html#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a><ul>
@@ -1098,24 +1128,24 @@
             <div itemprop="articleBody">
                 
   <div class="section" id="how-to-use-the-swap-extension-package">
-<h1>How To Use the Swap Extension Package<a class="headerlink" href="#how-to-use-the-swap-extension-package" title="Permalink to this headline">¶</a></h1>
+<h1>How To Use the Swap Extension Package<a class="headerlink" href="#how-to-use-the-swap-extension-package" title="Permalink to this heading">¶</a></h1>
 <p>To follow the script used in this tutorial you can <a class="reference external" href="https://github.com/digital-asset/daml-finance">clone the Daml Finance repository</a>.
 In particular, the Swap test folder <code class="docutils literal notranslate"><span class="pre">src/test/daml/Daml/Finance/Instrument/Swap/Test/</span></code> is the starting point
 of this tutorial.</p>
 <div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
 <p>The Swap extension has many similarities with the Bond extension. This tutorial builds on the Bond tutorials,
 in particular the <a class="reference internal" href="bond-extension.html"><span class="doc">Bond Extension</span></a> and the <a class="reference internal" href="bond-lifecycling.html"><span class="doc">Bond Lifecycling</span></a> tutorials.
 Please check them out before reading the Swap specifics below.</p>
 </div>
 <div class="section" id="how-to-create-a-swap-instrument">
-<h2>How To Create a Swap Instrument<a class="headerlink" href="#how-to-create-a-swap-instrument" title="Permalink to this headline">¶</a></h2>
+<h2>How To Create a Swap Instrument<a class="headerlink" href="#how-to-create-a-swap-instrument" title="Permalink to this heading">¶</a></h2>
 <p>There are different types of swaps, which differ both in the way regular payments are defined and whether notional is
 exchanged.
 In order to create a swap instrument you first have to decide what type of swap you need.
 The swap extension package currently supports the following types of swaps:</p>
 <div class="section" id="interest-rate">
-<h3>Interest Rate<a class="headerlink" href="#interest-rate" title="Permalink to this headline">¶</a></h3>
+<h3>Interest Rate<a class="headerlink" href="#interest-rate" title="Permalink to this heading">¶</a></h3>
 <p>Interest rate swap is the type of swap that shares most similarities with a bond.
 It has two legs: one which pays a fix rate and another one which pays a floating rate.
 These rates are paid at the end of every payment period.</p>
@@ -1172,7 +1202,7 @@ In this example, the issuer pays the floating leg.</p>
 Since the issuer pays the floating leg in our example, the owner of the holding receives the floating leg (and pays the fix leg).</p>
 </div>
 <div class="section" id="currency">
-<h3>Currency<a class="headerlink" href="#currency" title="Permalink to this headline">¶</a></h3>
+<h3>Currency<a class="headerlink" href="#currency" title="Permalink to this heading">¶</a></h3>
 <p>Currency swaps are quite similar to interest rate swaps, except that the two legs are in different currencies.
 Consequently, we need to create two cash instruments:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">cashInstrumentCid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="kt">Instrument</span><span class="o">.</span><span class="n">originate</span><span class="w"> </span><span class="n">custodian</span><span class="w"> </span><span class="n">issuer</span><span class="w"> </span><span class="s">&quot;USD&quot;</span><span class="w"> </span><span class="s">&quot;US Dollars&quot;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="n">now</span><span class="w"></span>
@@ -1208,7 +1238,7 @@ The notional of the foreign currency is defined as the quantity of the holding m
 Since the issuer pays the foreign currency leg in our example, it means that the owner of the holding receives the foreign currency leg (and pays the base currency leg).</p>
 </div>
 <div class="section" id="foreign-exchange">
-<h3>Foreign Exchange<a class="headerlink" href="#foreign-exchange" title="Permalink to this headline">¶</a></h3>
+<h3>Foreign Exchange<a class="headerlink" href="#foreign-exchange" title="Permalink to this heading">¶</a></h3>
 <p>Despite the similarities in name, foreign exchange swaps (or FX swaps) are quite different from currency swaps.
 An FX swap does not pay or receive interest.
 Instead, the two legs define an initial FX transaction and a final FX transaction.
@@ -1241,7 +1271,7 @@ Since the issuer pays the foreign currency in the initial transaction, it means 
 In the final transaction the sides are reversed.</p>
 </div>
 <div class="section" id="credit-default">
-<h3>Credit Default<a class="headerlink" href="#credit-default" title="Permalink to this headline">¶</a></h3>
+<h3>Credit Default<a class="headerlink" href="#credit-default" title="Permalink to this heading">¶</a></h3>
 <p>A credit default swap (CDS) pays a protection amount in case of a credit default event, in exchange for a fix rate at the end of every payment period.
 The protection amount is defined as <em>1-recoveryRate</em>.</p>
 <p>If a credit event occurs, the swap expires after the protection amount has been paid (i.e. no more rate payments are required afterwards).</p>
@@ -1274,7 +1304,7 @@ The protection amount is defined as <em>1-recoveryRate</em>.</p>
 Since the issuer pays the protection leg, it means that the owner of the holding receives the protection leg (and pays the fix leg).</p>
 </div>
 <div class="section" id="asset">
-<h3>Asset<a class="headerlink" href="#asset" title="Permalink to this headline">¶</a></h3>
+<h3>Asset<a class="headerlink" href="#asset" title="Permalink to this heading">¶</a></h3>
 <p>An asset swap is a general type of swap with two legs: one which pays a fix rate and another one which pays the performance of an asset.
 It can be used to model:</p>
 <ul class="simple">
@@ -1314,7 +1344,7 @@ The reference asset Observable needs to contain the appropriate type of fixings:
 Since the issuer pays the asset leg, it means that the owner of the holding receives the asset leg (and pays the fix leg).</p>
 </div>
 <div class="section" id="fpml">
-<h3>FpML<a class="headerlink" href="#fpml" title="Permalink to this headline">¶</a></h3>
+<h3>FpML<a class="headerlink" href="#fpml" title="Permalink to this heading">¶</a></h3>
 <p>Unlike the other swap types above, the FpML swap template is not a new type of payoff. Instead, it allows you to input other types of swaps using the <a class="reference external" href="https://www.fpml.org/spec/fpml-5-11-3-lcwd-1/html/confirmation/schemaDocumentation/schemas/fpml-ird-5-11_xsd/complexTypes/Swap.html">FpML schema</a>.
 Currently, only interest rate swaps are supported, but the template can quite easily be extended to currency swaps and FX swaps.</p>
 <p>Specifically, it allows you to specify one <a class="reference external" href="https://www.fpml.org/spec/fpml-5-11-3-lcwd-1/html/confirmation/schemaDocumentation/schemas/fpml-ird-5-11_xsd/complexTypes/Swap/swapStream.html">swapStream</a> object for each leg of the swap.</p>
@@ -1348,12 +1378,12 @@ Currently, only interest rate swaps are supported, but the template can quite ea
 <span class="w">          </span><span class="n">unadjustedDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">issueDate</span><span class="w"></span>
 <span class="w">          </span><span class="n">dateAdjustments</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">BusinessDayAdjustments</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">            </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">NoAdjustment</span><span class="w"></span>
-<span class="w">            </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">None</span><span class="w"></span>
+<span class="w">            </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span><span class="w"></span>
 <span class="w">        </span><span class="n">terminationDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">AdjustableDate</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">          </span><span class="n">unadjustedDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">maturityDate</span><span class="w"></span>
 <span class="w">          </span><span class="n">dateAdjustments</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">BusinessDayAdjustments</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">            </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ModifiedFollowing</span><span class="w"></span>
-<span class="w">            </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="n">holidayCalendarId</span><span class="w"></span>
+<span class="w">            </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">holidayCalendarId</span><span class="w"></span>
 <span class="w">        </span><span class="n">calculationPeriodDatesAdjustments</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">CalculationPeriodDatesAdjustments</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">          </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ModifiedFollowing</span><span class="w"></span>
 <span class="w">          </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">holidayCalendarId</span><span class="w"></span>
@@ -1373,19 +1403,21 @@ Currently, only interest rate swaps are supported, but the template can quite ea
 <span class="w">        </span><span class="n">payRelativeTo</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">CalculationPeriodEndDate</span><span class="w"></span>
 <span class="w">        </span><span class="n">paymentDatesAdjustments</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">BusinessDayAdjustments</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">            </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ModifiedFollowing</span><span class="w"></span>
-<span class="w">            </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="n">holidayCalendarId</span><span class="w"></span>
+<span class="w">            </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">holidayCalendarId</span><span class="w"></span>
 <span class="w">      </span><span class="n">resetDates</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">None</span><span class="w"></span>
 <span class="w">      </span><span class="n">calculationPeriodAmount</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">CalculationPeriodAmount</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">        </span><span class="n">calculation</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Calculation</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
-<span class="w">          </span><span class="n">notionalSchedule</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">NotionalSchedule</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
+<span class="w">          </span><span class="n">notionalScheduleValue</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">NotionalSchedule_Regular</span><span class="w"> </span><span class="kt">NotionalSchedule</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
+<span class="w">            </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;fixedLegNotionalSchedule&quot;</span><span class="w"></span>
 <span class="w">            </span><span class="n">notionalStepSchedule</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">NotionalStepSchedule</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">              </span><span class="n">initialValue</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">1000000.0</span><span class="w"></span>
+<span class="w">              </span><span class="n">step</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span><span class="w"></span>
 <span class="w">              </span><span class="n">currency</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;USD&quot;</span><span class="w"></span>
-<span class="w">          </span><span class="n">floatingRateCalculation</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">None</span><span class="w"></span>
-<span class="w">          </span><span class="n">fixedRateSchedule</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="kt">FixedRateSchedule</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
+<span class="w">          </span><span class="n">rateTypeValue</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">RateType_Fixed</span><span class="w"> </span><span class="kt">FixedRateSchedule</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">            </span><span class="n">initialValue</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">fixRate</span><span class="w"></span>
 <span class="w">          </span><span class="n">dayCountFraction</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="w"></span>
 <span class="w">      </span><span class="n">stubCalculationPeriodAmount</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">None</span><span class="w"></span>
+<span class="w">      </span><span class="n">principalExchanges</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">None</span><span class="w"></span>
 </pre></div>
 </div>
 <p>As you can see, the Daml <code class="docutils literal notranslate"><span class="pre">SwapStream</span></code> data type matches the <a class="reference external" href="https://www.fpml.org/spec/fpml-5-11-3-lcwd-1/html/confirmation/schemaDocumentation/schemas/fpml-ird-5-11_xsd/complexTypes/Swap/swapStream.html">swapStream FpML schema</a>.
@@ -1400,12 +1432,12 @@ Please note that the actual parsing from FpML to Daml is not done by this templa
 <span class="w">          </span><span class="n">unadjustedDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">issueDate</span><span class="w"></span>
 <span class="w">          </span><span class="n">dateAdjustments</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">BusinessDayAdjustments</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">            </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">NoAdjustment</span><span class="w"></span>
-<span class="w">            </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">None</span><span class="w"></span>
+<span class="w">            </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span><span class="w"></span>
 <span class="w">        </span><span class="n">terminationDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">AdjustableDate</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">          </span><span class="n">unadjustedDate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">maturityDate</span><span class="w"></span>
 <span class="w">          </span><span class="n">dateAdjustments</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">BusinessDayAdjustments</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">            </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ModifiedFollowing</span><span class="w"></span>
-<span class="w">            </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="n">holidayCalendarId</span><span class="w"></span>
+<span class="w">            </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">holidayCalendarId</span><span class="w"></span>
 <span class="w">        </span><span class="n">calculationPeriodDatesAdjustments</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">CalculationPeriodDatesAdjustments</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">          </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ModifiedFollowing</span><span class="w"></span>
 <span class="w">          </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">holidayCalendarId</span><span class="w"></span>
@@ -1425,7 +1457,7 @@ Please note that the actual parsing from FpML to Daml is not done by this templa
 <span class="w">        </span><span class="n">payRelativeTo</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">CalculationPeriodEndDate</span><span class="w"></span>
 <span class="w">        </span><span class="n">paymentDatesAdjustments</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">BusinessDayAdjustments</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">            </span><span class="n">businessDayConvention</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ModifiedFollowing</span><span class="w"></span>
-<span class="w">            </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="n">holidayCalendarId</span><span class="w"></span>
+<span class="w">            </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">holidayCalendarId</span><span class="w"></span>
 <span class="w">      </span><span class="n">resetDates</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="kt">ResetDates</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">        </span><span class="n">calculationPeriodDatesReference</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;floatingLegCalcPeriodDates&quot;</span><span class="w"></span>
 <span class="w">        </span><span class="n">resetRelativeTo</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">CalculationPeriodStartDate</span><span class="w"></span>
@@ -1443,27 +1475,25 @@ Please note that the actual parsing from FpML to Daml is not done by this templa
 <span class="w">          </span><span class="n">businessCenters</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">holidayCalendarId</span><span class="w"></span>
 <span class="w">      </span><span class="n">calculationPeriodAmount</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">CalculationPeriodAmount</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">        </span><span class="n">calculation</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Calculation</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
-<span class="w">          </span><span class="n">notionalSchedule</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">NotionalSchedule</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
+<span class="w">          </span><span class="n">notionalScheduleValue</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">NotionalSchedule_Regular</span><span class="w"> </span><span class="kt">NotionalSchedule</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
+<span class="w">            </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;floatingLegNotionalSchedule&quot;</span><span class="w"></span>
 <span class="w">            </span><span class="n">notionalStepSchedule</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">NotionalStepSchedule</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">              </span><span class="n">initialValue</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">1000000.0</span><span class="w"></span>
+<span class="w">              </span><span class="n">step</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span><span class="w"></span>
 <span class="w">              </span><span class="n">currency</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;USD&quot;</span><span class="w"></span>
-<span class="w">          </span><span class="n">floatingRateCalculation</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="kt">FloatingRateCalculation</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
+<span class="w">          </span><span class="n">rateTypeValue</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">RateType_Floating</span><span class="w"> </span><span class="kt">FloatingRateCalculation</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">            </span><span class="n">floatingRateIndex</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">referenceRateId</span><span class="w"></span>
 <span class="w">            </span><span class="n">indexTenor</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="kt">Period</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">              </span><span class="n">periodMultiplier</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">paymentPeriodMultiplier</span><span class="w"></span>
 <span class="w">              </span><span class="n">period</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">paymentPeriod</span><span class="w"></span>
 <span class="w">            </span><span class="n">spreadSchedule</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">SpreadSchedule</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">              </span><span class="n">initialValue</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mf">0.005</span><span class="w"></span>
-<span class="w">          </span><span class="n">fixedRateSchedule</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">None</span><span class="w"></span>
 <span class="w">          </span><span class="n">dayCountFraction</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">dayCountConvention</span><span class="w"></span>
 <span class="w">      </span><span class="n">stubCalculationPeriodAmount</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="kt">StubCalculationPeriodAmount</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
 <span class="w">        </span><span class="n">calculationPeriodDatesReference</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;floatingLegCalcPeriodDates&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="n">initialStub</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="kt">StubValue</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
-<span class="w">          </span><span class="n">stubRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="mf">0.015</span><span class="w"></span>
-<span class="w">          </span><span class="n">floatingRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">None</span><span class="w"></span>
-<span class="w">        </span><span class="n">finalStub</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="kt">StubValue</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
-<span class="w">          </span><span class="n">stubRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">None</span><span class="w"></span>
-<span class="w">          </span><span class="n">floatingRate</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="p">[(</span><span class="kt">StubFloatingRate</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">floatingRateIndex</span><span class="ow">=</span><span class="n">referenceRateOneMonthId</span><span class="p">;</span><span class="n">indexTenor</span><span class="ow">=</span><span class="kt">Some</span><span class="w"> </span><span class="p">(</span><span class="kt">Period</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">period</span><span class="ow">=</span><span class="kt">M</span><span class="p">;</span><span class="n">periodMultiplier</span><span class="ow">=</span><span class="mi">1</span><span class="p">)),</span><span class="w"> </span><span class="p">(</span><span class="kt">StubFloatingRate</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">floatingRateIndex</span><span class="ow">=</span><span class="n">referenceRateId</span><span class="p">;</span><span class="n">indexTenor</span><span class="ow">=</span><span class="kt">Some</span><span class="w"> </span><span class="p">(</span><span class="kt">Period</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">period</span><span class="ow">=</span><span class="kt">M</span><span class="p">;</span><span class="n">periodMultiplier</span><span class="ow">=</span><span class="mi">3</span><span class="p">))]</span><span class="w"></span>
+<span class="w">        </span><span class="n">initialStub</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kt">StubValue_StubRate</span><span class="w"> </span><span class="mf">0.015</span><span class="w"></span>
+<span class="w">        </span><span class="n">finalStub</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Some</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kt">StubValue_FloatingRate</span><span class="w"> </span><span class="p">[(</span><span class="kt">StubFloatingRate</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">floatingRateIndex</span><span class="ow">=</span><span class="n">referenceRateOneMonthId</span><span class="p">;</span><span class="n">indexTenor</span><span class="ow">=</span><span class="kt">Some</span><span class="w"> </span><span class="p">(</span><span class="kt">Period</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">period</span><span class="ow">=</span><span class="kt">M</span><span class="p">;</span><span class="n">periodMultiplier</span><span class="ow">=</span><span class="mi">1</span><span class="p">)),</span><span class="w"> </span><span class="p">(</span><span class="kt">StubFloatingRate</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">floatingRateIndex</span><span class="ow">=</span><span class="n">referenceRateId</span><span class="p">;</span><span class="n">indexTenor</span><span class="ow">=</span><span class="kt">Some</span><span class="w"> </span><span class="p">(</span><span class="kt">Period</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">period</span><span class="ow">=</span><span class="kt">M</span><span class="p">;</span><span class="n">periodMultiplier</span><span class="ow">=</span><span class="mi">3</span><span class="p">))]</span><span class="w"></span>
+<span class="w">      </span><span class="n">principalExchanges</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">None</span><span class="w"></span>
 </pre></div>
 </div>
 <p>There are three main ways to define which interest rate should be used for a stub period.
@@ -1476,7 +1506,7 @@ In short, it depends on the content of <code class="docutils literal notranslate
 </ol>
 <p>Finally, we create the FpML swap instrument:</p>
 <div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="n">cid</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toInterfaceContractId</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">submitMulti</span><span class="w"> </span><span class="p">[</span><span class="n">depository</span><span class="p">,</span><span class="w"> </span><span class="n">issuer</span><span class="p">]</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
-<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">FpmlSwap</span><span class="o">.</span><span class="kt">Instrument</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">depository</span><span class="p">;</span><span class="w"> </span><span class="n">issuer</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">description</span><span class="p">;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="o">.</span><span class="n">fromList</span><span class="w"> </span><span class="n">observers</span><span class="p">;</span><span class="w"> </span><span class="n">lastEventTimestamp</span><span class="p">;</span><span class="w"> </span><span class="n">swapStreams</span><span class="p">;</span><span class="w"> </span><span class="n">issuerPartyRef</span><span class="p">;</span><span class="w"> </span><span class="n">calendarDataProvider</span><span class="p">;</span><span class="w"> </span><span class="n">currency</span><span class="w"></span>
+<span class="w">    </span><span class="n">createCmd</span><span class="w"> </span><span class="kt">FpmlSwap</span><span class="o">.</span><span class="kt">Instrument</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">depository</span><span class="p">;</span><span class="w"> </span><span class="n">issuer</span><span class="p">;</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Id</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">description</span><span class="p">;</span><span class="w"> </span><span class="n">observers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">M</span><span class="o">.</span><span class="n">fromList</span><span class="w"> </span><span class="n">observers</span><span class="p">;</span><span class="w"> </span><span class="n">lastEventTimestamp</span><span class="p">;</span><span class="w"> </span><span class="n">swapStreams</span><span class="p">;</span><span class="w"> </span><span class="n">issuerPartyRef</span><span class="p">;</span><span class="w"> </span><span class="n">calendarDataProvider</span><span class="p">;</span><span class="w"> </span><span class="n">currencies</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Once the instrument is created, you can book a holding on it. In this particular example trade, the notional is specified in the FpML instrument.
@@ -1484,9 +1514,9 @@ This means that you would only book a unit holding (quantity=1.0) on the instrum
 </div>
 </div>
 <div class="section" id="frequently-asked-questions">
-<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
+<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this heading">¶</a></h2>
 <div class="section" id="why-do-the-swaps-have-an-issuer">
-<h3>Why do the swaps have an issuer?<a class="headerlink" href="#why-do-the-swaps-have-an-issuer" title="Permalink to this headline">¶</a></h3>
+<h3>Why do the swaps have an issuer?<a class="headerlink" href="#why-do-the-swaps-have-an-issuer" title="Permalink to this heading">¶</a></h3>
 <p>In the case of bonds, the instrument has a well-defined issuer. This is not necessarily the case for swaps,
 where two counterparties A and B swap the payments associated with each leg. However, in practice
 one of the counterparties is often a swap dealer, who shares some of the characteristics of a bond issuer.
@@ -1511,7 +1541,7 @@ This counterparty will serve as calculation agent and provide the observables re
         <a href="bond-lifecycling.html" class="da-btn da-btn-label btn-prev" title="How to Lifecycle a Bond Instrument" accesskey="p" rel="prev">Previous</a>
       
       
-        <a href="derivative-extension.html" class="da-btn da-btn-label btn-next" title="How To Use the Derivative Extension To Model Generic Instruments" accesskey="n" rel="next">Next</a>
+        <a href="generic-extension.html" class="da-btn da-btn-label btn-next" title="How To Use the Generic Extension To Model Generic Instruments" accesskey="n" rel="next">Next</a>
       
     </div>
   

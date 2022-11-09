@@ -14,13 +14,6 @@ The morphisms ending in 'M' are monadic variants, allowing to interleave e\.g\. 
 Functions
 ---------
 
-.. _function-contingentclaims-core-util-recursion-catam-97875:
-
-`cataM <function-contingentclaims-core-util-recursion-catam-97875_>`_
-  \: (Monad m, `Traversable <https://docs.daml.com/daml/stdlib/DA-Traversable.html#class-da-traversable-traversable-18144>`_ f, Recursive b f) \=\> (f a \-\> m a) \-\> b \-\> m a
-
-  Monadic catamorphism\.
-
 .. _function-contingentclaims-core-util-recursion-param-75158:
 
 `paraM <function-contingentclaims-core-util-recursion-param-75158_>`_

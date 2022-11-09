@@ -187,12 +187,6 @@ Data Types
        * - lock
          - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `Lock <type-daml-finance-interface-holding-lockable-lock-96362_>`_
          - When a contract is locked, contains the locking details\.
-       * - instrument
-         - :ref:`InstrumentKey <type-daml-finance-interface-types-common-instrumentkey-59982>`
-         - Instrument being held\.
-       * - account
-         - :ref:`AccountKey <type-daml-finance-interface-types-common-accountkey-85835>`
-         - Key of the account holding the assets\.
 
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-holding-lockable-view-47884_>`_
 

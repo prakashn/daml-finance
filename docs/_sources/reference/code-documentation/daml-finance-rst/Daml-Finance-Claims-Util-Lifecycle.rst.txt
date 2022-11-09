@@ -30,17 +30,17 @@ Functions
 
   Lifecycle a set of claims at specified events\.
 
-.. _function-daml-finance-claims-util-lifecycle-net-8204:
+.. _function-daml-finance-claims-util-lifecycle-netontag-33462:
 
-`net <function-daml-finance-claims-util-lifecycle-net-8204_>`_
+`netOnTag <function-daml-finance-claims-util-lifecycle-netontag-33462_>`_
   \: \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\] \-\> \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\]
 
-  Net pending payments on the same instrument (regardless of tags)\.
+  Net pending payments on the same instrument, which also have the same tag\.
 
 .. _function-daml-finance-claims-util-lifecycle-lifecycle-85331:
 
 `lifecycle <function-daml-finance-claims-util-lifecycle-lifecycle-85331_>`_
-  \: \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-numericobservable-i-62705>`\] \-\> :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` \-\> \[Event\] \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (\[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\], \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\])
+  \: `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_ \-\> \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-numericobservable-i-62705>`\] \-\> :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` \-\> \[Event\] \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (\[:ref:`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494>`\], \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\])
 
   Lifecycle a claim instrument at specified events\.
 

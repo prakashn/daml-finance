@@ -92,4 +92,4 @@ Data Types
 
   **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494_>`_
 
-  **instance** HasMethod :ref:`Claim <type-daml-finance-interface-claims-claim-claim-8835>` \"getClaims\" (`Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494_>`_\])
+  **instance** HasMethod :ref:`Claim <type-daml-finance-interface-claims-claim-claim-8835>` \"getClaims\" (GetClaims \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[`TaggedClaim <type-daml-finance-interface-claims-types-taggedclaim-15494_>`_\])

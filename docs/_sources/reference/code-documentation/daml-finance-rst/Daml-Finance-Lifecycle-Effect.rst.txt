@@ -25,9 +25,6 @@ Templates
      * - providers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - The effect provider\.
-     * - settlers
-       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
-       - Any of the parties can settle the effect's consequences\.
      * - id
        - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
        - The effect's identifier\.
@@ -40,12 +37,12 @@ Templates
      * - producedInstrument
        - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`
        - The produced instrument, when it exists\.
-     * - consumed
+     * - otherConsumed
        - \[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\]
-       - Consumed quantities (not including the target instrument)\.
-     * - produced
+       - Consumed quantities (in addition to the target instrument)\.
+     * - otherProduced
        - \[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\]
-       - Produced quantities (not including the produced instrument)\.
+       - Produced quantities (in additon to the produced instrument)\.
      * - settlementDate
        - `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
        - The effect's settlement date\.

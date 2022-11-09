@@ -86,15 +86,12 @@ Data Types
        * - Field
          - Type
          - Description
-       * - newInstrumentHoldingCids
-         - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-base-i-67605>`\]
-         - The holdings on the instrument produced by the effect, when it exists\.
        * - batchCid
          - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-settlement-batch-i-3768>`
          - Batch used to batch\-settle settlement instructions\.
        * - instructionCids
          - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-settlement-instruction-i-90342>`\]
-         - Settlement instructions to settle all effect consequences other than consuming / upgrading the target instrument\.
+         - Settlement instructions to settle all effect consequences\.
 
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `ClaimResult <type-daml-finance-interface-lifecycle-rule-claim-claimresult-56601_>`_
 

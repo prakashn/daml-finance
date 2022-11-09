@@ -26,9 +26,6 @@ Templates
      * - providers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - The effect provider\.
-     * - settlers
-       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
-       - Any of the parties can settle the effect's consequences\.
      * - custodian
        - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
        - The custodian of the holding put forward for election\.
@@ -50,10 +47,10 @@ Templates
      * - amount
        - `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_
        - The elected amount\.
-     * - consumed
+     * - otherConsumed
        - \[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\]
        - Consumed quantities (not including the target instrument)\.
-     * - produced
+     * - otherProduced
        - \[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\]
        - Produced quantities (not including the produced instrument)\.
      * - settlementDate

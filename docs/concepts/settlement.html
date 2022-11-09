@@ -30,6 +30,7 @@
   <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
   <script src="../_static/jquery.js"></script>
   <script src="../_static/underscore.js"></script>
+  <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
   <script src="../_static/doctools.js"></script>
   <script src="../_static/clipboard.min.js"></script>
   <script src="../_static/copybutton.js"></script>
@@ -103,32 +104,51 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Concepts</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="asset-model.html">Asset Model</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="asset-model.html#instrument">Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="asset-model.html#signatories">Signatories</a></li>
 <li class="toctree-l4"><a class="reference internal" href="asset-model.html#keys-and-versioning">Keys and Versioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="asset-model.html#interfaces">Interfaces</a></li>
 <li class="toctree-l4"><a class="reference internal" href="asset-model.html#implementations">Implementations</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="asset-model.html#holding">Holding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="asset-model.html#signatories-1">Signatories</a></li>
 <li class="toctree-l4"><a class="reference internal" href="asset-model.html#properties-of-holdings">Properties of Holdings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="asset-model.html#implementations-1">Implementations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="asset-model.html#implementations-1">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="asset-model.html#id3">Implementations</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="asset-model.html#account">Account</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="asset-model.html#signatories-2">Signatories</a></li>
 <li class="toctree-l4"><a class="reference internal" href="asset-model.html#keys">Keys</a></li>
-<li class="toctree-l4"><a class="reference internal" href="asset-model.html#implementations-2">Implementations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="asset-model.html#implementations-2">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="asset-model.html#id6">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="asset-model.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="asset-model.html#currency">Currency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="asset-model.html#equity">Equity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="asset-model.html#otc-swap">OTC Swap</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Settlement</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#step">Step</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#instruction">Instruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#batch">Batch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#workflow">Workflow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#instruct">Instruct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allocate-and-approve">Allocate and Approve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#execute">Execute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remarks">Remarks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-components-in-detail">The components in detail</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#settlement-factory">Settlement factory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#instruction">Instruction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#batch">Batch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#remarks-and-further-references">Remarks and further references</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lifecycling.html">Lifecycling</a><ul>
@@ -215,11 +235,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/swap-extension.html#frequently-asked-questions">Frequently Asked Questions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/derivative-extension.html">How To Use the Derivative Extension To Model Generic Instruments</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/derivative-extension.html#how-to-create-a-generic-instrument">How To Create a Generic Instrument</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/derivative-extension.html#how-to-trade-and-transfer-a-generic-instrument">How To Trade and Transfer a Generic Instrument</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/derivative-extension.html#how-to-process-lifecycle-events">How to Process Lifecycle Events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/derivative-extension.html#how-to-redeem-a-generic-instrument">How to Redeem a Generic Instrument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html">How To Use the Generic Extension To Model Generic Instruments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-create-a-generic-instrument">How To Create a Generic Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-trade-and-transfer-a-generic-instrument">How To Trade and Transfer a Generic Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-process-lifecycle-events">How to Process Lifecycle Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-redeem-a-generic-instrument">How to Redeem a Generic Instrument</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a><ul>
@@ -504,6 +524,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html">Daml.Finance.Interface.Claims.Claim</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#typeclasses">Typeclasses</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#functions">Functions</a></li>
 </ul>
@@ -757,6 +778,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-Factory.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-FpmlTypes.html">Daml.Finance.Interface.Instrument.Swap.Fpml.FpmlTypes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-FpmlTypes.html#data-types">Data Types</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html">Daml.Finance.Interface.Instrument.Swap.Fpml.Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html#interfaces">Interfaces</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Swap-Fpml-Instrument.html#typeclasses">Typeclasses</a></li>
@@ -902,10 +927,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Date-Schedule.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Fpml.html">Daml.Finance.Interface.Types.Fpml</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Types-Fpml.html#data-types">Data Types</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Util-Common.html">Daml.Finance.Interface.Util.Common</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Util-Common.html#functions">Functions</a></li>
 </ul>
@@ -957,6 +978,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Replacement.html#data-types">Data Types</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Util.html">Daml.Finance.Lifecycle.Rule.Util</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Util.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Util.html#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Types.html">Daml.Finance.Lifecycle.Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Types.html#data-types">Data Types</a></li>
 </ul>
@@ -968,7 +994,11 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Factory.html">Daml.Finance.Settlement.Factory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Factory.html#templates">Templates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Factory.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Hierarchy.html">Daml.Finance.Settlement.Hierarchy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Hierarchy.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Hierarchy.html#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a><ul>
@@ -1066,9 +1096,20 @@
         <!-- Local TOC -->
         <div class="content-menu-toc"><ul>
 <li><a class="reference internal" href="#">Settlement</a><ul>
-<li><a class="reference internal" href="#step">Step</a></li>
+<li><a class="reference internal" href="#workflow">Workflow</a><ul>
+<li><a class="reference internal" href="#instruct">Instruct</a></li>
+<li><a class="reference internal" href="#allocate-and-approve">Allocate and Approve</a></li>
+<li><a class="reference internal" href="#execute">Execute</a></li>
+<li><a class="reference internal" href="#remarks">Remarks</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-components-in-detail">The components in detail</a><ul>
+<li><a class="reference internal" href="#settlement-factory">Settlement factory</a></li>
 <li><a class="reference internal" href="#instruction">Instruction</a></li>
 <li><a class="reference internal" href="#batch">Batch</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#remarks-and-further-references">Remarks and further references</a></li>
 </ul>
 </li>
 </ul>
@@ -1087,38 +1128,137 @@
             <div itemprop="articleBody">
                 
   <div class="section" id="settlement">
-<h1>Settlement<a class="headerlink" href="#settlement" title="Permalink to this headline">¶</a></h1>
+<h1>Settlement<a class="headerlink" href="#settlement" title="Permalink to this heading">¶</a></h1>
 <p><a class="reference internal" href="../reference/glossary.html#settlement"><span class="std std-ref">Settlement</span></a> refers to the execution of holding transfers originating from
 a financial transaction.</p>
-<p>For instance, an example FX spot transaction involves the transfer of a
-EUR-denominated holding from Alice to Bob in exchange for a
-USD-denominated holding.</p>
-<p>The library provides facilities to execute these transfers atomically
-(i.e., within the same Daml transaction) in the package <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Settlement</span></code>.
-An implementation is provided in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Settlement</span></code>.</p>
-<div class="section" id="step">
-<h2>Step<a class="headerlink" href="#step" title="Permalink to this headline">¶</a></h2>
-<p>The FX example transaction above contains two steps:</p>
+<p>The library provides facilities to execute these transfers atomically (i.e., within the same Daml transaction).
+Interfaces are defined in the <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Settlement</span></code> package, whereas implementations are provided in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Settlement</span></code>.</p>
+<p>In this page we illustrate the settlement workflow with the help
+of an example FX transaction, where Alice transfers a EUR-denominated holding
+to Bob, in exchange for a USD-denominated holding of the same amount.</p>
+<p>We then delve into the details of each of the settlement components.</p>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this heading">¶</a></h2>
+<p>Our initial state looks as follows:</p>
+<ul class="simple">
+<li>Alice owns a holding on a <code class="docutils literal notranslate"><span class="pre">EUR</span></code> instrument, for an amount of <code class="docutils literal notranslate"><span class="pre">1000</span></code></li>
+<li>Bob owns a holding on a <code class="docutils literal notranslate"><span class="pre">USD</span></code> instrument, for an amount of <code class="docutils literal notranslate"><span class="pre">1000</span></code></li>
+</ul>
+<p>These holdings are generally held at different custodians.</p>
+<img alt="Alice owns a EUR holding, Bob owns a USD holding." src="../_images/settlement_initial_state.png" />
+<div class="section" id="instruct">
+<h3>Instruct<a class="headerlink" href="#instruct" title="Permalink to this heading">¶</a></h3>
+<p>Alice and Bob want to exchange their holdings and agree to enter into the transaction by being signatories on a transaction contract.
+Settlement can then be instructed: this generates</p>
 <ol class="arabic simple">
-<li>transfer EUR from Alice to Bob</li>
-<li>transfer USD from Bob to Alice</li>
+<li>an <code class="docutils literal notranslate"><span class="pre">Instruction</span></code> to transfer 1000 EUR from Alice to Bob</li>
+<li>an <code class="docutils literal notranslate"><span class="pre">Instruction</span></code> to transfer 1000 USD from Bob to Alice</li>
+<li>a <code class="docutils literal notranslate"><span class="pre">Batch</span></code> contract which is used to execute the above Instructions.</li>
 </ol>
-<p>They are represented using one <code class="docutils literal notranslate"><span class="pre">Step</span></code> each.
-The step defines who is the sender, who is the receiver and what should be transferred (instrument and amount).</p>
+<img alt="Settlement is instructed." src="../_images/settlement_instructed.png" />
+<p>Each instruction defines, for a step of the settlement chain, who is the sender, who is the receiver and what should be transferred (instrument and amount).</p>
+</div>
+<div class="section" id="allocate-and-approve">
+<h3>Allocate and Approve<a class="headerlink" href="#allocate-and-approve" title="Permalink to this heading">¶</a></h3>
+<p>In order to perform the transfer, we now need to specify for each <code class="docutils literal notranslate"><span class="pre">Instruction</span></code></p>
+<ol class="arabic simple">
+<li>which holding should be used</li>
+<li>to which account it should be transferred.</li>
+</ol>
+<p>Alice <code class="docutils literal notranslate"><span class="pre">allocates</span></code> the instruction where she is the sender by pledging her holding. Bob does the same on the instruction where he is the sender.</p>
+<img alt="Settlement is allocated." src="../_images/settlement_allocated.png" />
+<p>Each receiver can then specify to which account the holding should be sent by <code class="docutils literal notranslate"><span class="pre">approving</span></code> the corresponding instruction.</p>
+<img alt="Settlement is allocated and approved." src="../_images/settlement_allocated_approved.png" />
+</div>
+<div class="section" id="execute">
+<h3>Execute<a class="headerlink" href="#execute" title="Permalink to this heading">¶</a></h3>
+<p>Once instructions are allocated and approved, a Settler party uses the <code class="docutils literal notranslate"><span class="pre">Batch</span></code> contract to <code class="docutils literal notranslate"><span class="pre">execute</span></code> them and finalize settlement in one atomic transaction.</p>
+<img alt="Settlement is allocated and approved." src="../_images/settlement_executed.png" />
+<p>The instructions and the batch are archived following a successful execution.</p>
+</div>
+<div class="section" id="remarks">
+<h3>Remarks<a class="headerlink" href="#remarks" title="Permalink to this heading">¶</a></h3>
+<p>There are some assumptions that need to be verified in order for the transaction above to settle successfully in practice. On the first instruction</p>
+<ul class="simple">
+<li>Bob needs to have an account at the custodian where Alice’s holding is held</li>
+<li>Alice’s holding needs to be <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Transferable.html#type-daml-finance-interface-holding-transferable-transferable-24986"><span class="std std-ref">Transferable</span></a></li>
+<li>The transfer must be fully authorized</li>
+</ul>
+<p>Also, note that the allocation and approval steps can happen in any order.</p>
+</div>
+</div>
+<div class="section" id="the-components-in-detail">
+<h2>The components in detail<a class="headerlink" href="#the-components-in-detail" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="settlement-factory">
+<h3>Settlement factory<a class="headerlink" href="#settlement-factory" title="Permalink to this heading">¶</a></h3>
+<p>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Factory.html#type-daml-finance-interface-settlement-factory-factory-31525"><span class="std std-ref">Settlement Factory</span></a> is used to instruct settlement, i.e., create the <code class="docutils literal notranslate"><span class="pre">Batch</span></code> contract and the settlement <code class="docutils literal notranslate"><span class="pre">Instructions</span></code>.</p>
+<p>The role of the Settlement Factory becomes important when a transfer requires intermediaries to be involved.
+Let us assume, for instance, that Alice’s EUR holding in the example above is held at Bank A, whereas Bob has a EUR account at Bank B. Bank A and Bank B both have accounts at the Central Bank.</p>
+<img alt="Hierarchical account structure. Alice has an account at Bank A. Bob has an account at Bank B. Bank A and Bank B have an account at the Central Bank." src="../_images/settlement_hierarchy.png" />
+<p>In this case, a direct holding transfer from Alice and Bob cannot generally be instructed. The original step needs to be broken down by the Settlement Factory into three separate <code class="docutils literal notranslate"><span class="pre">Instructions</span></code>:</p>
+<ul class="simple">
+<li><strong>1A</strong>: Alice sends 1000 EUR (held at Bank A) back to Bank A</li>
+<li><strong>1B</strong>: Bank A sends 1000 EUR (held at the Central Bank) to Bank B.</li>
+<li><strong>1C</strong>: Bank B credits 1000 EUR to Bob’s account (held at Bank B)</li>
+</ul>
+<img alt="Instructions for intermediated settlement: Alice sends 1000 EUR to Bank A. Bank A sends 1000 EUR to Bank B. Bank B sends 1000 EUR to Bob." src="../_images/settlement_hierarchy_instructed.png" />
+<p>We refer to this scenario as <em>settlement with intermediaries</em>, or just <em>intermediated settlement</em>.
+The Settlement Factory is responsible for generating the correct set of instructions, so that they can be allocated and approved by the respective parties.</p>
 </div>
 <div class="section" id="instruction">
-<h2>Instruction<a class="headerlink" href="#instruction" title="Permalink to this headline">¶</a></h2>
-<p>A <code class="docutils literal notranslate"><span class="pre">Step</span></code> is not sufficient to do a transfer. We also need to know exactly which holding should be used and to which account it should be transferred.
-This is specified in an <code class="docutils literal notranslate"><span class="pre">Instruction</span></code> (one for each <code class="docutils literal notranslate"><span class="pre">Step</span></code>).
-The <code class="docutils literal notranslate"><span class="pre">Instruction</span></code> allows the sender to specify which holding to transfer by exercising the <code class="docutils literal notranslate"><span class="pre">Allocate</span></code> choice.
-The receiver can then specify which account should be used by exercising the <code class="docutils literal notranslate"><span class="pre">Approve</span></code> choice.</p>
+<h3>Instruction<a class="headerlink" href="#instruction" title="Permalink to this heading">¶</a></h3>
+<p>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Instruction.html#type-daml-finance-interface-settlement-instruction-instruction-30569"><span class="std std-ref">Instruction</span></a> is used to settle a single holding transfer, once it is <code class="docutils literal notranslate"><span class="pre">allocated</span></code> and <code class="docutils literal notranslate"><span class="pre">approved</span></code>.</p>
+<p>In the <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-allocation-46483"><span class="std std-ref">Allocation</span></a> step, the sender allocates a suitable holding to the instruction.
+This is usually done by pledging an existing holding with the correct instrument and amount.
+When the sender is also the holding’s custodian, the instruction can be allocated with <code class="docutils literal notranslate"><span class="pre">CreditReceiver</span></code>. In this case, a new holding is minted at
+the custodian and then transferred to the target receiver.</p>
+<p>In the <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-approval-84286"><span class="std std-ref">Approval</span></a> step, the receiver acknowledges the transfer and determines how to receive the holding.
+This is usually done by taking delivery of the holding at a specified account. The provided account must be at the same custodian as the incoming holding.
+When the receiver is also the incoming holding’s custodian, the instruction can be approved with <code class="docutils literal notranslate"><span class="pre">DebitSender</span></code>.In this case, the holding is archived after
+being transferred to the receiver (a holding owned by the custodian at the custodian has no economical value and can be archived).</p>
+<p>To clarify these concepts, here is how the 3 instructions in the intermediated example above would be allocated / approved.</p>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="35%" />
+<col width="32%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Instruction</th>
+<th class="head">Allocation</th>
+<th class="head">Approval</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1A : 1000 EUR from Alice to Bank A</td>
+<td>Alice pledges her holding</td>
+<td>Bank A approves with DebitSender</td>
+</tr>
+<tr class="row-odd"><td>2A : 1000 EUR from Bank A to Bank B</td>
+<td>Bank A pledges their holding</td>
+<td>Bank B takes delivery to their account</td>
+</tr>
+<tr class="row-even"><td>3A : 1000 EUR from Bank B to Bob</td>
+<td>Bank B allocates with CreditReceiver</td>
+<td>Bob takes delivery to his account</td>
+</tr>
+</tbody>
+</table>
+<p>Finally, the Instruction supports two additional settlement modes:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Off</span> <span class="pre">Ledger</span></code> for off-ledger settlement</li>
+<li><code class="docutils literal notranslate"><span class="pre">Pass-through</span></code> to allocate a holding that will be received by executing another instruction in the same batch</li>
+</ul>
 </div>
 <div class="section" id="batch">
-<h2>Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h2>
-<p>We could execute the transfer of the two instructions above individually, but that would cause
-a problem if one instruction fails and the other one succeeds. Instead, we want to execute them
-simultaneously in one atomic transaction. We can do that by using a <code class="docutils literal notranslate"><span class="pre">Batch</span></code> contract.</p>
-<p>These settlement concepts are also explained with example code in the <a class="reference internal" href="../tutorials/getting-started/settlement.html"><span class="doc">Settlement tutorial</span></a>.</p>
+<h3>Batch<a class="headerlink" href="#batch" title="Permalink to this heading">¶</a></h3>
+<p>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Batch.html#type-daml-finance-interface-settlement-batch-batch-97497"><span class="std std-ref">Batch</span></a> is used to execute a set of instructions atomically.
+Execution will fail if any of the Instructions is not fully allocated / approved, or if the transfer is for some reason unsuccessful.</p>
+</div>
+</div>
+<div class="section" id="remarks-and-further-references">
+<h2>Remarks and further references<a class="headerlink" href="#remarks-and-further-references" title="Permalink to this heading">¶</a></h2>
+<p>The settlement concepts are also explored in the <a class="reference internal" href="../tutorials/getting-started/settlement.html"><span class="doc">Settlement tutorial</span></a>.</p>
 </div>
 </div>
 
