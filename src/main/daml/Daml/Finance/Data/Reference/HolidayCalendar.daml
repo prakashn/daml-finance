@@ -45,7 +45,7 @@ template HolidayCalendar
     interface instance Disclosure.I for HolidayCalendar where
       view = Disclosure.View with disclosureControllers = singleton agency; observers
       setObservers Disclosure.SetObservers{newObservers} = toInterfaceContractId <$> create this with observers = newObservers
-      archive' self = archive (coerceContractId self : ContractId HolidayCalendar)
+      archive' self = archive (fromInterfaceContractId self : ContractId HolidayCalendar)
 
     nonconsuming choice GetCalendar : HolidayCalendarData
       -- ^ Returns the calendar's `HolidayCalendarData`.

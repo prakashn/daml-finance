@@ -118,7 +118,7 @@ lifecycleAndVerifyBondPaymentEffects readAs today instrument issuer observableCi
   (bondLifecycleCid, [effectCid]) <- lifecycleInstrument readAs today instrument issuer observableCids
 
   newBondInstrumentKey <- submit issuer do
-    Instrument.toKey <$> exerciseCmd @Instrument.I (coerceContractId bondLifecycleCid) Instrument.GetView with viewer = issuer
+    Instrument.toKey <$> exerciseCmd @Instrument.I (coerceInterfaceContractId bondLifecycleCid) Instrument.GetView with viewer = issuer
 
   -- Get the effect
   effectView <- submit issuer do

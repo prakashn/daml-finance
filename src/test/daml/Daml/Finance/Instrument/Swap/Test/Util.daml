@@ -145,7 +145,7 @@ lifecycleAndVerifySwapPaymentEffects readAs today swapInstrument issuer observab
   let effectCid = head effectCids -- this gives a better error message in case there are no effects
 
   newSwapInstrumentKey <- submit issuer do
-    Instrument.toKey <$> exerciseCmd @Instrument.I (coerceContractId swapLifecycleCid) Instrument.GetView with viewer = issuer
+    Instrument.toKey <$> exerciseCmd @Instrument.I (coerceInterfaceContractId swapLifecycleCid) Instrument.GetView with viewer = issuer
 
   -- Get the effect
   effectView <- submit issuer do

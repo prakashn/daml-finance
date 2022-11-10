@@ -149,8 +149,8 @@ run useDelegatee = script do
         -- disclose
         -- TODO: use explicit disclosure (once available)
         let observerContext = ("delegation123", singleton delegatee)
-        buyerCashCid : ContractId Base.I <- coerceContractId <$> submit buyer do exerciseCmd (coerceContractId buyerCashCid : ContractId Disclosure.I) Disclosure.AddObservers with disclosers = singleton buyer; observersToAdd = observerContext
-        buyerInstructionCid : ContractId Instruction.I <- coerceContractId <$> submit buyer do exerciseCmd (coerceContractId buyerInstructionCid : ContractId Disclosure.I) Disclosure.AddObservers with disclosers = singleton buyer; observersToAdd = observerContext
+        buyerCashCid : ContractId Base.I <- coerceInterfaceContractId <$> submit buyer do exerciseCmd (coerceInterfaceContractId buyerCashCid : ContractId Disclosure.I) Disclosure.AddObservers with disclosers = singleton buyer; observersToAdd = observerContext
+        buyerInstructionCid : ContractId Instruction.I <- coerceInterfaceContractId <$> submit buyer do exerciseCmd (coerceInterfaceContractId buyerInstructionCid : ContractId Disclosure.I) Disclosure.AddObservers with disclosers = singleton buyer; observersToAdd = observerContext
         Account.submitExerciseInterfaceByKeyCmd @Disclosure.I [buyer] [] buyerCashAccount Disclosure.AddObservers with disclosers = singleton buyer; observersToAdd = observerContext
         -- allocate (on behalf of buyer)
         t <- submit delegatee do exerciseCmd delegationCid OnBehalfAllocation with id = observerContext._1; instructionCid = buyerInstructionCid; holdingCid = buyerCashCid
@@ -213,6 +213,5 @@ template AllocationDelegation
           -- ^ Identifier of the observation context on the holding, allowing the delegatee to undisclose themselves from a holding.
       controller delegatee
       do
-        Some cid : Optional (ContractId Fungible.T) <- fmap coerceContractId <$> undisclose (id, singleton delegatee) (singleton delegator) holdingCid
-        fungible <- fetch cid
-        exercise instructionCid Instruction.Allocate with actors = singleton delegator; allocation = Pledge $ coerceContractId cid
+        Some cid : Optional (ContractId Fungible.T) <- fmap fromInterfaceContractId <$> undisclose (id, singleton delegatee) (singleton delegator) holdingCid
+        exercise instructionCid Instruction.Allocate with actors = singleton delegator; allocation = Pledge $ toInterfaceContractId cid

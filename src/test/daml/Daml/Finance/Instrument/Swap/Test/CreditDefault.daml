@@ -74,8 +74,8 @@ runCreditEvent = script do
     recoveryRateObservations = M.fromList
       [(dateToDateClockTime creditEventDate, 0.6)]
 
-  observableDefaultProbabilityCid <- coerceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id defaultProbabilityReferenceId; observations = defaultProbabilityObservations; observers = M.empty
-  observableRecoveryRateCid <- coerceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id recoveryRateReferenceId; observations = recoveryRateObservations; observers = M.empty
+  observableDefaultProbabilityCid <- toInterfaceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id defaultProbabilityReferenceId; observations = defaultProbabilityObservations; observers = M.empty
+  observableRecoveryRateCid <- toInterfaceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id recoveryRateReferenceId; observations = recoveryRateObservations; observers = M.empty
   let observableCids = [observableDefaultProbabilityCid, observableRecoveryRateCid]
 
   -- One day before the first payment date: try to lifecycle and verify that there are no lifecycle effects.
@@ -132,8 +132,8 @@ runCreditEventOnPaymentDate = script do
     recoveryRateObservations = M.fromList
       [(dateToDateClockTime creditEventDate, 0.6)]
 
-  observableDefaultProbabilityCid <- coerceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id defaultProbabilityReferenceId; observations = defaultProbabilityObservations; observers = M.empty
-  observableRecoveryRateCid <- coerceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id recoveryRateReferenceId; observations = recoveryRateObservations; observers = M.empty
+  observableDefaultProbabilityCid <- toInterfaceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id defaultProbabilityReferenceId; observations = defaultProbabilityObservations; observers = M.empty
+  observableRecoveryRateCid <- toInterfaceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id recoveryRateReferenceId; observations = recoveryRateObservations; observers = M.empty
   let observableCids = [observableDefaultProbabilityCid, observableRecoveryRateCid]
 
   -- First payment date: Lifecycle and verify the lifecycle effects for the fix payment.
@@ -182,7 +182,7 @@ runNoCreditEvent = script do
       , (dateToDateClockTime (addDays maturityDate 1)         , 0.2)
       ]
 
-  observableDefaultProbabilityCid <- coerceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id defaultProbabilityReferenceId; observations = defaultProbabilityObservations; observers = M.empty
+  observableDefaultProbabilityCid <- toInterfaceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id defaultProbabilityReferenceId; observations = defaultProbabilityObservations; observers = M.empty
   let observableCids = [observableDefaultProbabilityCid]
 
   -- One day before the first payment date: try to lifecycle and verify that there are no lifecycle effects.
@@ -234,7 +234,7 @@ runCreditEventAfterMaturity = script do
       , (dateToDateClockTime (addDays maturityDate 1)         , 1.0) -- credit event
       ]
 
-  observableDefaultProbabilityCid <- coerceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id defaultProbabilityReferenceId; observations = defaultProbabilityObservations; observers = M.empty
+  observableDefaultProbabilityCid <- toInterfaceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id defaultProbabilityReferenceId; observations = defaultProbabilityObservations; observers = M.empty
   let observableCids = [observableDefaultProbabilityCid]
 
   -- First payment date: Lifecycle and verify the lifecycle effects for the fix payment.

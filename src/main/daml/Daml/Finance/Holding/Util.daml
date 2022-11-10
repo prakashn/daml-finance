@@ -37,7 +37,7 @@ transferImpl self Transferable.Transfer{actors; newOwnerAccount} = do
   assertMsg "actors must contain all transfer instructors of the sender account" $ S.isSubsetOf vAccount.controllers.instructors actors
   assertMsg "actors must contain all transfer approvers of the receiving account" $ S.isSubsetOf vNewAccount.controllers.approvers actors
   assertMsg "actors must contain all lockers" $ S.isSubsetOf lockers actors
-  coerceContractId <$> Account.exerciseInterfaceByKey @Account.I newOwnerAccount vAccount.custodian
+  coerceInterfaceContractId <$> Account.exerciseInterfaceByKey @Account.I newOwnerAccount vAccount.custodian
     Account.CreditAndDebit with actors = lockers <> S.singleton vAccount.owner; baseCid = toInterfaceContractId @Base.I self
 
 -- | Default implementation of `acquire` from the Base interface.

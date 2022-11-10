@@ -61,7 +61,7 @@ template Account
       setObservers Disclosure.SetObservers{newObservers} = do
         cid <- create this with observers = newObservers
         Account.disclosureUpdateReference newObservers account (toInterfaceContractId @Account.I cid)
-      archive' self = archive (coerceContractId self : ContractId Account)
+      archive' self = archive (fromInterfaceContractId self : ContractId Account)
 
 instance AccountFactory.HasImplementation Factory
 -- | Template used to create accounts.
@@ -91,4 +91,4 @@ template Factory
     interface instance Disclosure.I for Factory where
       view = Disclosure.View with disclosureControllers = S.singleton provider; observers
       setObservers Disclosure.SetObservers{newObservers} = toInterfaceContractId <$> create this with observers = newObservers
-      archive' self = archive (coerceContractId self : ContractId Account)
+      archive' self = archive (fromInterfaceContractId self : ContractId Account)

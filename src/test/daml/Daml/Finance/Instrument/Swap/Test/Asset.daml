@@ -61,7 +61,7 @@ run = script do
       calendar = cal
       observers = M.fromList observers
 
-  observableCid <- coerceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id referenceAssetId; observations; observers = M.empty
+  observableCid <- toInterfaceContractId <$> submit issuer do createCmd Observation with provider = issuer; id = Id referenceAssetId; observations; observers = M.empty
 
   swapInstrument <- originateAssetSwap custodian issuer "SwapTest1" "Asset swap" observers now issueDate holidayCalendarId calendarDataProvider firstPaymentDate maturityDate dayCountConvention businessDayConvention fixRate paymentPeriod paymentPeriodMultiplier cashInstrumentCid referenceAssetId issuerPaysFix
 

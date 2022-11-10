@@ -55,4 +55,4 @@ template Factory
     interface instance Disclosure.I for Factory where
       view = Disclosure.View with disclosureControllers = singleton provider; observers
       setObservers Disclosure.SetObservers{newObservers} = toInterfaceContractId <$> create this with observers = newObservers
-      archive' self = archive (coerceContractId self : ContractId FloatingRate.Instrument)
+      archive' self = archive (fromInterfaceContractId self : ContractId FloatingRate.Instrument)

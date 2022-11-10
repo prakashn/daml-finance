@@ -26,19 +26,19 @@ run = script do
   TestInitialState {investorAccount; issuerAccount; issuerHoldingCid} <- setupInitialState tp (Fungible.Factory with provider = custodian; observers = M.fromList [("PublicParty", S.singleton publicParty)]) [] Account.Owner
 
   -- Lock asset
-  baseCid <- submitMulti [issuer, lockers] [] do exerciseCmd (coerceContractId issuerHoldingCid : ContractId Base.I) Base.Acquire with newLockers = S.singleton lockers; context = "Test Lock"; lockType = Base.Semaphore
+  baseCid <- submitMulti [issuer, lockers] [] do exerciseCmd (coerceInterfaceContractId issuerHoldingCid : ContractId Base.I) Base.Acquire with newLockers = S.singleton lockers; context = "Test Lock"; lockType = Base.Semaphore
 
   -- Cannot split
-  submitMultiMustFail [issuer, investor] [] do exerciseCmd (coerceContractId baseCid : ContractId Fungible.I) Fungible.Split with amounts = [500.0, 250.0]
+  submitMultiMustFail [issuer, investor] [] do exerciseCmd (coerceInterfaceContractId baseCid : ContractId Fungible.I) Fungible.Split with amounts = [500.0, 250.0]
 
   -- Cannot transfer
-  submitMultiMustFail [issuer, investor] [] do exerciseCmd (coerceContractId baseCid : ContractId Transferable.I) Transferable.Transfer with actors = S.fromList [issuer, investor]; newOwnerAccount = investorAccount
+  submitMultiMustFail [issuer, investor] [] do exerciseCmd (coerceInterfaceContractId baseCid : ContractId Transferable.I) Transferable.Transfer with actors = S.fromList [issuer, investor]; newOwnerAccount = investorAccount
 
   -- Cannot debit
   Account.submitMustFailExerciseInterfaceByKeyCmd @Account.I [custodian, issuer] [] issuerAccount (Account.Debit with holdingCid = toInterfaceContractId baseCid)
 
   -- Unlock asset
-  fungibleCid : ContractId Fungible.I <- coerceContractId <$> submit lockers do exerciseCmd baseCid Base.Release with context = "Test Lock"
+  fungibleCid : ContractId Fungible.I <- coerceInterfaceContractId <$> submit lockers do exerciseCmd baseCid Base.Release with context = "Test Lock"
 
   -- Attempt to split more than the amount available fails
   submitMultiMustFail [issuer, investor] [] do exerciseCmd fungibleCid Fungible.Split with amounts = [1_000.1]
@@ -51,13 +51,13 @@ run = script do
   submitMultiMustFail [issuer, investor] [] do exerciseCmd fungibleCid Fungible.Split with amounts = []
 
   -- Fungible (before split)
-  fungible <- fmap (\o -> toInterface @Fungible.I $ fromSome o) <$> queryContractId @Fungible.T issuer $ coerceContractId fungibleCid
+  fungible <- fmap (\o -> toInterface @Fungible.I $ fromSome o) <$> queryContractId @Fungible.T issuer $ fromInterfaceContractId fungibleCid
 
   -- Split fungible
   Fungible.SplitResult [splitCid1, splitCid2] (Some restCid) <- submitMulti [issuer, investor] [] do exerciseCmd fungibleCid Fungible.Split with amounts = [500.0, 250.0]
 
   -- Fungibles (after split)
-  [fungible1, fungible2, rest] <- fmap (\f -> toInterface @Fungible.I $ fromSome f) <$> mapA (\cid -> queryContractId @Fungible.T issuer $ coerceContractId cid) [splitCid1, splitCid2, restCid]
+  [fungible1, fungible2, rest] <- fmap (\f -> toInterface @Fungible.I $ fromSome f) <$> mapA (\cid -> queryContractId @Fungible.T issuer $ fromInterfaceContractId cid) [splitCid1, splitCid2, restCid]
 
   -- Test utility function `verifyAmountPreserving`
   Fungible.verifyAmountPreserving [] []
@@ -86,11 +86,11 @@ run = script do
   fungibleCid <- submitMulti [issuer, investor] [] do exerciseCmd restCid Fungible.Merge with fungibleCids = [splitCid1, splitCid2]
 
   -- Fungibles (after merge)
-  fungible' <- fmap (\o -> toInterface @Fungible.I $ fromSome o) <$> queryContractId @Fungible.T issuer $ coerceContractId fungibleCid
+  fungible' <- fmap (\o -> toInterface @Fungible.I $ fromSome o) <$> queryContractId @Fungible.T issuer $ fromInterfaceContractId fungibleCid
   Fungible.verifyAmountPreserving [fungible] [fungible']
 
   -- Transfer
-  transferableCid <- submitMulti [issuer, investor] [publicParty] do exerciseCmd (coerceContractId fungibleCid : ContractId Transferable.I) Transferable.Transfer with actors = S.fromList [issuer, investor]; newOwnerAccount = investorAccount
+  transferableCid <- submitMulti [issuer, investor] [publicParty] do exerciseCmd (coerceInterfaceContractId fungibleCid : ContractId Transferable.I) Transferable.Transfer with actors = S.fromList [issuer, investor]; newOwnerAccount = investorAccount
 
   -- Assert state
   Holding.verifyOwnerOfHolding [(investor, transferableCid)]

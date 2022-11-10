@@ -127,7 +127,7 @@ interface Exercisable where
     controller (view this).lifecycler
     do
       (instrument, effects) <- applyElection this arg self
-      pure (coerceContractId instrument, effects)
+      pure (coerceInterfaceContractId instrument, effects)
 
 -- | Type constraint for requiring templates to implement `Exercisable` along with `Lifecycle`.
 type ExercisableImplementation t = (HasToInterface t Exercisable, Lifecycle.Implementation t)

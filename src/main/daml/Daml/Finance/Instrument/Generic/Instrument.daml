@@ -89,7 +89,7 @@ template Instrument
       setObservers Disclosure.SetObservers{newObservers} = do
         cid <- toInterfaceContractId <$> create this with observers = newObservers
         BaseInstrument.disclosureUpdateReference newObservers instrumentKey cid
-      archive' self = archive (coerceContractId self : ContractId Instrument)
+      archive' self = archive (fromInterfaceContractId self : ContractId Instrument)
 
     interface instance Election.Exercisable for Instrument where
       asLifecycle = toInterface @Lifecycle.I this
@@ -105,7 +105,7 @@ template Instrument
         verify (currentTime == electionTime) $ "Election time " <> show electionTime <> " is different than Current time " <> show currentTime
         (remaining, pending) <- lifecycle lifecycler observableCids (toInterface this) [election]
         if remaining == instrumentClaim && null pending then
-          pure (coerceContractId self, [])
+          pure (coerceInterfaceContractId self, [])
         else do
           let
             settlementDate = toDateUTC electionTime
@@ -136,7 +136,7 @@ template Instrument
             otherProduced
             settlementDate
             observers = v.observers
-          pure (coerceContractId newInstrumentCid, [effectCid])
+          pure (coerceInterfaceContractId newInstrumentCid, [effectCid])
 
 -- | HIDE
 -- | Rule to process a time update event.
@@ -174,4 +174,4 @@ processClockUpdate actor eventCid _ self instrument observableCids = do
       otherProduced
       settlementDate
       observers = Disclosure.flattenObservers instrument.observers
-    pure (coerceContractId newInstrumentCid, [effectCid])
+    pure (coerceInterfaceContractId newInstrumentCid, [effectCid])

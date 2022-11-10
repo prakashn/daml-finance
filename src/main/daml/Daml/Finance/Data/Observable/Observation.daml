@@ -38,9 +38,9 @@ template Observation
         case M.lookup t observations of
           Some obs -> pure obs
           None -> do
-            fail $ "Missing observation for " <> show id <>" at t = " <> show t
+            fail $ "Missing observation for " <> show id <> " at t = " <> show t
 
     interface instance Disclosure.I for Observation where
       view = Disclosure.View with disclosureControllers = singleton provider; observers
       setObservers Disclosure.SetObservers{newObservers} = toInterfaceContractId <$> create this with observers = newObservers
-      archive' self = archive (coerceContractId self : ContractId Observation)
+      archive' self = archive (fromInterfaceContractId self : ContractId Observation)

@@ -63,7 +63,7 @@ template Instruction
     interface instance Disclosure.I for Instruction where
       view = Disclosure.View with disclosureControllers = S.fromList [step.sender, step.receiver]; observers
       setObservers Disclosure.SetObservers{newObservers} = toInterfaceContractId <$> create this with observers = newObservers
-      archive' self = archive (coerceContractId self : ContractId Instruction)
+      archive' self = archive (fromInterfaceContractId self : ContractId Instruction)
 
     interface instance Instruction.I for Instruction where
       asDisclosure = toInterface @Disclosure.I this
@@ -87,7 +87,7 @@ template Instruction
             holding <- fetch holdingCid
             let
               senderAccount = getAccount holding
-            base : Base.I <- fetch $ coerceContractId holdingCid
+            base : Base.I <- fetch $ coerceInterfaceContractId holdingCid
             discloseA senderAccount
             vSenderAccount <- view <$> fetchInterfaceByKey @Account.R senderAccount
             assertMsg "actors must include instructors" $ S.isSubsetOf vSenderAccount.controllers.instructors actors
@@ -156,7 +156,7 @@ template Instruction
                 holding <- fetch holdingCid
                 let
                   senderAccount = getAccount holding
-                  transferableCid : ContractId Transferable.I = coerceContractId holdingCid
+                  transferableCid : ContractId Transferable.I = coerceInterfaceContractId holdingCid
                 holdingCid <- toInterfaceContractId <$> exercise transferableCid Transferable.Transfer with actors = signed; newOwnerAccount = receiverAccount
                 undiscloseA senderAccount
                 undiscloseA receiverAccount
@@ -173,7 +173,7 @@ template Instruction
                 holding <- fetch holdingCid
                 let
                   senderAccount = getAccount holding
-                  transferableCid : ContractId Transferable.I = coerceContractId holdingCid
+                  transferableCid : ContractId Transferable.I = coerceInterfaceContractId holdingCid
                 tCid <- toInterfaceContractId <$> exercise transferableCid Transferable.Transfer with actors = signed; newOwnerAccount = passthroughAccount
                 (toInstructionCid, toInstruction) <- fetchByKey @Instruction toInstructionKey
                 assertMsg "passthroughs must match" $ toInstruction.allocation == PassthroughFrom (passthroughAccount, key this)
