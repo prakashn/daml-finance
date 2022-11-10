@@ -9,8 +9,6 @@ module Daml.Finance.Interface.Util.Common
   , verify
   ) where
 
-import DA.Record (HasField)
-
 -- | Verify is assertMsg with its arguments flipped.
 verify : CanAssert m => Bool -> Text -> m ()
 verify = flip assertMsg
