@@ -72,7 +72,7 @@ run = script do
 
   -- Fungible (before split)
   fungible <- fmap (\o -> toInterface @Fungible.I $ fromSome o) <$>
-    queryContractId @Fungible.T issuer $ coerceInterfaceContractId fungibleCid
+    queryContractId @Fungible.T issuer $ fromInterfaceContractId fungibleCid
 
   -- Split fungible
   Fungible.SplitResult [splitCid1, splitCid2] (Some restCid) <-
@@ -82,7 +82,7 @@ run = script do
   -- Fungibles (after split)
   [fungible1, fungible2, rest] <- fmap (\f -> toInterface @Fungible.I $ fromSome f) <$>
     mapA
-      (\cid -> queryContractId @Fungible.T issuer $ coerceInterfaceContractId cid)
+      (\cid -> queryContractId @Fungible.T issuer $ fromInterfaceContractId cid)
       [splitCid1, splitCid2, restCid]
 
   -- Test utility function `verifyAmountPreserving`
@@ -137,7 +137,7 @@ run = script do
 
   -- Fungibles (after merge)
   fungible' <- fmap (\o -> toInterface @Fungible.I $ fromSome o) <$>
-    queryContractId @Fungible.T issuer $ coerceInterfaceContractId fungibleCid
+    queryContractId @Fungible.T issuer $ fromInterfaceContractId fungibleCid
   Fungible.verifyAmountPreserving [fungible] [fungible']
 
   -- Transfer

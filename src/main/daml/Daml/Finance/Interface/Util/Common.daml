@@ -15,10 +15,11 @@ verify = flip assertMsg
 
 -- | Fetch an interface by key.
 fetchInterfaceByKey : forall t i2 k i.
-  (HasFetchByKey t k, HasField "cid" t (ContractId i), HasFetch i2) => k -> Update i2
+  (HasInterfaceTypeRep i, HasInterfaceTypeRep i2, HasFetchByKey t k,
+   HasField "cid" t (ContractId i), HasFetch i2) => k -> Update i2
 fetchInterfaceByKey k = do
   d <- snd <$> fetchByKey @t k
-  fetch d.cid
+  fetch $ coerceInterfaceContractId d.cid
 
 -- | HIDE
 -- Utility function for exercising interface by key.

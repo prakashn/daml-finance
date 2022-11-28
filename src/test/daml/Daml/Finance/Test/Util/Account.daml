@@ -65,7 +65,7 @@ createAccount description readAs factoryCid holdingFactoryCid observers controll
 
 -- | Credit an `Account`.
 credit : [Party] -> Instrument.K -> Decimal -> AccountKey -> Script (ContractId Base.I)
-credit readAs instrument amount account = coerceContractId <$>
+credit readAs instrument amount account =
   submitExerciseInterfaceByKeyCmdHelper @Account.R @Account.I [account.custodian, account.owner]
   readAs account
   (Account.GetCid with viewer = account.owner)
