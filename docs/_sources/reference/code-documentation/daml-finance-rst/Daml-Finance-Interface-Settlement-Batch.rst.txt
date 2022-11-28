@@ -115,10 +115,10 @@ Data Types
          - Batch description\.
        * - contextId
          - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
-         - Identifier to link a batch to a context (eg\. the ``Effect`` it originated from)\.
-       * - steps
-         - \[:ref:`Step <type-daml-finance-interface-settlement-types-step-78661>`\]
-         - Settlement steps\.
+         - Identifier to link a batch to a context (e\.g\. the ``Effect`` it originated from)\.
+       * - routedSteps
+         - \[:ref:`RoutedStep <type-daml-finance-interface-settlement-types-routedstep-10086>`\]
+         - Routed settlement steps\.
 
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `View <type-daml-finance-interface-settlement-batch-view-33973_>`_
 

@@ -40,9 +40,9 @@ Templates
      * - id
        - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
        - Instruction identifier\.
-     * - step
-       - :ref:`Step <type-daml-finance-interface-settlement-types-step-78661>`
-       - Settlement step\.
+     * - routedStep
+       - :ref:`RoutedStep <type-daml-finance-interface-settlement-types-routedstep-10086>`
+       - Routed settlement step\.
      * - allocation
        - :ref:`Allocation <type-daml-finance-interface-settlement-types-allocation-46483>`
        - Allocation from the sender\.

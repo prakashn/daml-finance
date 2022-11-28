@@ -13,7 +13,8 @@ Templates
 
 **template** `Effect <type-daml-finance-lifecycle-effect-effect-18432_>`_
 
-  A contract encoding the consequences of a lifecycle event for one unit of the target instrument\.
+  A contract encoding the consequences of a lifecycle event for one unit of the target
+  instrument\.
 
   .. list-table::
      :widths: 15 10 30

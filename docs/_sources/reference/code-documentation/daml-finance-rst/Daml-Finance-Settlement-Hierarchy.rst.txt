@@ -13,7 +13,8 @@ Data Types
 
 **data** `Hierarchy <type-daml-finance-settlement-hierarchy-hierarchy-68950_>`_
 
-  Data type that describes a hierarchical account structure among multiple parties for holdings on an instrument\.
+  Data type that describes a hierarchical account structure among multiple parties for holdings
+  on an instrument\.
 
   .. _constr-daml-finance-settlement-hierarchy-hierarchy-13149:
 
@@ -43,4 +44,4 @@ Functions
 .. _function-daml-finance-settlement-hierarchy-unfoldstep-82948:
 
 `unfoldStep <function-daml-finance-settlement-hierarchy-unfoldstep-82948_>`_
-  \: `Hierarchy <type-daml-finance-settlement-hierarchy-hierarchy-68950_>`_ \-\> :ref:`Step <type-daml-finance-interface-settlement-types-step-78661>` \-\> `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ \[:ref:`Step <type-daml-finance-interface-settlement-types-step-78661>`\]
+  \: `Hierarchy <type-daml-finance-settlement-hierarchy-hierarchy-68950_>`_ \-\> :ref:`Step <type-daml-finance-interface-settlement-types-step-78661>` \-\> `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ \[:ref:`RoutedStep <type-daml-finance-interface-settlement-types-routedstep-10086>`\]

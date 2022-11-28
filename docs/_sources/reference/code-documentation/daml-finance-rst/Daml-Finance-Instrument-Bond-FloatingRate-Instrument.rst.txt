@@ -15,9 +15,8 @@ Templates
 
   This template models a floating rate bond\.
   It pays a floating coupon rate at the end of every coupon period\.
-  This consists of a reference rate (observed at the beginning of the coupon period) plus a coupon spread\.
-  For example\: 3M Euribor \+ 0\.5%\.
-  FLOATING\_RATE\_BOND\_TEMPLATE\_UNTIL\_REFRATE\_BEGIN
+  This consists of a reference rate (observed at the beginning of the coupon period) plus a coupon
+  spread\. For example, 3M Euribor \+ 0\.5%\.
 
   .. list-table::
      :widths: 15 10 30
@@ -52,7 +51,7 @@ Templates
        - The schedule for the periodic coupon payments\.
      * - holidayCalendarIds
        - \[`Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_\]
-       - The identifier of the holiday calendar to be used for the coupon schedule\.
+       - The identifiers of the holiday calendars to be used for the coupon schedule\.
      * - calendarDataProvider
        - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
        - The reference data provider to use for the holiday calendar\.
@@ -75,11 +74,11 @@ Templates
 
   + **interface instance** :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` **for** `Instrument <type-daml-finance-instrument-bond-floatingrate-instrument-instrument-67025_>`_
 
+  + **interface instance** :ref:`I <type-daml-finance-interface-claims-dynamic-instrument-i-39105>` **for** `Instrument <type-daml-finance-instrument-bond-floatingrate-instrument-instrument-67025_>`_
+
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>` **for** `Instrument <type-daml-finance-instrument-bond-floatingrate-instrument-instrument-67025_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-bond-floatingrate-instrument-i-64015>` **for** `Instrument <type-daml-finance-instrument-bond-floatingrate-instrument-instrument-67025_>`_
-
-  + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>` **for** `Instrument <type-daml-finance-instrument-bond-floatingrate-instrument-instrument-67025_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Instrument <type-daml-finance-instrument-bond-floatingrate-instrument-instrument-67025_>`_
 

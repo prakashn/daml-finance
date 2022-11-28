@@ -48,9 +48,9 @@ Interfaces
          - :ref:`AccountKey <type-daml-finance-interface-types-common-accountkey-85835>`
          - Account contract id of the parties to transfer the contract to\.
 
-  + **Method asLockable \:** :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`
+  + **Method asBase \:** :ref:`I <type-daml-finance-interface-holding-base-i-67605>`
 
-    Conversion to ``Lockable`` interface\.
+    Conversion to ``Base`` interface\.
 
   + **Method transfer \:** `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-holding-transferable-i-13335_>`_ \-\> Transfer \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Transferable <type-daml-finance-interface-holding-transferable-transferable-24986_>`_)
 
@@ -81,10 +81,10 @@ Data Types
 .. _type-daml-finance-interface-holding-transferable-implementation-82963:
 
 **type** `Implementation <type-daml-finance-interface-holding-transferable-implementation-82963_>`_ t
-  \= (`HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t `I <type-daml-finance-interface-holding-transferable-i-13335_>`_, :ref:`Implementation <type-daml-finance-interface-holding-lockable-implementation-31715>` t)
+  \= (`HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t `I <type-daml-finance-interface-holding-transferable-i-13335_>`_, :ref:`Implementation <type-daml-finance-interface-holding-base-implementation-87781>` t)
 
   Type constraint for requiring templates to implement ``Transferable`` to
-  also implement ``Lockable``\.
+  also implement ``Base``\.
 
 .. _type-daml-finance-interface-holding-transferable-v-6848:
 
@@ -112,10 +112,10 @@ Data Types
 Functions
 ---------
 
-.. _function-daml-finance-interface-holding-transferable-aslockable-46624:
+.. _function-daml-finance-interface-holding-transferable-asbase-78774:
 
-`asLockable <function-daml-finance-interface-holding-transferable-aslockable-46624_>`_
-  \: `Transferable <type-daml-finance-interface-holding-transferable-transferable-24986_>`_ \-\> :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`
+`asBase <function-daml-finance-interface-holding-transferable-asbase-78774_>`_
+  \: `Transferable <type-daml-finance-interface-holding-transferable-transferable-24986_>`_ \-\> :ref:`I <type-daml-finance-interface-holding-base-i-67605>`
 
 .. _function-daml-finance-interface-holding-transferable-transfer-91982:
 

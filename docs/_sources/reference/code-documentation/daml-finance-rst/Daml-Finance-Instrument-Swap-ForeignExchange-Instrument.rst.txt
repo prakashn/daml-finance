@@ -16,10 +16,11 @@ Templates
   This template models a foreign exchange swap (FX Swap)\.
   It has two legs\: an initial FX transaction and a final FX transaction\.
   The instrument has a base currency and a foreign currency\.
-  The convention is that the issuer pays the foreign currency in the initial transaction (and receives it in the final transaction)\.
+  The convention is that the issuer pays the foreign currency in the initial transaction (and
+  receives it in the final transaction)\.
   Both FX rates and transaction dates are predetermined between the counterparties\.
-  For example\: 1000k USD vs 1100k EUR (fx rate\: 1\.10) today
-  1000k USD vs 1200k EUR (fx rate\: 1\.20) in 6 months
+  For example\: USD 1000k vs EUR 1100k (fx rate\: 1\.10) today
+  USD 1000k vs EUR 1200k (fx rate\: 1\.20) in 6 months
 
   .. list-table::
      :widths: 15 10 30
@@ -77,11 +78,11 @@ Templates
 
   + **interface instance** :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` **for** `Instrument <type-daml-finance-instrument-swap-foreignexchange-instrument-instrument-36369_>`_
 
+  + **interface instance** :ref:`I <type-daml-finance-interface-claims-dynamic-instrument-i-39105>` **for** `Instrument <type-daml-finance-instrument-swap-foreignexchange-instrument-instrument-36369_>`_
+
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>` **for** `Instrument <type-daml-finance-instrument-swap-foreignexchange-instrument-instrument-36369_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-swap-foreignexchange-instrument-i-43105>` **for** `Instrument <type-daml-finance-instrument-swap-foreignexchange-instrument-instrument-36369_>`_
-
-  + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>` **for** `Instrument <type-daml-finance-instrument-swap-foreignexchange-instrument-instrument-36369_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Instrument <type-daml-finance-instrument-swap-foreignexchange-instrument-instrument-36369_>`_
 

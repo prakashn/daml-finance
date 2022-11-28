@@ -46,7 +46,7 @@ Data Types
          - The schedule for the periodic coupon payments\.
        * - holidayCalendarIds
          - \[`Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_\]
-         - The identifier of the holiday calendar to be used for the coupon schedule\.
+         - The identifiers of the holiday calendars to be used for the coupon schedule\.
        * - calendarDataProvider
          - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
          - The reference data provider to use for the holiday calendar\.

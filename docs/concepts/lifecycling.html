@@ -30,7 +30,6 @@
   <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
   <script src="../_static/jquery.js"></script>
   <script src="../_static/underscore.js"></script>
-  <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
   <script src="../_static/doctools.js"></script>
   <script src="../_static/clipboard.min.js"></script>
   <script src="../_static/copybutton.js"></script>
@@ -97,8 +96,20 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview/architecture.html">Architecture</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#interface-layer">Interface Layer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#implementation-layer">Implementation Layer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#how-to-use-the-library">How To Use the Library</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#extension-points">Extension Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#versioning-and-compatibility">Versioning and Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/building-applications.html">Building Applications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../overview/building-applications.html#installing-daml-finance">Installing Daml Finance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/building-applications.html#application-architecture">Application Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/extending-daml-finance.html">Extending Daml Finance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-holding-implementations">Custom Holding Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-account-implementations">Custom Account Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-instrument-implementations">Custom Instrument Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-lifecycle-implementations">Custom Lifecycle Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-settlement-implementations">Custom Settlement Implementations</a></li>
 </ul>
 </li>
 </ul>
@@ -143,6 +154,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="settlement.html#the-components-in-detail">The components in detail</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="settlement.html#route-provider">Route provider</a></li>
 <li class="toctree-l4"><a class="reference internal" href="settlement.html#settlement-factory">Settlement factory</a></li>
 <li class="toctree-l4"><a class="reference internal" href="settlement.html#instruction">Instruction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="settlement.html#batch">Batch</a></li>
@@ -152,35 +164,79 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Lifecycling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#events">Events</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#intrinsic">Intrinsic</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#extrinsic">Extrinsic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#approach">Approach</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#single-source-of-truth">Single Source of Truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#instrument-versioning">Instrument Versioning</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#instrument-versions">Instrument Versions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#effects">Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#workflow">Workflow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-the-event">Creating the event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processing-the-event">Processing the event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#claiming-the-effect">Claiming the effect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#settlement">Settlement</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#components">Components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#events">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lifecycle-rule">Lifecycle Rule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#claim-rule">Claim Rule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#effects">Effects</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="contingent-claims.html">Contingent Claims</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contingent-claims/quickstart.html">Quickstart</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="contingent-claims/quickstart.html#the-model">The Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#the-model">The Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#composition-and-extensibility">Composition and Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#concerning-type-parameters">Concerning Type Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contingent-claims.html#the-time-parameter">The Time Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contingent-claims.html#the-asset-parameter">The Asset Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contingent-claims.html#the-observation-parameter">The Observation Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contingent-claims.html#the-value-parameter">The Value Parameter</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#lifecycling">Lifecycling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#pricing-experimental">Pricing (Experimental)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#references">References</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../packages/index.html">Packages</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../packages/intro.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../packages/core-interfaces.html">Core Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../packages/core-implementations.html">Core Implementations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../packages/instrument-extensions.html">Instrument Extensions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#tokens">Tokens</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#bonds">Bonds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#swaps">Swaps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#equity">Equity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#generic">Generic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packages/interfaces/index.html">Interface Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-holding.html">Daml.Finance.Interface.Holding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-account.html">Daml.Finance.Interface.Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-settlement.html">Daml.Finance.Interface.Settlement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-lifecycle.html">Daml.Finance.Interface.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-base.html">Daml.Finance.Interface.Instrument.Base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-data.html">Daml.Finance.Interface.Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-claims.html">Daml.Finance.Interface.Claims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-types.html">Daml.Finance.Interface.Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-util.html">Daml.Finance.Interface.Util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/contingent-claims-core.html">ContingentClaims.Core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-bond.html">Daml.Finance.Interface.Instrument.Bond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-equity.html">Daml.Finance.Interface.Instrument.Equity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-generic.html">Daml.Finance.Interface.Instrument.Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-swap.html">Daml.Finance.Interface.Instrument.Swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-token.html">Daml.Finance.Interface.Instrument.Token</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../packages/implementations/index.html">Implementation Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-holding.html">Daml.Finance.Holding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-account.html">Daml.Finance.Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-settlement.html">Daml.Finance.Settlement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-lifecycle.html">Daml.Finance.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-data.html">Daml.Finance.Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-claims.html">Daml.Finance.Claims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-util.html">Daml.Finance.Util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/contingent-claims-lifecycle.html">ContingentClaims.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/contingent-claims-valuation.html">ContingentClaims.Valuation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-bond.html">Daml.Finance.Instrument.Bond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-equity.html">Daml.Finance.Instrument.Equity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-generic.html">Daml.Finance.Instrument.Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-swap.html">Daml.Finance.Instrument.Swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-token.html">Daml.Finance.Instrument.Token</a></li>
 </ul>
 </li>
 </ul>
@@ -210,8 +266,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/getting-started/lifecycling.html#summary">Summary</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#daml-finance">Daml Finance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#daml-finance-reference-app">Daml Finance Reference App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#quickstart">Quickstart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#reference-app">Reference App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#create-your-own-app">Create your own App</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#next-steps">Next Steps</a></li>
 </ul>
 </li>
@@ -224,7 +281,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html">How to Lifecycle a Bond Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#create-a-fixed-rate-bond-instrument">Create a Fixed-Rate Bond Instrument</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#define-the-clock-for-time-based-events">Define the Clock for Time-Based Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#define-a-lifecycle-event">Define a lifecycle event</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#lifecycle-the-bond-instrument">Lifecycle the Bond Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#settle-the-instructions">Settle the Instructions</a></li>
 </ul>
@@ -235,7 +292,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/swap-extension.html#frequently-asked-questions">Frequently Asked Questions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html">How To Use the Generic Extension To Model Generic Instruments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html">How To Model and Lifecycle Generic Instruments</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-create-a-generic-instrument">How To Create a Generic Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-trade-and-transfer-a-generic-instrument">How To Trade and Transfer a Generic Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-process-lifecycle-events">How to Process Lifecycle Events</a></li>
@@ -244,7 +301,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#template-definition">Template Definition</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#hasclaims-interface">HasClaims Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#the-claims-interface">The Claims Interface</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#how-to-define-the-redemption-claim">How to Define the Redemption Claim</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#how-to-define-the-coupon-claims">How to Define the Coupon Claims</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#how-the-instrument-evolves-over-time">How the Instrument Evolves Over Time</a></li>
@@ -288,6 +345,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Claim.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Internal-Claim.html">ContingentClaims.Core.Internal.Claim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Internal-Claim.html#data-types">Data Types</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Observation.html">ContingentClaims.Core.Observation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Observation.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Observation.html#functions">Functions</a></li>
@@ -321,8 +382,16 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Account-Util.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Lifecycle-Rule.html">Daml.Finance.Claims.Lifecycle.Rule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Lifecycle-Rule.html#templates">Templates</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util.html">Daml.Finance.Claims.Util</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util-Builders.html">Daml.Finance.Claims.Util.Builders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util-Builders.html#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util-Lifecycle.html">Daml.Finance.Claims.Util.Lifecycle</a><ul>
@@ -341,6 +410,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock.html">Daml.Finance.Data.Time.DateClock</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock-Types.html">Daml.Finance.Data.Time.DateClock.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock-Types.html#data-types">Data Types</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Holding-Fungible.html">Daml.Finance.Holding.Fungible</a><ul>
@@ -426,8 +499,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Instrument.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Util.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Lifecycle-Rule.html">Daml.Finance.Instrument.Generic.Lifecycle.Rule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Lifecycle-Rule.html#templates">Templates</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Factory.html">Daml.Finance.Instrument.Swap.Asset.Factory</a><ul>
@@ -529,6 +602,13 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html">Daml.Finance.Interface.Claims.Dynamic.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Types.html">Daml.Finance.Interface.Claims.Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Types.html#data-types">Data Types</a></li>
 </ul>
@@ -565,13 +645,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html#typeclasses">Typeclasses</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html#functions">Functions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html">Daml.Finance.Interface.Holding.Lockable</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#interfaces">Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#typeclasses">Typeclasses</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#data-types">Data Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Transferable.html">Daml.Finance.Interface.Holding.Transferable</a><ul>
@@ -899,6 +972,13 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Instruction.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html">Daml.Finance.Interface.Settlement.RouteProvider</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html">Daml.Finance.Interface.Settlement.Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html#data-types">Data Types</a></li>
 </ul>
@@ -948,9 +1028,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-ElectionEffect.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClock.html">Daml.Finance.Lifecycle.Event.DateClock</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClock.html#templates">Templates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClock.html#data-types">Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClockUpdate.html">Daml.Finance.Lifecycle.Event.DateClockUpdate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClockUpdate.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClockUpdate.html#data-types">Data Types</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-Distribution.html">Daml.Finance.Lifecycle.Event.Distribution</a><ul>
@@ -983,10 +1063,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Util.html#functions">Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Types.html">Daml.Finance.Lifecycle.Types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Types.html#data-types">Data Types</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html">Daml.Finance.Settlement.Batch</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html#data-types">Data Types</a></li>
@@ -1004,6 +1080,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-IntermediatedStatic.html">Daml.Finance.Settlement.RouteProvider.IntermediatedStatic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-IntermediatedStatic.html#templates">Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-SingleCustodian.html">Daml.Finance.Settlement.RouteProvider.SingleCustodian</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-SingleCustodian.html#templates">Templates</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Util-Common.html">Daml.Finance.Util.Common</a><ul>
@@ -1096,13 +1180,25 @@
         <!-- Local TOC -->
         <div class="content-menu-toc"><ul>
 <li><a class="reference internal" href="#">Lifecycling</a><ul>
-<li><a class="reference internal" href="#events">Events</a><ul>
-<li><a class="reference internal" href="#intrinsic">Intrinsic</a></li>
-<li><a class="reference internal" href="#extrinsic">Extrinsic</a></li>
+<li><a class="reference internal" href="#approach">Approach</a><ul>
+<li><a class="reference internal" href="#single-source-of-truth">Single Source of Truth</a></li>
+<li><a class="reference internal" href="#instrument-versioning">Instrument Versioning</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#instrument-versions">Instrument Versions</a></li>
+<li><a class="reference internal" href="#workflow">Workflow</a><ul>
+<li><a class="reference internal" href="#creating-the-event">Creating the event</a></li>
+<li><a class="reference internal" href="#processing-the-event">Processing the event</a></li>
+<li><a class="reference internal" href="#claiming-the-effect">Claiming the effect</a></li>
+<li><a class="reference internal" href="#settlement">Settlement</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#components">Components</a><ul>
+<li><a class="reference internal" href="#events">Events</a></li>
+<li><a class="reference internal" href="#lifecycle-rule">Lifecycle Rule</a></li>
+<li><a class="reference internal" href="#claim-rule">Claim Rule</a></li>
 <li><a class="reference internal" href="#effects">Effects</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1121,48 +1217,182 @@
             <div itemprop="articleBody">
                 
   <div class="section" id="lifecycling">
-<h1>Lifecycling<a class="headerlink" href="#lifecycling" title="Permalink to this heading">¶</a></h1>
-<p><a class="reference internal" href="../reference/glossary.html#lifecycling"><span class="std std-ref">Lifecycling</span></a> is the evolution of instruments over their lifetime.
-The library provides a standard mechanism for processing instruments accross asset types.</p>
-<p>Various types of events result in cash flows and updated instrument definitions,
-to reflect past events and cash flows that have already been paid.</p>
-<div class="section" id="events">
-<h2>Events<a class="headerlink" href="#events" title="Permalink to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Event</span></code> interface, which is defined in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Lifecycle.Event</span></code>, is
-used to handle different types of events:</p>
-<div class="section" id="intrinsic">
-<h3>Intrinsic<a class="headerlink" href="#intrinsic" title="Permalink to this heading">¶</a></h3>
-<p>Intrinsic events are contractual cash flows.
-The contract terms pre-define exactly what triggers these events, for example:</p>
+<h1>Lifecycling<a class="headerlink" href="#lifecycling" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="../reference/glossary.html#lifecycling"><span class="std std-ref">Lifecycling</span></a> refers to the evolution of financial instruments over their
+lifetime. This includes processing of contractual events, like interest payments or coupon
+cashflows, as well as discretionary events, like dividends and other corporate actions. The library
+provides a standard mechanism for processing such events accross different instruments.</p>
+<p>The interfaces for lifecycling are defined in the <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Lifecycle</span></code> package, and
+several default implementations are provided in the <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Lifecycle</span></code> package.</p>
+<p>In this section, we first motivate the particular approach to lifecycling in Daml Finance. We then
+explain the process in detail using the example of a cash dividend event. Finally, we describe each
+of the involved components in depth.</p>
+<div class="section" id="approach">
+<h2>Approach<a class="headerlink" href="#approach" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="single-source-of-truth">
+<h3>Single Source of Truth<a class="headerlink" href="#single-source-of-truth" title="Permalink to this headline">¶</a></h3>
+<p>A general principle we follow in Daml Finance is that there should only be a single instance of any
+given instrument on the ledger. This instance is centrally maintained by the issuer of the
+instrument, with the possibility for a depository to act as an additional, third-party trust anchor.
+As part of lifecycling, this single instance of the instrument produces lifecycle effects, which are
+then used across all parties on the ledger as a single source of truth for how to process a certain
+event. This avoids any duplication of lifecycling logic or redundant processing of instruments, and
+therefore removes the need for reconciliation across parties involved in the process.</p>
+</div>
+<div class="section" id="instrument-versioning">
+<h3>Instrument Versioning<a class="headerlink" href="#instrument-versioning" title="Permalink to this headline">¶</a></h3>
+<p>In current financial markets instruments are usually referenced by a textual identifier, like an
+ISIN or CUSIP number. When a particular corporate action is processed on its effective date the
+instrument referred to by an identifier changes implicitly. As an example, the ISIN for a stock
+refers to the “cum-dividend” instrument (where holders are still entitled to the dividend) up until
+the ex-dividend date. From the ex-dividend date onwards the same ISIN refers to the “ex-dividend”
+instrument, so any stock acquired on or after that date is not entitled to the dividend anymore.
+This leads to a lot of complexity during processing of such corporate actions. In particular, it
+forces these events to be processed in a “big bang” approach, as a consistent snapshot of holdings
+needs to be taken to determine the rightful recipients of any resulting cashflows.</p>
+<p>In Daml Finance we aim for a more efficient and flexible operating model for processing lifecycle
+events. All instruments are strictly versioned so that we can clearly differentiate between the
+cum- and ex-event version of an instrument. This means that it is perfectly safe for those versions
+to co-exist at the same time, and it allows for a gradual transition from one version to another.
+Generally, the issuer of an instrument is responsible for creating and maintaining instrument
+versions, and for producing the cashflow effects of a particular lifecycle event. During the
+lifecycle process, holders of this instrument will migrate their holdings to a new version of the
+instrument while at the same time claiming any resulting cashflows from the event.</p>
+<p>Versions are usually considered opaque strings, but one can follow a numerical versioning scheme if
+an instrument is known to have linear evolution (i.e., there is no optionality that can result in
+two different evolution paths).</p>
+</div>
+</div>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>In this scenario we go through the process of paying a cash dividend from an issuer to an investor.
+The initial state looks as follows:</p>
 <ul class="simple">
-<li>A certain date is reached, which results in a coupon payent of a bond. Time-based events are controlled using the <code class="docutils literal notranslate"><span class="pre">DateClock</span></code> template (not ledger time).</li>
-<li>The price of a stock reaches a certain level, resulting in a barrier hit. The relevant stock price is defined in an <code class="docutils literal notranslate"><span class="pre">Observation</span></code> template.</li>
+<li>An issuer maintains a <code class="docutils literal notranslate"><span class="pre">ACME</span></code> instrument representing shares in a company</li>
+<li>An investor owns a holding of 1000 units of the <code class="docutils literal notranslate"><span class="pre">ACME</span></code> instrument (version 1) with the issuer</li>
+<li>The issuer wants to process and pay a cash dividend of USD 10.0 per share on its <code class="docutils literal notranslate"><span class="pre">ACME</span></code>
+instrument (version 1)</li>
+</ul>
+<img alt="The issuer issues the ACME instrument. The investor owns a holding of 1000 ACME shares (version 1). The holding references the instrument." src="../_images/lifecycle_initial_state.png" />
+<p>We will now explain each step in the process in detail.</p>
+<div class="section" id="creating-the-event">
+<h3>Creating the event<a class="headerlink" href="#creating-the-event" title="Permalink to this headline">¶</a></h3>
+<p>The issuer first creates a new instance of the <code class="docutils literal notranslate"><span class="pre">ACME</span></code> instrument, assiging a new version. Note
+that the logic to create the new version of an instrument can also be encoded in the lifecycle rule.
+The new version is then automatically produced when processing the event as described in the next
+step.</p>
+<p>Now, the issuer creates a lifecycle event defining the terms of dividend. In our example we can
+use the <code class="docutils literal notranslate"><span class="pre">DistributeDividend</span></code> choice on the
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Equity-Instrument.html#type-daml-finance-interface-instrument-equity-instrument-instrument-99859"><span class="std std-ref">Equity</span></a> instrument
+to create such an event. This is merely a convenience choice available for equities, any workflow
+can be used to create new instrument versions and associated lifecycle events.</p>
+<img alt="The issuer creates a new ACME v2 instrument. They also create a distribution event by declaring a dividend on the ACME v1 instrument." src="../_images/lifecycle_create_event.png" />
+</div>
+<div class="section" id="processing-the-event">
+<h3>Processing the event<a class="headerlink" href="#processing-the-event" title="Permalink to this headline">¶</a></h3>
+<p>The event is now passed into a
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Distribution.html#type-daml-finance-lifecycle-rule-distribution-rule-66267"><span class="std std-ref">Distribution Rule</span></a>, which
+generates the <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Effect.html#type-daml-finance-interface-lifecycle-effect-effect-69649"><span class="std std-ref">Lifecycle Effect</span></a>
+describing the distribution of assets per unit of <code class="docutils literal notranslate"><span class="pre">ACME</span></code> stock. The effect refers to a
+<code class="docutils literal notranslate"><span class="pre">targetInstrument</span></code>, which is the version of the instrument that can be used by stock holders to
+claim the cash dividend according to the number of stocks held. By being tied to a specific version
+we prevent holders from (accidentally or intentionally) claiming a particular effect twice.</p>
+<img alt="The issuer processes the distribution event through the distribution rule, creating a lifecycle effect. The effect references ACME v1 as a target instrument." src="../_images/lifecycle_process_event.png" />
+</div>
+<div class="section" id="claiming-the-effect">
+<h3>Claiming the effect<a class="headerlink" href="#claiming-the-effect" title="Permalink to this headline">¶</a></h3>
+<p>The investor can now present its holding of <code class="docutils literal notranslate"><span class="pre">ACME</span></code> stock along with the corresponding
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Effect.html#type-daml-finance-interface-lifecycle-effect-effect-69649"><span class="std std-ref">Effect</span></a> to a
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Rule-Claim.html#type-daml-finance-interface-lifecycle-rule-claim-claim-29284"><span class="std std-ref">Claim Rule</span></a>. This will
+instruct settlement for:</p>
+<ul class="simple">
+<li>The exchange of <code class="docutils literal notranslate"><span class="pre">ACME</span></code> stock versions held: the investor sends back the old version, and
+receives the new one</li>
+<li>The payment of the cash dividend amount corresponding to the number of stocks held</li>
+</ul>
+<p>Both legs of this settlement are grouped in a
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Batch.html#type-daml-finance-interface-settlement-batch-batch-97497"><span class="std std-ref">Batch</span></a> to provide atomicity. This
+ensures that the investor can never claim a dividend twice, as after settlement they only hold the
+new version of the stock, which is not entitled to the dividend anymore.</p>
+<img alt="The investor claims the lifecycle effect through the claim rule, passing in their ACME v1 holding. This produces a batch and settlement instructions." src="../_images/lifecycle_claim_effect.png" />
+<p>Note that the party responsible for claiming an effect can be set flexibly in the
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Rule-Claim.html#type-daml-finance-interface-lifecycle-rule-claim-claim-29284"><span class="std std-ref">Claim Rule</span></a> contract. Through
+this custodians can be given the authority to push a given corporate action to the asset holder, as is
+common in current operating procedures.</p>
+<p>The model also supports atomic, intermediated settlement of lifecycle events. For example, if a
+dividend is to be settled between issuer, custodian, and investor in a single transaction, the
+custodian (having visibility of both, their holding at the issuer, and the investor’s holding) can
+pass in both holdings into the claim rule, and thereby instructing a single batch to settle both
+sides.</p>
+</div>
+<div class="section" id="settlement">
+<h3>Settlement<a class="headerlink" href="#settlement" title="Permalink to this headline">¶</a></h3>
+<p>The batch and instructions resulting from claiming an effect can now be settled as described in the
+<a class="reference internal" href="settlement.html"><span class="doc">Settlement</span></a> section of the documentation.</p>
+<p>The following picture shows the three asset movements involved in this particular example:</p>
+<img alt="The investor allocates the 1000 ACME v1 holding to the first instruction. The issuer allocates a 1000 ACME v2 holding to the second instruction and a 10000 USD holding to the third." src="../_images/lifecycle_settle_batch.png" />
+</div>
+</div>
+<div class="section" id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="events">
+<h3>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Event.html#type-daml-finance-interface-lifecycle-event-event-2931"><span class="std std-ref">Event</span></a> interface describes basic
+properties of a lifecycle event:</p>
+<ul class="simple">
+<li>The event providers</li>
+<li>The event identifier and description</li>
+<li>The event timestamp</li>
+</ul>
+<p>Different implementations exist to cover typical event types:</p>
+<ul class="simple">
+<li>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClockUpdate.html#type-daml-finance-lifecycle-event-dateclockupdate-dateclockupdateevent-18229"><span class="std std-ref">DateClock Update</span></a> event represents
+passing of (market) time and can be used to trigger contractual, time-based cashflows, like
+interest payments on a bond. It is, for example, used to drive the evolution and lifecycling of
+<a class="reference internal" href="contingent-claims.html"><span class="doc">Contingent Claims</span></a>-based instruments.</li>
+<li>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-Distribution.html#type-daml-finance-lifecycle-event-distribution-event-46459"><span class="std std-ref">Distribution</span></a> event can be
+used to distribute assets to holders of an instrument. This covers cash-, share-, and mixed
+dividends, rights issues, or the distribution of voting rights.</li>
+<li>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-Replacement.html#type-daml-finance-lifecycle-event-replacement-event-16120"><span class="std std-ref">Replacement</span></a> event handles
+replacements of one instrument for another with support for a factor. This covers corporate
+actions like (reverse) stock splits, mergers, or spin-offs.</li>
 </ul>
 </div>
-<div class="section" id="extrinsic">
-<h3>Extrinsic<a class="headerlink" href="#extrinsic" title="Permalink to this heading">¶</a></h3>
-<p>Extrinsic events, for example corporate actions and elections, are not pre-defined.
-These events are triggered by exercising an external choice.</p>
+<div class="section" id="lifecycle-rule">
+<h3>Lifecycle Rule<a class="headerlink" href="#lifecycle-rule" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Rule-Lifecycle.html#type-daml-finance-interface-lifecycle-rule-lifecycle-lifecycle-97652"><span class="std std-ref">Lifecycle Rule</span></a> is
+used to process an event and calculate the resulting lifecycle effect. A lifecycle rule can either
+assume that a new version of the instrument has already been created (as is the case for the
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Distribution.html#type-daml-finance-lifecycle-rule-distribution-rule-66267"><span class="std std-ref">Distribution</span></a> and
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Replacement.html#type-daml-finance-lifecycle-rule-replacement-rule-7648"><span class="std std-ref">Replacement</span></a> rules), or it can create
+the new version of the instrument as part of its implementation. The latter can be useful if
+information required to create the new version is only available upon processing of the event, as is
+the case for
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Instrument-Generic-Instrument.html#type-daml-finance-interface-instrument-generic-instrument-instrument-11652"><span class="std std-ref">Generic Instrument</span></a>
+evolution.</p>
 </div>
-</div>
-<div class="section" id="instrument-versions">
-<h2>Instrument Versions<a class="headerlink" href="#instrument-versions" title="Permalink to this heading">¶</a></h2>
-<p>Consider a bond instrument which pays a fixed coupon once a year. In this case, the
-coupon payment is an intrinsic, time-based event.</p>
-<p>When the bond is issued, the holder is entitled to all future coupon payments.
-On the payment date of the first coupon, the bond is lifecycled by the issuer. This has
-the following result:</p>
-<ol class="arabic simple">
-<li>The current coupon is paid to the holder of the bond.</li>
-<li>The bond is replaced by a new version, which includes only the remaining coupons.</li>
-</ol>
-<p>It is important to understand that there are two different instruments: one which includes the current coupon and one which does not.</p>
+<div class="section" id="claim-rule">
+<h3>Claim Rule<a class="headerlink" href="#claim-rule" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Rule-Claim.html#type-daml-finance-interface-lifecycle-rule-claim-claim-29284"><span class="std std-ref">Claim Rule</span></a> is used to
+claim lifecycle effects and instruct settlement thereof. Each effect specifies a target instrument
+(and version), and holdings on this instrument (version) are required to claim an effect. This
+serves as proof of ownership such that there is no need for an issuer to take a consistent snapshot
+of holdings as of a specific date.</p>
+<p>The output of the claim rule is a
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Batch.html#type-daml-finance-interface-settlement-batch-batch-97497"><span class="std std-ref">Batch</span></a> and a set of
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Instruction.html#type-daml-finance-interface-settlement-instruction-instruction-30569"><span class="std std-ref">Instruction</span></a> s forming
+an atomic unit of settlement.</p>
+<p>Note that multiple holdings can be passed into the claim rule in order to instruct intermediated
+settlement of an effect, or to instruct atomic settlement for multiple asset holders at the same
+time.</p>
 </div>
 <div class="section" id="effects">
-<h2>Effects<a class="headerlink" href="#effects" title="Permalink to this heading">¶</a></h2>
-<p>When an event is lifecycled, an <code class="docutils literal notranslate"><span class="pre">Effect</span></code> is produced. This is defined in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Lifecycle.Effect</span></code>.
-The <code class="docutils literal notranslate"><span class="pre">Effect</span></code> can be settled in order to produce the relevant cash flows and to create the new instrument version (reflecting the remaining cash flows).</p>
-<p>These lifecycle concepts are also explained with example code in the <a class="reference internal" href="../tutorials/getting-started/lifecycling.html"><span class="doc">Lifecycling tutorial</span></a>.</p>
+<h3>Effects<a class="headerlink" href="#effects" title="Permalink to this headline">¶</a></h3>
+<p>An <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Lifecycle-Effect.html#type-daml-finance-interface-lifecycle-effect-effect-69649"><span class="std std-ref">Effect</span></a> describes the asset
+movements resulting from a particular event. It specifies these movements per unit of a target
+instrument and version. Holdings on this specific instrument version entitle a holder to claim the
+effect, which results in the required asset movements to be instructed.</p>
+</div>
 </div>
 </div>
 

@@ -55,10 +55,10 @@ Interfaces
          - Batch description\.
        * - contextId
          - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
-         - Identifier to link a batch to a context (eg\. the ``Effect`` it originated from)\.
-       * - steps
-         - \[:ref:`Step <type-daml-finance-interface-settlement-types-step-78661>`\]
-         - Settlement steps to instruct\.
+         - Identifier to link a batch to a context (e\.g\. the ``Effect`` it originated from)\.
+       * - routedSteps
+         - \[:ref:`RoutedStep <type-daml-finance-interface-settlement-types-routedstep-10086>`\]
+         - Routed settlement steps to instruct\.
 
   + **Method instruct \:** Instruct \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-settlement-batch-i-3768>`, \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-settlement-instruction-i-90342>`\])
 
@@ -115,7 +115,7 @@ Data Types
          - Description
        * - provider
          - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-         - Party providing the facility to create settlement instructions\.
+         - Party providing the facility\.
        * - observers
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - Observers\.

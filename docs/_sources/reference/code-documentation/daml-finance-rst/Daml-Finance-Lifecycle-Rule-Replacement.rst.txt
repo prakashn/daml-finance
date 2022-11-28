@@ -13,7 +13,8 @@ Templates
 
 **template** `Rule <type-daml-finance-lifecycle-rule-replacement-rule-7648_>`_
 
-  Rule contract that defines the replacement of units of an instrument with a basket of other instruments (e\.g\. stock merger)\.
+  Rule contract that defines the replacement of units of an instrument with a basket of other
+  instruments (e\.g\. stock merger)\.
 
   .. list-table::
      :widths: 15 10 30
@@ -31,6 +32,12 @@ Templates
      * - observers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Observers\.
+     * - id
+       - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
+       - Identifier for the rule contract\.
+     * - description
+       - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+       - Textual description\.
 
   + **Choice Archive**
 

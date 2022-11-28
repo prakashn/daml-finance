@@ -13,7 +13,8 @@ Interfaces
 
 **interface** `Claim <type-daml-finance-interface-lifecycle-rule-claim-claim-29284_>`_
 
-  Interface for contracts that allow holders to claim an ``Effect`` and generate ``SettlementInstruction``\\s\.
+  Interface for contracts that allow holders to claim an ``Effect`` and generate
+  ``SettlementInstruction``\\s\.
 
   + **Choice ClaimEffect**
 
@@ -146,6 +147,9 @@ Data Types
        * - settlers
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - Any of the parties can trigger settlement of the resulting batch\.
+       * - routeProviderCid
+         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-settlement-routeprovider-i-46608>`
+         - RouteProvider contract used to discover settlement routes\.
        * - settlementFactoryCid
          - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>`
          - Settlement factory contract used to create a ``Batch`` of ``Instruction``\\s\.

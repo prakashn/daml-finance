@@ -13,7 +13,8 @@ Templates
 
 **template** `Event <type-daml-finance-lifecycle-event-distribution-event-46459_>`_
 
-  Event contract for the distribution of units of an instrument for each unit of a target instrument (e\.g\., share or cash dividends)\.
+  Event contract for the distribution of units of an instrument for each unit of a target
+  instrument (e\.g\. share or cash dividends)\.
 
   .. list-table::
      :widths: 15 10 30

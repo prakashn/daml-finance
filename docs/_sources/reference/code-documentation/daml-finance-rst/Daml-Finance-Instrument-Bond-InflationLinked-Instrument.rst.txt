@@ -15,10 +15,12 @@ Templates
 
   This template models an inflation linked bond\.
   It pays an inflation adjusted coupon at the end of every coupon period\.
-  The coupon is based on a fixed rate, which is applied to a principal that is adjusted according to an inflation index, for example the Consumer Price Index (CPI) in the U\.S\.
+  The coupon is based on a fixed rate, which is applied to a principal that is adjusted according
+  to an inflation index, for example the Consumer Price Index (CPI) in the U\.S\.
   For example\: 0\.5% p\.a\. coupon, CPI adjusted principal\:
   At maturity, the greater of the adjusted principal and the original principal is redeemed\.
-  For clarity, this only applies to the redemption amount\. The coupons are always calculated based on the adjusted principal\.
+  For clarity, this only applies to the redemption amount\. The coupons are always calculated based
+  on the adjusted principal\.
 
   .. list-table::
      :widths: 15 10 30
@@ -56,7 +58,7 @@ Templates
        - The schedule for the periodic coupon payments\.
      * - holidayCalendarIds
        - \[`Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_\]
-       - The identifier of the holiday calendar to be used for the coupon schedule\.
+       - The identifiers of the holiday calendars to be used for the coupon schedule\.
      * - calendarDataProvider
        - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
        - The reference data provider to use for the holiday calendar\.
@@ -79,11 +81,11 @@ Templates
 
   + **interface instance** :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` **for** `Instrument <type-daml-finance-instrument-bond-inflationlinked-instrument-instrument-40989_>`_
 
+  + **interface instance** :ref:`I <type-daml-finance-interface-claims-dynamic-instrument-i-39105>` **for** `Instrument <type-daml-finance-instrument-bond-inflationlinked-instrument-instrument-40989_>`_
+
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>` **for** `Instrument <type-daml-finance-instrument-bond-inflationlinked-instrument-instrument-40989_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-bond-inflationlinked-instrument-i-9413>` **for** `Instrument <type-daml-finance-instrument-bond-inflationlinked-instrument-instrument-40989_>`_
-
-  + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>` **for** `Instrument <type-daml-finance-instrument-bond-inflationlinked-instrument-instrument-40989_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Instrument <type-daml-finance-instrument-bond-inflationlinked-instrument-instrument-40989_>`_
 

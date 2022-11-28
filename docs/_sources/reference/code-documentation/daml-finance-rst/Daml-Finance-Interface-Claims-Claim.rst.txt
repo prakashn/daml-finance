@@ -17,7 +17,8 @@ Interfaces
 
   + **Choice GetClaims**
 
-    Retrieves the list of claims representing the instrument\. This might involve fetching reference data, such as calendars, on which the actor must have visibility\.
+    Retrieves the list of claims representing the instrument\. This might involve fetching
+    reference data, such as calendars, on which the actor must have visibility\.
 
     .. list-table::
        :widths: 15 10 30
@@ -104,9 +105,6 @@ Data Types
        * - Field
          - Type
          - Description
-       * - instrument
-         - :ref:`InstrumentKey <type-daml-finance-interface-types-common-instrumentkey-59982>`
-         - The instrument's key\.
        * - acquisitionTime
          - `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_
          - The claim's acquisition time\.
@@ -133,7 +131,8 @@ Functions
 `getClaim <function-daml-finance-interface-claims-claim-getclaim-12044_>`_
   \: `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_ \-\> `Claim <type-daml-finance-interface-claims-claim-claim-8835_>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ :ref:`C <type-daml-finance-interface-claims-types-c-53263>`
 
-  Retrieves the single claim representing the template\. An error is thrown if there are zero or more than one claims\.
+  Retrieves the single claim representing the template\. An error is thrown if there are zero or
+  more than one claims\.
 
 .. _function-daml-finance-interface-claims-claim-getacquisitiontime-55540:
 

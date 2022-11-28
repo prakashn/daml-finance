@@ -163,8 +163,8 @@ Data Types
        * - id
          - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
          - Instruction identifier\.
-       * - step
-         - :ref:`Step <type-daml-finance-interface-settlement-types-step-78661>`
+       * - routedStep
+         - :ref:`RoutedStep <type-daml-finance-interface-settlement-types-routedstep-10086>`
          - Instruction details to execute\.
        * - allocation
          - :ref:`Allocation <type-daml-finance-interface-settlement-types-allocation-46483>`

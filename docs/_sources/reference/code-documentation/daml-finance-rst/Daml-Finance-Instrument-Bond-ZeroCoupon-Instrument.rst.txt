@@ -43,7 +43,7 @@ Templates
        - The date when the bond was issued\.
      * - maturityDate
        - `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
-       - The last coupon date (and the redemption date) of the bond\.
+       - The redemption date of the bond\.
      * - currency
        - :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`
        - The currency of the bond\. For example, if the bond pays in USD this should be a USD cash instrument\.
@@ -60,11 +60,11 @@ Templates
 
   + **interface instance** :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` **for** `Instrument <type-daml-finance-instrument-bond-zerocoupon-instrument-instrument-53619_>`_
 
+  + **interface instance** :ref:`I <type-daml-finance-interface-claims-dynamic-instrument-i-39105>` **for** `Instrument <type-daml-finance-instrument-bond-zerocoupon-instrument-instrument-53619_>`_
+
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>` **for** `Instrument <type-daml-finance-instrument-bond-zerocoupon-instrument-instrument-53619_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-bond-zerocoupon-instrument-i-81577>` **for** `Instrument <type-daml-finance-instrument-bond-zerocoupon-instrument-instrument-53619_>`_
-
-  + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>` **for** `Instrument <type-daml-finance-instrument-bond-zerocoupon-instrument-instrument-53619_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Instrument <type-daml-finance-instrument-bond-zerocoupon-instrument-instrument-53619_>`_
 

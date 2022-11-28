@@ -77,9 +77,9 @@ Functions
   \: (`Ord <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-ord-6395>`_ t, `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ a, `CanAbort <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-lf-canabort-29060>`_ m) \=\> (o \-\> t \-\> m `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_) \-\> C t a o \-\> t \-\> t \-\> m (`Result <type-contingentclaims-lifecycle-lifecycle-result-8092_>`_ t a o)
 
   Collect claims falling due into a list, and return the tree with those nodes pruned\.
-  ``m`` will typically be ``Update``\. It is parametrised so it can be run in a ``Script``\.
-  The first argument is used to lookup the value of any ``Observables``\.
-  Returns the pruned tree \+ pending settlements up to the provided market time\.
+  ``m`` will typically be ``Update``\. It is parametrised so it can be run in a ``Script``\. The first
+  argument is used to lookup the value of any ``Observables``\. Returns the pruned tree \+ pending
+  settlements up to the provided market time\.
 
 .. _function-contingentclaims-lifecycle-lifecycle-exercise-92923:
 

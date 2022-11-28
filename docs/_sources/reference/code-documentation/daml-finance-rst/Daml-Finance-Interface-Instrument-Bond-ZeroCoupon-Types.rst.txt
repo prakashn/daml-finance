@@ -35,7 +35,7 @@ Data Types
          - The date when the bond was issued\.
        * - maturityDate
          - `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
-         - The last coupon date (and the redemption date) of the bond\.
+         - The redemption date of the bond\.
        * - currency
          - :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`
          - The currency of the bond\. For example, if the bond pays in USD this should be a USD cash instrument\.

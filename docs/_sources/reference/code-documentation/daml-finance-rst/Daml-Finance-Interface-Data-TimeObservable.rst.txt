@@ -6,7 +6,8 @@
 Module Daml.Finance.Interface.Data.TimeObservable
 =================================================
 
-This module defines an interface for a ``TimeObservable``, which is implemented by templates exposing time information\.
+This module defines an interface for a ``TimeObservable``, which is implemented by templates
+exposing time information\.
 
 Interfaces
 ----------

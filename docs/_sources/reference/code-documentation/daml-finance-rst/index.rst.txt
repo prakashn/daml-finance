@@ -14,6 +14,7 @@ Here is a complete list of modules in the financial library:
 
    ContingentClaims.Core.Builders <ContingentClaims-Core-Builders>
    ContingentClaims.Core.Claim <ContingentClaims-Core-Claim>
+   ContingentClaims.Core.Internal.Claim <ContingentClaims-Core-Internal-Claim>
    ContingentClaims.Core.Observation <ContingentClaims-Core-Observation>
    ContingentClaims.Core.Util.Recursion <ContingentClaims-Core-Util-Recursion>
    ContingentClaims.Lifecycle.Lifecycle <ContingentClaims-Lifecycle-Lifecycle>
@@ -21,11 +22,14 @@ Here is a complete list of modules in the financial library:
    ContingentClaims.Valuation.Stochastic <ContingentClaims-Valuation-Stochastic>
    Daml.Finance.Account.Account <Daml-Finance-Account-Account>
    Daml.Finance.Account.Util <Daml-Finance-Account-Util>
+   Daml.Finance.Claims.Lifecycle.Rule <Daml-Finance-Claims-Lifecycle-Rule>
    Daml.Finance.Claims.Util <Daml-Finance-Claims-Util>
+   Daml.Finance.Claims.Util.Builders <Daml-Finance-Claims-Util-Builders>
    Daml.Finance.Claims.Util.Lifecycle <Daml-Finance-Claims-Util-Lifecycle>
    Daml.Finance.Data.Observable.Observation <Daml-Finance-Data-Observable-Observation>
    Daml.Finance.Data.Reference.HolidayCalendar <Daml-Finance-Data-Reference-HolidayCalendar>
    Daml.Finance.Data.Time.DateClock <Daml-Finance-Data-Time-DateClock>
+   Daml.Finance.Data.Time.DateClock.Types <Daml-Finance-Data-Time-DateClock-Types>
    Daml.Finance.Holding.Fungible <Daml-Finance-Holding-Fungible>
    Daml.Finance.Holding.NonFungible <Daml-Finance-Holding-NonFungible>
    Daml.Finance.Holding.NonTransferable <Daml-Finance-Holding-NonTransferable>
@@ -43,7 +47,7 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Instrument.Generic.Election <Daml-Finance-Instrument-Generic-Election>
    Daml.Finance.Instrument.Generic.Factory <Daml-Finance-Instrument-Generic-Factory>
    Daml.Finance.Instrument.Generic.Instrument <Daml-Finance-Instrument-Generic-Instrument>
-   Daml.Finance.Instrument.Generic.Util <Daml-Finance-Instrument-Generic-Util>
+   Daml.Finance.Instrument.Generic.Lifecycle.Rule <Daml-Finance-Instrument-Generic-Lifecycle-Rule>
    Daml.Finance.Instrument.Swap.Asset.Factory <Daml-Finance-Instrument-Swap-Asset-Factory>
    Daml.Finance.Instrument.Swap.Asset.Instrument <Daml-Finance-Instrument-Swap-Asset-Instrument>
    Daml.Finance.Instrument.Swap.CreditDefault.Factory <Daml-Finance-Instrument-Swap-CreditDefault-Factory>
@@ -63,13 +67,13 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Account.Factory <Daml-Finance-Interface-Account-Factory>
    Daml.Finance.Interface.Account.Util <Daml-Finance-Interface-Account-Util>
    Daml.Finance.Interface.Claims.Claim <Daml-Finance-Interface-Claims-Claim>
+   Daml.Finance.Interface.Claims.Dynamic.Instrument <Daml-Finance-Interface-Claims-Dynamic-Instrument>
    Daml.Finance.Interface.Claims.Types <Daml-Finance-Interface-Claims-Types>
    Daml.Finance.Interface.Data.NumericObservable <Daml-Finance-Interface-Data-NumericObservable>
    Daml.Finance.Interface.Data.TimeObservable <Daml-Finance-Interface-Data-TimeObservable>
    Daml.Finance.Interface.Holding.Base <Daml-Finance-Interface-Holding-Base>
    Daml.Finance.Interface.Holding.Factory <Daml-Finance-Interface-Holding-Factory>
    Daml.Finance.Interface.Holding.Fungible <Daml-Finance-Interface-Holding-Fungible>
-   Daml.Finance.Interface.Holding.Lockable <Daml-Finance-Interface-Holding-Lockable>
    Daml.Finance.Interface.Holding.Transferable <Daml-Finance-Interface-Holding-Transferable>
    Daml.Finance.Interface.Holding.Util <Daml-Finance-Interface-Holding-Util>
    Daml.Finance.Interface.Instrument.Base.Instrument <Daml-Finance-Interface-Instrument-Base-Instrument>
@@ -122,6 +126,7 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Settlement.Batch <Daml-Finance-Interface-Settlement-Batch>
    Daml.Finance.Interface.Settlement.Factory <Daml-Finance-Interface-Settlement-Factory>
    Daml.Finance.Interface.Settlement.Instruction <Daml-Finance-Interface-Settlement-Instruction>
+   Daml.Finance.Interface.Settlement.RouteProvider <Daml-Finance-Interface-Settlement-RouteProvider>
    Daml.Finance.Interface.Settlement.Types <Daml-Finance-Interface-Settlement-Types>
    Daml.Finance.Interface.Types.Common <Daml-Finance-Interface-Types-Common>
    Daml.Finance.Interface.Types.Date.Calendar <Daml-Finance-Interface-Types-Date-Calendar>
@@ -133,18 +138,19 @@ Here is a complete list of modules in the financial library:
    Daml.Finance.Interface.Util.Disclosure <Daml-Finance-Interface-Util-Disclosure>
    Daml.Finance.Lifecycle.Effect <Daml-Finance-Lifecycle-Effect>
    Daml.Finance.Lifecycle.ElectionEffect <Daml-Finance-Lifecycle-ElectionEffect>
-   Daml.Finance.Lifecycle.Event.DateClock <Daml-Finance-Lifecycle-Event-DateClock>
+   Daml.Finance.Lifecycle.Event.DateClockUpdate <Daml-Finance-Lifecycle-Event-DateClockUpdate>
    Daml.Finance.Lifecycle.Event.Distribution <Daml-Finance-Lifecycle-Event-Distribution>
    Daml.Finance.Lifecycle.Event.Replacement <Daml-Finance-Lifecycle-Event-Replacement>
    Daml.Finance.Lifecycle.Rule.Claim <Daml-Finance-Lifecycle-Rule-Claim>
    Daml.Finance.Lifecycle.Rule.Distribution <Daml-Finance-Lifecycle-Rule-Distribution>
    Daml.Finance.Lifecycle.Rule.Replacement <Daml-Finance-Lifecycle-Rule-Replacement>
    Daml.Finance.Lifecycle.Rule.Util <Daml-Finance-Lifecycle-Rule-Util>
-   Daml.Finance.Lifecycle.Types <Daml-Finance-Lifecycle-Types>
    Daml.Finance.Settlement.Batch <Daml-Finance-Settlement-Batch>
    Daml.Finance.Settlement.Factory <Daml-Finance-Settlement-Factory>
    Daml.Finance.Settlement.Hierarchy <Daml-Finance-Settlement-Hierarchy>
    Daml.Finance.Settlement.Instruction <Daml-Finance-Settlement-Instruction>
+   Daml.Finance.Settlement.RouteProvider.IntermediatedStatic <Daml-Finance-Settlement-RouteProvider-IntermediatedStatic>
+   Daml.Finance.Settlement.RouteProvider.SingleCustodian <Daml-Finance-Settlement-RouteProvider-SingleCustodian>
    Daml.Finance.Util.Common <Daml-Finance-Util-Common>
    Daml.Finance.Util.Date.Calendar <Daml-Finance-Util-Date-Calendar>
    Daml.Finance.Util.Date.DayCount <Daml-Finance-Util-Date-DayCount>

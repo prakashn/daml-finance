@@ -42,8 +42,8 @@ Templates
 **template** `NonFungible <type-daml-finance-holding-nonfungible-nonfungible-53393_>`_
 
   Implementation of a non\-fungible holding\.
-  ``NonFungible`` implements the interface ``Transferable.I`` (which requires ``Lockable.I``,
-  ``Base.I``, and ``Disclosure.I`` to be implemented as well)\.
+  ``NonFungible`` implements the interface ``Transferable.I`` (which requires ``Base.I`` and
+  ``Disclosure.I`` to be implemented as well)\.
 
   .. list-table::
      :widths: 15 10 30
@@ -62,7 +62,7 @@ Templates
        - `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_
        - Number of units\.
      * - lock
-       - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`Lock <type-daml-finance-interface-holding-lockable-lock-96362>`
+       - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`Lock <type-daml-finance-interface-holding-base-lock-32912>`
        - An optional lock of a holding\.
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
@@ -73,8 +73,6 @@ Templates
     (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-base-i-67605>` **for** `NonFungible <type-daml-finance-holding-nonfungible-nonfungible-53393_>`_
-
-  + **interface instance** :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>` **for** `NonFungible <type-daml-finance-holding-nonfungible-nonfungible-53393_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>` **for** `NonFungible <type-daml-finance-holding-nonfungible-nonfungible-53393_>`_
 

@@ -43,7 +43,8 @@ Data Types
 **type** `Implementation <type-daml-finance-interface-instrument-swap-currency-instrument-implementation-14932_>`_ t
   \= (`HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t `Instrument <type-daml-finance-interface-instrument-swap-currency-instrument-instrument-50369_>`_, :ref:`Implementation <type-daml-finance-interface-instrument-base-instrument-implementation-67110>` t, :ref:`Implementation <type-daml-finance-interface-util-disclosure-implementation-41553>` t)
 
-  Type constraint requiring templates to implement ``Instrument``, base ``Instrument`` along with ``Disclosure``\.
+  Type constraint requiring templates to implement ``Instrument`` along with ``BaseInstrument`` and
+  ``Disclosure``\.
 
 .. _type-daml-finance-interface-instrument-swap-currency-instrument-v-53817:
 

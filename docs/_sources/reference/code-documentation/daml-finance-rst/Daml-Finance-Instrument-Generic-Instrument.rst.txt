@@ -14,7 +14,8 @@ Templates
 **template** `Instrument <type-daml-finance-instrument-generic-instrument-instrument-96015_>`_
 
   An instrument representing a generic payoff, modelled using the Contingent Claims library\.
-  The responsibility for processing lifecycle events as well as elections is delegated to the issuer, who is hence responsible for providing the correct ``Observable``\\s\.
+  The responsibility for processing lifecycle events as well as elections is delegated to the
+  issuer, who is hence responsible for providing the correct ``Observable``\\s\.
 
   .. list-table::
      :widths: 15 10 30
@@ -59,11 +60,7 @@ Templates
 
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>` **for** `Instrument <type-daml-finance-instrument-generic-instrument-instrument-96015_>`_
 
-  + **interface instance** :ref:`Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711>` **for** `Instrument <type-daml-finance-instrument-generic-instrument-instrument-96015_>`_
-
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-generic-instrument-i-26565>` **for** `Instrument <type-daml-finance-instrument-generic-instrument-instrument-96015_>`_
-
-  + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>` **for** `Instrument <type-daml-finance-instrument-generic-instrument-instrument-96015_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Instrument <type-daml-finance-instrument-generic-instrument-instrument-96015_>`_
 
@@ -76,5 +73,3 @@ Data Types
   \= `Instrument <type-daml-finance-instrument-generic-instrument-instrument-96015_>`_
 
   Type synonym for ``Instrument``\.
-
-  **instance** :ref:`ExercisableHasImplementation <class-daml-finance-interface-instrument-generic-election-exercisablehasimplementation-16317>` `T <type-daml-finance-instrument-generic-instrument-t-12893_>`_

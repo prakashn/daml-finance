@@ -70,7 +70,8 @@ Functions
 `previousSameOrFirstInMonthBusinessDay <function-daml-finance-util-date-calendar-previoussameorfirstinmonthbusinessday-25034_>`_
   \: :ref:`HolidayCalendarData <type-daml-finance-interface-types-date-calendar-holidaycalendardata-60004>` \-\> `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_ \-\> `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
 
-  Get previous or same business day if before end of month\. Otherwise get first business day in month\.
+  Get previous or same business day if before end of month\. Otherwise get first business day in
+  month\.
 
 .. _function-daml-finance-util-date-calendar-addbusinessdays-56333:
 

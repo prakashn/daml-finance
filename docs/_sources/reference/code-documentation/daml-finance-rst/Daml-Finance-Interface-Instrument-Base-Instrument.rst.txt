@@ -126,6 +126,10 @@ Data Types
 
   Type synonym for ``InstrumentKey``\.
 
+  **instance** HasMethod :ref:`Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711>` \"applyElection\" (ApplyElection \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `K <type-daml-finance-interface-instrument-base-instrument-k-58546_>`_, \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>`\]))
+
+  **instance** HasMethod :ref:`Lifecycle <type-daml-finance-interface-lifecycle-rule-lifecycle-lifecycle-97652>` \"evolve\" (Evolve \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `K <type-daml-finance-interface-instrument-base-instrument-k-58546_>`_, \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>`\]))
+
   **instance** `HasExerciseByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasexercisebykey-36549>`_ Reference `K <type-daml-finance-interface-instrument-base-instrument-k-58546_>`_ GetCid (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-instrument-base-instrument-i-67236_>`_)
 
   **instance** `HasExerciseByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasexercisebykey-36549>`_ Reference `K <type-daml-finance-interface-instrument-base-instrument-k-58546_>`_ SetCid (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `R <type-daml-finance-interface-instrument-base-instrument-r-56343_>`_)
@@ -158,7 +162,8 @@ Data Types
 **type** `R <type-daml-finance-interface-instrument-base-instrument-r-56343_>`_
   \= Reference
 
-  Type synonym for ``Reference``\. This type is currently used as a work\-around given the lack of interface keys\.
+  Type synonym for ``Reference``\. This type is currently used as a work\-around given the lack of
+  interface keys\.
 
   **instance** `HasExerciseByKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasexercisebykey-36549>`_ Reference `K <type-daml-finance-interface-instrument-base-instrument-k-58546_>`_ SetCid (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `R <type-daml-finance-interface-instrument-base-instrument-r-56343_>`_)
 
@@ -221,7 +226,8 @@ Functions
 
   Exercise interface by key\.
   This method can be used to exercise a choice on an ``Instrument`` given its ``InstrumentKey``\.
-  Requires as input the ``InstrumentKey``, the actor fetching the instrument and the choice arguments\. For example\:
+  Requires as input the ``InstrumentKey``, the actor fetching the instrument and the choice
+  arguments\. For example\:
 
 .. _function-daml-finance-interface-instrument-base-instrument-asdisclosure-6717:
 

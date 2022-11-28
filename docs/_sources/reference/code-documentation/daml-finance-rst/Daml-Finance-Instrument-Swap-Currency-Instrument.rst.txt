@@ -15,11 +15,11 @@ Templates
 
   This template models a currency swap\.
   It pays a fix vs fix rate (in different currencies) at the end of every payment period\.
-  The principal in the foreign currency is calculated using an fx rate and the principal amount in the base currency\.
-  The principal is not exchanged\.
-  For example\: 1000k principal in USD, fx rate 1\.10 \-\> 1100k principal in EUR
-  3% fix rate on 1000k USD vs
-  2% fix rate on 1100k EUR
+  The principal in the foreign currency is calculated using an fx rate and the principal amount in
+  the base currency\. The principal is not exchanged\.
+  For example\: USD 1000k principal, fx rate 1\.10 \-\> EUR 1100k principal
+  3% fix rate on USD 1000k vs
+  2% fix rate on EUR 1100k
 
   .. list-table::
      :widths: 15 10 30
@@ -57,7 +57,7 @@ Templates
        - The schedule for the periodic swap payments\.
      * - holidayCalendarIds
        - \[`Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_\]
-       - The identifier of the holiday calendar to be used for the swap payment schedule\.
+       - The identifiers of the holiday calendars to be used for the swap payment schedule\.
      * - calendarDataProvider
        - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
        - The reference data provider to use for the holiday calendar\.
@@ -86,11 +86,11 @@ Templates
 
   + **interface instance** :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` **for** `Instrument <type-daml-finance-instrument-swap-currency-instrument-instrument-482_>`_
 
+  + **interface instance** :ref:`I <type-daml-finance-interface-claims-dynamic-instrument-i-39105>` **for** `Instrument <type-daml-finance-instrument-swap-currency-instrument-instrument-482_>`_
+
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>` **for** `Instrument <type-daml-finance-instrument-swap-currency-instrument-instrument-482_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-swap-currency-instrument-i-90910>` **for** `Instrument <type-daml-finance-instrument-swap-currency-instrument-instrument-482_>`_
-
-  + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>` **for** `Instrument <type-daml-finance-instrument-swap-currency-instrument-instrument-482_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Instrument <type-daml-finance-instrument-swap-currency-instrument-instrument-482_>`_
 

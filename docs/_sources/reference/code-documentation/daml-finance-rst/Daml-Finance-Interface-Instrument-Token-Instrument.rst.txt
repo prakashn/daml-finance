@@ -57,7 +57,8 @@ Data Types
 **type** `Implementation <type-daml-finance-interface-instrument-token-instrument-implementation-32731_>`_ t
   \= (`HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t `I <type-daml-finance-interface-instrument-token-instrument-i-72687_>`_, :ref:`Implementation <type-daml-finance-interface-instrument-base-instrument-implementation-67110>` t)
 
-  Type constraint for requiring templates to implement ``Instrument`` along with ``Disclosure``\.
+  Type constraint requiring templates to implement ``Instrument`` along with ``BaseInstrument`` and
+  ``Disclosure``\.
 
 .. _type-daml-finance-interface-instrument-token-instrument-v-57640:
 

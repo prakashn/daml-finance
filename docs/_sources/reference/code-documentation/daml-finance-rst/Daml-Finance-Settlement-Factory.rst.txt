@@ -14,7 +14,8 @@ Templates
 **template** `Factory <type-daml-finance-settlement-factory-factory-53518_>`_
 
   Factory template that implements the ``Factory`` interface\.
-  It is used to create a set of settlement ``Instruction``\\s, and a ``Batch`` to atomically settle them\.
+  It is used to create a set of settlement ``Instruction``\\s, and a ``Batch`` to atomically settle
+  them\.
 
   .. list-table::
      :widths: 15 10 30
@@ -25,7 +26,7 @@ Templates
        - Description
      * - provider
        - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-       - Party providing the facility to create settlement instructions\.
+       - Party providing the facility\.
      * - observers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Observers\.
@@ -35,35 +36,3 @@ Templates
     (no fields)
 
   + **interface instance** :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>` **for** `Factory <type-daml-finance-settlement-factory-factory-53518_>`_
-
-.. _type-daml-finance-settlement-factory-factorywithintermediaries-72365:
-
-**template** `FactoryWithIntermediaries <type-daml-finance-settlement-factory-factorywithintermediaries-72365_>`_
-
-  Factory template that implements the ``Factory`` interface\.
-  It is used to create a set of settlement ``Instruction``\\s, and a ``Batch`` to atomically settle them\.
-  For each instrument to settle as part of the batch, a hierarchy of intermediaries is specified in ``paths``\.
-  This hierarchy is used to generate the settlement instructions\.
-
-  .. list-table::
-     :widths: 15 10 30
-     :header-rows: 1
-
-     * - Field
-       - Type
-       - Description
-     * - provider
-       - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-       - Party providing the facility to create settlement instructions\.
-     * - observers
-       - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
-       - Observers\.
-     * - paths
-       - `Map <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-map-90052>`_ `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_ :ref:`Hierarchy <type-daml-finance-settlement-hierarchy-hierarchy-68950>`
-       - Hierarchical paths used to settle holding transfers\. A path is specified for each instrument label\.
-
-  + **Choice Archive**
-
-    (no fields)
-
-  + **interface instance** :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>` **for** `FactoryWithIntermediaries <type-daml-finance-settlement-factory-factorywithintermediaries-72365_>`_

@@ -16,18 +16,18 @@ Functions
 `fixings <function-contingentclaims-lifecycle-util-fixings-69019_>`_
   \: :ref:`Claim <type-contingentclaims-core-internal-claim-claim-35538>` t x a o \-\> \[t\]
 
-  Return the fixing dates of a claim\. This does not discriminate between
-  optional dates which *may* result from a condition, and outright fixings\.
-  It also does not correctly account for malformed trees, where subtrees are
-  orphaned due to impossible ``When`` statements\. e\.g\. ``When (t > 1) ((When t < 1) _)``\.
+  Return the fixing dates of a claim\. This does not discriminate between optional dates which
+  *may* result from a condition, and outright fixings\. It also does not correctly account for
+  malformed trees, where subtrees are orphaned due to impossible ``When`` statements, e\.g\.,
+  ``When (t > 1) ((When t < 1) _)``\.
 
 .. _function-contingentclaims-lifecycle-util-expiry-611:
 
 `expiry <function-contingentclaims-lifecycle-util-expiry-611_>`_
   \: `Ord <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-ord-6395>`_ t \=\> :ref:`Claim <type-contingentclaims-core-internal-claim-claim-35538>` t x a o \-\> `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ t
 
-  Return the time after which the claim is worthless i\.e\. value \= 0, if such a
-  time exists\. Also known as 'maturity' or 'horizon' in the Eber/Jones paper\.
+  Return the time after which the claim is worthless, i\.e\., value \= 0, if such a time exists\.
+  Also known as 'maturity' or 'horizon' in the Eber/Jones paper\.
 
 .. _function-contingentclaims-lifecycle-util-payoffs-68177:
 

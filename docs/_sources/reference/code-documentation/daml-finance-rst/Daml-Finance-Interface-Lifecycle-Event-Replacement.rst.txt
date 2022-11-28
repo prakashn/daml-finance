@@ -13,7 +13,8 @@ Interfaces
 
 **interface** `Event <type-daml-finance-interface-lifecycle-event-replacement-event-46565_>`_
 
-  Event interface for the replacement of units of an instrument with a basket of other instruments (e\.g\. stock merger)\.
+  Event interface for the replacement of units of an instrument with a basket of other
+  instruments (e\.g\. stock merger)\.
 
   + **Choice GetView**
 

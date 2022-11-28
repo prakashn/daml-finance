@@ -30,7 +30,6 @@
   <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
   <script src="../_static/jquery.js"></script>
   <script src="../_static/underscore.js"></script>
-  <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
   <script src="../_static/doctools.js"></script>
   <script src="../_static/clipboard.min.js"></script>
   <script src="../_static/copybutton.js"></script>
@@ -97,8 +96,20 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview/architecture.html">Architecture</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#interface-layer">Interface Layer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#implementation-layer">Implementation Layer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#how-to-use-the-library">How To Use the Library</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#extension-points">Extension Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#versioning-and-compatibility">Versioning and Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/building-applications.html">Building Applications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../overview/building-applications.html#installing-daml-finance">Installing Daml Finance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/building-applications.html#application-architecture">Application Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/extending-daml-finance.html">Extending Daml Finance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-holding-implementations">Custom Holding Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-account-implementations">Custom Account Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-instrument-implementations">Custom Instrument Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-lifecycle-implementations">Custom Lifecycle Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-settlement-implementations">Custom Settlement Implementations</a></li>
 </ul>
 </li>
 </ul>
@@ -143,6 +154,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="settlement.html#the-components-in-detail">The components in detail</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="settlement.html#route-provider">Route provider</a></li>
 <li class="toctree-l4"><a class="reference internal" href="settlement.html#settlement-factory">Settlement factory</a></li>
 <li class="toctree-l4"><a class="reference internal" href="settlement.html#instruction">Instruction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="settlement.html#batch">Batch</a></li>
@@ -152,35 +164,79 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lifecycling.html">Lifecycling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#events">Events</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#intrinsic">Intrinsic</a></li>
-<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#extrinsic">Extrinsic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#approach">Approach</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#single-source-of-truth">Single Source of Truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#instrument-versioning">Instrument Versioning</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#instrument-versions">Instrument Versions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#effects">Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#workflow">Workflow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#creating-the-event">Creating the event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#processing-the-event">Processing the event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#claiming-the-effect">Claiming the effect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#settlement">Settlement</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#components">Components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#events">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#lifecycle-rule">Lifecycle Rule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#claim-rule">Claim Rule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#effects">Effects</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="contingent-claims.html">Contingent Claims</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contingent-claims/quickstart.html">Quickstart</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="contingent-claims/quickstart.html#the-model">The Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#the-model">The Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#composition-and-extensibility">Composition and Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#concerning-type-parameters">Concerning Type Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contingent-claims.html#the-time-parameter">The Time Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contingent-claims.html#the-asset-parameter">The Asset Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contingent-claims.html#the-observation-parameter">The Observation Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contingent-claims.html#the-value-parameter">The Value Parameter</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#lifecycling">Lifecycling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#pricing-experimental">Pricing (Experimental)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#references">References</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../packages/index.html">Packages</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../packages/intro.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../packages/core-interfaces.html">Core Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../packages/core-implementations.html">Core Implementations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../packages/instrument-extensions.html">Instrument Extensions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#tokens">Tokens</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#bonds">Bonds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#swaps">Swaps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#equity">Equity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#generic">Generic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packages/interfaces/index.html">Interface Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-holding.html">Daml.Finance.Interface.Holding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-account.html">Daml.Finance.Interface.Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-settlement.html">Daml.Finance.Interface.Settlement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-lifecycle.html">Daml.Finance.Interface.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-base.html">Daml.Finance.Interface.Instrument.Base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-data.html">Daml.Finance.Interface.Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-claims.html">Daml.Finance.Interface.Claims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-types.html">Daml.Finance.Interface.Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-util.html">Daml.Finance.Interface.Util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/contingent-claims-core.html">ContingentClaims.Core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-bond.html">Daml.Finance.Interface.Instrument.Bond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-equity.html">Daml.Finance.Interface.Instrument.Equity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-generic.html">Daml.Finance.Interface.Instrument.Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-swap.html">Daml.Finance.Interface.Instrument.Swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-token.html">Daml.Finance.Interface.Instrument.Token</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../packages/implementations/index.html">Implementation Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-holding.html">Daml.Finance.Holding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-account.html">Daml.Finance.Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-settlement.html">Daml.Finance.Settlement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-lifecycle.html">Daml.Finance.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-data.html">Daml.Finance.Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-claims.html">Daml.Finance.Claims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-util.html">Daml.Finance.Util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/contingent-claims-lifecycle.html">ContingentClaims.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/contingent-claims-valuation.html">ContingentClaims.Valuation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-bond.html">Daml.Finance.Instrument.Bond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-equity.html">Daml.Finance.Instrument.Equity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-generic.html">Daml.Finance.Instrument.Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-swap.html">Daml.Finance.Instrument.Swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-token.html">Daml.Finance.Instrument.Token</a></li>
 </ul>
 </li>
 </ul>
@@ -210,8 +266,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/getting-started/lifecycling.html#summary">Summary</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#daml-finance">Daml Finance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#daml-finance-reference-app">Daml Finance Reference App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#quickstart">Quickstart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#reference-app">Reference App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#create-your-own-app">Create your own App</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#next-steps">Next Steps</a></li>
 </ul>
 </li>
@@ -224,7 +281,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html">How to Lifecycle a Bond Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#create-a-fixed-rate-bond-instrument">Create a Fixed-Rate Bond Instrument</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#define-the-clock-for-time-based-events">Define the Clock for Time-Based Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#define-a-lifecycle-event">Define a lifecycle event</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#lifecycle-the-bond-instrument">Lifecycle the Bond Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#settle-the-instructions">Settle the Instructions</a></li>
 </ul>
@@ -235,7 +292,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/swap-extension.html#frequently-asked-questions">Frequently Asked Questions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html">How To Use the Generic Extension To Model Generic Instruments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html">How To Model and Lifecycle Generic Instruments</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-create-a-generic-instrument">How To Create a Generic Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-trade-and-transfer-a-generic-instrument">How To Trade and Transfer a Generic Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-process-lifecycle-events">How to Process Lifecycle Events</a></li>
@@ -244,7 +301,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#template-definition">Template Definition</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#hasclaims-interface">HasClaims Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#the-claims-interface">The Claims Interface</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#how-to-define-the-redemption-claim">How to Define the Redemption Claim</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#how-to-define-the-coupon-claims">How to Define the Coupon Claims</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#how-the-instrument-evolves-over-time">How the Instrument Evolves Over Time</a></li>
@@ -288,6 +345,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Claim.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Internal-Claim.html">ContingentClaims.Core.Internal.Claim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Internal-Claim.html#data-types">Data Types</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Observation.html">ContingentClaims.Core.Observation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Observation.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Observation.html#functions">Functions</a></li>
@@ -321,8 +382,16 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Account-Util.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Lifecycle-Rule.html">Daml.Finance.Claims.Lifecycle.Rule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Lifecycle-Rule.html#templates">Templates</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util.html">Daml.Finance.Claims.Util</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util-Builders.html">Daml.Finance.Claims.Util.Builders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util-Builders.html#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util-Lifecycle.html">Daml.Finance.Claims.Util.Lifecycle</a><ul>
@@ -341,6 +410,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock.html">Daml.Finance.Data.Time.DateClock</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock-Types.html">Daml.Finance.Data.Time.DateClock.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock-Types.html#data-types">Data Types</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Holding-Fungible.html">Daml.Finance.Holding.Fungible</a><ul>
@@ -426,8 +499,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Instrument.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Util.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Lifecycle-Rule.html">Daml.Finance.Instrument.Generic.Lifecycle.Rule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Lifecycle-Rule.html#templates">Templates</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Factory.html">Daml.Finance.Instrument.Swap.Asset.Factory</a><ul>
@@ -529,6 +602,13 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html">Daml.Finance.Interface.Claims.Dynamic.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Types.html">Daml.Finance.Interface.Claims.Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Types.html#data-types">Data Types</a></li>
 </ul>
@@ -565,13 +645,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html#typeclasses">Typeclasses</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html#functions">Functions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html">Daml.Finance.Interface.Holding.Lockable</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#interfaces">Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#typeclasses">Typeclasses</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#data-types">Data Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Transferable.html">Daml.Finance.Interface.Holding.Transferable</a><ul>
@@ -899,6 +972,13 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Instruction.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html">Daml.Finance.Interface.Settlement.RouteProvider</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html">Daml.Finance.Interface.Settlement.Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html#data-types">Data Types</a></li>
 </ul>
@@ -948,9 +1028,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-ElectionEffect.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClock.html">Daml.Finance.Lifecycle.Event.DateClock</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClock.html#templates">Templates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClock.html#data-types">Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClockUpdate.html">Daml.Finance.Lifecycle.Event.DateClockUpdate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClockUpdate.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClockUpdate.html#data-types">Data Types</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-Distribution.html">Daml.Finance.Lifecycle.Event.Distribution</a><ul>
@@ -983,10 +1063,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Util.html#functions">Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Types.html">Daml.Finance.Lifecycle.Types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Types.html#data-types">Data Types</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html">Daml.Finance.Settlement.Batch</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html#data-types">Data Types</a></li>
@@ -1004,6 +1080,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-IntermediatedStatic.html">Daml.Finance.Settlement.RouteProvider.IntermediatedStatic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-IntermediatedStatic.html#templates">Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-SingleCustodian.html">Daml.Finance.Settlement.RouteProvider.SingleCustodian</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-SingleCustodian.html#templates">Templates</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Util-Common.html">Daml.Finance.Util.Common</a><ul>
@@ -1141,86 +1225,91 @@
             <div itemprop="articleBody">
                 
   <div class="section" id="asset-model">
-<h1>Asset Model<a class="headerlink" href="#asset-model" title="Permalink to this heading">¶</a></h1>
-<p>The library’s asset model is the set of contracts that describe the financial rights and obligations that exist between parties. It is composed of instruments, holdings, and accounts.</p>
+<h1>Asset Model<a class="headerlink" href="#asset-model" title="Permalink to this headline">¶</a></h1>
+<p>The library’s asset model is the set of contracts that describe the financial rights and obligations
+that exist between parties. It is composed of instruments, holdings, and accounts.</p>
 <div class="section" id="instrument">
-<h2>Instrument<a class="headerlink" href="#instrument" title="Permalink to this heading">¶</a></h2>
-<p>An instrument contract describes the economic terms (rights and
-obligations) of one unit of a financial contract.</p>
-<p>It can be as simple as an ISIN code referencing some real-world (off-ledger)
-security, or it can encode specific on-ledger lifecycling logic.</p>
+<h2>Instrument<a class="headerlink" href="#instrument" title="Permalink to this headline">¶</a></h2>
+<p>An instrument contract describes the economic terms (rights and obligations) of one unit of a
+financial contract.</p>
+<p>It can be as simple as an ISIN code referencing some real-world (off-ledger) security, or it can
+encode specific on-ledger lifecycling logic.</p>
 <div class="section" id="signatories">
-<h3>Signatories<a class="headerlink" href="#signatories" title="Permalink to this heading">¶</a></h3>
-<p>Every instrument must have an <code class="docutils literal notranslate"><span class="pre">issuer</span></code> party and a <code class="docutils literal notranslate"><span class="pre">depository</span></code>
-party, which are both signatories of the contract.</p>
-<p>The terminology is borrowed from the real world, where an issuer of
-e.g., a stock instrument deposits the paper certificate at a depository
-and gets the corresponding amount credited in book-entry form.</p>
-<p>On the ledger, the <code class="docutils literal notranslate"><span class="pre">depository</span></code> acts as a trusted party that prevents
-the <code class="docutils literal notranslate"><span class="pre">issuer</span></code> from potentially acting maliciously.</p>
+<h3>Signatories<a class="headerlink" href="#signatories" title="Permalink to this headline">¶</a></h3>
+<p>Every instrument must have an <code class="docutils literal notranslate"><span class="pre">issuer</span></code> party and a <code class="docutils literal notranslate"><span class="pre">depository</span></code> party, which are both
+signatories of the contract.</p>
+<p>The terminology is borrowed from the real world, where an issuer of e.g., a stock instrument
+deposits the paper certificate at a depository and gets the corresponding amount credited in
+book-entry form.</p>
+<p>On the ledger, the <code class="docutils literal notranslate"><span class="pre">depository</span></code> acts as a trusted party that prevents the <code class="docutils literal notranslate"><span class="pre">issuer</span></code> from
+potentially acting maliciously.</p>
 </div>
 <div class="section" id="keys-and-versioning">
-<h3>Keys and Versioning<a class="headerlink" href="#keys-and-versioning" title="Permalink to this heading">¶</a></h3>
-<p>An instrument is identified by an <code class="docutils literal notranslate"><span class="pre">Id</span></code>, which comprises a textual
-label and a textual version.</p>
-<p>It is usually referenced by key, the <code class="docutils literal notranslate"><span class="pre">InstrumentKey</span></code> comprising</p>
+<h3>Keys and Versioning<a class="headerlink" href="#keys-and-versioning" title="Permalink to this headline">¶</a></h3>
+<p>Instruments are keyed by an <code class="docutils literal notranslate"><span class="pre">InstrumentKey</span></code>, which comprises</p>
 <ul class="simple">
 <li>the instrument <code class="docutils literal notranslate"><span class="pre">issuer</span></code></li>
 <li>the instrument <code class="docutils literal notranslate"><span class="pre">depository</span></code></li>
 <li>a textual <code class="docutils literal notranslate"><span class="pre">id</span></code></li>
-<li>a <code class="docutils literal notranslate"><span class="pre">version</span></code></li>
+<li>a textual <code class="docutils literal notranslate"><span class="pre">version</span></code></li>
 </ul>
-<p>The version is used to keep track of the linear
-evolution of an instrument.</p>
-<p>For example, once a dividend on a share is paid, different versions
-identify the cum-dividend and the ex-dividend share.</p>
+<p>The version is used to keep track of the linear evolution of an instrument.</p>
+<p>For example, once a dividend on a share is paid, different versions identify the cum-dividend and
+the ex-dividend share.</p>
 </div>
 <div class="section" id="interfaces">
-<h3>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this heading">¶</a></h3>
+<h3>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h3>
 <p>Instrument interfaces are defined in the <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Instrument.*</span></code> packages.</p>
-<p>All instruments must implement the base interface defined in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Instrument.Base</span></code>.</p>
+<p>All instruments must implement the base interface defined in
+<code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Instrument.Base</span></code>.</p>
 </div>
 <div class="section" id="implementations">
-<h3>Implementations<a class="headerlink" href="#implementations" title="Permalink to this heading">¶</a></h3>
+<h3>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h3>
 <p>A base implementation is provided in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Instrument.Token</span></code>.</p>
-<p>This template does not define any lifecycling logic and is suitable to
-model contracts that are likely to stay stable, such as currency
-instruments.</p>
-<p>The extensions packages provide additional business-specific
-implementations, such as an <code class="docutils literal notranslate"><span class="pre">Equity</span></code> instrument (where the issuer can
-pay dividends) or a <code class="docutils literal notranslate"><span class="pre">Bond</span></code> instrument (which includes coupon
+<p>This template does not define any lifecycling logic and is suitable to model contracts that are
+likely to stay stable, such as currency instruments.</p>
+<p>The extensions packages provide additional business-specific implementations, such as an <code class="docutils literal notranslate"><span class="pre">Equity</span></code>
+instrument (where the issuer can pay dividends) or a <code class="docutils literal notranslate"><span class="pre">Bond</span></code> instrument (which includes coupon
 payments).</p>
-<p>The expectation is that customers define their own instruments suiting
-the use-case they are modeling.</p>
+<p>The expectation is that customers define their own instruments suiting the use-case they are
+modeling.</p>
 </div>
 </div>
 <div class="section" id="holding">
-<h2>Holding<a class="headerlink" href="#holding" title="Permalink to this heading">¶</a></h2>
-<p>A holding contract represents the ownership of a certain amount of an
-instrument by an owner at a custodian.</p>
+<h2>Holding<a class="headerlink" href="#holding" title="Permalink to this headline">¶</a></h2>
+<p>A holding contract represents the ownership of a certain amount of an instrument by an owner at a
+custodian.</p>
 <p>Where an instrument defines <strong>what</strong> a party holds (the rights and obligations), a holding defines
 <strong>how much</strong> and <strong>against which party</strong> we are holding something.</p>
-<p>It is important to stress that the economic terms of an asset (the instrument) are separated from the representation of an asset holding. This allows centralized management of instruments (e.g. lifecycling) and the reuse of instruments and associated logic across different entities (e.g. custodians). It also avoids the data redundancy of replicating instrument data and logic on every holding contract.</p>
+<p>It is important to stress that the economic terms of an asset (the instrument) are separated from
+the representation of an asset holding. This allows centralized management of instruments (e.g.
+lifecycling) and the reuse of instruments and associated logic across different entities (e.g.
+custodians). It also avoids the data redundancy of replicating instrument data and logic on every
+holding contract.</p>
 <div class="section" id="signatories-1">
-<span id="id1"></span><h3>Signatories<a class="headerlink" href="#signatories-1" title="Permalink to this heading">¶</a></h3>
+<span id="id1"></span><h3>Signatories<a class="headerlink" href="#signatories-1" title="Permalink to this headline">¶</a></h3>
 <p>Every holding must have an <code class="docutils literal notranslate"><span class="pre">owner</span></code> party and a <code class="docutils literal notranslate"><span class="pre">custodian</span></code> party,
 which are usually both signatories of the contract.</p>
-<p>The terminology is again borrowed from the real world: our cash or
-shares are usually deposited at a custodian and we have (at least in
-principle) the right to claim them back from the custodian at any given time.</p>
+<p>The terminology is again borrowed from the real world: our cash or shares are usually deposited at a
+custodian and we have (at least in principle) the right to claim them back from the custodian at any
+given time.</p>
 </div>
 <div class="section" id="properties-of-holdings">
-<h3>Properties of Holdings<a class="headerlink" href="#properties-of-holdings" title="Permalink to this heading">¶</a></h3>
-<p>A holding implementation can have specific properties such as being <a class="reference internal" href="../reference/glossary.html#fungibility"><span class="std std-ref">fungible</span></a> or <a class="reference internal" href="../reference/glossary.html#transferability"><span class="std std-ref">transferable</span></a>.</p>
-<p>When, for instance, a holding is transferable, the owner has the right to transfer ownership to a different party at the same custodian.</p>
-<p>These properties are exposed by implementing the corresponding interface (<code class="docutils literal notranslate"><span class="pre">Fungible</span></code> and <code class="docutils literal notranslate"><span class="pre">Transferable</span></code>, respectively).</p>
+<h3>Properties of Holdings<a class="headerlink" href="#properties-of-holdings" title="Permalink to this headline">¶</a></h3>
+<p>A holding implementation can have specific properties such as being <a class="reference internal" href="../reference/glossary.html#fungibility"><span class="std std-ref">fungible</span></a> or
+<a class="reference internal" href="../reference/glossary.html#transferability"><span class="std std-ref">transferable</span></a>.</p>
+<p>When, for instance, a holding is transferable, the ownership can be transferred to a different party
+at the same custodian.</p>
+<p>These properties are exposed by implementing the corresponding interface (<code class="docutils literal notranslate"><span class="pre">Fungible</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Transferable</span></code>, respectively).</p>
 </div>
 <div class="section" id="implementations-1">
-<span id="id2"></span><h3>Interfaces<a class="headerlink" href="#implementations-1" title="Permalink to this heading">¶</a></h3>
-<p>Holding interfaces are defined in the <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Holding</span></code> package. These include a base holding interface, as well as interface definitions for the above properties.</p>
+<span id="id2"></span><h3>Interfaces<a class="headerlink" href="#implementations-1" title="Permalink to this headline">¶</a></h3>
+<p>Holding interfaces are defined in the <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Holding</span></code> package. These include a
+base holding interface, as well as interface definitions for the above properties.</p>
 </div>
 <div class="section" id="id3">
-<h3>Implementations<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<h3>Implementations<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Implementations are provided in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Holding</span></code> for</p>
 <ul class="simple">
 <li>a fungible and transferable holding</li>
@@ -1230,24 +1319,40 @@ principle) the right to claim them back from the custodian at any given time.</p
 </div>
 </div>
 <div class="section" id="account">
-<h2>Account<a class="headerlink" href="#account" title="Permalink to this heading">¶</a></h2>
-<p>Finally, account contracts are used as proof of a relationship between a
-<code class="docutils literal notranslate"><span class="pre">custodian</span></code> and an <code class="docutils literal notranslate"><span class="pre">owner</span></code>.</p>
-<p>An <code class="docutils literal notranslate"><span class="pre">owner</span></code> must have an account contract with a <code class="docutils literal notranslate"><span class="pre">custodian</span></code> before a holding
-contract can be created between the two parties.</p>
-<p>This is similar to how, in the real world, you need to open a bank account
-before you can use the bank’s services.</p>
-<p>The account contract controls which parties are authorized to transfer holdings in and out of the account.</p>
-<p>Accounts are also used to prevent holding transfers to
-unvetted third parties: Alice can transfer a holding to Bob only
-if Bob has an account at the Bank (and has therefore been vetted
-by the Bank).</p>
+<h2>Account<a class="headerlink" href="#account" title="Permalink to this headline">¶</a></h2>
+<p>Finally, account contracts are used as proof of a relationship between a <code class="docutils literal notranslate"><span class="pre">custodian</span></code> and an
+<code class="docutils literal notranslate"><span class="pre">owner</span></code>.</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">owner</span></code> must have an account contract with a <code class="docutils literal notranslate"><span class="pre">custodian</span></code> before a holding contract can be
+created between the two parties.</p>
+<p>This is similar to how, in the real world, you need to open a bank account before you can use the
+bank’s services.</p>
+<p>The account contract also controls which parties are authorized to transfer holdings in and out of
+the account. To be more precise, the <code class="docutils literal notranslate"><span class="pre">controllers</span></code> field of the account contains:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">instructors</span></code> a set of parties authorizing outgoing transfers</li>
+<li><code class="docutils literal notranslate"><span class="pre">approvers</span></code> a set of parties authorizing incoming transfers</li>
+</ul>
+<p>This allows for modeling various controllers of transfers between Alice’s and Bob’s accounts. For
+example:</p>
+<ul class="simple">
+<li>owners-controlled: If the <code class="docutils literal notranslate"><span class="pre">owner</span></code> is the sole member of <code class="docutils literal notranslate"><span class="pre">instructors</span></code> and <code class="docutils literal notranslate"><span class="pre">approvers</span></code> for
+the accounts, a transfer of a holding from Alice’s account to Bob’s account needs to be
+authorized jointly by Alice and Bob.</li>
+<li>owner-only-controlled: If, instead, the <code class="docutils literal notranslate"><span class="pre">approvers</span></code> (of Bob’s account) is the empty set, it is
+enough that Alice authorizes the transfer alone.</li>
+<li>custodian-controlled: If, as often is the case, the <code class="docutils literal notranslate"><span class="pre">custodian</span></code> needs to control what is being
+transferred, we can instead let the <code class="docutils literal notranslate"><span class="pre">custodian</span></code> be the sole member of <code class="docutils literal notranslate"><span class="pre">instructors</span></code> and
+<code class="docutils literal notranslate"><span class="pre">approvers</span></code> for the accounts.</li>
+</ul>
+<p>Accounts also serve to prevent holding transfers to unvetted third parties: a holding of Alice can
+only be transferred to Bob if Bob has an account at the same Bank (and has therefore been vetted by
+the Bank).</p>
 <div class="section" id="signatories-2">
-<span id="id4"></span><h3>Signatories<a class="headerlink" href="#signatories-2" title="Permalink to this heading">¶</a></h3>
+<span id="id4"></span><h3>Signatories<a class="headerlink" href="#signatories-2" title="Permalink to this headline">¶</a></h3>
 <p>An account is co-signed by the account <code class="docutils literal notranslate"><span class="pre">owner</span></code> and the <code class="docutils literal notranslate"><span class="pre">custodian</span></code>.</p>
 </div>
 <div class="section" id="keys">
-<h3>Keys<a class="headerlink" href="#keys" title="Permalink to this heading">¶</a></h3>
+<h3>Keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h3>
 <p>Accounts are keyed by an <code class="docutils literal notranslate"><span class="pre">AccountKey</span></code>, which comprises</p>
 <ul class="simple">
 <li>the account <code class="docutils literal notranslate"><span class="pre">owner</span></code></li>
@@ -1256,41 +1361,64 @@ by the Bank).</p>
 </ul>
 </div>
 <div class="section" id="implementations-2">
-<span id="id5"></span><h3>Interfaces<a class="headerlink" href="#implementations-2" title="Permalink to this heading">¶</a></h3>
+<span id="id5"></span><h3>Interfaces<a class="headerlink" href="#implementations-2" title="Permalink to this headline">¶</a></h3>
 <p>The account interface is defined in the <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Account</span></code> package.</p>
 </div>
 <div class="section" id="id6">
-<h3>Implementations<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<h3>Implementations<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>A base account implementation is provided in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Account</span></code>.</p>
+<p>The account can be created with arbitrary <code class="docutils literal notranslate"><span class="pre">controllers</span></code> (for incoming and outgoing transfers).</p>
+<p>In our examples, we typically let accounts be owners-controlled, i.e., the owner and the new owner
+must authorize transfers.</p>
 </div>
 </div>
 <div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
-<p>We can now look at a few examples of how real-world rights and obligations can be modeled using the Daml Finance asset model.</p>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>We can now look at a few examples of how real-world rights and obligations can be modeled using the
+Daml Finance asset model.</p>
 <div class="section" id="currency">
-<h3>Currency<a class="headerlink" href="#currency" title="Permalink to this heading">¶</a></h3>
-<p>We start by modeling a standard cash bank account. There are three parties involved: a Central Bank, a Commercial Bank, and a Retail Client.</p>
-<p>The Central Bank defines the economic terms of the currency asset and is generally a highly trusted entity; hence, it acts as <code class="docutils literal notranslate"><span class="pre">issuer</span></code> as well as <code class="docutils literal notranslate"><span class="pre">depository</span></code> of the corresponding instrument.</p>
-<p>We can use the <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Token-Instrument.html#type-daml-finance-instrument-token-instrument-instrument-62305"><span class="std std-ref">Token</span></a> instrument implementation for a currency asset, as we do not need any lifecycling logic.</p>
-<p>The Retail Client has an Account at the Commercial Bank, with the former acting as <code class="docutils literal notranslate"><span class="pre">owner</span></code> and the latter as <code class="docutils literal notranslate"><span class="pre">custodian</span></code>.</p>
-<p>Finally, the Retail Client is <code class="docutils literal notranslate"><span class="pre">owner</span></code> of a <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Holding-Fungible.html#type-daml-finance-holding-fungible-fungible-28517"><span class="std std-ref">fungible holding</span></a> at the Commercial Bank (the <code class="docutils literal notranslate"><span class="pre">custodian</span></code> in the contract). The holding references the currency instrument, as well as the account.</p>
+<h3>Currency<a class="headerlink" href="#currency" title="Permalink to this headline">¶</a></h3>
+<p>We start by modeling a standard cash bank account. There are three parties involved: a Central Bank,
+a Commercial Bank, and a Retail Client.</p>
+<p>The Central Bank defines the economic terms of the currency asset and is generally a highly trusted
+entity; hence, it acts as <code class="docutils literal notranslate"><span class="pre">issuer</span></code> as well as <code class="docutils literal notranslate"><span class="pre">depository</span></code> of the corresponding instrument.</p>
+<p>We can use the <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Token-Instrument.html#type-daml-finance-instrument-token-instrument-instrument-62305"><span class="std std-ref">Token</span></a>
+instrument implementation for a currency asset, as we do not need any lifecycling logic.</p>
+<p>The Retail Client has an Account at the Commercial Bank, with the former acting as <code class="docutils literal notranslate"><span class="pre">owner</span></code> and the
+latter as <code class="docutils literal notranslate"><span class="pre">custodian</span></code>.</p>
+<p>Finally, the Retail Client is <code class="docutils literal notranslate"><span class="pre">owner</span></code> of a
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Holding-Fungible.html#type-daml-finance-holding-fungible-fungible-28517"><span class="std std-ref">fungible holding</span></a> at the Commercial Bank
+(the <code class="docutils literal notranslate"><span class="pre">custodian</span></code> in the contract). The holding references the currency instrument, as well as the
+account.</p>
 <img alt="Currency asset setup." src="../_images/asset_model_currency.png" />
-<p>In this scenario, we can see how
-- the instrument defines what is held
-- the holding defines where the rights and obligations lie, as well as the corresponding amount</p>
+<p>In this scenario, we can see how</p>
+<ul class="simple">
+<li>the instrument defines what is held</li>
+<li>the holding defines where the rights and obligations lie, as well as the corresponding amount</li>
+</ul>
 </div>
 <div class="section" id="equity">
-<h3>Equity<a class="headerlink" href="#equity" title="Permalink to this heading">¶</a></h3>
-<p>We now model units of shares held by an investor. There are three parties involved: an Issuing Entity, a Securities Depository, and an Investor.</p>
-<p>The Issuing Entity acts as <code class="docutils literal notranslate"><span class="pre">issuer</span></code> of the <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Equity-Instrument.html#type-daml-finance-instrument-equity-instrument-instrument-90430"><span class="std std-ref">Equity Instrument</span></a>. The Securities Depository acts as <code class="docutils literal notranslate"><span class="pre">depository</span></code> of the instrument, thus preventing the Issuing Entity from single-handledly modifying details of the instrument (such as the share’s nominal value).</p>
-<p>The Institutional Investor holds units of shares against the Securities Depository, through corresponding Account and Holding contracts.</p>
+<h3>Equity<a class="headerlink" href="#equity" title="Permalink to this headline">¶</a></h3>
+<p>We now model units of shares held by an investor. There are three parties involved: an Issuing
+Entity, a Securities Depository, and an Investor.</p>
+<p>The Issuing Entity acts as <code class="docutils literal notranslate"><span class="pre">issuer</span></code> of the <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Equity-Instrument.html#type-daml-finance-instrument-equity-instrument-instrument-90430"><span class="std std-ref">Equity Instrument</span></a>. The Securities Depository acts
+as <code class="docutils literal notranslate"><span class="pre">depository</span></code> of the instrument, thus preventing the Issuing Entity from single-handledly
+modifying details of the instrument (such as the share’s nominal value).</p>
+<p>The Institutional Investor holds units of shares against the Securities Depository, through
+corresponding Account and Holding contracts.</p>
 <img alt="Equity asset setup." src="../_images/asset_model_stock.png" />
-<p>It is worth noting that the <code class="docutils literal notranslate"><span class="pre">issuer</span></code> of the Equity Instrument has the right to perform certain Corporate Actions, such as declaring dividends. This topic is covered in the lifecycling section.</p>
+<p>It is worth noting that the <code class="docutils literal notranslate"><span class="pre">issuer</span></code> of the Equity Instrument has the right to perform certain
+Corporate Actions, such as declaring dividends. This topic is covered in the lifecycling section.</p>
 </div>
 <div class="section" id="otc-swap">
-<h3>OTC Swap<a class="headerlink" href="#otc-swap" title="Permalink to this heading">¶</a></h3>
-<p>Finally, we model an OTC (over-the-counter) fixed vs. floating interest rate swap agreement between two parties, namely Party A and Party B. We can use the <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-InterestRate-Instrument.html#type-daml-finance-instrument-swap-interestrate-instrument-instrument-52927"><span class="std std-ref">Interest Rate Swap</span></a> instrument template for this purpose.</p>
-<p>In this case, all contracts are agreed and co-signed by both parties. In the instrument contract, it does not really matter whether Party A is the <code class="docutils literal notranslate"><span class="pre">issuer</span></code> and Party B the <code class="docutils literal notranslate"><span class="pre">depository</span></code>, or the other way around. However, the role matters in the Holding contract, as it defines the direction of the trade (that is, which party receives the fixed leg and which party receives the floating one).</p>
+<span id="otc-swap-asset-model"></span><h3>OTC Swap<a class="headerlink" href="#otc-swap" title="Permalink to this headline">¶</a></h3>
+<p>Finally, we model an OTC (over-the-counter) fixed vs. floating interest rate swap agreement between
+two parties, namely Party A and Party B. We can use the <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-InterestRate-Instrument.html#type-daml-finance-instrument-swap-interestrate-instrument-instrument-52927"><span class="std std-ref">Interest Rate Swap</span></a> instrument template
+for this purpose.</p>
+<p>In this case, all contracts are agreed and co-signed by both parties. In the instrument contract,
+it does not really matter whether Party A is the <code class="docutils literal notranslate"><span class="pre">issuer</span></code> and Party B the <code class="docutils literal notranslate"><span class="pre">depository</span></code>, or the
+other way around. However, the role matters in the Holding contract, as it defines the direction of
+the trade, i.e., which party receives the fixed leg and which party receives the floating one.</p>
 <img alt="OTC Swap asset setup." src="../_images/asset_model_otc.png" />
 </div>
 </div>

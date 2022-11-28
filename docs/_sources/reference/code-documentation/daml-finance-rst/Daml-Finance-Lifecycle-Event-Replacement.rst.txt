@@ -13,7 +13,8 @@ Templates
 
 **template** `Event <type-daml-finance-lifecycle-event-replacement-event-16120_>`_
 
-  Event contract for the replacement of units of an instrument with a basket of other instruments (e\.g\. stock merger)\.
+  Event contract for the replacement of units of an instrument with a basket of other
+  instruments, e\.g\., a stock merger\.
 
   .. list-table::
      :widths: 15 10 30

@@ -37,14 +37,15 @@ Interfaces
          - Date at which the dividend is distributed\.
        * - newInstrument
          - :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`
-         - Instrument held after the dividend distribution (ie\. \"ex\-dividend\" stock)\.
+         - Instrument held after the dividend distribution (i\.e\. \"ex\-dividend\" stock)\.
        * - perUnitDistribution
          - \[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\]
          - Distributed quantities per unit held\.
 
   + **Choice DeclareReplacement**
 
-    Declare a replacement event, where units of the instrument are replaced by a basket of other instruments\.
+    Declare a replacement event, where units of the instrument are replaced by a basket of
+    other instruments\.
 
     .. list-table::
        :widths: 15 10 30
@@ -91,7 +92,7 @@ Interfaces
          - Instrument to be held after the stock split is executed\.
        * - adjustmentFactor
          - `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_
-         - Adjustment factor for the stock split\. A factor of between 0 and 1 represents a classic stock split (eg\. 2\-for\-1 or two new for one old)\. A factor above 1 represents a reverse stock split (eg\. 1\-for\-2 or one new for two old)\.
+         - Adjustment factor for the stock split\. A factor between 0 and 1 represents a classic stock split (e\.g\. 2\-for\-1 or two new for one old)\. A factor above 1 represents a reverse stock split (e\.g\. 1\-for\-2 or one new for two old)\.
 
   + **Choice GetView**
 
@@ -147,7 +148,8 @@ Data Types
 **type** `Implementation <type-daml-finance-interface-instrument-equity-instrument-implementation-8194_>`_ t
   \= (`HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t `I <type-daml-finance-interface-instrument-equity-instrument-i-74160_>`_, :ref:`Implementation <type-daml-finance-interface-instrument-base-instrument-implementation-67110>` t)
 
-  Type constraint for requiring templates to implement ``Instrument`` implement ``BaseInstrument.I``\.
+  Type constraint requiring templates to implement ``Instrument`` along with ``BaseInstrument`` and
+  ``Disclosure``\.
 
 .. _type-daml-finance-interface-instrument-equity-instrument-v-19687:
 

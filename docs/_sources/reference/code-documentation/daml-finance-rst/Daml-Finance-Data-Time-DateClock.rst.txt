@@ -13,9 +13,11 @@ Templates
 
 **template** `DateClock <type-daml-finance-data-time-dateclock-dateclock-90915_>`_
 
-  A ``DateClock`` is a subdivision of the Time continuum into dates\.
-  Each date is mapped to UTC noon\.
-  Updating the clock spawns a ``ClockUpdateEvent``\.
+  A ``DateClock`` is a template used to keep track of the current date\.
+  The ``ToNext`` choice moves the clock to the next date and spawns a ``DateClockUpdateEvent``\.
+  The ``DateClock`` implements the ``TimeObservable`` interface\. Specifically, each date ``D`` is mapped
+  to ``D 12:00:00 UTC``\. If your use\-case involves working across multiple time zones, you might
+  need to define multiple ``DateClock`` templates with specific time conversions\.
 
   .. list-table::
      :widths: 15 10 30
@@ -28,7 +30,7 @@ Templates
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - The clock's providers\.
      * - date
-       - :ref:`Unit <type-daml-finance-lifecycle-types-unit-19576>`
+       - :ref:`Unit <type-daml-finance-data-time-dateclock-types-unit-52065>`
        - The clock's date\.
      * - id
        - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
@@ -38,7 +40,7 @@ Templates
        - The clock's description\.
      * - observers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
-       - Observers of the events created from this clock\.
+       - Observers\.
 
   + **Choice Archive**
 
@@ -57,10 +59,10 @@ Templates
          - Description
        * - eventId
          - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
-         - Event identifier
+         - Event identifier\.
        * - eventDescription
          - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
-         - Event description
+         - Event description\.
 
   + **interface instance** :ref:`I <type-daml-finance-interface-data-timeobservable-i-64066>` **for** `DateClock <type-daml-finance-data-time-dateclock-dateclock-90915_>`_
 

@@ -63,11 +63,11 @@ Templates
 
   + **interface instance** :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` **for** `Instrument <type-daml-finance-instrument-swap-fpml-instrument-instrument-3170_>`_
 
+  + **interface instance** :ref:`I <type-daml-finance-interface-claims-dynamic-instrument-i-39105>` **for** `Instrument <type-daml-finance-instrument-swap-fpml-instrument-instrument-3170_>`_
+
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>` **for** `Instrument <type-daml-finance-instrument-swap-fpml-instrument-instrument-3170_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-swap-fpml-instrument-i-71302>` **for** `Instrument <type-daml-finance-instrument-swap-fpml-instrument-instrument-3170_>`_
-
-  + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>` **for** `Instrument <type-daml-finance-instrument-swap-fpml-instrument-instrument-3170_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Instrument <type-daml-finance-instrument-swap-fpml-instrument-instrument-3170_>`_
 

@@ -209,7 +209,8 @@ Functions
 `flattenObservers <function-daml-finance-interface-util-disclosure-flattenobservers-47974_>`_
   \: :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>` \-\> :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
 
-  Flattens observers which use the ``PartiesMap`` into a ``Set Party`` for usage in template definitions\. For example\:
+  Flattens observers which use the ``PartiesMap`` into a ``Set Party`` for usage in template
+  definitions\. For example\:
 
   .. code-block:: daml
 

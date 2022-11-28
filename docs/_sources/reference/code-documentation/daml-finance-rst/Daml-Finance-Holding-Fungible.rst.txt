@@ -42,8 +42,8 @@ Templates
 **template** `Fungible <type-daml-finance-holding-fungible-fungible-28517_>`_
 
   Implementation of a fungible holding\.
-  ``Fungible`` implements the interface ``Fungible.I`` (which requires ``Transferable.I``, ``Lockable.I``,
-  ``Base.I``, and ``Disclosure.I`` to be implemented as well)\.
+  ``Fungible`` implements the interface ``Fungible.I`` (which requires ``Transferable.I``, ``Base.I``, and
+  ``Disclosure.I`` to be implemented as well)\.
 
   .. list-table::
      :widths: 15 10 30
@@ -62,7 +62,7 @@ Templates
        - `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_
        - Number of units\.
      * - lock
-       - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`Lock <type-daml-finance-interface-holding-lockable-lock-96362>`
+       - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`Lock <type-daml-finance-interface-holding-base-lock-32912>`
        - An optional lock of a holding\.
      * - observers
        - :ref:`PartiesMap <type-daml-finance-interface-types-common-partiesmap-27543>`
@@ -75,8 +75,6 @@ Templates
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-base-i-67605>` **for** `Fungible <type-daml-finance-holding-fungible-fungible-28517_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-fungible-i-96400>` **for** `Fungible <type-daml-finance-holding-fungible-fungible-28517_>`_
-
-  + **interface instance** :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>` **for** `Fungible <type-daml-finance-holding-fungible-fungible-28517_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-holding-transferable-i-13335>` **for** `Fungible <type-daml-finance-holding-fungible-fungible-28517_>`_
 

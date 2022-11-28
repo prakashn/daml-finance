@@ -43,7 +43,8 @@ Data Types
 **type** `Implementation <type-daml-finance-interface-instrument-bond-fixedrate-instrument-implementation-2506_>`_ t
   \= (`HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t `Instrument <type-daml-finance-interface-instrument-bond-fixedrate-instrument-instrument-55963_>`_, :ref:`Implementation <type-daml-finance-interface-instrument-base-instrument-implementation-67110>` t, :ref:`Implementation <type-daml-finance-interface-util-disclosure-implementation-41553>` t)
 
-  Type constraint requiring templates to implement ``Instrument``, base ``Instrument`` along with ``Disclosure``\.
+  Type constraint requiring templates to implement ``Instrument`` along with the ``BaseInstrument``
+  and  ``Disclosure`` interfaces\.
 
 .. _type-daml-finance-interface-instrument-bond-fixedrate-instrument-v-8719:
 

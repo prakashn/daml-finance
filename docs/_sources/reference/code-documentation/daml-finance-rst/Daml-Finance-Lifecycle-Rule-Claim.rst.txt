@@ -31,6 +31,9 @@ Templates
      * - settlers
        - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
        - Any of the parties can trigger settlement of the resulting batch\.
+     * - routeProviderCid
+       - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-settlement-routeprovider-i-46608>`
+       - RouteProvider used to discover settlement routes\.
      * - settlementFactoryCid
        - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-settlement-factory-i-11228>`
        - Settlement factory contract used to create a ``Batch`` of ``Instruction``\\s\.

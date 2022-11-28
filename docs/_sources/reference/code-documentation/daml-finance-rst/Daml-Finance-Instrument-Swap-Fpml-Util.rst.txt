@@ -36,7 +36,8 @@ Functions
 `getCalendarsAndAdjust <function-daml-finance-instrument-swap-fpml-util-getcalendarsandadjust-68138_>`_
   \: `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_ \-\> :ref:`BusinessDayAdjustments <type-daml-finance-interface-instrument-swap-fpml-fpmltypes-businessdayadjustments-31058>` \-\> `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_ \-\> `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
 
-  Retrieve holiday calendars and adjust a date as specified in a BusinessDayAdjustments FpML element
+  Retrieve holiday calendars and adjust a date as specified in a BusinessDayAdjustments FpML
+  element
 
 .. _function-daml-finance-instrument-swap-fpml-util-adjustdateaccordingtobusinessdayadjustments-16993:
 
@@ -57,7 +58,8 @@ Functions
 `getInterpolatedStubRate <function-daml-finance-instrument-swap-fpml-util-getinterpolatedstubrate-67176_>`_
   \: :ref:`StubFloatingRate <type-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubfloatingrate-69656>` \-\> :ref:`StubFloatingRate <type-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubfloatingrate-69656>` \-\> :ref:`SchedulePeriod <type-daml-finance-interface-types-date-schedule-scheduleperiod-76784>` \-\> :ref:`HolidayCalendarData <type-daml-finance-interface-types-date-calendar-holidaycalendardata-60004>` \-\> :ref:`BusinessDayConventionEnum <type-daml-finance-interface-types-date-calendar-businessdayconventionenum-88986>` \-\> `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `O <type-daml-finance-instrument-swap-fpml-util-o-46768_>`_
 
-  Linearly interpolates two rates within a period, as specified in https\://www\.isda\.org/a/aWkgE/Linear\-interpolation\-04022022\.pdf
+  Linearly interpolates two rates within a period, as specified in
+  https\://www\.isda\.org/a/aWkgE/Linear\-interpolation\-04022022\.pdf
 
 .. _function-daml-finance-instrument-swap-fpml-util-getstubratefloating-79993:
 

@@ -13,7 +13,8 @@ Interfaces
 
 **interface** `Event <type-daml-finance-interface-lifecycle-event-distribution-event-73224_>`_
 
-  Event interface for the distribution of units of an instrument for each unit of a target instrument (e\.g\., share or cash dividends)\.
+  Event interface for the distribution of units of an instrument for each unit of a target
+  instrument (e\.g\. share or cash dividends)\.
 
   + **Choice GetView**
 

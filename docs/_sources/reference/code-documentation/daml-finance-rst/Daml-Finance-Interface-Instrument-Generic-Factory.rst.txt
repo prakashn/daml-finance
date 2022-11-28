@@ -13,7 +13,8 @@ Interfaces
 
 **interface** `Factory <type-daml-finance-interface-instrument-generic-factory-factory-64962_>`_
 
-  Interface that allows implementing templates to create generic instruments using Contingent Claims\.
+  Interface that allows implementing templates to create generic instruments using Contingent
+  Claims\.
 
   + **Choice Create**
 

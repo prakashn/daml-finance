@@ -16,7 +16,8 @@ Functions
 
   Helper function to generate a series of fixing dates, e\.g\. for coupon payments in ``fixed``\.
   This assumes ``fixingMonths`` and ``fixingDates`` are ordered\.
-  The Daml Finance library(https://github.com/digital-asset/daml-finance) has more feature\-complete date handling functions\.
+  The Daml Finance library(https://github.com/digital-asset/daml-finance) has more
+  feature\-complete date handling functions\.
 
 .. _function-contingentclaims-core-builders-forward-81104:
 
@@ -90,4 +91,5 @@ Functions
   .. code-block:: daml
 
     fixedUsdVsFloatingEur : [t] -> Serializable.Claim Text
-    fixedUsdVsFloatingEur = fixed 100.0 0.02 "USD" `swap` floating (observe "USDEUR" * pure 100.0) (observe "EUR1M") "EUR"
+    fixedUsdVsFloatingEur =
+      fixed 100.0 0.02 "USD" `swap` floating (observe "USDEUR" * pure 100.0) (observe "EUR1M") "EUR"

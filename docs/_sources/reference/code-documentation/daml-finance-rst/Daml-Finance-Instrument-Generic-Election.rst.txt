@@ -70,8 +70,11 @@ Templates
 
 **template** `ElectionFactory <type-daml-finance-instrument-generic-election-electionfactory-8458_>`_
 
-  Helper contract to delegate the right to create ``Election``\\s referencing a specific ``Instrument``\.
-  The provider delegates the ability to create ``Election``\\s to any party that has visibility on the ``ElectionFactory`` contract\. In order to create the ``Election``, a valid ``Holding`` must be presented which identifies the choice controller as either the owner or the custodian to the ``Holding``\.
+  Helper contract to delegate the right to create ``Election``\\s referencing a specific
+  ``Instrument``\. The provider delegates the ability to create ``Election``\\s to any party that has
+  visibility on the ``ElectionFactory`` contract\. In order to create the ``Election``, a valid
+  ``Holding`` must be presented which identifies the choice controller as either the owner or the
+  custodian to the ``Holding``\.
 
   .. list-table::
      :widths: 15 10 30

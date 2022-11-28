@@ -53,8 +53,8 @@ Functions
 `splitPending <function-daml-finance-lifecycle-rule-util-splitpending-19834_>`_
   \: \[`Pending <type-daml-finance-lifecycle-rule-util-pending-87645_>`_\] \-\> (\[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\], \[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\])
 
-  Map pending settlements into corresponding instrument quantities and split them into consumed and produced\.
-  Pending items with an amount of ``0.0`` are discarded\.
+  Map pending settlements into corresponding instrument quantities and split them into consumed
+  and produced\. Pending items with an amount of ``0.0`` are discarded\.
 
 .. _function-daml-finance-lifecycle-rule-util-net-8465:
 

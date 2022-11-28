@@ -47,9 +47,9 @@ Interfaces
        * - actors
          - :ref:`Parties <type-daml-finance-interface-types-common-parties-68320>`
          - Additional controllers of the choice\.
-       * - lockableCid
-         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`
-         - The ``Lockable``'s contract id to be debited\.
+       * - baseCid
+         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-base-i-67605>`
+         - The ``Base``'s contract id to be debited\.
 
   + **Choice Debit**
 
@@ -89,7 +89,7 @@ Interfaces
 
     Implementation of the ``Credit`` choice\.
 
-  + **Method creditAndDebit \:** CreditAndDebit \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`)
+  + **Method creditAndDebit \:** CreditAndDebit \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-base-i-67605>`)
 
     Implementation of the ``CreditAndDebit`` choice\.
 
@@ -168,7 +168,8 @@ Data Types
 **type** `R <type-daml-finance-interface-account-account-r-61445_>`_
   \= Reference
 
-  Type synonym for ``Reference``\. This type is currently used as a work\-around given the lack of interface keys\.
+  Type synonym for ``Reference``\. This type is currently used as a work\-around given the lack of
+  interface keys\.
 
 .. _type-daml-finance-interface-account-account-v-78825:
 
@@ -227,7 +228,8 @@ Functions
 
   Exercise interface by key\.
   This method can be used to exercise a choice on an ``Account`` given its ``AccountKey``\.
-  Requires as input the ``AccountKey``, the actor fetching the account and the choice arguments\. For example\:
+  Requires as input the ``AccountKey``, the actor fetching the account and the choice arguments\.
+  For example\:
 
   .. code-block:: daml
 
@@ -263,7 +265,7 @@ Functions
 .. _function-daml-finance-interface-account-account-creditanddebit-4858:
 
 `creditAndDebit <function-daml-finance-interface-account-account-creditanddebit-4858_>`_
-  \: `Account <type-daml-finance-interface-account-account-account-9624_>`_ \-\> CreditAndDebit \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-lockable-i-28871>`)
+  \: `Account <type-daml-finance-interface-account-account-account-9624_>`_ \-\> CreditAndDebit \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-holding-base-i-67605>`)
 
 .. _function-daml-finance-interface-account-account-disclose-32452:
 

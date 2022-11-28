@@ -30,7 +30,6 @@
   <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
   <script src="../_static/jquery.js"></script>
   <script src="../_static/underscore.js"></script>
-  <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
   <script src="../_static/doctools.js"></script>
   <script src="../_static/clipboard.min.js"></script>
   <script src="../_static/copybutton.js"></script>
@@ -47,7 +46,7 @@
   <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <link rel="index" title="Index" href="../genindex.html" />
   <link rel="search" title="Search" href="../search.html" />
-  <link rel="next" title="Contingent Claims Quickstart" href="contingent-claims/quickstart.html" />
+  <link rel="next" title="Packages" href="../packages/index.html" />
   <link rel="prev" title="Lifecycling" href="lifecycling.html" /> 
 
   
@@ -97,8 +96,20 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview/architecture.html">Architecture</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#interface-layer">Interface Layer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#implementation-layer">Implementation Layer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#how-to-use-the-library">How To Use the Library</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#extension-points">Extension Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#versioning-and-compatibility">Versioning and Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/building-applications.html">Building Applications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../overview/building-applications.html#installing-daml-finance">Installing Daml Finance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/building-applications.html#application-architecture">Application Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/extending-daml-finance.html">Extending Daml Finance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-holding-implementations">Custom Holding Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-account-implementations">Custom Account Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-instrument-implementations">Custom Instrument Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-lifecycle-implementations">Custom Lifecycle Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-settlement-implementations">Custom Settlement Implementations</a></li>
 </ul>
 </li>
 </ul>
@@ -143,6 +154,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="settlement.html#the-components-in-detail">The components in detail</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="settlement.html#route-provider">Route provider</a></li>
 <li class="toctree-l4"><a class="reference internal" href="settlement.html#settlement-factory">Settlement factory</a></li>
 <li class="toctree-l4"><a class="reference internal" href="settlement.html#instruction">Instruction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="settlement.html#batch">Batch</a></li>
@@ -152,35 +164,79 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lifecycling.html">Lifecycling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#events">Events</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#intrinsic">Intrinsic</a></li>
-<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#extrinsic">Extrinsic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#approach">Approach</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#single-source-of-truth">Single Source of Truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#instrument-versioning">Instrument Versioning</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#instrument-versions">Instrument Versions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#effects">Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#workflow">Workflow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#creating-the-event">Creating the event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#processing-the-event">Processing the event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#claiming-the-effect">Claiming the effect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#settlement">Settlement</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#components">Components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#events">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#lifecycle-rule">Lifecycle Rule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#claim-rule">Claim Rule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#effects">Effects</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Contingent Claims</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contingent-claims/quickstart.html">Quickstart</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="contingent-claims/quickstart.html#the-model">The Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-model">The Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#composition-and-extensibility">Composition and Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#concerning-type-parameters">Concerning Type Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-time-parameter">The Time Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-asset-parameter">The Asset Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-observation-parameter">The Observation Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-value-parameter">The Value Parameter</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#lifecycling">Lifecycling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pricing-experimental">Pricing (Experimental)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../packages/index.html">Packages</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../packages/intro.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../packages/core-interfaces.html">Core Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../packages/core-implementations.html">Core Implementations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../packages/instrument-extensions.html">Instrument Extensions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#tokens">Tokens</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#bonds">Bonds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#swaps">Swaps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#equity">Equity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#generic">Generic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packages/interfaces/index.html">Interface Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-holding.html">Daml.Finance.Interface.Holding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-account.html">Daml.Finance.Interface.Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-settlement.html">Daml.Finance.Interface.Settlement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-lifecycle.html">Daml.Finance.Interface.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-base.html">Daml.Finance.Interface.Instrument.Base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-data.html">Daml.Finance.Interface.Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-claims.html">Daml.Finance.Interface.Claims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-types.html">Daml.Finance.Interface.Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-util.html">Daml.Finance.Interface.Util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/contingent-claims-core.html">ContingentClaims.Core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-bond.html">Daml.Finance.Interface.Instrument.Bond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-equity.html">Daml.Finance.Interface.Instrument.Equity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-generic.html">Daml.Finance.Interface.Instrument.Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-swap.html">Daml.Finance.Interface.Instrument.Swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-token.html">Daml.Finance.Interface.Instrument.Token</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../packages/implementations/index.html">Implementation Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-holding.html">Daml.Finance.Holding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-account.html">Daml.Finance.Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-settlement.html">Daml.Finance.Settlement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-lifecycle.html">Daml.Finance.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-data.html">Daml.Finance.Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-claims.html">Daml.Finance.Claims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-util.html">Daml.Finance.Util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/contingent-claims-lifecycle.html">ContingentClaims.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/contingent-claims-valuation.html">ContingentClaims.Valuation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-bond.html">Daml.Finance.Instrument.Bond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-equity.html">Daml.Finance.Instrument.Equity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-generic.html">Daml.Finance.Instrument.Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-swap.html">Daml.Finance.Instrument.Swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-token.html">Daml.Finance.Instrument.Token</a></li>
 </ul>
 </li>
 </ul>
@@ -210,8 +266,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/getting-started/lifecycling.html#summary">Summary</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#daml-finance">Daml Finance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#daml-finance-reference-app">Daml Finance Reference App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#quickstart">Quickstart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#reference-app">Reference App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#create-your-own-app">Create your own App</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#next-steps">Next Steps</a></li>
 </ul>
 </li>
@@ -224,7 +281,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html">How to Lifecycle a Bond Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#create-a-fixed-rate-bond-instrument">Create a Fixed-Rate Bond Instrument</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#define-the-clock-for-time-based-events">Define the Clock for Time-Based Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#define-a-lifecycle-event">Define a lifecycle event</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#lifecycle-the-bond-instrument">Lifecycle the Bond Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#settle-the-instructions">Settle the Instructions</a></li>
 </ul>
@@ -235,7 +292,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/swap-extension.html#frequently-asked-questions">Frequently Asked Questions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html">How To Use the Generic Extension To Model Generic Instruments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html">How To Model and Lifecycle Generic Instruments</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-create-a-generic-instrument">How To Create a Generic Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-trade-and-transfer-a-generic-instrument">How To Trade and Transfer a Generic Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-process-lifecycle-events">How to Process Lifecycle Events</a></li>
@@ -244,7 +301,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#template-definition">Template Definition</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#hasclaims-interface">HasClaims Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#the-claims-interface">The Claims Interface</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#how-to-define-the-redemption-claim">How to Define the Redemption Claim</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#how-to-define-the-coupon-claims">How to Define the Coupon Claims</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#how-the-instrument-evolves-over-time">How the Instrument Evolves Over Time</a></li>
@@ -288,6 +345,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Claim.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Internal-Claim.html">ContingentClaims.Core.Internal.Claim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Internal-Claim.html#data-types">Data Types</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Observation.html">ContingentClaims.Core.Observation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Observation.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Observation.html#functions">Functions</a></li>
@@ -321,8 +382,16 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Account-Util.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Lifecycle-Rule.html">Daml.Finance.Claims.Lifecycle.Rule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Lifecycle-Rule.html#templates">Templates</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util.html">Daml.Finance.Claims.Util</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util-Builders.html">Daml.Finance.Claims.Util.Builders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util-Builders.html#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util-Lifecycle.html">Daml.Finance.Claims.Util.Lifecycle</a><ul>
@@ -341,6 +410,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock.html">Daml.Finance.Data.Time.DateClock</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock-Types.html">Daml.Finance.Data.Time.DateClock.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock-Types.html#data-types">Data Types</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Holding-Fungible.html">Daml.Finance.Holding.Fungible</a><ul>
@@ -426,8 +499,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Instrument.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Util.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Lifecycle-Rule.html">Daml.Finance.Instrument.Generic.Lifecycle.Rule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Lifecycle-Rule.html#templates">Templates</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Factory.html">Daml.Finance.Instrument.Swap.Asset.Factory</a><ul>
@@ -529,6 +602,13 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html">Daml.Finance.Interface.Claims.Dynamic.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Types.html">Daml.Finance.Interface.Claims.Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Types.html#data-types">Data Types</a></li>
 </ul>
@@ -565,13 +645,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html#typeclasses">Typeclasses</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html#functions">Functions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html">Daml.Finance.Interface.Holding.Lockable</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#interfaces">Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#typeclasses">Typeclasses</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#data-types">Data Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Transferable.html">Daml.Finance.Interface.Holding.Transferable</a><ul>
@@ -899,6 +972,13 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Instruction.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html">Daml.Finance.Interface.Settlement.RouteProvider</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html">Daml.Finance.Interface.Settlement.Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html#data-types">Data Types</a></li>
 </ul>
@@ -948,9 +1028,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-ElectionEffect.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClock.html">Daml.Finance.Lifecycle.Event.DateClock</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClock.html#templates">Templates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClock.html#data-types">Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClockUpdate.html">Daml.Finance.Lifecycle.Event.DateClockUpdate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClockUpdate.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClockUpdate.html#data-types">Data Types</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-Distribution.html">Daml.Finance.Lifecycle.Event.Distribution</a><ul>
@@ -983,10 +1063,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Util.html#functions">Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Types.html">Daml.Finance.Lifecycle.Types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Types.html#data-types">Data Types</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html">Daml.Finance.Settlement.Batch</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html#data-types">Data Types</a></li>
@@ -1004,6 +1080,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-IntermediatedStatic.html">Daml.Finance.Settlement.RouteProvider.IntermediatedStatic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-IntermediatedStatic.html#templates">Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-SingleCustodian.html">Daml.Finance.Settlement.RouteProvider.SingleCustodian</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-SingleCustodian.html#templates">Templates</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Util-Common.html">Daml.Finance.Util.Common</a><ul>
@@ -1096,6 +1180,18 @@
         <!-- Local TOC -->
         <div class="content-menu-toc"><ul>
 <li><a class="reference internal" href="#">Contingent Claims</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#the-model">The Model</a></li>
+<li><a class="reference internal" href="#composition-and-extensibility">Composition and Extensibility</a></li>
+<li><a class="reference internal" href="#concerning-type-parameters">Concerning Type Parameters</a><ul>
+<li><a class="reference internal" href="#the-time-parameter">The Time Parameter</a></li>
+<li><a class="reference internal" href="#the-asset-parameter">The Asset Parameter</a></li>
+<li><a class="reference internal" href="#the-observation-parameter">The Observation Parameter</a></li>
+<li><a class="reference internal" href="#the-value-parameter">The Value Parameter</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lifecycling">Lifecycling</a></li>
+<li><a class="reference internal" href="#pricing-experimental">Pricing (Experimental)</a></li>
 <li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
@@ -1115,37 +1211,256 @@
             <div itemprop="articleBody">
                 
   <div class="section" id="contingent-claims">
-<h1>Contingent Claims<a class="headerlink" href="#contingent-claims" title="Permalink to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
+<h1>Contingent Claims<a class="headerlink" href="#contingent-claims" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Contingent Claims is a library for modeling financial instruments in Daml. An instrument is
+represented by a tree of <code class="docutils literal notranslate"><span class="pre">Claim</span></code>s, which describe future cashflows between two parties as well
+as the conditions under which these cashflows occur.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ContingentClaims.Lifecycle</span></code> offers lifecycling capabilities, as well as a valuation semantics
+to map a claim to a mathematical expression that can be used for no-arbitrage pricing.</p>
+<p>The implementation closely follows the model outlined in the papers <a class="reference internal" href="#cit1" id="id1"><span>[Cit1]</span></a> and <a class="reference internal" href="#cit2" id="id2"><span>[Cit2]</span></a>.</p>
+<p>An example of how to create and lifecycle contracts using Contingent Claims can be found in
+<a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html"><span class="doc">this tutorial</span></a>.</p>
+<p>In the following we present a user guide for getting started with <code class="docutils literal notranslate"><span class="pre">Contingent</span> <span class="pre">Claims</span></code>-based
+modeling. It is meant to teach the basics of the framework, but does not cover every aspect. The
+work is based on the papers <a class="reference internal" href="#cit1" id="id3"><span>[Cit1]</span></a> and <a class="reference internal" href="#cit2" id="id4"><span>[Cit2]</span></a>, and we recommend that you refer to these for an
+in-depth understanding of how it works.</p>
 </div>
-<p>Contingent Claims is a library for modeling contingent claims, i.e.&nbsp;derivatives,
-written in the smart contract language
-<a class="reference external" href="https://www.digitalasset.com/developers">Daml</a>. Briefly, a
-derivative is represented by a tree of <code class="docutils literal notranslate"><span class="pre">Claim</span></code>s, which describe
-future cashflows between two parties as well as the conditions under
-which these cashflows occur.</p>
-<p>The library offers life-cycling capabilities, as well as a valuation
-semantics that maps a claim to a mathematical expression that can be
-used for no-arbitrage pricing.</p>
-<p>The implementation closely follows the model outlined in the papers <a class="reference internal" href="#cit1" id="id1"><span>[Cit1]</span></a>, <a class="reference internal" href="#cit2" id="id2"><span>[Cit2]</span></a>.</p>
-<p>To get started, we recommend reading through the <a class="reference internal" href="contingent-claims/quickstart.html"><span class="doc">quickstart</span></a> page.</p>
-<p>Examples of how to create and lifecycle contracts can be found across the <cite>Daml Finance</cite> library.</p>
+<div class="section" id="the-model">
+<h2>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
+<p>The approach taken in the papers is to model financial instruments by their cashflows. This should
+be familiar to anyone having taken a course in corporate finance or valuation. Let’s start with an
+example:</p>
+<img alt="Image showing cashflows along a time axis. There are five arrow depicting smaller cashflows, and one final arrow representing a larger (redemption) payment." src="../_images/contingent_claims_cashflows.png" />
+<p>The picture above represents the cashflows of a fixed-rate bond. Or alternatively, you can think of
+it as a mortgage, from the point of view of the bank: there are interest payments at regular
+intervals (the small arrows), and a single repayment of the loan at maturity (the big arrow on the
+right). So how do we go about modelling this?</p>
+<p>We use the following data type, slightly simplified from
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Internal-Claim.html#type-contingentclaims-core-internal-claim-claim-35538"><span class="std std-ref">Claim</span></a>:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span><span class="kt">Claim</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">zero</span><span class="w"></span>
+<span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">give</span><span class="w"> </span><span class="p">(</span><span class="kt">Claim</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">lhs</span><span class="kt">:</span><span class="w"> </span><span class="kt">Claim</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">rhs</span><span class="kt">:</span><span class="w"> </span><span class="kt">Claim</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">lhs</span><span class="kt">:</span><span class="w"> </span><span class="kt">Claim</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">rhs</span><span class="kt">:</span><span class="w"> </span><span class="kt">Claim</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">k</span><span class="kt">:</span><span class="w"> </span><span class="kt">Date</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Decimal</span><span class="p">,</span><span class="w"> </span><span class="n">claim</span><span class="kt">:</span><span class="w"> </span><span class="kt">Claim</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">predicate</span><span class="kt">:</span><span class="w"> </span><span class="kt">Date</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span><span class="p">,</span><span class="w"> </span><span class="n">claim</span><span class="kt">:</span><span class="w"> </span><span class="kt">Claim</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">anytime</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">predicate</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Date</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span><span class="p">,</span><span class="w"> </span><span class="n">claim</span><span class="kt">:</span><span class="w"> </span><span class="kt">Claim</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="kr">with</span><span class="w"> </span><span class="n">predicate</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Date</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span><span class="p">,</span><span class="w"> </span><span class="n">claim</span><span class="kt">:</span><span class="w"> </span><span class="kt">Claim</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+</pre></div>
+</div>
+<p>There are couple of things to consider.</p>
+<p>First note that the constructors of this data type create a tree structure. The leaf constructors
+are <code class="docutils literal notranslate"><span class="pre">zero</span></code> and <code class="docutils literal notranslate"><span class="pre">one</span> <span class="pre">a</span></code>, and the other constructors create branches (observe they call
+<code class="docutils literal notranslate"><span class="pre">Claim</span> <span class="pre">a</span></code> recursively). The constructors are just functions, and can be combined to produce
+complex cashflows. For example, to represent the above bond, we could write the following:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>when <span class="o">(</span><span class="nb">time</span> <span class="o">==</span> t_0<span class="o">)</span> <span class="o">(</span>scale <span class="o">(</span>pure coupon<span class="o">)</span> <span class="o">(</span>one “USD”<span class="o">))</span> <span class="sb">`</span>and<span class="sb">`</span> ...
+</pre></div>
+</div>
+<p>Let’s look at the constructors used in the above expression in more detail:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">one</span> <span class="pre">&quot;USD&quot;</span></code> means that the acquirer of the contract receives one unit of the asset,
+parametrised by <code class="docutils literal notranslate"><span class="pre">a</span></code>, <em>immediately</em>. In this case we use a 3-letter ISO code to represent a
+currency. But you can use your own type to represent any asset.</li>
+<li><code class="docutils literal notranslate"><span class="pre">scale</span> <span class="pre">(pure</span> <span class="pre">coupon)</span></code> modifies the <em>magnitude</em> of the arrow in the diagram. For example, in the
+diagram, the big arrow would have a distinct scale factor from the small arrows. In our example,
+the scale factor is constant: <code class="docutils literal notranslate"><span class="pre">pure</span> <span class="pre">coupon</span> <span class="pre">=</span> <span class="pre">const</span> <span class="pre">coupon</span></code>, however, it’s possible to have a
+scale factor that varies on an unobserved value, such as a stock price, the weather, or any other
+measurable quantity.</li>
+<li><code class="docutils literal notranslate"><span class="pre">when</span> <span class="pre">(time</span> <span class="pre">==</span> <span class="pre">t_0)</span></code> tells us where along the x-axis the arrow is placed, i.e.,&nbsp;it modifies the
+moment the claim is acquired. The convention is that this must be the first instant that the
+predicate (<code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">==</span> <span class="pre">t_0</span></code> in this case) is true. In our example it is a point, but again, we
+could have used an expression with an unknown quantity, for example <code class="docutils literal notranslate"><span class="pre">spotPrice</span> <span class="pre">&gt;</span> <span class="pre">pure</span> <span class="pre">k</span></code>, and
+it would trigger <em>the first instant</em> that the expression becomes true.</li>
+<li><code class="docutils literal notranslate"><span class="pre">and</span></code> is used to chain multiple expressions together. Remember that in the <code class="docutils literal notranslate"><span class="pre">data</span></code> definition
+above, each constructor is a function: <code class="docutils literal notranslate"><span class="pre">and</span> <span class="pre">:</span> <span class="pre">Claim</span> <span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">Claim</span> <span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">Claim</span> <span class="pre">a</span></code>. We use the Daml
+backtick syntax to write <code class="docutils literal notranslate"><span class="pre">and</span></code> as an infix operator, for legibility.</li>
+</ul>
+<p>Additionally we have several constructors which we’ve not used in this example:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">zero</span></code>, used to indicate an absence of obligations. While it may not make sense to create a
+<code class="docutils literal notranslate"><span class="pre">zero</span></code> claim, it could, for example, result from applying a function on a tree of claims.</li>
+<li><code class="docutils literal notranslate"><span class="pre">give</span></code> would flip the direction of the arrows in our diagram. For example, in a swap we could
+use <code class="docutils literal notranslate"><span class="pre">give</span></code> to distinguishing the received/paid legs.</li>
+<li><code class="docutils literal notranslate"><span class="pre">or</span></code> is used to give the bearer the right to choose between two different claims.</li>
+<li><code class="docutils literal notranslate"><span class="pre">anytime</span></code> is like <code class="docutils literal notranslate"><span class="pre">when</span></code>, except it allows the bearer to choose (vs.&nbsp;no choice) acquisition
+in a <em>region</em> (vs.&nbsp;a point).</li>
+<li><code class="docutils literal notranslate"><span class="pre">until</span></code> is used to adjust the expiration (<em>horizon</em> in <a class="reference internal" href="#cit1" id="id5"><span>[Cit1]</span></a>) of a claim. Typically it is
+used with <code class="docutils literal notranslate"><span class="pre">anytime</span></code> to limit aforesaid acquisition region.</li>
+</ul>
+<p>The tree produced by our expression is pictured below:</p>
+<img alt="Image showing a tree made up of the above described nodes types." src="../_images/contingent_claims_tree.png" />
+</div>
+<div class="section" id="composition-and-extensibility">
+<h2>Composition and Extensibility<a class="headerlink" href="#composition-and-extensibility" title="Permalink to this headline">¶</a></h2>
+<p>Although we could model every subsequent arrow the way we did the first one, as good programmers we
+wish to avoid repeating ourselves. Hence, we could write functions to re-use subexpressions of the
+tree. But which parts should we factor out? It turns out that Finance 101 comes to the rescue
+again. Fixed income practitioners will typically model a fixed-rate bond as a sum of zero-coupon
+bonds. That’s how we model them in <code class="docutils literal notranslate"><span class="pre">`Financial.daml</span></code> &lt;./daml/ContingentClaims/Financial.daml&gt;`__.
+Below are slightly simplified versions:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="nf">zcb</span><span class="w"> </span><span class="n">maturity</span><span class="w"> </span><span class="n">principal</span><span class="w"> </span><span class="n">asset</span><span class="w"> </span><span class="ow">=</span><span class="w"></span>
+<span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="p">(</span><span class="n">time</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">maturity</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">scale</span><span class="w"> </span><span class="p">(</span><span class="kt">O</span><span class="o">.</span><span class="n">pure</span><span class="w"> </span><span class="n">principal</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">one</span><span class="w"> </span><span class="n">asset</span><span class="p">))</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Here we’ve just wrapped our expression from the previous section in a function <code class="docutils literal notranslate"><span class="pre">zcb</span></code>, that we can
+reuse to build the <code class="docutils literal notranslate"><span class="pre">fixed</span></code>-rate bond:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="nf">fixed</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">Decimal</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Decimal</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Date</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Claim</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="nf">fixed</span><span class="w"> </span><span class="n">principal</span><span class="w"> </span><span class="n">coupon</span><span class="w"> </span><span class="n">asset</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">zero</span><span class="w"></span>
+<span class="nf">fixed</span><span class="w"> </span><span class="n">principal</span><span class="w"> </span><span class="n">coupon</span><span class="w"> </span><span class="n">asset</span><span class="w"> </span><span class="p">[</span><span class="n">maturity</span><span class="p">]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">zcb</span><span class="w"> </span><span class="n">maturity</span><span class="w"> </span><span class="n">coupon</span><span class="w"> </span><span class="n">asset</span><span class="w"> </span><span class="p">`</span><span class="n">and</span><span class="p">`</span><span class="w"> </span><span class="n">zcb</span><span class="w"> </span><span class="n">maturity</span><span class="w"> </span><span class="n">principal</span><span class="w"> </span><span class="n">asset</span><span class="w"></span>
+<span class="nf">fixed</span><span class="w"> </span><span class="n">principal</span><span class="w"> </span><span class="n">coupon</span><span class="w"> </span><span class="n">asset</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="n">ts</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">zcb</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="n">coupon</span><span class="w"> </span><span class="n">asset</span><span class="w"> </span><span class="p">`</span><span class="n">and</span><span class="p">`</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="n">principal</span><span class="w"> </span><span class="n">coupon</span><span class="w"> </span><span class="n">asset</span><span class="w"> </span><span class="n">ts</span><span class="w"></span>
+</pre></div>
+</div>
+<p>We define the fixed rate bond by induction, iterating over a list of dates <code class="docutils literal notranslate"><span class="pre">[t]</span></code>, and producing
+multiple zero-coupon bonds <code class="docutils literal notranslate"><span class="pre">zcb</span></code> combined together with <code class="docutils literal notranslate"><span class="pre">and</span></code>:</p>
+<ul class="simple">
+<li>The first definition covers the trivial case where we pass an empty list of dates.</li>
+<li>The second definition handles the base case, at maturity: we create both a coupon (interest)
+payment, and the principal payment.</li>
+<li>The third definition is the induction step; it peels the first element off the list, and calls
+itself recursively on the tail of the list, until it reaches the base case at maturity.</li>
+</ul>
+<p>This re-use of code is prevalent throughout the library. It’s great as it mirrors how instruments
+are defined in the industry. Let’s look at yet another example, a fixed vs floating USD/EUR swap.</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="w"> </span><span class="kt">Ccy</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Text</span><span class="w"></span>
+<span class="nf">usdVsEur</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="p">[</span><span class="kt">Date</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Claim</span><span class="w"> </span><span class="kt">Ccy</span><span class="w"></span>
+<span class="nf">usdVsEur</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="mf">100.0</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="s">&quot;USD&quot;</span><span class="w"> </span><span class="p">`</span><span class="n">swap</span><span class="p">`</span><span class="w"> </span><span class="n">floating</span><span class="w"> </span><span class="p">(</span><span class="n">spot</span><span class="w"> </span><span class="s">&quot;EURUSD&quot;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pure</span><span class="w"> </span><span class="mf">100.0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">spot</span><span class="w"> </span><span class="s">&quot;EURUSD&quot;</span><span class="p">)</span><span class="w"> </span><span class="s">&quot;EUR&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>We define it in terms of its two legs, <code class="docutils literal notranslate"><span class="pre">fixed</span></code> and <code class="docutils literal notranslate"><span class="pre">floating</span></code>, which themselves are functions.
+We use <code class="docutils literal notranslate"><span class="pre">swap</span></code> in infix form, and partially apply it - it takes a final <code class="docutils literal notranslate"><span class="pre">[Date]</span></code> argument which
+we omit, hence the resulting signature <code class="docutils literal notranslate"><span class="pre">[Date]</span> <span class="pre">-&gt;</span> <span class="pre">Claim</span> <span class="pre">Ccy</span></code>.</p>
+<p>As you can see, not only is this approach highly composable, but it also mirrors the way derivative
+instruments are modelled in finance.</p>
+<p>Another major advantage of this approach is its extensibility. Unlike a traditional approach, where
+we might in an object-oriented language represent different instruments as classes, in the cashflow
+approach, we do not need to enumerate possible asset classes/instruments <em>a priori</em>. This is
+especially relevant in a distributed setting, where parties must execute the same code, i.e., have
+the same <code class="docutils literal notranslate"><span class="pre">*.dar</span></code>s on their ledger to interact. In other words, party A can issue a new
+instrument, or even write a new combinator function that is in a private <code class="docutils literal notranslate"><span class="pre">*.dar</span></code>, while being able
+to trade with party B, who has no knowledge of this new <code class="docutils literal notranslate"><span class="pre">*.dar</span></code>.</p>
+</div>
+<div class="section" id="concerning-type-parameters">
+<h2>Concerning Type Parameters<a class="headerlink" href="#concerning-type-parameters" title="Permalink to this headline">¶</a></h2>
+<p>The curious reader may have noticed that the signature we gave for <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">Claim</span></code> is not quite what
+is in the library, where we have <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">Claim</span> <span class="pre">t</span> <span class="pre">x</span> <span class="pre">a</span> <span class="pre">o</span></code>. In our examples, we have specialised this
+to <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">Claim'</span> <span class="pre">t</span> <span class="pre">x</span> <span class="pre">a</span> <span class="pre">o</span> <span class="pre">=</span> <span class="pre">Claim</span> <span class="pre">Date</span> <span class="pre">Decimal</span> <span class="pre">a</span> <span class="pre">a</span></code>. Parametrising these variables allows us to
+reason about <code class="docutils literal notranslate"><span class="pre">Asset</span></code>s and <code class="docutils literal notranslate"><span class="pre">Observation</span></code>s that appear in<code class="docutils literal notranslate"><span class="pre">Claim</span></code>s as function-like
+objects. The main use of this is to create claims with ‘placeholders’ for actual parameters, that
+can later be ‘filled in’ by mapping over them (<code class="docutils literal notranslate"><span class="pre">mapParams</span></code>).</p>
+<div class="section" id="the-time-parameter">
+<h3>The Time Parameter<a class="headerlink" href="#the-time-parameter" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">t</span></code> is used to represent the first input argument to an <code class="docutils literal notranslate"><span class="pre">Observation</span></code>, and above we used
+<code class="docutils literal notranslate"><span class="pre">Date</span></code> for this purpose. One reason this has been left parametrised is to be able to distinguish
+different calendar and day count conventions at the type level. This is quite a technical topic, but
+it suffices to know that for financial calculations, interest is not always accrued the same way,
+nor is settlement possible every day, as this depends on local jurisdictions or market conventions.
+Having different types makes this explicit at the instrument level.</p>
+<p>Another use for this is expressing time as an ordinal values, representing e.g.&nbsp;days from issue.
+Such a <code class="docutils literal notranslate"><span class="pre">Claim</span></code> can be used repeatedly to list at different dates, but with the same durations.
+Think for example, of series of listed futures or options which are issued with quarterly/monthly
+maturities - their duration is about the same, but they are issued on different dates.</p>
+</div>
+<div class="section" id="the-asset-parameter">
+<h3>The Asset Parameter<a class="headerlink" href="#the-asset-parameter" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">a</span></code>, as we already explained, is the type used to represent assets in our program. Keeping this
+generic means the library can be used with any asset representation. For example, you could use one
+of the instrument implementations in <a class="reference external" href="https://github.com/digital-asset/daml-finance">Daml Finance</a>, but are not forced to do so.</p>
+</div>
+<div class="section" id="the-observation-parameter">
+<h3>The Observation Parameter<a class="headerlink" href="#the-observation-parameter" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">o</span></code> is the type used to represent <code class="docutils literal notranslate"><span class="pre">Observation</span></code>s, which are time-dependent quantities that can
+be observed at any given time (such as the “EURUSD” exchange rate in the example above).</p>
+</div>
+<div class="section" id="the-value-parameter">
+<h3>The Value Parameter<a class="headerlink" href="#the-value-parameter" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> is the ‘output’ type of an <code class="docutils literal notranslate"><span class="pre">Observation</span></code>, but it can also serve as input when defining a
+constant observation using, e.g.,&nbsp;<code class="docutils literal notranslate"><span class="pre">Observation.pure</span> <span class="pre">10.08</span></code>.</p>
+</div>
+</div>
+<div class="section" id="lifecycling">
+<h2>Lifecycling<a class="headerlink" href="#lifecycling" title="Permalink to this headline">¶</a></h2>
+<p>So far we’ve learned how to model arbitrary financial instruments by representing them as trees of
+cashflows. We’ve seen that these trees can be constructed using the type constructors of
+<code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">Claim</span></code>, and that they can be factored into more complex building blocks using function
+composition. But now that we have these trees, what can we do with them?</p>
+<p>The original paper <a class="reference internal" href="#cit1" id="id6"><span>[Cit1]</span></a> focuses on using these trees for valuing the instruments they represent,
+i.e.,&nbsp;finding the ‘fair price’ that one should pay for these cashflows. Instead, we’ll focus here on
+a different use-case: the lifecycling (aka safekeeping, processing corporate actions) of these
+instruments.</p>
+<p>Let’s go back to our fixed-rate bond example, above. We want to process the coupon payments. There
+is a function in <code class="docutils literal notranslate"><span class="pre">`Lifecycle.daml</span></code> &lt;./daml/ContingentClaims/Lifecycle.daml&gt;`__ for doing just
+this:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Claim</span><span class="w"> </span><span class="kt">Observation</span><span class="w"> </span><span class="kt">Date</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+
+<span class="kr">data</span><span class="w"> </span><span class="kt">Result</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Result</span><span class="w"> </span><span class="kr">with</span><span class="w"></span>
+<span class="w">  </span><span class="n">remaining</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w">  </span><span class="n">pending</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="p">[(</span><span class="kt">Decimal</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)]</span><span class="w"></span>
+
+<span class="nf">lifecycle</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="p">(</span><span class="kt">Eq</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">CanAbort</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Date</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="kt">Decimal</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w">  </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Date</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="p">(</span><span class="kt">Result</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This may look daunting, but let’s look at an example in <code class="docutils literal notranslate"><span class="pre">`Test/FinancialContract.daml</span></code>
+&lt;test/daml/Test/FinancialContract.daml&gt;`__ to see this in action:</p>
+<div class="highlight-daml notranslate"><div class="highlight"><pre><span></span><span class="kr">do</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">toDateUTC</span><span class="w"> </span><span class="o">&lt;$&gt;</span><span class="w"> </span><span class="n">getTime</span><span class="w"></span>
+<span class="w">   </span><span class="kr">let</span><span class="w"> </span><span class="n">getSpotRate</span><span class="w"> </span><span class="n">isin</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="w">         </span><span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="w"> </span><span class="kt">Quote</span><span class="p">{</span><span class="n">close</span><span class="p">})</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">fetchByKey</span><span class="w"> </span><span class="p">(</span><span class="n">isin</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">bearer</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">pure</span><span class="w"> </span><span class="n">close</span><span class="w"></span>
+<span class="w">   </span><span class="n">lifecycleResult</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="kt">Lifecycle</span><span class="o">.</span><span class="n">lifecycle</span><span class="w"> </span><span class="n">getSpotRate</span><span class="w"> </span><span class="n">claims</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The first argument to lifecycle, <code class="docutils literal notranslate"><span class="pre">getSpotRate</span></code>, is a function taking an ISIN (security) code, and
+today’s date. All this does is fetch a contract from the ledger that is keyed by these two values,
+and extract the <code class="docutils literal notranslate"><span class="pre">close</span></code>ing price of the security.</p>
+<p>The last two arguments are simply the claims we wish to process, and today’s date, evaluated using
+<code class="docutils literal notranslate"><span class="pre">getTime</span></code>.</p>
+<p>The return value, <code class="docutils literal notranslate"><span class="pre">lifecycleResult</span></code>, will contain both the remaining tree after lifecycling, and
+any assets that need to be settled. In our running bond example, we would extract the <code class="docutils literal notranslate"><span class="pre">coupon</span></code>
+from the first payment, and return it, along with the rest of the tree, after that branch has been
+pruned (depicted greyed-out below):</p>
+<img alt="Image showing the same tree as above, with parts of the tree greyed out." src="../_images/contingent_claims_tree_lifecycle.png" />
+<p>You may wonder why we’ve separated the settlement procedure from the lifecycling function. The
+reason is that we can’t assume that settlement will happen on-chain; if it does, that is great, as
+we can embed this call into a template choice, and lifecycle and settle atomically. However, in the
+case where settlement must happen off-chain, there’s no way to to do this in one step. This design
+supports both choices.</p>
+</div>
+<div class="section" id="pricing-experimental">
+<h2>Pricing (Experimental)<a class="headerlink" href="#pricing-experimental" title="Permalink to this headline">¶</a></h2>
+<p>This is an <strong>experimental</strong> feature. Expect breaking changes.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ContigentClaims.Valuation.Stochastic</span></code> module can be used for valuation. There is a <code class="docutils literal notranslate"><span class="pre">fapf</span></code>
+function which is used to derive a <em>fundamental asset pricing formula</em> for an arbitrary <code class="docutils literal notranslate"><span class="pre">Claim</span></code>
+tree. The resulting AST is represented by <code class="docutils literal notranslate"><span class="pre">Expr</span></code>, but can be rendered as XML/MathML with the
+provided <code class="docutils literal notranslate"><span class="pre">MathML.presentation</span></code> function, for display in a web browser. See the <code class="docutils literal notranslate"><span class="pre">Test/Pricing</span></code>
+module for examples. Here is a sample rendering of a margrabe option:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">math</span> <span class="na">display</span><span class="o">=</span><span class="s">&quot;block&quot;</span><span class="p">&gt;&lt;</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>USD<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>t<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;/</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>⁢<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>𝔼<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>⁡<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">mrow</span><span class="p">&gt;&lt;</span><span class="nt">mo</span> <span class="na">fence</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>[<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">mrow</span><span class="p">&gt;&lt;</span><span class="nt">mo</span> <span class="na">fence</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>(<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>I<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">mrow</span><span class="p">&gt;&lt;</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>AMZN<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>T<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;/</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>-<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>APPL<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>T<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;/</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>≤<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">mn</span><span class="p">&gt;</span>0.0<span class="p">&lt;/</span><span class="nt">mn</span><span class="p">&gt;&lt;/</span><span class="nt">mrow</span><span class="p">&gt;&lt;/</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>⁢<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">mrow</span><span class="p">&gt;&lt;</span><span class="nt">mo</span> <span class="na">fence</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>(<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>AMZN<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>T<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;/</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>-<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>APPL<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>T<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;/</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mo</span> <span class="na">fence</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>)<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;/</span><span class="nt">mrow</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>+<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>I<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">mrow</span><span class="p">&gt;&lt;</span><span class="nt">mn</span><span class="p">&gt;</span>0.0<span class="p">&lt;/</span><span class="nt">mn</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>≤<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>AMZN<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>T<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;/</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>-<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>APPL<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>T<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;/</span><span class="nt">msub</span><span class="p">&gt;&lt;/</span><span class="nt">mrow</span><span class="p">&gt;&lt;/</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>×<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">mn</span><span class="p">&gt;</span>0.0<span class="p">&lt;/</span><span class="nt">mn</span><span class="p">&gt;&lt;</span><span class="nt">mo</span> <span class="na">fence</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>)<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;/</span><span class="nt">mrow</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>⁢<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">msup</span><span class="p">&gt;&lt;</span><span class="nt">mrow</span><span class="p">&gt;&lt;</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>USD<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>T<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;/</span><span class="nt">msub</span><span class="p">&gt;&lt;/</span><span class="nt">mrow</span><span class="p">&gt;&lt;</span><span class="nt">mrow</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>-<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">mn</span><span class="p">&gt;</span>1.0<span class="p">&lt;/</span><span class="nt">mn</span><span class="p">&gt;&lt;/</span><span class="nt">mrow</span><span class="p">&gt;&lt;/</span><span class="nt">msup</span><span class="p">&gt;&lt;</span><span class="nt">mo</span><span class="p">&gt;</span>|<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mo</span> <span class="na">mathvariant</span><span class="o">=</span><span class="s">&quot;script&quot;</span><span class="p">&gt;</span>F<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;</span><span class="nt">mi</span><span class="p">&gt;</span>t<span class="p">&lt;/</span><span class="nt">mi</span><span class="p">&gt;&lt;/</span><span class="nt">msub</span><span class="p">&gt;&lt;</span><span class="nt">mo</span> <span class="na">fence</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>]<span class="p">&lt;/</span><span class="nt">mo</span><span class="p">&gt;&lt;/</span><span class="nt">mrow</span><span class="p">&gt;&lt;/</span><span class="nt">math</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>You can cut-and-paste this into a web page in ‘developer mode’ in any modern browser.</p>
+</div>
 <div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <table class="docutils citation" frame="void" id="cit1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[Cit1]</a></td><td>Jones, S. Peyton, Jean-Marc Eber, and Julian Seward. “Composing contracts: an adventure in financial engineering.” ACM SIG-PLAN Notices 35.9 (2000): 280-292.</td></tr>
+<tr><td class="label">[Cit1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id3">2</a>, <a class="fn-backref" href="#id5">3</a>, <a class="fn-backref" href="#id6">4</a>)</em> Jones, S. Peyton, Jean-Marc Eber, and Julian Seward. “Composing contracts: an adventure in
+financial engineering.” ACM SIG-PLAN Notices 35.9 (2000): 280-292.</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="cit2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[Cit2]</a></td><td>Jones, SL Peyton, and J. M. Eber. “How to write a financial contract”, volume “Fun Of Programming” of “Cornerstones of Computing.” (2005).</td></tr>
+<tr><td class="label">[Cit2]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id4">2</a>)</em> Jones, SL Peyton, and J. M. Eber. “How to write a financial contract”, volume “Fun Of
+Programming” of “Cornerstones of Computing.” (2005).</td></tr>
 </tbody>
 </table>
-<p>The papers can be downloaded from <a class="reference external" href="https://www.microsoft.com/en-us/research/publication/composing-contracts-an-adventure-in-financial-engineering/">Microsoft
-Research</a>.</p>
+<p>The papers can be downloaded from
+<a class="reference external" href="https://www.microsoft.com/en-us/research/publication/composing-contracts-an-adventure-in-financial-engineering/">Microsoft Research</a>.</p>
 </div>
 </div>
 
@@ -1164,7 +1479,7 @@ Research</a>.</p>
         <a href="lifecycling.html" class="da-btn da-btn-label btn-prev" title="Lifecycling" accesskey="p" rel="prev">Previous</a>
       
       
-        <a href="contingent-claims/quickstart.html" class="da-btn da-btn-label btn-next" title="Contingent Claims Quickstart" accesskey="n" rel="next">Next</a>
+        <a href="../packages/index.html" class="da-btn da-btn-label btn-next" title="Packages" accesskey="n" rel="next">Next</a>
       
     </div>
   

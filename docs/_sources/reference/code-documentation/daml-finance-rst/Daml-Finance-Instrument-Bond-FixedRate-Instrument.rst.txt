@@ -46,7 +46,7 @@ Templates
        - The schedule for the periodic coupon payments\.
      * - holidayCalendarIds
        - \[`Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_\]
-       - The identifier of the holiday calendar to be used for the coupon schedule\.
+       - The identifiers of the holiday calendars to be used for the coupon schedule\.
      * - calendarDataProvider
        - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
        - The reference data provider to use for the holiday calendar\.
@@ -69,11 +69,11 @@ Templates
 
   + **interface instance** :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` **for** `Instrument <type-daml-finance-instrument-bond-fixedrate-instrument-instrument-23814_>`_
 
+  + **interface instance** :ref:`I <type-daml-finance-interface-claims-dynamic-instrument-i-39105>` **for** `Instrument <type-daml-finance-instrument-bond-fixedrate-instrument-instrument-23814_>`_
+
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>` **for** `Instrument <type-daml-finance-instrument-bond-fixedrate-instrument-instrument-23814_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-bond-fixedrate-instrument-i-93672>` **for** `Instrument <type-daml-finance-instrument-bond-fixedrate-instrument-instrument-23814_>`_
-
-  + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>` **for** `Instrument <type-daml-finance-instrument-bond-fixedrate-instrument-instrument-23814_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Instrument <type-daml-finance-instrument-bond-fixedrate-instrument-instrument-23814_>`_
 

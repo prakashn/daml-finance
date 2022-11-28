@@ -17,8 +17,8 @@ Interfaces
 
   + **Choice Apply**
 
-    Applies the election to the instrument, returning the new instrument as well
-    as the corresponding effects\. The election is archived as part of this choice\.
+    Applies the election to the instrument, returning the new instrument as well as the
+    corresponding effects\. The election is archived as part of this choice\.
 
     .. list-table::
        :widths: 15 10 30
@@ -27,12 +27,12 @@ Interfaces
        * - Field
          - Type
          - Description
-       * - clockCid
-         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-timeobservable-i-64066>`
-         - Current time\.
        * - observableCids
          - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-numericobservable-i-62705>`\]
          - Set of observables\.
+       * - exercisableCid
+         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711_>`_
+         - The contract that is used to apply an election to the instrument\.
 
   + **Choice GetView**
 
@@ -74,9 +74,6 @@ Interfaces
        * - Field
          - Type
          - Description
-       * - clockCid
-         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-timeobservable-i-64066>`
-         - Current time\. This is also an observable, but not a strictly 'Decimal' one\.
        * - electionCid
          - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Election <type-daml-finance-interface-instrument-generic-election-election-25324_>`_
          - The election\.
@@ -99,13 +96,9 @@ Interfaces
          - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
          - The party retrieving the view\.
 
-  + **Method applyElection \:** ApplyElection \-\> `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711_>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>`, \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>`\])
+  + **Method applyElection \:** ApplyElection \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`, \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>`\])
 
     Implementation of the ``ApplyElection`` choice\.
-
-  + **Method asLifecycle \:** :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>`
-
-    Conversion to ``Lifecycle`` interface\.
 
 Typeclasses
 -----------
@@ -119,8 +112,6 @@ Typeclasses
 
 **class** `ExercisableImplementation <type-daml-finance-interface-instrument-generic-election-exercisableimplementation-45207_>`_ t \=\> `ExercisableHasImplementation <class-daml-finance-interface-instrument-generic-election-exercisablehasimplementation-16317_>`_ t **where**
 
-  **instance** `ExercisableHasImplementation <class-daml-finance-interface-instrument-generic-election-exercisablehasimplementation-16317_>`_ :ref:`T <type-daml-finance-instrument-generic-instrument-t-12893>`
-
   **instance** `ExercisableHasImplementation <class-daml-finance-interface-instrument-generic-election-exercisablehasimplementation-16317_>`_ `Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711_>`_
 
 Data Types
@@ -129,9 +120,9 @@ Data Types
 .. _type-daml-finance-interface-instrument-generic-election-exercisableimplementation-45207:
 
 **type** `ExercisableImplementation <type-daml-finance-interface-instrument-generic-election-exercisableimplementation-45207_>`_ t
-  \= (`HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t `Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711_>`_, :ref:`Implementation <type-daml-finance-interface-lifecycle-rule-lifecycle-implementation-48349>` t)
+  \= `HasToInterface <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-interface-hastointerface-68104>`_ t `Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711_>`_
 
-  Type constraint for requiring templates to implement ``Exercisable`` along with ``Lifecycle``\.
+  Type constraint for requiring templates to implement ``Exercisable``\.
 
 .. _type-daml-finance-interface-instrument-generic-election-exercisableview-40272:
 
@@ -222,7 +213,7 @@ Data Types
          - number of instrument units to which the election applies
        * - provider
          - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
-         - party that is authorized to process the election and generate the new instrument version \+ effects
+         - party that is authorized to process the election and generate the new instrument version and effects
        * - instrument
          - :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`
          - the instrument to which the election applies
@@ -251,12 +242,7 @@ Functions
 
   Retrieves the election's time\.
 
-.. _function-daml-finance-interface-instrument-generic-election-aslifecycle-31618:
-
-`asLifecycle <function-daml-finance-interface-instrument-generic-election-aslifecycle-31618_>`_
-  \: `Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711_>`_ \-\> :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>`
-
 .. _function-daml-finance-interface-instrument-generic-election-applyelection-46753:
 
 `applyElection <function-daml-finance-interface-instrument-generic-election-applyelection-46753_>`_
-  \: `Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711_>`_ \-\> ApplyElection \-\> `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711_>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>`, \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>`\])
+  \: `Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711_>`_ \-\> ApplyElection \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`, \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>`\])

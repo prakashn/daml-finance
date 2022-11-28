@@ -122,9 +122,9 @@ Functions
   \: (`Number <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-num-number-53664>`_ x, `Divisible <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-num-divisible-86689>`_ x, `Action <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-prelude-action-68790>`_ m) \=\> (o \-\> t \-\> m x) \-\> `Observation <type-contingentclaims-core-observation-observation-91686_>`_ t x o \-\> t \-\> m x
 
   Reify the ``Observation`` into an observation function\.
-  This function is used to convert an abstract observation, e\.g\. ``LIBOR 3M + 0.005`` to the actual observation function ``t -> m x``\.
-
-  The function is only total when the first argument is too (typically it will fail on ``t`` \> today)\.
+  This function is used to convert an abstract observation, e\.g\. ``LIBOR 3M + 0.005`` to the actual
+  observation function ``t -> m x``\. The function is only total when the first argument is too
+  (typically it will fail on ``t`` \> today)\.
 
 .. _function-contingentclaims-core-observation-mapparams-29594:
 

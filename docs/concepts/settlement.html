@@ -30,7 +30,6 @@
   <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
   <script src="../_static/jquery.js"></script>
   <script src="../_static/underscore.js"></script>
-  <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
   <script src="../_static/doctools.js"></script>
   <script src="../_static/clipboard.min.js"></script>
   <script src="../_static/copybutton.js"></script>
@@ -97,8 +96,20 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview/architecture.html">Architecture</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#interface-layer">Interface Layer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#implementation-layer">Implementation Layer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#how-to-use-the-library">How To Use the Library</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#extension-points">Extension Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/architecture.html#versioning-and-compatibility">Versioning and Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/building-applications.html">Building Applications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../overview/building-applications.html#installing-daml-finance">Installing Daml Finance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/building-applications.html#application-architecture">Application Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/extending-daml-finance.html">Extending Daml Finance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-holding-implementations">Custom Holding Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-account-implementations">Custom Account Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-instrument-implementations">Custom Instrument Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-lifecycle-implementations">Custom Lifecycle Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview/extending-daml-finance.html#custom-settlement-implementations">Custom Settlement Implementations</a></li>
 </ul>
 </li>
 </ul>
@@ -143,6 +154,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#the-components-in-detail">The components in detail</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#route-provider">Route provider</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#settlement-factory">Settlement factory</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#instruction">Instruction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#batch">Batch</a></li>
@@ -152,35 +164,79 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lifecycling.html">Lifecycling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#events">Events</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#intrinsic">Intrinsic</a></li>
-<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#extrinsic">Extrinsic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#approach">Approach</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#single-source-of-truth">Single Source of Truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#instrument-versioning">Instrument Versioning</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#instrument-versions">Instrument Versions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#effects">Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#workflow">Workflow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#creating-the-event">Creating the event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#processing-the-event">Processing the event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#claiming-the-effect">Claiming the effect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#settlement">Settlement</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lifecycling.html#components">Components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#events">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#lifecycle-rule">Lifecycle Rule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#claim-rule">Claim Rule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lifecycling.html#effects">Effects</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="contingent-claims.html">Contingent Claims</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contingent-claims/quickstart.html">Quickstart</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="contingent-claims/quickstart.html#the-model">The Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#the-model">The Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#composition-and-extensibility">Composition and Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#concerning-type-parameters">Concerning Type Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contingent-claims.html#the-time-parameter">The Time Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contingent-claims.html#the-asset-parameter">The Asset Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contingent-claims.html#the-observation-parameter">The Observation Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contingent-claims.html#the-value-parameter">The Value Parameter</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#lifecycling">Lifecycling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#pricing-experimental">Pricing (Experimental)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contingent-claims.html#references">References</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../packages/index.html">Packages</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../packages/intro.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../packages/core-interfaces.html">Core Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../packages/core-implementations.html">Core Implementations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../packages/instrument-extensions.html">Instrument Extensions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#tokens">Tokens</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#bonds">Bonds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#swaps">Swaps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#equity">Equity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packages/instrument-extensions.html#generic">Generic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packages/interfaces/index.html">Interface Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-holding.html">Daml.Finance.Interface.Holding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-account.html">Daml.Finance.Interface.Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-settlement.html">Daml.Finance.Interface.Settlement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-lifecycle.html">Daml.Finance.Interface.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-base.html">Daml.Finance.Interface.Instrument.Base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-data.html">Daml.Finance.Interface.Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-claims.html">Daml.Finance.Interface.Claims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-types.html">Daml.Finance.Interface.Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-util.html">Daml.Finance.Interface.Util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/contingent-claims-core.html">ContingentClaims.Core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-bond.html">Daml.Finance.Interface.Instrument.Bond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-equity.html">Daml.Finance.Interface.Instrument.Equity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-generic.html">Daml.Finance.Interface.Instrument.Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-swap.html">Daml.Finance.Interface.Instrument.Swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/interfaces/daml-finance-interface-instrument-token.html">Daml.Finance.Interface.Instrument.Token</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../packages/implementations/index.html">Implementation Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-holding.html">Daml.Finance.Holding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-account.html">Daml.Finance.Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-settlement.html">Daml.Finance.Settlement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-lifecycle.html">Daml.Finance.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-data.html">Daml.Finance.Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-claims.html">Daml.Finance.Claims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-util.html">Daml.Finance.Util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/contingent-claims-lifecycle.html">ContingentClaims.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/contingent-claims-valuation.html">ContingentClaims.Valuation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-bond.html">Daml.Finance.Instrument.Bond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-equity.html">Daml.Finance.Instrument.Equity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-generic.html">Daml.Finance.Instrument.Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-swap.html">Daml.Finance.Instrument.Swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/implementations/daml-finance-instrument-token.html">Daml.Finance.Instrument.Token</a></li>
 </ul>
 </li>
 </ul>
@@ -210,8 +266,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/getting-started/lifecycling.html#summary">Summary</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#daml-finance">Daml Finance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#daml-finance-reference-app">Daml Finance Reference App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#quickstart">Quickstart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#reference-app">Reference App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#create-your-own-app">Create your own App</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/getting-started/intro.html#next-steps">Next Steps</a></li>
 </ul>
 </li>
@@ -224,7 +281,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html">How to Lifecycle a Bond Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#create-a-fixed-rate-bond-instrument">Create a Fixed-Rate Bond Instrument</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#define-the-clock-for-time-based-events">Define the Clock for Time-Based Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#define-a-lifecycle-event">Define a lifecycle event</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#lifecycle-the-bond-instrument">Lifecycle the Bond Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/bond-lifecycling.html#settle-the-instructions">Settle the Instructions</a></li>
 </ul>
@@ -235,7 +292,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/swap-extension.html#frequently-asked-questions">Frequently Asked Questions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html">How To Use the Generic Extension To Model Generic Instruments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html">How To Model and Lifecycle Generic Instruments</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-create-a-generic-instrument">How To Create a Generic Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-trade-and-transfer-a-generic-instrument">How To Trade and Transfer a Generic Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/generic-extension.html#how-to-process-lifecycle-events">How to Process Lifecycle Events</a></li>
@@ -244,7 +301,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#template-definition">Template Definition</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#hasclaims-interface">HasClaims Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#the-claims-interface">The Claims Interface</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#how-to-define-the-redemption-claim">How to Define the Redemption Claim</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#how-to-define-the-coupon-claims">How to Define the Coupon Claims</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../tutorials/instrument-modeling/contingent-claims-instrument.html#how-the-instrument-evolves-over-time">How the Instrument Evolves Over Time</a></li>
@@ -288,6 +345,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Claim.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Internal-Claim.html">ContingentClaims.Core.Internal.Claim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Internal-Claim.html#data-types">Data Types</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Observation.html">ContingentClaims.Core.Observation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Observation.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/ContingentClaims-Core-Observation.html#functions">Functions</a></li>
@@ -321,8 +382,16 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Account-Util.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Lifecycle-Rule.html">Daml.Finance.Claims.Lifecycle.Rule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Lifecycle-Rule.html#templates">Templates</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util.html">Daml.Finance.Claims.Util</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util-Builders.html">Daml.Finance.Claims.Util.Builders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util-Builders.html#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Claims-Util-Lifecycle.html">Daml.Finance.Claims.Util.Lifecycle</a><ul>
@@ -341,6 +410,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock.html">Daml.Finance.Data.Time.DateClock</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock-Types.html">Daml.Finance.Data.Time.DateClock.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Data-Time-DateClock-Types.html#data-types">Data Types</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Holding-Fungible.html">Daml.Finance.Holding.Fungible</a><ul>
@@ -426,8 +499,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Instrument.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Util.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Lifecycle-Rule.html">Daml.Finance.Instrument.Generic.Lifecycle.Rule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Generic-Lifecycle-Rule.html#templates">Templates</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Instrument-Swap-Asset-Factory.html">Daml.Finance.Instrument.Swap.Asset.Factory</a><ul>
@@ -529,6 +602,13 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Claim.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html">Daml.Finance.Interface.Claims.Dynamic.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Dynamic-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Types.html">Daml.Finance.Interface.Claims.Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Claims-Types.html#data-types">Data Types</a></li>
 </ul>
@@ -565,13 +645,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html#typeclasses">Typeclasses</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Fungible.html#functions">Functions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html">Daml.Finance.Interface.Holding.Lockable</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#interfaces">Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#typeclasses">Typeclasses</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#data-types">Data Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Lockable.html#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Transferable.html">Daml.Finance.Interface.Holding.Transferable</a><ul>
@@ -899,6 +972,13 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Instruction.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html">Daml.Finance.Interface.Settlement.RouteProvider</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html">Daml.Finance.Interface.Settlement.Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html#data-types">Data Types</a></li>
 </ul>
@@ -948,9 +1028,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-ElectionEffect.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClock.html">Daml.Finance.Lifecycle.Event.DateClock</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClock.html#templates">Templates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClock.html#data-types">Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClockUpdate.html">Daml.Finance.Lifecycle.Event.DateClockUpdate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClockUpdate.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-DateClockUpdate.html#data-types">Data Types</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Event-Distribution.html">Daml.Finance.Lifecycle.Event.Distribution</a><ul>
@@ -983,10 +1063,6 @@
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Rule-Util.html#functions">Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Types.html">Daml.Finance.Lifecycle.Types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Lifecycle-Types.html#data-types">Data Types</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html">Daml.Finance.Settlement.Batch</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Batch.html#data-types">Data Types</a></li>
@@ -1004,6 +1080,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-Instruction.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-IntermediatedStatic.html">Daml.Finance.Settlement.RouteProvider.IntermediatedStatic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-IntermediatedStatic.html#templates">Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-SingleCustodian.html">Daml.Finance.Settlement.RouteProvider.SingleCustodian</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Settlement-RouteProvider-SingleCustodian.html#templates">Templates</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Util-Common.html">Daml.Finance.Util.Common</a><ul>
@@ -1104,6 +1188,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#the-components-in-detail">The components in detail</a><ul>
+<li><a class="reference internal" href="#route-provider">Route provider</a></li>
 <li><a class="reference internal" href="#settlement-factory">Settlement factory</a></li>
 <li><a class="reference internal" href="#instruction">Instruction</a></li>
 <li><a class="reference internal" href="#batch">Batch</a></li>
@@ -1128,17 +1213,18 @@
             <div itemprop="articleBody">
                 
   <div class="section" id="settlement">
-<h1>Settlement<a class="headerlink" href="#settlement" title="Permalink to this heading">¶</a></h1>
-<p><a class="reference internal" href="../reference/glossary.html#settlement"><span class="std std-ref">Settlement</span></a> refers to the execution of holding transfers originating from
-a financial transaction.</p>
-<p>The library provides facilities to execute these transfers atomically (i.e., within the same Daml transaction).
-Interfaces are defined in the <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Settlement</span></code> package, whereas implementations are provided in <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Settlement</span></code>.</p>
-<p>In this page we illustrate the settlement workflow with the help
-of an example FX transaction, where Alice transfers a EUR-denominated holding
-to Bob, in exchange for a USD-denominated holding of the same amount.</p>
+<h1>Settlement<a class="headerlink" href="#settlement" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="../reference/glossary.html#settlement"><span class="std std-ref">Settlement</span></a> refers to the execution of holding transfers originating from a
+financial transaction.</p>
+<p>The library provides facilities to execute these transfers atomically (i.e., within the same Daml
+transaction). Interfaces are defined in the <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Interface.Settlement</span></code> package, whereas
+implementations are provided in the <code class="docutils literal notranslate"><span class="pre">Daml.Finance.Settlement</span></code> package.</p>
+<p>In this section, we first illustrate the settlement workflow with the help of an example FX
+transaction, where Alice transfers a EUR-denominated holding to Bob, in exchange for a
+USD-denominated holding of the same amount.</p>
 <p>We then delve into the details of each of the settlement components.</p>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this heading">¶</a></h2>
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
 <p>Our initial state looks as follows:</p>
 <ul class="simple">
 <li>Alice owns a holding on a <code class="docutils literal notranslate"><span class="pre">EUR</span></code> instrument, for an amount of <code class="docutils literal notranslate"><span class="pre">1000</span></code></li>
@@ -1147,81 +1233,110 @@ to Bob, in exchange for a USD-denominated holding of the same amount.</p>
 <p>These holdings are generally held at different custodians.</p>
 <img alt="Alice owns a EUR holding, Bob owns a USD holding." src="../_images/settlement_initial_state.png" />
 <div class="section" id="instruct">
-<h3>Instruct<a class="headerlink" href="#instruct" title="Permalink to this heading">¶</a></h3>
-<p>Alice and Bob want to exchange their holdings and agree to enter into the transaction by being signatories on a transaction contract.
-Settlement can then be instructed: this generates</p>
+<h3>Instruct<a class="headerlink" href="#instruct" title="Permalink to this headline">¶</a></h3>
+<p>Alice and Bob want to exchange their holdings and agree to enter into the transaction by being
+signatories on a transaction contract. Settlement can then be instructed which results in 3
+contract instances being created:</p>
 <ol class="arabic simple">
-<li>an <code class="docutils literal notranslate"><span class="pre">Instruction</span></code> to transfer 1000 EUR from Alice to Bob</li>
-<li>an <code class="docutils literal notranslate"><span class="pre">Instruction</span></code> to transfer 1000 USD from Bob to Alice</li>
-<li>a <code class="docutils literal notranslate"><span class="pre">Batch</span></code> contract which is used to execute the above Instructions.</li>
+<li>an <code class="docutils literal notranslate"><span class="pre">Instruction</span></code> to transfer EUR 1000 from Alice to Bob</li>
+<li>an <code class="docutils literal notranslate"><span class="pre">Instruction</span></code> to transfer USD 1000 from Bob to Alice</li>
+<li>a <code class="docutils literal notranslate"><span class="pre">Batch</span></code> used to execute the above Instructions</li>
 </ol>
 <img alt="Settlement is instructed." src="../_images/settlement_instructed.png" />
-<p>Each instruction defines, for a step of the settlement chain, who is the sender, who is the receiver and what should be transferred (instrument and amount).</p>
+<p>Each instruction defines who is the sender, who is the receiver, and what should be transferred
+(instrument and amount) at which custodian.</p>
 </div>
 <div class="section" id="allocate-and-approve">
-<h3>Allocate and Approve<a class="headerlink" href="#allocate-and-approve" title="Permalink to this heading">¶</a></h3>
-<p>In order to perform the transfer, we now need to specify for each <code class="docutils literal notranslate"><span class="pre">Instruction</span></code></p>
-<ol class="arabic simple">
-<li>which holding should be used</li>
-<li>to which account it should be transferred.</li>
-</ol>
-<p>Alice <code class="docutils literal notranslate"><span class="pre">allocates</span></code> the instruction where she is the sender by pledging her holding. Bob does the same on the instruction where he is the sender.</p>
+<h3>Allocate and Approve<a class="headerlink" href="#allocate-and-approve" title="Permalink to this headline">¶</a></h3>
+<p>In order to execute the FX transaction, we first need to</p>
+<ul class="simple">
+<li>allocate, i.e., specify which holding should be used</li>
+<li>approve, i.e., specify which account the asset should be transferred to</li>
+</ul>
+<p>for each <code class="docutils literal notranslate"><span class="pre">Instruction</span></code>.</p>
+<p>Alice <code class="docutils literal notranslate"><span class="pre">allocates</span></code> the instruction where she is the sender by pledging her holding. Bob does the
+same on the instruction where he is the sender.</p>
 <img alt="Settlement is allocated." src="../_images/settlement_allocated.png" />
-<p>Each receiver can then specify to which account the holding should be sent by <code class="docutils literal notranslate"><span class="pre">approving</span></code> the corresponding instruction.</p>
+<p>Each receiver can then specify to which account the holding should be sent by <code class="docutils literal notranslate"><span class="pre">approving</span></code> the
+corresponding instruction.</p>
 <img alt="Settlement is allocated and approved." src="../_images/settlement_allocated_approved.png" />
 </div>
 <div class="section" id="execute">
-<h3>Execute<a class="headerlink" href="#execute" title="Permalink to this heading">¶</a></h3>
-<p>Once instructions are allocated and approved, a Settler party uses the <code class="docutils literal notranslate"><span class="pre">Batch</span></code> contract to <code class="docutils literal notranslate"><span class="pre">execute</span></code> them and finalize settlement in one atomic transaction.</p>
+<h3>Execute<a class="headerlink" href="#execute" title="Permalink to this headline">¶</a></h3>
+<p>Once both instructions are allocated and approved, a Settler party uses the <code class="docutils literal notranslate"><span class="pre">Batch</span></code> contract to
+<code class="docutils literal notranslate"><span class="pre">execute</span></code> them and finalize settlement in one atomic transaction.</p>
 <img alt="Settlement is allocated and approved." src="../_images/settlement_executed.png" />
 <p>The instructions and the batch are archived following a successful execution.</p>
 </div>
 <div class="section" id="remarks">
-<h3>Remarks<a class="headerlink" href="#remarks" title="Permalink to this heading">¶</a></h3>
-<p>There are some assumptions that need to be verified in order for the transaction above to settle successfully in practice. On the first instruction</p>
+<h3>Remarks<a class="headerlink" href="#remarks" title="Permalink to this headline">¶</a></h3>
+<p>There are some assumptions that needs to hold in order for the settlement to work in practice:</p>
 <ul class="simple">
-<li>Bob needs to have an account at the custodian where Alice’s holding is held</li>
-<li>Alice’s holding needs to be <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Transferable.html#type-daml-finance-interface-holding-transferable-transferable-24986"><span class="std std-ref">Transferable</span></a></li>
-<li>The transfer must be fully authorized</li>
+<li>Bob needs to have an account at the custodian where Alice’s holding is held and vice versa.</li>
+<li>Both holdings need to be
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Holding-Transferable.html#type-daml-finance-interface-holding-transferable-transferable-24986"><span class="std std-ref">Transferable</span></a></li>
+<li>The transfer must be fully authorized (i.e., the parties allocating and approving an instruction
+must be the controllers of outgoing and incoming transfers of the corresponding accounts,
+respectively)</li>
 </ul>
 <p>Also, note that the allocation and approval steps can happen in any order.</p>
 </div>
 </div>
 <div class="section" id="the-components-in-detail">
-<h2>The components in detail<a class="headerlink" href="#the-components-in-detail" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="settlement-factory">
-<h3>Settlement factory<a class="headerlink" href="#settlement-factory" title="Permalink to this heading">¶</a></h3>
-<p>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Factory.html#type-daml-finance-interface-settlement-factory-factory-31525"><span class="std std-ref">Settlement Factory</span></a> is used to instruct settlement, i.e., create the <code class="docutils literal notranslate"><span class="pre">Batch</span></code> contract and the settlement <code class="docutils literal notranslate"><span class="pre">Instructions</span></code>.</p>
-<p>The role of the Settlement Factory becomes important when a transfer requires intermediaries to be involved.
-Let us assume, for instance, that Alice’s EUR holding in the example above is held at Bank A, whereas Bob has a EUR account at Bank B. Bank A and Bank B both have accounts at the Central Bank.</p>
+<h2>The components in detail<a class="headerlink" href="#the-components-in-detail" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="route-provider">
+<h3>Route provider<a class="headerlink" href="#route-provider" title="Permalink to this headline">¶</a></h3>
+<p>When a transfer requires intermediaries to be involved, the role of a
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-RouteProvider.html#type-daml-finance-interface-settlement-routeprovider-routeprovider-53805"><span class="std std-ref">Route Provider</span></a>
+becomes important. Let us assume, for instance, that Alice’s EUR holding in the example above is
+held at Bank A, whereas Bob has a EUR account at Bank B. Bank A and Bank B both have accounts at the
+Central Bank.</p>
 <img alt="Hierarchical account structure. Alice has an account at Bank A. Bob has an account at Bank B. Bank A and Bank B have an account at the Central Bank." src="../_images/settlement_hierarchy.png" />
-<p>In this case, a direct holding transfer from Alice and Bob cannot generally be instructed. The original step needs to be broken down by the Settlement Factory into three separate <code class="docutils literal notranslate"><span class="pre">Instructions</span></code>:</p>
+<p>In this case, a direct holding transfer from Alice to Bob cannot generally be instructed. The
+original <code class="docutils literal notranslate"><span class="pre">Instruction</span></code> between Alice and Bob needs to be replaced by three separate
+<code class="docutils literal notranslate"><span class="pre">Instructions</span></code>:</p>
 <ul class="simple">
-<li><strong>1A</strong>: Alice sends 1000 EUR (held at Bank A) back to Bank A</li>
-<li><strong>1B</strong>: Bank A sends 1000 EUR (held at the Central Bank) to Bank B.</li>
-<li><strong>1C</strong>: Bank B credits 1000 EUR to Bob’s account (held at Bank B)</li>
+<li><strong>1A</strong>: Alice sends EUR 1000 (held at Bank A) back to Bank A</li>
+<li><strong>1B</strong>: Bank A sends EUR 1000 (held at the Central Bank) to Bank B.</li>
+<li><strong>1C</strong>: Bank B credits EUR 1000 to Bob’s account (held at Bank B)</li>
 </ul>
-<img alt="Instructions for intermediated settlement: Alice sends 1000 EUR to Bank A. Bank A sends 1000 EUR to Bank B. Bank B sends 1000 EUR to Bob." src="../_images/settlement_hierarchy_instructed.png" />
-<p>We refer to this scenario as <em>settlement with intermediaries</em>, or just <em>intermediated settlement</em>.
-The Settlement Factory is responsible for generating the correct set of instructions, so that they can be allocated and approved by the respective parties.</p>
+<img alt="Instructions for intermediated settlement: Alice sends EUR 1000 to Bank A. Bank A sends EUR 1000 to Bank B. Bank B sends EUR 1000 to Bob." src="../_images/settlement_hierarchy_instructed.png" />
+<p>We refer to this scenario as <em>settlement with intermediaries</em>, or just <em>intermediated settlement</em>.</p>
+<p>The Route Provider is used to discover a settlement route, i.e.,
+<a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-routedstep-10086"><span class="std std-ref">routed steps</span></a>, for each
+settlement <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-step-78661"><span class="std std-ref">step</span></a>.</p>
+</div>
+<div class="section" id="settlement-factory">
+<h3>Settlement factory<a class="headerlink" href="#settlement-factory" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Factory.html#type-daml-finance-interface-settlement-factory-factory-31525"><span class="std std-ref">Settlement Factory</span></a> is used
+to instruct settlement, i.e., create the <code class="docutils literal notranslate"><span class="pre">Batch</span></code> contract and the settlement <code class="docutils literal notranslate"><span class="pre">Instructions</span></code>,
+from <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-routedstep-10086"><span class="std std-ref">routed steps</span></a>, so that
+they can be allocated and approved by the respective parties.</p>
 </div>
 <div class="section" id="instruction">
-<h3>Instruction<a class="headerlink" href="#instruction" title="Permalink to this heading">¶</a></h3>
-<p>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Instruction.html#type-daml-finance-interface-settlement-instruction-instruction-30569"><span class="std std-ref">Instruction</span></a> is used to settle a single holding transfer, once it is <code class="docutils literal notranslate"><span class="pre">allocated</span></code> and <code class="docutils literal notranslate"><span class="pre">approved</span></code>.</p>
-<p>In the <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-allocation-46483"><span class="std std-ref">Allocation</span></a> step, the sender allocates a suitable holding to the instruction.
-This is usually done by pledging an existing holding with the correct instrument and amount.
-When the sender is also the holding’s custodian, the instruction can be allocated with <code class="docutils literal notranslate"><span class="pre">CreditReceiver</span></code>. In this case, a new holding is minted at
-the custodian and then transferred to the target receiver.</p>
-<p>In the <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-approval-84286"><span class="std std-ref">Approval</span></a> step, the receiver acknowledges the transfer and determines how to receive the holding.
-This is usually done by taking delivery of the holding at a specified account. The provided account must be at the same custodian as the incoming holding.
-When the receiver is also the incoming holding’s custodian, the instruction can be approved with <code class="docutils literal notranslate"><span class="pre">DebitSender</span></code>.In this case, the holding is archived after
-being transferred to the receiver (a holding owned by the custodian at the custodian has no economical value and can be archived).</p>
-<p>To clarify these concepts, here is how the 3 instructions in the intermediated example above would be allocated / approved.</p>
+<h3>Instruction<a class="headerlink" href="#instruction" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Instruction.html#type-daml-finance-interface-settlement-instruction-instruction-30569"><span class="std std-ref">Instruction</span></a> is
+used to settle a single holding transfer at a specific custodian, once it is <code class="docutils literal notranslate"><span class="pre">allocated</span></code> and
+<code class="docutils literal notranslate"><span class="pre">approved</span></code>.</p>
+<p>In the <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-allocation-46483"><span class="std std-ref">Allocation</span></a> step, the
+sender acknowledges the transfer and determines how to send the holding. This is usually done by
+pledging one of the sender’s existing holdings at the custodian (which has the correct instrument
+and amount). When the sender is also the custodian, the instruction can be allocated with
+<code class="docutils literal notranslate"><span class="pre">CreditReceiver</span></code>. In this case, a new holding is minted at the custodian and then transferred to
+the target receiver.</p>
+<p>In the <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Types.html#type-daml-finance-interface-settlement-types-approval-84286"><span class="std std-ref">Approval</span></a> step, the
+receiver acknowledges the transfer and determines how to receive the holding. This is usually done
+by taking delivery to one of the receiver’s accounts at the custodian. When the receiver is also the
+incoming holding’s custodian, the instruction can be approved with <code class="docutils literal notranslate"><span class="pre">DebitSender</span></code>. In this case,
+the holding is immediately archived after being transferred to the receiver (a holding owned by the
+custodian at the custodian has no economical value and can be archived).</p>
+<p>To clarify these concepts, here is how the 3 instructions in the intermediated example above would
+be allocated / approved.</p>
 <table border="1" class="docutils align-default">
 <colgroup>
-<col width="35%" />
-<col width="32%" />
-<col width="33%" />
+<col width="54%" />
+<col width="23%" />
+<col width="23%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Instruction</th>
@@ -1230,35 +1345,44 @@ being transferred to the receiver (a holding owned by the custodian at the custo
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>1A : 1000 EUR from Alice to Bank A</td>
-<td>Alice pledges her holding</td>
-<td>Bank A approves with DebitSender</td>
+<tr class="row-even"><td>1A : EUR 1000 from Alice to Bank A &#64; Bank A</td>
+<td>Alice pledges her
+holding</td>
+<td>Bank A approves
+with DebitSender</td>
 </tr>
-<tr class="row-odd"><td>2A : 1000 EUR from Bank A to Bank B</td>
-<td>Bank A pledges their holding</td>
-<td>Bank B takes delivery to their account</td>
+<tr class="row-odd"><td>2A : EUR 1000 from Bank A to Bank B &#64; Central Bank</td>
+<td>Bank A pledges
+their holding</td>
+<td>Bank B takes delivery
+to their account</td>
 </tr>
-<tr class="row-even"><td>3A : 1000 EUR from Bank B to Bob</td>
-<td>Bank B allocates with CreditReceiver</td>
-<td>Bob takes delivery to his account</td>
+<tr class="row-even"><td>3A : EUR 1000 from Bank B to Bob &#64; Bank B</td>
+<td>Bank B allocates
+with CreditReceiver</td>
+<td>Bob takes delivery
+to his account</td>
 </tr>
 </tbody>
 </table>
 <p>Finally, the Instruction supports two additional settlement modes:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">Off</span> <span class="pre">Ledger</span></code> for off-ledger settlement</li>
-<li><code class="docutils literal notranslate"><span class="pre">Pass-through</span></code> to allocate a holding that will be received by executing another instruction in the same batch</li>
+<li><code class="docutils literal notranslate"><span class="pre">Pass-through</span></code> to allocate a holding that will be received by executing another instruction in
+the same batch</li>
 </ul>
 </div>
 <div class="section" id="batch">
-<h3>Batch<a class="headerlink" href="#batch" title="Permalink to this heading">¶</a></h3>
-<p>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Batch.html#type-daml-finance-interface-settlement-batch-batch-97497"><span class="std std-ref">Batch</span></a> is used to execute a set of instructions atomically.
-Execution will fail if any of the Instructions is not fully allocated / approved, or if the transfer is for some reason unsuccessful.</p>
+<h3>Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../reference/code-documentation/daml-finance-rst/Daml-Finance-Interface-Settlement-Batch.html#type-daml-finance-interface-settlement-batch-batch-97497"><span class="std std-ref">Batch</span></a> is used to execute a set
+of instructions atomically. Execution will fail if any of the Instructions is not fully allocated
+/ approved, or if the transfer is for some reason unsuccessful.</p>
 </div>
 </div>
 <div class="section" id="remarks-and-further-references">
-<h2>Remarks and further references<a class="headerlink" href="#remarks-and-further-references" title="Permalink to this heading">¶</a></h2>
-<p>The settlement concepts are also explored in the <a class="reference internal" href="../tutorials/getting-started/settlement.html"><span class="doc">Settlement tutorial</span></a>.</p>
+<h2>Remarks and further references<a class="headerlink" href="#remarks-and-further-references" title="Permalink to this headline">¶</a></h2>
+<p>The settlement concepts are also explored in the
+<a class="reference internal" href="../tutorials/getting-started/settlement.html"><span class="doc">Settlement tutorial</span></a>.</p>
 </div>
 </div>
 

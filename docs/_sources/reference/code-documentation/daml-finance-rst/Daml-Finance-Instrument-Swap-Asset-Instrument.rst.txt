@@ -15,8 +15,10 @@ Templates
 
   This template models an asset swap\.
   It pays an asset performance vs a fix interest rate at the end of every payment period\.
-  It can be used to model equity swaps, some types of commodity swaps (of the form performance vs rate) and swaps with the same payoff on other asset types\.
-  The asset leg is described by an observable containing either unadjusted or adjusted fixings (for a price return or a total return swap, respectively)\.
+  It can be used to model equity swaps, some types of commodity swaps (of the form performance vs
+  rate) and swaps with the same payoff on other asset types\.
+  The asset leg is described by an observable containing either unadjusted or adjusted fixings (for
+  a price return or a total return swap, respectively)\.
   The template calculates the performance for each payment period using this observable\.
   For example\: AAPL total return vs 2\.5% fix\.
 
@@ -56,7 +58,7 @@ Templates
        - The schedule for the periodic swap payments\.
      * - holidayCalendarIds
        - \[`Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_\]
-       - The identifier of the holiday calendar to be used for the swap payment schedule\.
+       - The identifiers of the holiday calendars to be used for the swap payment schedule\.
      * - calendarDataProvider
        - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
        - The reference data provider to use for the holiday calendar\.
@@ -79,11 +81,11 @@ Templates
 
   + **interface instance** :ref:`I <type-daml-finance-interface-claims-claim-i-15462>` **for** `Instrument <type-daml-finance-instrument-swap-asset-instrument-instrument-12500_>`_
 
+  + **interface instance** :ref:`I <type-daml-finance-interface-claims-dynamic-instrument-i-39105>` **for** `Instrument <type-daml-finance-instrument-swap-asset-instrument-instrument-12500_>`_
+
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-base-instrument-i-67236>` **for** `Instrument <type-daml-finance-instrument-swap-asset-instrument-instrument-12500_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-instrument-swap-asset-instrument-i-73906>` **for** `Instrument <type-daml-finance-instrument-swap-asset-instrument-instrument-12500_>`_
-
-  + **interface instance** :ref:`I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685>` **for** `Instrument <type-daml-finance-instrument-swap-asset-instrument-instrument-12500_>`_
 
   + **interface instance** :ref:`I <type-daml-finance-interface-util-disclosure-i-26993>` **for** `Instrument <type-daml-finance-instrument-swap-asset-instrument-instrument-12500_>`_
 

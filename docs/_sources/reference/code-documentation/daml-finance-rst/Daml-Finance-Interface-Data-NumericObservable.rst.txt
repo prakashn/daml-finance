@@ -6,7 +6,8 @@
 Module Daml.Finance.Interface.Data.NumericObservable
 ====================================================
 
-This module defines an interface for a ``NumericObservable``, which is used to inspect time\-dependent numerical values\.
+This module defines an interface for a ``NumericObservable``, which is used to inspect
+time\-dependent numerical values\.
 
 Interfaces
 ----------
@@ -15,7 +16,8 @@ Interfaces
 
 **interface** `NumericObservable <type-daml-finance-interface-data-numericobservable-numericobservable-42918_>`_
 
-  An interface to inspect some (time\-dependent) numerical values (e\.g\. a stock price or an interest rate fixing) required when processing a lifecycle rule\.
+  An interface to inspect some (time\-dependent) numerical values (e\.g\. a stock price or an
+  interest rate fixing) required when processing a lifecycle rule\.
 
   + **Choice GetView**
 

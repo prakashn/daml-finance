@@ -28,11 +28,13 @@ Functions
 `toTime <function-daml-finance-claims-util-totime-68962_>`_
   \: :ref:`HasUTCTimeConversion <class-daml-finance-interface-types-date-classes-hasutctimeconversion-83616>` t \=\> :ref:`Claim <type-contingentclaims-core-internal-claim-claim-35538>` t x a o \-\> :ref:`Claim <type-contingentclaims-core-internal-claim-claim-35538>` `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_ x a o
 
-  Maps the time parameter in a ``Claim`` to ``Time``\. As ``Time`` is generally understood to express UTC time, we recommend mapping to UTC time\.
+  Maps the time parameter in a ``Claim`` to ``Time``\. As ``Time`` is generally understood to express
+  UTC time, we recommend mapping to UTC time\.
 
 .. _function-daml-finance-claims-util-totimetick-21334:
 
 `toTime' <function-daml-finance-claims-util-totimetick-21334_>`_
   \: (t \-\> `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_) \-\> :ref:`Claim <type-contingentclaims-core-internal-claim-claim-35538>` t x a o \-\> :ref:`Claim <type-contingentclaims-core-internal-claim-claim-35538>` `Time <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-time-63886>`_ x a o
 
-  Maps the time parameter in a ``Claim`` to ``Time``\. As ``Time`` is generally understood to express UTC time, we recommend mapping to UTC time\.
+  Maps the time parameter in a ``Claim`` to ``Time``\. As ``Time`` is generally understood to express
+  UTC time, we recommend mapping to UTC time\.

@@ -7,9 +7,8 @@ Module ContingentClaims.Core.Util.Recursion
 ===========================================
 
 This module collects a set of utilities used to execute recursion schemes\.
-
-The morphisms ending in 'M' are monadic variants, allowing to interleave e\.g\. ``Update`` or ``Script``\.
-``cataM`` after Tim Williams' talk, https\://www\.youtube\.com/watch?v\=Zw9KeP3OzpU\.
+The morphisms ending in 'M' are monadic variants, allowing to interleave, e\.g\., ``Update`` or
+``Script``\. ``cataM`` after Tim Williams' talk, https\://www\.youtube\.com/watch?v\=Zw9KeP3OzpU\.
 
 Functions
 ---------

@@ -17,7 +17,8 @@ Interfaces
 
   + **Choice Evolve**
 
-    Process an event\. It returns a tuple of the lifecycled instrument (or the original instrument when the former does not exist) and the effects\.
+    Process an event\. It returns a tuple of the lifecycled instrument (or the original
+    instrument when the former does not exist) and the effects\.
 
     .. list-table::
        :widths: 15 10 30
@@ -26,15 +27,12 @@ Interfaces
        * - Field
          - Type
          - Description
-       * - ruleName
-         - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
-         - The lifecycle rule to be processed\.
        * - eventCid
          - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-event-i-17082>`
          - The event\.
-       * - timeObservableCid
-         - `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-timeobservable-i-64066>`
-         - Current time\.
+       * - instrument
+         - :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`
+         - The target instrument\.
        * - observableCids
          - \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-data-numericobservable-i-62705>`\]
          - Set of numerical time\-dependent observables\.
@@ -54,7 +52,7 @@ Interfaces
          - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
          - The party retrieving the view\.
 
-  + **Method evolve \:** Evolve \-\> `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Lifecycle <type-daml-finance-interface-lifecycle-rule-lifecycle-lifecycle-97652_>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Lifecycle <type-daml-finance-interface-lifecycle-rule-lifecycle-lifecycle-97652_>`_, \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>`\])
+  + **Method evolve \:** Evolve \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`, \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>`\])
 
     Implementation of the ``Evolve`` choice\.
 
@@ -75,10 +73,6 @@ Data Types
   \= `Lifecycle <type-daml-finance-interface-lifecycle-rule-lifecycle-lifecycle-97652_>`_
 
   Type synonym for ``Lifecycle``\.
-
-  **instance** HasMethod :ref:`Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711>` \"applyElection\" (ApplyElection \-\> `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711>` \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685_>`_, \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>`\]))
-
-  **instance** HasMethod :ref:`Exercisable <type-daml-finance-interface-instrument-generic-election-exercisable-33711>` \"asLifecycle\" `I <type-daml-finance-interface-lifecycle-rule-lifecycle-i-18685_>`_
 
 .. _type-daml-finance-interface-lifecycle-rule-lifecycle-implementation-48349:
 
@@ -111,6 +105,12 @@ Data Types
        * - Field
          - Type
          - Description
+       * - id
+         - :ref:`Id <type-daml-finance-interface-types-common-id-56542>`
+         - Identifier for the rule contract\.
+       * - description
+         - `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+         - Textual description\.
        * - lifecycler
          - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
          - Party performing the lifecycling\.
@@ -125,4 +125,4 @@ Functions
 .. _function-daml-finance-interface-lifecycle-rule-lifecycle-evolve-99336:
 
 `evolve <function-daml-finance-interface-lifecycle-rule-lifecycle-evolve-99336_>`_
-  \: `Lifecycle <type-daml-finance-interface-lifecycle-rule-lifecycle-lifecycle-97652_>`_ \-\> Evolve \-\> `ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Lifecycle <type-daml-finance-interface-lifecycle-rule-lifecycle-lifecycle-97652_>`_ \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ `Lifecycle <type-daml-finance-interface-lifecycle-rule-lifecycle-lifecycle-97652_>`_, \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>`\])
+  \: `Lifecycle <type-daml-finance-interface-lifecycle-rule-lifecycle-lifecycle-97652_>`_ \-\> Evolve \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ (`Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ :ref:`K <type-daml-finance-interface-instrument-base-instrument-k-58546>`, \[`ContractId <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-contractid-95282>`_ :ref:`I <type-daml-finance-interface-lifecycle-effect-i-11106>`\])

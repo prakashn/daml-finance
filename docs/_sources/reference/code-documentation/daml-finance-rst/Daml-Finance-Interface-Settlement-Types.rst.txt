@@ -83,7 +83,8 @@ Data Types
 
   `PassthroughTo <constr-daml-finance-interface-settlement-types-passthroughto-35428_>`_ (:ref:`AccountKey <type-daml-finance-interface-types-common-accountkey-85835>`, `InstructionKey <type-daml-finance-interface-settlement-types-instructionkey-43940_>`_)
 
-    Take delivery to the specified account\. The holding is then immediately allocated to the specified instruction\.
+    Take delivery to the specified account\. The holding is then immediately allocated to the
+    specified instruction\.
 
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `Approval <type-daml-finance-interface-settlement-types-approval-84286_>`_
 
@@ -135,6 +136,45 @@ Data Types
   **instance** `HasMaintainer <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hasmaintainer-28932>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` `InstructionKey <type-daml-finance-interface-settlement-types-instructionkey-43940_>`_
 
   **instance** `HasToAnyContractKey <https://docs.daml.com/daml/stdlib/Prelude.html#class-da-internal-template-functions-hastoanycontractkey-35010>`_ :ref:`Instruction <type-daml-finance-settlement-instruction-instruction-35758>` `InstructionKey <type-daml-finance-interface-settlement-types-instructionkey-43940_>`_
+
+.. _type-daml-finance-interface-settlement-types-routedstep-10086:
+
+**data** `RoutedStep <type-daml-finance-interface-settlement-types-routedstep-10086_>`_
+
+  Describes a transfer of a position between two parties\.
+  The custodian at which the position is held is also specified\.
+
+  .. _constr-daml-finance-interface-settlement-types-routedstep-70775:
+
+  `RoutedStep <constr-daml-finance-interface-settlement-types-routedstep-70775_>`_
+
+    .. list-table::
+       :widths: 15 10 30
+       :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - sender
+         - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
+         - Party transferring the asset\.
+       * - receiver
+         - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
+         - Party receiving the asset\.
+       * - custodian
+         - `Party <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-party-57932>`_
+         - The custodian at which the asset is held\.
+       * - quantity
+         - :ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`
+         - The instrument and amount to be transferred\.
+
+  **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `RoutedStep <type-daml-finance-interface-settlement-types-routedstep-10086_>`_
+
+  **instance** `Ord <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-ord-6395>`_ `RoutedStep <type-daml-finance-interface-settlement-types-routedstep-10086_>`_
+
+  **instance** `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ `RoutedStep <type-daml-finance-interface-settlement-types-routedstep-10086_>`_
+
+  **instance** HasMethod :ref:`RouteProvider <type-daml-finance-interface-settlement-routeprovider-routeprovider-53805>` \"discover\" (Discover \-\> `Update <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-update-68072>`_ \[`RoutedStep <type-daml-finance-interface-settlement-types-routedstep-10086_>`_\])
 
 .. _type-daml-finance-interface-settlement-types-step-78661:
 

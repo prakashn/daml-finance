@@ -49,5 +49,5 @@ Functions
 `splitPending <function-daml-finance-claims-util-lifecycle-splitpending-12793_>`_
   \: \[:ref:`Pending <type-daml-finance-interface-claims-types-pending-95419>`\] \-\> (\[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\], \[:ref:`Q <type-daml-finance-interface-instrument-base-instrument-q-62956>`\])
 
-  Map pending settlements into corresponding instrument quantities and split them into consumed and produced\.
-  Pending items with an amount of ``0.0`` are discarded\.
+  Map pending settlements into corresponding instrument quantities and split them into consumed
+  and produced\. Pending items with an amount of ``0.0`` are discarded\.

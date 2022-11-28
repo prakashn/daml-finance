@@ -20,6 +20,25 @@ Typeclasses
 
     Produce a local identifier of type ``t``, subindexed by ``i``\.
 
+.. _class-contingentclaims-valuation-mathml-toxml-10440:
+
+**class** `ToXml <class-contingentclaims-valuation-mathml-toxml-10440_>`_ a **where**
+
+  Renders an ``Expr`` into MathML presentation format\.
+
+  .. _function-contingentclaims-valuation-mathml-presentation-97680:
+
+  `presentation <function-contingentclaims-valuation-mathml-presentation-97680_>`_
+    \: a \-\> Xml
+
+  **instance** `ToXml <class-contingentclaims-valuation-mathml-toxml-10440_>`_ t \=\> `ToXml <class-contingentclaims-valuation-mathml-toxml-10440_>`_ (`Expr <type-contingentclaims-valuation-stochastic-expr-34143_>`_ t)
+
+  **instance** `ToXml <class-contingentclaims-valuation-mathml-toxml-10440_>`_ `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_
+
+  **instance** `ToXml <class-contingentclaims-valuation-mathml-toxml-10440_>`_ `Text <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952>`_
+
+  **instance** `ToXml <class-contingentclaims-valuation-mathml-toxml-10440_>`_ `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
+
 Data Types
 ----------
 
@@ -124,7 +143,7 @@ Data Types
          - t
          -
 
-  **instance** ToXml t \=\> ToXml (`Expr <type-contingentclaims-valuation-stochastic-expr-34143_>`_ t)
+  **instance** `ToXml <class-contingentclaims-valuation-mathml-toxml-10440_>`_ t \=\> `ToXml <class-contingentclaims-valuation-mathml-toxml-10440_>`_ (`Expr <type-contingentclaims-valuation-stochastic-expr-34143_>`_ t)
 
   **instance** Corecursive (`Expr <type-contingentclaims-valuation-stochastic-expr-34143_>`_ t) (`ExprF <type-contingentclaims-valuation-stochastic-exprf-78496_>`_ t)
 
@@ -138,9 +157,8 @@ Data Types
 
 **data** `ExprF <type-contingentclaims-valuation-stochastic-exprf-78496_>`_ t x
 
-  Base functor for ``Expr``\. Note that this is ADT is re\-used in a couple of
-  places e\.g\. ``Process``, where however not every choice is legal and will lead to
-  a partial evaluator\.
+  Base functor for ``Expr``\. Note that this is ADT is re\-used in a couple of places, e\.g\.,
+  ``Process``, where however not every choice is legal and will lead to a partial evaluator\.
 
   .. _constr-contingentclaims-valuation-stochastic-constf-13072:
 
@@ -290,8 +308,8 @@ Data Types
 
 **data** `Process <type-contingentclaims-valuation-stochastic-process-42020_>`_ t
 
-  A stochastic processes\. Currently this represents Geometric Browniam Motion \- eventually we
-  wish to support other processes such as Levy\.
+  A stochastic processes\. Currently this represents a Geometric Browniam Motion, i\.e\.,
+  dX / X \= α dt \+ β dW\. Eventually, we wish to support other processes such as Levy\.
 
   .. _constr-contingentclaims-valuation-stochastic-process-5639:
 
@@ -337,11 +355,9 @@ Functions
 `fapf <function-contingentclaims-valuation-stochastic-fapf-7751_>`_
   \: (`Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ a, `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ a, `Show <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360>`_ o, `IsIdentifier <class-contingentclaims-valuation-stochastic-isidentifier-12300_>`_ t) \=\> a \-\> (a \-\> `Process <type-contingentclaims-valuation-stochastic-process-42020_>`_ t) \-\> (a \-\> a \-\> `Process <type-contingentclaims-valuation-stochastic-process-42020_>`_ t) \-\> (o \-\> `Process <type-contingentclaims-valuation-stochastic-process-42020_>`_ t) \-\> t \-\> :ref:`Claim <type-contingentclaims-core-internal-claim-claim-35538>` t `Decimal <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135>`_ a o \-\> `Expr <type-contingentclaims-valuation-stochastic-expr-34143_>`_ t
 
-  Converts a ``Claim`` into the Fundamental Asset Pricing Formula\. The ϵ
-  expressions are defined as E1\-E10 in the Eber/Peyton\-Jones paper\. If you
-  squint you can almost see they correspond one\-to\-one to the formulae in our
-  whitepaper\.
-  This is still an experimental feature\.
+  Converts a ``Claim`` into the Fundamental Asset Pricing Formula\. The ϵ expressions are defined as
+  E1\-E10 in the Eber/Peyton\-Jones paper\. If you squint you can almost see they correspond
+  one\-to\-one to the formulae in our whitepaper\. This is still an experimental feature\.
 
 .. _function-contingentclaims-valuation-stochastic-simplify-57423:
 

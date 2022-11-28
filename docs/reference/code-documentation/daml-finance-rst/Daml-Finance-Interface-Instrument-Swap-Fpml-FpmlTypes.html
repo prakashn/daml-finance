@@ -30,7 +30,6 @@
   <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
   <script src="../../../_static/jquery.js"></script>
   <script src="../../../_static/underscore.js"></script>
-  <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
   <script src="../../../_static/doctools.js"></script>
   <script src="../../../_static/clipboard.min.js"></script>
   <script src="../../../_static/copybutton.js"></script>
@@ -97,8 +96,20 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../overview/architecture.html">Architecture</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../overview/architecture.html#interface-layer">Interface Layer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../overview/architecture.html#implementation-layer">Implementation Layer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../overview/architecture.html#how-to-use-the-library">How To Use the Library</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../overview/architecture.html#extension-points">Extension Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/architecture.html#versioning-and-compatibility">Versioning and Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../overview/building-applications.html">Building Applications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/building-applications.html#installing-daml-finance">Installing Daml Finance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/building-applications.html#application-architecture">Application Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../overview/extending-daml-finance.html">Extending Daml Finance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/extending-daml-finance.html#custom-holding-implementations">Custom Holding Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/extending-daml-finance.html#custom-account-implementations">Custom Account Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/extending-daml-finance.html#custom-instrument-implementations">Custom Instrument Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/extending-daml-finance.html#custom-lifecycle-implementations">Custom Lifecycle Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/extending-daml-finance.html#custom-settlement-implementations">Custom Settlement Implementations</a></li>
 </ul>
 </li>
 </ul>
@@ -143,6 +154,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../concepts/settlement.html#the-components-in-detail">The components in detail</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/settlement.html#route-provider">Route provider</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../concepts/settlement.html#settlement-factory">Settlement factory</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../concepts/settlement.html#instruction">Instruction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../concepts/settlement.html#batch">Batch</a></li>
@@ -152,35 +164,79 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../concepts/lifecycling.html">Lifecycling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../concepts/lifecycling.html#events">Events</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#intrinsic">Intrinsic</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#extrinsic">Extrinsic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/lifecycling.html#approach">Approach</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#single-source-of-truth">Single Source of Truth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#instrument-versioning">Instrument Versioning</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../concepts/lifecycling.html#instrument-versions">Instrument Versions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../concepts/lifecycling.html#effects">Effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/lifecycling.html#workflow">Workflow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#creating-the-event">Creating the event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#processing-the-event">Processing the event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#claiming-the-effect">Claiming the effect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#settlement">Settlement</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/lifecycling.html#components">Components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#events">Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#lifecycle-rule">Lifecycle Rule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#claim-rule">Claim Rule</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/lifecycling.html#effects">Effects</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../concepts/contingent-claims.html">Contingent Claims</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../concepts/contingent-claims/quickstart.html">Quickstart</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../concepts/contingent-claims/quickstart.html#the-model">The Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/contingent-claims.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/contingent-claims.html#the-model">The Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/contingent-claims.html#composition-and-extensibility">Composition and Extensibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/contingent-claims.html#concerning-type-parameters">Concerning Type Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/contingent-claims.html#the-time-parameter">The Time Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/contingent-claims.html#the-asset-parameter">The Asset Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/contingent-claims.html#the-observation-parameter">The Observation Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../concepts/contingent-claims.html#the-value-parameter">The Value Parameter</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/contingent-claims.html#lifecycling">Lifecycling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../concepts/contingent-claims.html#pricing-experimental">Pricing (Experimental)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../concepts/contingent-claims.html#references">References</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../packages/index.html">Packages</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../packages/intro.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../packages/core-interfaces.html">Core Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../packages/core-implementations.html">Core Implementations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../packages/instrument-extensions.html">Instrument Extensions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../packages/instrument-extensions.html#tokens">Tokens</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../packages/instrument-extensions.html#bonds">Bonds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../packages/instrument-extensions.html#swaps">Swaps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../packages/instrument-extensions.html#equity">Equity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../packages/instrument-extensions.html#generic">Generic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../packages/interfaces/index.html">Interface Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-holding.html">Daml.Finance.Interface.Holding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-account.html">Daml.Finance.Interface.Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-settlement.html">Daml.Finance.Interface.Settlement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-lifecycle.html">Daml.Finance.Interface.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-instrument-base.html">Daml.Finance.Interface.Instrument.Base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-data.html">Daml.Finance.Interface.Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-claims.html">Daml.Finance.Interface.Claims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-types.html">Daml.Finance.Interface.Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-util.html">Daml.Finance.Interface.Util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/contingent-claims-core.html">ContingentClaims.Core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-instrument-bond.html">Daml.Finance.Interface.Instrument.Bond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-instrument-equity.html">Daml.Finance.Interface.Instrument.Equity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-instrument-generic.html">Daml.Finance.Interface.Instrument.Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-instrument-swap.html">Daml.Finance.Interface.Instrument.Swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/interfaces/daml-finance-interface-instrument-token.html">Daml.Finance.Interface.Instrument.Token</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../packages/implementations/index.html">Implementation Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/daml-finance-holding.html">Daml.Finance.Holding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/daml-finance-account.html">Daml.Finance.Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/daml-finance-settlement.html">Daml.Finance.Settlement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/daml-finance-lifecycle.html">Daml.Finance.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/daml-finance-data.html">Daml.Finance.Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/daml-finance-claims.html">Daml.Finance.Claims</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/daml-finance-util.html">Daml.Finance.Util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/contingent-claims-lifecycle.html">ContingentClaims.Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/contingent-claims-valuation.html">ContingentClaims.Valuation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/daml-finance-instrument-bond.html">Daml.Finance.Instrument.Bond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/daml-finance-instrument-equity.html">Daml.Finance.Instrument.Equity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/daml-finance-instrument-generic.html">Daml.Finance.Instrument.Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/daml-finance-instrument-swap.html">Daml.Finance.Instrument.Swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../packages/implementations/daml-finance-instrument-token.html">Daml.Finance.Instrument.Token</a></li>
 </ul>
 </li>
 </ul>
@@ -210,8 +266,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../tutorials/getting-started/lifecycling.html#summary">Summary</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/getting-started/intro.html#daml-finance">Daml Finance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/getting-started/intro.html#daml-finance-reference-app">Daml Finance Reference App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/getting-started/intro.html#quickstart">Quickstart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/getting-started/intro.html#reference-app">Reference App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/getting-started/intro.html#create-your-own-app">Create your own App</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/getting-started/intro.html#next-steps">Next Steps</a></li>
 </ul>
 </li>
@@ -224,7 +281,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html">How to Lifecycle a Bond Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html#create-a-fixed-rate-bond-instrument">Create a Fixed-Rate Bond Instrument</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html#define-the-clock-for-time-based-events">Define the Clock for Time-Based Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html#define-a-lifecycle-event">Define a lifecycle event</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html#lifecycle-the-bond-instrument">Lifecycle the Bond Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/bond-lifecycling.html#settle-the-instructions">Settle the Instructions</a></li>
 </ul>
@@ -235,7 +292,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/swap-extension.html#frequently-asked-questions">Frequently Asked Questions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/instrument-modeling/generic-extension.html">How To Use the Generic Extension To Model Generic Instruments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/instrument-modeling/generic-extension.html">How To Model and Lifecycle Generic Instruments</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/generic-extension.html#how-to-create-a-generic-instrument">How To Create a Generic Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/generic-extension.html#how-to-trade-and-transfer-a-generic-instrument">How To Trade and Transfer a Generic Instrument</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/generic-extension.html#how-to-process-lifecycle-events">How to Process Lifecycle Events</a></li>
@@ -244,7 +301,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html">How to Implement a Contingent Claims-Based Instrument</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html#template-definition">Template Definition</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html#hasclaims-interface">HasClaims Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html#the-claims-interface">The Claims Interface</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html#how-to-define-the-redemption-claim">How to Define the Redemption Claim</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html#how-to-define-the-coupon-claims">How to Define the Coupon Claims</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../tutorials/instrument-modeling/contingent-claims-instrument.html#how-the-instrument-evolves-over-time">How the Instrument Evolves Over Time</a></li>
@@ -288,6 +345,10 @@
 <li class="toctree-l4"><a class="reference internal" href="ContingentClaims-Core-Claim.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="ContingentClaims-Core-Internal-Claim.html">ContingentClaims.Core.Internal.Claim</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ContingentClaims-Core-Internal-Claim.html#data-types">Data Types</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="ContingentClaims-Core-Observation.html">ContingentClaims.Core.Observation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="ContingentClaims-Core-Observation.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ContingentClaims-Core-Observation.html#functions">Functions</a></li>
@@ -321,8 +382,16 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Account-Util.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Claims-Lifecycle-Rule.html">Daml.Finance.Claims.Lifecycle.Rule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Claims-Lifecycle-Rule.html#templates">Templates</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Claims-Util.html">Daml.Finance.Claims.Util</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Claims-Util.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Claims-Util-Builders.html">Daml.Finance.Claims.Util.Builders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Claims-Util-Builders.html#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Claims-Util-Lifecycle.html">Daml.Finance.Claims.Util.Lifecycle</a><ul>
@@ -341,6 +410,10 @@
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Data-Time-DateClock.html">Daml.Finance.Data.Time.DateClock</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Data-Time-DateClock.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Data-Time-DateClock.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Data-Time-DateClock-Types.html">Daml.Finance.Data.Time.DateClock.Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Data-Time-DateClock-Types.html#data-types">Data Types</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Holding-Fungible.html">Daml.Finance.Holding.Fungible</a><ul>
@@ -426,8 +499,8 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Instrument.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Util.html">Daml.Finance.Instrument.Generic.Util</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Util.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Lifecycle-Rule.html">Daml.Finance.Instrument.Generic.Lifecycle.Rule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Instrument-Generic-Lifecycle-Rule.html#templates">Templates</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Instrument-Swap-Asset-Factory.html">Daml.Finance.Instrument.Swap.Asset.Factory</a><ul>
@@ -529,6 +602,13 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Claim.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Claims-Dynamic-Instrument.html">Daml.Finance.Interface.Claims.Dynamic.Instrument</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Dynamic-Instrument.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Dynamic-Instrument.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Dynamic-Instrument.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Dynamic-Instrument.html#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Claims-Types.html">Daml.Finance.Interface.Claims.Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Claims-Types.html#data-types">Data Types</a></li>
 </ul>
@@ -565,13 +645,6 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Fungible.html#typeclasses">Typeclasses</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Fungible.html#data-types">Data Types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Fungible.html#functions">Functions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Holding-Lockable.html">Daml.Finance.Interface.Holding.Lockable</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Lockable.html#interfaces">Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Lockable.html#typeclasses">Typeclasses</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Lockable.html#data-types">Data Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Holding-Lockable.html#functions">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Holding-Transferable.html">Daml.Finance.Interface.Holding.Transferable</a><ul>
@@ -899,6 +972,13 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Instruction.html#functions">Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Settlement-RouteProvider.html">Daml.Finance.Interface.Settlement.RouteProvider</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-RouteProvider.html#interfaces">Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-RouteProvider.html#typeclasses">Typeclasses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-RouteProvider.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-RouteProvider.html#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Types.html">Daml.Finance.Interface.Settlement.Types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Interface-Settlement-Types.html#data-types">Data Types</a></li>
 </ul>
@@ -948,9 +1028,9 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-ElectionEffect.html#data-types">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-DateClock.html">Daml.Finance.Lifecycle.Event.DateClock</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-DateClock.html#templates">Templates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-DateClock.html#data-types">Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-DateClockUpdate.html">Daml.Finance.Lifecycle.Event.DateClockUpdate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-DateClockUpdate.html#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-DateClockUpdate.html#data-types">Data Types</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-Event-Distribution.html">Daml.Finance.Lifecycle.Event.Distribution</a><ul>
@@ -983,10 +1063,6 @@
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Rule-Util.html#functions">Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Lifecycle-Types.html">Daml.Finance.Lifecycle.Types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Lifecycle-Types.html#data-types">Data Types</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Settlement-Batch.html">Daml.Finance.Settlement.Batch</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Settlement-Batch.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Settlement-Batch.html#data-types">Data Types</a></li>
@@ -1004,6 +1080,14 @@
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Settlement-Instruction.html">Daml.Finance.Settlement.Instruction</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Settlement-Instruction.html#templates">Templates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Settlement-Instruction.html#data-types">Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Settlement-RouteProvider-IntermediatedStatic.html">Daml.Finance.Settlement.RouteProvider.IntermediatedStatic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Settlement-RouteProvider-IntermediatedStatic.html#templates">Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Settlement-RouteProvider-SingleCustodian.html">Daml.Finance.Settlement.RouteProvider.SingleCustodian</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Daml-Finance-Settlement-RouteProvider-SingleCustodian.html#templates">Templates</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Daml-Finance-Util-Common.html">Daml.Finance.Util.Common</a><ul>
@@ -1115,19 +1199,17 @@
             <div itemprop="articleBody">
                 
   <div class="section" id="module-daml-finance-interface-instrument-swap-fpml-fpmltypes">
-<span id="module-daml-finance-interface-instrument-swap-fpml-fpmltypes-35062"></span><h1>Module Daml.Finance.Interface.Instrument.Swap.Fpml.FpmlTypes<a class="headerlink" href="#module-daml-finance-interface-instrument-swap-fpml-fpmltypes" title="Permalink to this heading">¶</a></h1>
+<span id="module-daml-finance-interface-instrument-swap-fpml-fpmltypes-35062"></span><h1>Module Daml.Finance.Interface.Instrument.Swap.Fpml.FpmlTypes<a class="headerlink" href="#module-daml-finance-interface-instrument-swap-fpml-fpmltypes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="data-types">
-<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this heading">¶</a></h2>
+<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-adjustabledate-73867"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-adjustabledate-73867">AdjustableDate</a></p>
 <blockquote>
-<div><p>A type for defining a date that shall be subject to
-adjustment if it would otherwise fall on a day that
-is not a business day in the specified business
-centers, together with the convention for adjusting
-the date.</p>
+<div><p>A type for defining a date that shall be subject to adjustment if it would otherwise fall on a
+day that is not a business day in the specified business centers, together with the convention
+for adjusting the date.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-adjustabledate-49022"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-adjustabledate-49022">AdjustableDate</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1156,12 +1238,11 @@ the date.</p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-businesscentertime-18156"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-businesscentertime-18156">BusinessCenterTime</a></p>
 <blockquote>
-<div><p>A type for defining a time with respect to a business
-day calendar location. For example, 11:00am London
-time.</p>
+<div><p>A type for defining a time with respect to a business day calendar location. For example,
+11:00am London time.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-businesscentertime-94273"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-businesscentertime-94273">BusinessCenterTime</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1176,7 +1257,7 @@ time.</p>
 <tbody valign="top">
 <tr class="row-even"><td>hourMinuteTime</td>
 <td><a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-hourminutetime-69567">HourMinuteTime</a></td>
-<td>A time specified in hh:mm:ss format where the second component must be ‘00’, e.g. 11am would be represented as 11:00:00.</td>
+<td>A time specified in hh:mm:ss format where the second component must be ‘00’, e.g., 11am would be represented as 11:00:00.</td>
 </tr>
 <tr class="row-odd"><td>businessCenter</td>
 <td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952">Text</a></td>
@@ -1190,14 +1271,12 @@ time.</p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-businessdayadjustments-31058"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-businessdayadjustments-31058">BusinessDayAdjustments</a></p>
 <blockquote>
-<div><p>A type defining the business day convention and
-financial business centers used for adjusting any
-relevant date if it would otherwise fall on a day
-that is not a business day in the specified business
-centers.</p>
+<div><p>A type defining the business day convention and financial business centers used for adjusting
+any relevant date if it would otherwise fall on a day that is not a business day in the
+specified business centers.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-businessdayadjustments-34311"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-businessdayadjustments-34311">BusinessDayAdjustments</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1229,7 +1308,7 @@ centers.</p>
 <div><p>The parameters used in the calculation of fixed or floating rate period amounts.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculation-38381"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculation-38381">Calculation</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1265,7 +1344,7 @@ centers.</p>
 <div><p>The calculation period amount parameters.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperiodamount-73314"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperiodamount-73314">CalculationPeriodAmount</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1293,7 +1372,7 @@ centers.</p>
 <div><p>The calculation periods dates schedule.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperioddates-92640"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperioddates-92640">CalculationPeriodDates</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1342,10 +1421,11 @@ centers.</p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperioddatesadjustments-79386"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperioddatesadjustments-79386">CalculationPeriodDatesAdjustments</a></p>
 <blockquote>
-<div><p>The business day convention to apply to each calculation period end date if it would otherwise fall on a day that is not a business day in the specified financial business centers.</p>
+<div><p>The business day convention to apply to each calculation period end date if it would otherwise
+fall on a day that is not a business day in the specified financial business centers.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperioddatesadjustments-18825"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperioddatesadjustments-18825">CalculationPeriodDatesAdjustments</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1374,17 +1454,14 @@ centers.</p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperiodfrequency-88564"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperiodfrequency-88564">CalculationPeriodFrequency</a></p>
 <blockquote>
-<div><p>A type defining the frequency at which calculation
-period end dates occur within the regular part of the
-calculation period schedule and thier roll date
-convention. In case the calculation frequency is of
-value T (term), the period is defined by the
-swap\swapStream\calculationPerioDates\effectiveDate
-and the
+<div><p>A type defining the frequency at which calculation period end dates occur within the regular
+part of the calculation period schedule and thier roll date convention. In case the calculation
+frequency is of value T (term), the period is defined by the
+swap\swapStream\calculationPerioDates\effectiveDate and the
 swap\swapStream\calculationPerioDates\terminationDate.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperiodfrequency-37465"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperiodfrequency-37465">CalculationPeriodFrequency</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1399,11 +1476,11 @@ swap\swapStream\calculationPerioDates\terminationDate.</p>
 <tbody valign="top">
 <tr class="row-even"><td>periodMultiplier</td>
 <td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-int-37261">Int</a></td>
-<td>A time period multiplier, e.g. 1, 2 or 3 etc. If the period value is T (Term) then periodMultiplier must contain the value 1.</td>
+<td>A time period multiplier, e.g., 1, 2 or 3 etc. If the period value is T (Term) then periodMultiplier must contain the value 1.</td>
 </tr>
 <tr class="row-odd"><td>period</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Types-Date-RollConvention.html#type-daml-finance-interface-types-date-rollconvention-periodenum-51659"><span class="std std-ref">PeriodEnum</span></a></td>
-<td>A time period, e.g. a day, week, month, year or term of the stream.</td>
+<td>A time period, e.g., a day, week, month, year or term of the stream.</td>
 </tr>
 <tr class="row-even"><td>rollConvention</td>
 <td><a class="reference internal" href="Daml-Finance-Interface-Types-Date-RollConvention.html#type-daml-finance-interface-types-date-rollconvention-rollconventionenum-73360"><span class="std std-ref">RollConventionEnum</span></a></td>
@@ -1417,47 +1494,43 @@ swap\swapStream\calculationPerioDates\terminationDate.</p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-daterelativetoenum-54982"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-daterelativetoenum-54982">DateRelativeToEnum</a></p>
 <blockquote>
-<div><p>The specification of whether payments/resets occur relative to
-the first or last day of a calculation period.</p>
+<div><p>The specification of whether payments/resets occur relative to the first or last day of a
+calculation period.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperiodstartdate-76683"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperiodstartdate-76683">CalculationPeriodStartDate</a></p>
 <blockquote>
-<div>Payments/Resets will occur relative to the first day of each
-calculation period.</div></blockquote>
+<div>Payments/Resets will occur relative to the first day of each calculation period.</div></blockquote>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperiodenddate-41578"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculationperiodenddate-41578">CalculationPeriodEndDate</a></p>
 <blockquote>
-<div>Payments/Resets will occur relative to the last day of each
-calculation period.</div></blockquote>
+<div>Payments/Resets will occur relative to the last day of each calculation period.</div></blockquote>
 <p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713">Eq</a> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-daterelativetoenum-54982">DateRelativeToEnum</a></p>
 <p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360">Show</a> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-daterelativetoenum-54982">DateRelativeToEnum</a></p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-daytypeenum-13752"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-daytypeenum-13752">DayTypeEnum</a></p>
 <blockquote>
-<div><p>A day type classification used in counting the number
-of days between two dates.</p>
+<div><p>A day type classification used in counting the number of days between two dates.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-business-59211"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-business-59211">Business</a></p>
 <blockquote>
-<div>When calculating the number of days between two dates
-the count includes only business days.</div></blockquote>
+<div>When calculating the number of days between two dates the count includes only business
+days.</div></blockquote>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calendar-50359"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-calendar-50359">Calendar</a></p>
 <blockquote>
-<div>When calculating the number of days between two dates
-the count includes all calendar days.</div></blockquote>
+<div>When calculating the number of days between two dates the count includes all calendar days.</div></blockquote>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-commoditybusiness-80941"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-commoditybusiness-80941">CommodityBusiness</a></p>
 <blockquote>
-<div>When calculating the number of days between two dates
-the count includes only commodity business days.</div></blockquote>
+<div>When calculating the number of days between two dates the count includes only commodity
+business days.</div></blockquote>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-currencybusiness-65434"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-currencybusiness-65434">CurrencyBusiness</a></p>
 <blockquote>
-<div>When calculating the number of days between two dates
-the count includes only currency business days.</div></blockquote>
+<div>When calculating the number of days between two dates the count includes only currency
+business days.</div></blockquote>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-exchangebusiness-78596"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-exchangebusiness-78596">ExchangeBusiness</a></p>
 <blockquote>
-<div>When calculating the number of days between two dates
-the count includes only stock exchange business days.</div></blockquote>
+<div>When calculating the number of days between two dates the count includes only stock
+exchange business days.</div></blockquote>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-scheduledtradingday-75056"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-scheduledtradingday-75056">ScheduledTradingDay</a></p>
 <blockquote>
-<div>When calculating the number of days between two dates
-the count includes only scheduled trading days.</div></blockquote>
+<div>When calculating the number of days between two dates the count includes only scheduled
+trading days.</div></blockquote>
 <p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713">Eq</a> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-daytypeenum-13752">DayTypeEnum</a></p>
 <p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360">Show</a> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-daytypeenum-13752">DayTypeEnum</a></p>
 </div></blockquote>
@@ -1466,7 +1539,7 @@ the count includes only scheduled trading days.</div></blockquote>
 <div><p>Specify the fixed rate</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-fixedrateschedule-46667"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-fixedrateschedule-46667">FixedRateSchedule</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1481,7 +1554,7 @@ the count includes only scheduled trading days.</div></blockquote>
 <tbody valign="top">
 <tr class="row-even"><td>initialValue</td>
 <td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135">Decimal</a></td>
-<td>The initial rate or amount, as the case may be. An initial rate of 5% would be represented as 0.05. step : [Step] ^ The schedule of step date and value pairs. On each step date the associated step value becomes effective A list of steps may be ordered in the document by ascending step date. An FpML document containing an unordered list of steps is still regarded as a conformant document. type_ : Optional SpreadScheduleType</td>
+<td>The initial rate or amount, as the case may be. An initial rate of 5% would be represented as 0.05. step : [Step] ^ The schedule of step date and value pairs. On each step date the associated step value becomes effective. A list of steps may be ordered in the document by ascending step date. An FpML document containing an unordered list of steps is still regarded as a conformant document. type_ : Optional SpreadScheduleType</td>
 </tr>
 </tbody>
 </table>
@@ -1491,10 +1564,11 @@ the count includes only scheduled trading days.</div></blockquote>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-fixingdates-87647"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-fixingdates-87647">FixingDates</a></p>
 <blockquote>
-<div><p>Specifies the fixing date relative to the reset date in terms of a business days offset and an associated set of financial business centers.</p>
+<div><p>Specifies the fixing date relative to the reset date in terms of a business days offset and an
+associated set of financial business centers.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-fixingdates-34656"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-fixingdates-34656">FixingDates</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1539,7 +1613,7 @@ the count includes only scheduled trading days.</div></blockquote>
 relating to the calculation of floating rate amounts.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-floatingratecalculation-75209"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-floatingratecalculation-75209">FloatingRateCalculation</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1558,7 +1632,7 @@ relating to the calculation of floating rate amounts.</p>
 </tr>
 <tr class="row-odd"><td>indexTenor</td>
 <td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153">Optional</a> <a class="reference internal" href="Daml-Finance-Interface-Types-Date-RollConvention.html#type-daml-finance-interface-types-date-rollconvention-period-21180"><span class="std std-ref">Period</span></a></td>
-<td>The ISDA Designated Maturity, i.e. the tenor of the floating rate. floatingRateMultiplierSchedule : Optional Schedule ^ A rate multiplier or multiplier schedule to apply to the floating rate. A multiplier schedule is expressed as explicit multipliers and dates. In the case of a schedule, the step dates may be subject to adjustment in accordance with any adjustments specified in the calculationPeriodDatesAdjustments. The multiplier can be a positive or negative decimal. This element should only be included if the multiplier is not equal to 1 (one) for the term of the stream. spreadSchedule : [SpreadSchedule]</td>
+<td>The ISDA Designated Maturity, i.e., the tenor of the floating rate. floatingRateMultiplierSchedule : Optional Schedule ^ A rate multiplier or multiplier schedule to apply to the floating rate. A multiplier schedule is expressed as explicit multipliers and dates. In the case of a schedule, the step dates may be subject to adjustment in accordance with any adjustments specified in the calculationPeriodDatesAdjustments. The multiplier can be a positive or negative decimal. This element should only be included if the multiplier is not equal to 1 (one) for the term of the stream. spreadSchedule : [SpreadSchedule]</td>
 </tr>
 <tr class="row-even"><td>spreadSchedule</td>
 <td><a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-spreadschedule-59448">SpreadSchedule</a></td>
@@ -1575,7 +1649,7 @@ relating to the calculation of floating rate amounts.</p>
 <div><p>The notional amount or notional amount schedule (FX linked).</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-fxlinkednotionalschedule-95887"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-fxlinkednotionalschedule-95887">FxLinkedNotionalSchedule</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1620,7 +1694,7 @@ relating to the calculation of floating rate amounts.</p>
 an fx rate.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-fxspotratesource-21706"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-fxspotratesource-21706">FxSpotRateSource</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1639,7 +1713,7 @@ an fx rate.</p>
 </tr>
 <tr class="row-odd"><td>fixingTime</td>
 <td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153">Optional</a> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-businesscentertime-18156">BusinessCenterTime</a></td>
-<td>The time at which the spot currency exchange rate will be observed. It is specified as a time in a business day calendar location, e.g. 11:00am London time.</td>
+<td>The time at which the spot currency exchange rate will be observed. It is specified as a time in a business day calendar location, e.g., 11:00am London time.</td>
 </tr>
 </tbody>
 </table>
@@ -1649,18 +1723,16 @@ an fx rate.</p>
 </div></blockquote>
 <dl class="docutils" id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-hourminutetime-69567">
 <dt><strong>type</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-hourminutetime-69567">HourMinuteTime</a></dt><dd><p>= <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952">Text</a></p>
-<p>A type defining a time specified in hh:mm:ss format
-where the second component must be ‘00’, e.g. 11am
-would be represented as 11:00:00.</p>
+<p>A type defining a time specified in hh:mm:ss format where the second component must be ‘00’,
+e.g., 11am would be represented as 11:00:00.</p>
 </dd>
 </dl>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-informationsource-42318"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-informationsource-42318">InformationSource</a></p>
 <blockquote>
-<div><p>A type defining the source for a piece of information
-(e.g. a rate refix or an fx fixing).</p>
+<div><p>A type defining the source for a piece of information (e.g. a rate refix or an fx fixing).</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-informationsource-33837"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-informationsource-33837">InformationSource</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1675,7 +1747,7 @@ would be represented as 11:00:00.</p>
 <tbody valign="top">
 <tr class="row-even"><td>rateSource</td>
 <td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952">Text</a></td>
-<td>An information source for obtaining a market rate. For example Bloomberg, Reuters, Telerate etc. rateSourcePage : Optional RateSourcePage</td>
+<td>An information source for obtaining a market rate. For example, Bloomberg, Reuters, Telerate etc. rateSourcePage : Optional RateSourcePage</td>
 </tr>
 <tr class="row-odd"><td>rateSourcePage</td>
 <td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-text-51952">Text</a></td>
@@ -1692,7 +1764,7 @@ would be represented as 11:00:00.</p>
 <div><p>The notional amount or notional amount schedule.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-notionalschedule-46206"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-notionalschedule-46206">NotionalSchedule</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1733,10 +1805,11 @@ would be represented as 11:00:00.</p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-notionalstepschedule-61517"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-notionalstepschedule-61517">NotionalStepSchedule</a></p>
 <blockquote>
-<div><p>The notional amount or notional amount schedule expressed as explicit outstanding notional amounts and dates.</p>
+<div><p>The notional amount or notional amount schedule expressed as explicit outstanding notional
+amounts and dates.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-notionalstepschedule-47772"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-notionalstepschedule-47772">NotionalStepSchedule</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1772,7 +1845,7 @@ would be represented as 11:00:00.</p>
 <div><p>The payment dates schedule.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-paymentdates-27056"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-paymentdates-27056">PaymentDates</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1817,10 +1890,18 @@ would be represented as 11:00:00.</p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-paymentfrequency-58152"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-paymentfrequency-58152">PaymentFrequency</a></p>
 <blockquote>
-<div><p>The frequency at which regular payment dates occur. If the payment frequency is equal to the frequency defined in the calculation period dates component then one calculation period contributes to each payment amount. If the payment frequency is less frequent than the frequency defined in the calculation period dates component then more than one calculation period will contribute to the payment amount. A payment frequency more frequent than the calculation period frequency or one that is not a multiple of the calculation period frequency is invalid. If the payment frequency is of value T (term), the period is defined by the swap\swapStream\calculationPerioDates\effectiveDate and the swap\swapStream\calculationPerioDates\terminationDate.</p>
+<div><p>The frequency at which regular payment dates occur. If the payment frequency is equal to the
+frequency defined in the calculation period dates component then one calculation period
+contributes to each payment amount. If the payment frequency is less frequent than the
+frequency defined in the calculation period dates component then more than one calculation
+period will contribute to the payment amount. A payment frequency more frequent than the
+calculation period frequency or one that is not a multiple of the calculation period frequency
+is invalid. If the payment frequency is of value T (term), the period is defined by the
+swap\swapStream\calculationPerioDates\effectiveDate and the
+swap\swapStream\calculationPerioDates\terminationDate.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-paymentfrequency-8369"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-paymentfrequency-8369">PaymentFrequency</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1853,7 +1934,7 @@ would be represented as 11:00:00.</p>
 the stream.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-principalexchanges-61115"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-principalexchanges-61115">PrincipalExchanges</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1901,7 +1982,7 @@ the stream.</p>
 <div><p>The reset dates schedule. This only applies for a floating rate stream.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-resetdates-44651"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-resetdates-44651">ResetDates</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1942,10 +2023,11 @@ the stream.</p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-resetdatesadjustments-23359"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-resetdatesadjustments-23359">ResetDatesAdjustments</a></p>
 <blockquote>
-<div><p>The business day convention to apply to each reset date if it would otherwise fall on a day that is not a business day in the specified financial business centers.</p>
+<div><p>The business day convention to apply to each reset date if it would otherwise fall on a day
+that is not a business day in the specified financial business centers.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-resetdatesadjustments-69412"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-resetdatesadjustments-69412">ResetDatesAdjustments</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -1977,7 +2059,7 @@ the stream.</p>
 <div><p>The frequency at which reset dates occur.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-resetfrequency-86178"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-resetfrequency-86178">ResetFrequency</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -2006,11 +2088,10 @@ the stream.</p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-spreadschedule-59448"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-spreadschedule-59448">SpreadSchedule</a></p>
 <blockquote>
-<div><p>Adds an optional spread type element to the Schedule
-to identify a long or short spread value.</p>
+<div><p>Adds an optional spread type element to the Schedule to identify a long or short spread value.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-spreadschedule-80225"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-spreadschedule-80225">SpreadSchedule</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -2025,7 +2106,7 @@ to identify a long or short spread value.</p>
 <tbody valign="top">
 <tr class="row-even"><td>initialValue</td>
 <td><a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135">Decimal</a></td>
-<td>The initial rate or amount, as the case may be. An initial rate of 5% would be represented as 0.05. step : [Step] ^ The schedule of step date and value pairs. On each step date the associated step value becomes effective A list of steps may be ordered in the document by ascending step date. An FpML document containing an unordered list of steps is still regarded as a conformant document. type_ : Optional SpreadScheduleType</td>
+<td>The initial rate or amount, as the case may be. An initial rate of 5% would be represented as 0.05. step : [Step] ^ The schedule of step date and value pairs. On each step date the associated step value becomes effective. A list of steps may be ordered in the document by ascending step date. An FpML document containing an unordered list of steps is still regarded as a conformant document. type_ : Optional SpreadScheduleType</td>
 </tr>
 </tbody>
 </table>
@@ -2035,10 +2116,13 @@ to identify a long or short spread value.</p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-step-69338"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-step-69338">Step</a></p>
 <blockquote>
-<div><p>The schedule of step date and non-negative value pairs. On each step date the associated step value becomes effective. A list of steps may be ordered in the document by ascending step date. An FpML document containing an unordered list of steps is still regarded as a conformant document.</p>
+<div><p>The schedule of step date and non-negative value pairs. On each step date the associated step
+value becomes effective. A list of steps may be ordered in the document by ascending step date.
+An FpML document containing an unordered list of steps is still regarded as a conformant
+document.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-step-98131"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-step-98131">Step</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -2067,10 +2151,14 @@ to identify a long or short spread value.</p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubcalculationperiodamount-23577"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubcalculationperiodamount-23577">StubCalculationPeriodAmount</a></p>
 <blockquote>
-<div><p>The stub calculation period amount parameters. This element must only be included if there is an initial or final stub calculation period. Even then, it must only be included if either the stub references a different floating rate tenor to the regular calculation periods, or if the stub is calculated as a linear interpolation of two different floating rate tenors, or if a specific stub rate or stub amount has been negotiated.</p>
+<div><p>The stub calculation period amount parameters. This element must only be included if there is
+an initial or final stub calculation period. Even then, it must only be included if either the
+stub references a different floating rate tenor to the regular calculation periods, or if the
+stub is calculated as a linear interpolation of two different floating rate tenors, or if a
+specific stub rate or stub amount has been negotiated.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubcalculationperiodamount-44422"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubcalculationperiodamount-44422">StubCalculationPeriodAmount</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -2103,10 +2191,11 @@ to identify a long or short spread value.</p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubfloatingrate-69656"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubfloatingrate-69656">StubFloatingRate</a></p>
 <blockquote>
-<div><p>The rates to be applied to the initial or final stub may be the linear interpolation of two different rates.</p>
+<div><p>The rates to be applied to the initial or final stub may be the linear interpolation of two
+different rates.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubfloatingrate-92621"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubfloatingrate-92621">StubFloatingRate</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />
@@ -2135,45 +2224,37 @@ to identify a long or short spread value.</p>
 </div></blockquote>
 <p id="type-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubvalue-47596"><strong>data</strong> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubvalue-47596">StubValue</a></p>
 <blockquote>
-<div><p>Specifies how the stub amount is calculated. A single floating rate tenor different to that used for the regular part of the calculation periods schedule may be specified, or two floating tenors may be specified. If two floating rate tenors are specified then Linear Interpolation (in accordance with the 2000 ISDA Definitions, Section 8.3. Interpolation) is assumed to apply. Alternatively, an actual known stub rate or stub amount may be specified.</p>
+<div><p>Specifies how the stub amount is calculated. A single floating rate tenor different to that
+used for the regular part of the calculation periods schedule may be specified, or two floating
+tenors may be specified. If two floating rate tenors are specified then Linear Interpolation
+(in accordance with the 2000 ISDA Definitions, Section 8.3. Interpolation) is assumed to apply.
+Alternatively, an actual known stub rate or stub amount may be specified.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubvaluefloatingrate-69521"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubvaluefloatingrate-69521">StubValue_FloatingRate</a> [<a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubfloatingrate-69656">StubFloatingRate</a>]</p>
 <blockquote>
-<div>The rates to be applied to the initial or final stub
-may be the linear interpolation of two different
-rates. While the majority of the time, the rate
-indices will be the same as that specified in the
-stream and only the tenor itself will be different,
-it is possible to specift two different rates. For
-example, a 2 month stub period may use the linear
-interpolation of a 1 month and 3 month rate. The
-different rates would be specified in this component.
-Note that a maximum of two rates can be specified. If
-a stub period uses the same floating rate index,
-including tenor, as the regular calculation periods
-then this should not be specified again within this
-component, i.e. the stub calculation period amount
-component may not need to be specified even if there
-is an initial or final stub period. If a stub period
-uses a different floating rate index compared to the
-regular calculation periods then this should be
-specified within this component. If specified here,
-they are likely to have id attributes, allowing them
-to be referenced from within the cashflows component.</div></blockquote>
-<p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubvaluestubrate-28947"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubvaluestubrate-28947">StubValue_StubRate</a> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135">Decimal</a></p>
+<div>The rates to be applied to the initial or final stub may be the linear interpolation of two
+different rates. While the majority of the time, the rate indices will be the same as that
+specified in the stream and only the tenor itself will be different, it is possible to
+specift two different rates. For example, a 2 month stub period may use the linear
+interpolation of a 1 month and 3 month rate. The different rates would be specified in this
+component. Note that a maximum of two rates can be specified. If a stub period uses the
+same floating rate index, including tenor, as the regular calculation periods then this
+should not be specified again within this component, i.e., the stub calculation period
+amount component may not need to be specified even if there is an initial or final stub
+period. If a stub period uses a different floating rate index compared to the regular
+calculation periods then this should be specified within this component. If specified here,
+they are likely to have id attributes, allowing them to be referenced from within the
+cashflows component.</div></blockquote>
+<p><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubvaluestubrate-28947">StubValue_StubRate</a> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-decimal-18135">Decimal</a></p>
 <blockquote>
-<div>An actual rate to apply for the initial or final stub
-period may have been agreed between the principal
-parties (in a similar way to how an initial rate may
-have been agreed for the first regular period). If an
-actual stub rate has been agreed then it would be
-included in this component. It will be a per annum
-rate, expressed as a decimal. A stub rate of 5% would
-be represented as 0.05.
+<div>An actual rate to apply for the initial or final stub period may have been agreed between
+the principal parties (in a similar way to how an initial rate may have been agreed for the
+first regular period). If an actual stub rate has been agreed then it would be included in
+this component. It will be a per annum rate, expressed as a decimal. A stub rate of 5%
+would be represented as 0.05.
 | StubValue_StubAmount Money
-^ An actual amount to apply for the initial or final
-stub period may have been agreed between th two
-parties. If an actual stub amount has been agreed
-then it would be included in this component.</div></blockquote>
+^ An actual amount to apply for the initial or final stub period may have been agreed between
+the two parties. If an actual stub amount has been agreed then it would be included in this
+component.</div></blockquote>
 <p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713">Eq</a> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubvalue-47596">StubValue</a></p>
 <p><strong>instance</strong> <a class="reference external" href="https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-show-show-65360">Show</a> <a class="reference internal" href="#type-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubvalue-47596">StubValue</a></p>
 </div></blockquote>
@@ -2182,7 +2263,7 @@ then it would be included in this component.</div></blockquote>
 <div><p>The swap streams, describing each leg of the swap.</p>
 <p id="constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-swapstream-52622"><a class="reference internal" href="#constr-daml-finance-interface-instrument-swap-fpml-fpmltypes-swapstream-52622">SwapStream</a></p>
 <blockquote>
-<div><table border="1" class="docutils align-default">
+<div><table border="1" class="colwidths-given docutils align-default">
 <colgroup>
 <col width="27%" />
 <col width="18%" />

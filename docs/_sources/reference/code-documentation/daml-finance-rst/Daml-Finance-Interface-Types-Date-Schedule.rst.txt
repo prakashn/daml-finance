@@ -28,7 +28,7 @@ Data Types
          - Description
        * - period
          - :ref:`PeriodEnum <type-daml-finance-interface-types-date-rollconvention-periodenum-51659>`
-         - The period, e\.g\. day, month, etc\.
+         - The period, e\.g\., day, month, etc\.
        * - periodMultiplier
          - `Int <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-int-37261>`_
          - The period multiplier\.
@@ -59,10 +59,10 @@ Data Types
          - Description
        * - effectiveDate
          - `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
-         - Effective date, i\.e\. the (unadjusted) start date of the first period\.
+         - Effective date, i\.e\., the (unadjusted) start date of the first period\.
        * - terminationDate
          - `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
-         - Termination date, i\.e\. the (unadjusted) end date of the last period\.
+         - Termination date, i\.e\., the (unadjusted) end date of the last period\.
        * - firstRegularPeriodStartDate
          - `Optional <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-prelude-optional-37153>`_ `Date <https://docs.daml.com/daml/stdlib/Prelude.html#type-da-internal-lf-date-32253>`_
          - The (unadjusted) start date of the first regular period (optional)\.

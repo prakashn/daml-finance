@@ -28,10 +28,10 @@ Data Types
          - Description
        * - period
          - `PeriodEnum <type-daml-finance-interface-types-date-rollconvention-periodenum-51659_>`_
-         - A period, e\.g\. a day, week, month or year\.
+         - A period, e\.g\., a day, week, month or year\.
        * - periodMultiplier
          - `Int <https://docs.daml.com/daml/stdlib/Prelude.html#type-ghc-types-int-37261>`_
-         - A period multiplier, e\.g\. 1, 2 or 3 etc\.
+         - A period multiplier, e\.g\., 1, 2 or 3 etc\.
 
   **instance** `Eq <https://docs.daml.com/daml/stdlib/Prelude.html#class-ghc-classes-eq-22713>`_ `Period <type-daml-finance-interface-types-date-rollconvention-period-21180_>`_
 
@@ -41,7 +41,7 @@ Data Types
 
 **data** `PeriodEnum <type-daml-finance-interface-types-date-rollconvention-periodenum-51659_>`_
 
-  An enum type to specify a period, e\.g\. day, week\.
+  An enum type to specify a period, e\.g\., day or week\.
 
   .. _constr-daml-finance-interface-types-date-rollconvention-d-42425:
 
