@@ -4,7 +4,7 @@
 How To Use the Swap Extension Package
 #####################################
 
-To follow the script used in this tutorial you can
+To follow the script used in this tutorial, you can
 `clone the Daml Finance repository <https://github.com/digital-asset/daml-finance>`_. In particular,
 the Swap test folder ``src/test/daml/Daml/Finance/Instrument/Swap/Test/`` is the starting point of
 this tutorial.
@@ -21,17 +21,20 @@ How To Create a Swap Instrument
 *******************************
 
 There are different types of swaps, which differ both in the way regular payments are defined and
-whether notional is exchanged. In order to create a swap instrument you first have to decide what
-type of swap you need. The swap extension package currently supports the following types of swaps:
+whether notional is exchanged. In order to create a swap instrument, you first have to decide what
+type of swap you need. The
+:doc:`swap extension package <../../packages/implementations/daml-finance-instrument-swap>`
+currently supports the following types of swaps:
 
 Interest Rate
 =============
 
-Interest rate swap is the type of swap that shares most similarities with a bond. It has two legs:
+:ref:`Interest rate swap <module-daml-finance-instrument-swap-interestrate-instrument-86260>`
+is the type of swap that shares most similarities with a bond. It has two legs:
 one which pays a fix rate and another one which pays a floating rate. These rates are paid at the
 end of every payment period.
 
-As an example we will create a swap instrument paying Libor 3M vs a 2.01% p.a. with a 3M payment
+As an example, we will create a swap instrument paying Libor 3M vs a 2.01% p.a. with a 3M payment
 period. This example is taken from
 ``src/test/daml/Daml/Finance/Instrument/Swap/Test/InterestRate.daml``, where all the details are
 available.
@@ -44,6 +47,7 @@ We start by defining the terms:
   :end-before: -- CREATE_INTEREST_RATE_SWAP_VARIABLES_END
 
 The floating leg depends on a reference rate, which is defined by the *referenceRateId* variable.
+The value of the reference rate is observed at the beginning of each payment period.
 
 The *issuerPaysFix* variable is used to specify whether the issuer pays the fix or the floating leg.
 This is not needed for bonds, because the regular payments are always in one direction (from the
@@ -59,6 +63,15 @@ Just as for bonds, we can use these variables to create a
   :start-after: -- CREATE_SWAP_PERIODIC_SCHEDULE_BEGIN
   :end-before: -- CREATE_SWAP_PERIODIC_SCHEDULE_END
 
+Note that this instrument only has one periodic schedule, which is used for both the fixed and the
+floating leg.
+It is also used for both the calculation period (to determine which floating rate to be used) and
+the payment period (to determine when payments are done). The
+:ref:`FpML swap template <fpml-swaps-tutorial-section>`
+below offers more flexibility here. It has individual schedules, both for the fixed/floating leg and
+for the calculation/payment periods. That would allow you to specify whether payments should be made
+e.g. after each calculation period or only after every second calculation period.
+
 Now that we have defined the terms we can create the swap instrument:
 
 .. literalinclude:: ../../../../src/test/daml/Daml/Finance/Instrument/Swap/Test/Util.daml
@@ -66,14 +79,16 @@ Now that we have defined the terms we can create the swap instrument:
   :start-after: -- CREATE_INTEREST_RATE_SWAP_INSTRUMENT_BEGIN
   :end-before: -- CREATE_INTEREST_RATE_SWAP_INSTRUMENT_END
 
-Once the instrument is created, you can book a holding on it using ``Account.credit``. Since the
-issuer pays the floating leg in our example, the owner of the holding receives the floating leg (and
-pays the fix leg).
+Once the instrument is created, you can book a holding on it using
+:ref:`Account.credit <module-daml-finance-interface-account-account-92922>`.
+Since the issuer pays the floating leg in our example, the owner of the holding receives the
+floating leg (and pays the fix leg).
 
 Currency
 ========
 
-Currency swaps are quite similar to interest rate swaps, except that the two legs are in different
+:ref:`Currency swaps <module-daml-finance-instrument-swap-currency-instrument-67721>`
+are quite similar to interest rate swaps, except that the two legs are in different
 currencies. Consequently, we need to create two cash instruments:
 
 .. literalinclude:: ../../../../src/test/daml/Daml/Finance/Instrument/Swap/Test/Currency.daml
@@ -83,8 +98,8 @@ currencies. Consequently, we need to create two cash instruments:
 
 In the swap template they are referred to as *base currency* and *foreign currency*.
 
-Here is an example of a fix vs fix currency swap: 3% p.a. in USD vs 2% p.a. in EUR, payment every
-3M:
+Here is an example of a fix vs fix currency swap: 3% p.a. in USD vs 2% p.a. in EUR with payments
+every 3M:
 
 .. literalinclude:: ../../../../src/test/daml/Daml/Finance/Instrument/Swap/Test/Currency.daml
   :language: daml
@@ -96,6 +111,10 @@ In this example, the issuer pays the foreign currency leg.
 In order to calculate the interest rate payments, a notional is required in each currency. The
 quantity of the holding refers to the notional of the base currency. The notional of the foreign
 currency is defined as the quantity of the holding multiplied by the specified *fxRate*.
+
+Note that this template is limited to fixed rates. It also does not support exchange of notionals.
+If you need floating rates or exchange of notionals, please use the the
+:ref:`FpML swap template <fpml-swaps-tutorial-section>` below. It supports both of those features.
 
 Here is how we create the currency swap instrument, using the two currencies defined above:
 
@@ -111,8 +130,10 @@ leg (and pays the base currency leg).
 Foreign Exchange
 ================
 
-Despite the similarities in name, foreign exchange swaps (or FX swaps) are quite different from
-currency swaps. An FX swap does not pay or receive interest. Instead, the two legs define an initial
+Despite the similarities in name,
+:ref:`foreign exchange swaps <module-daml-finance-instrument-swap-foreignexchange-instrument-43394>`
+(or FX swaps) are quite different from currency swaps.
+An FX swap does not pay or receive interest. Instead, the two legs define an initial
 FX transaction and a final FX transaction. Each transaction requires an FX rate and a transaction
 date, which are predetermined between the counterparties.
 
@@ -151,12 +172,14 @@ currency in the initial transaction. In the final transaction the sides are reve
 Credit Default
 ==============
 
-A credit default swap (CDS) pays a protection amount in case of a credit default event, in exchange
+A :ref:`credit default swap <module-daml-finance-instrument-swap-creditdefault-instrument-88725>`
+(CDS) pays a protection amount in case of a credit default event, in exchange
 for a fix rate at the end of every payment period. The protection amount is defined as
-*1-recoveryRate*.
+*1-recoveryRate*. The *recoveryRate* is defined as the amount recovered when a borrower defaults,
+expressed as a percentage of notional.
 
-If a credit event occurs, the swap expires after the protection amount has been paid (i.e. no more
-rate payments are required afterwards).
+If a credit event occurs, the swap expires after the protection amount has been paid, i.e., no more
+rate payments are required afterwards.
 
 Here is an example of a CDS that pays *1-recoveryRate* in the case of a default on TSLA bonds:
 
@@ -189,7 +212,8 @@ leg, it means that the owner of the holding receives the protection leg (and pay
 Asset
 =====
 
-An asset swap is a general type of swap with two legs: one which pays a fix rate and another one
+An :ref:`asset swap <module-daml-finance-instrument-swap-asset-instrument-28127>`
+is a general type of swap with two legs: one which pays a fix rate and another one
 which pays the performance of an asset. It can be used to model:
 
 * equity swaps
@@ -224,14 +248,17 @@ Once the instrument is created, you can book a holding on it.
 Since the issuer pays the asset leg, it means that the owner of the holding receives the asset leg
 (and pays the fix leg).
 
+.. _fpml-swaps-tutorial-section:
+
 FpML
 ====
 
-Unlike the other swap types above, the FpML swap template is not a new type of payoff. Instead, it
-allows you to input other types of swaps using the
+Unlike the other swap types above, the
+:ref:`FpML swap <module-daml-finance-instrument-swap-fpml-instrument-17241>` template is
+not a new type of payoff. Instead, it allows you to input other types of swaps using the
 `FpML schema <https://www.fpml.org/spec/fpml-5-11-3-lcwd-1/html/confirmation/schemaDocumentation/schemas/fpml-ird-5-11_xsd/complexTypes/Swap.html>`_.
-Currently, only interest rate swaps are supported, but the template can quite easily be extended to
-currency swaps and FX swaps.
+Currently, interest rate swaps and currency swaps are supported.
+The template can quite easily be extended to FX swaps.
 
 Specifically, it allows you to specify one
 `swapStream <https://www.fpml.org/spec/fpml-5-11-3-lcwd-1/html/confirmation/schemaDocumentation/schemas/fpml-ird-5-11_xsd/complexTypes/Swap/swapStream.html>`_
@@ -245,7 +272,7 @@ We start by defining the general terms:
   :end-before: -- CREATE_FPML_SWAP_VARIABLES_END
 
 The *issuerPartyRef* and the *clientPartyRef* variables are used to specify who pays each leg (see
-*payerPartyReference* below)
+*payerPartyReference* below).
 
 The fixed leg of the swap can now be defined using Daml data types that correspond to the
 `swapStream <https://www.fpml.org/spec/fpml-5-11-3-lcwd-1/html/confirmation/schemaDocumentation/schemas/fpml-ird-5-11_xsd/complexTypes/Swap/swapStream.html>`_
@@ -256,7 +283,9 @@ schema:
   :start-after: -- CREATE_FPML_SWAP_FIX_LEG_BEGIN
   :end-before: -- CREATE_FPML_SWAP_FIX_LEG_END
 
-As you can see, the Daml ``SwapStream`` data type matches the `swapStream FpML schema <https://www.fpml.org/spec/fpml-5-11-3-lcwd-1/html/confirmation/schemaDocumentation/schemas/fpml-ird-5-11_xsd/complexTypes/Swap/swapStream.html>`_.
+As you can see, the
+:ref:`Daml SwapStream data type <type-daml-finance-interface-instrument-swap-fpml-fpmltypes-swapstream-38811>`
+matches the `swapStream FpML schema <https://www.fpml.org/spec/fpml-5-11-3-lcwd-1/html/confirmation/schemaDocumentation/schemas/fpml-ird-5-11_xsd/complexTypes/Swap/swapStream.html>`_.
 Please note that the actual parsing from FpML to Daml is not done by this template. It has to be
 implemented on the client side.
 
@@ -269,10 +298,12 @@ Similarly, the floating leg of the swap is defined like this:
 
 There are three main ways to define which interest rate should be used for a stub period. They are
 all included in the fix or floating leg above, either in the inital or in the final stub  period. In
-short, it depends on the content of ``StubCalculationPeriodAmount``:
+short, it depends on the content of
+:ref:`StubCalculationPeriodAmount <type-daml-finance-interface-instrument-swap-fpml-fpmltypes-stubcalculationperiodamount-23577>`:
 
 #. *None*: No special stub rate is provided. Instead, use the same rate as was specified in the
-   corresponding ``Calculation``.
+   corresponding
+   :ref:`Calculation <type-daml-finance-interface-instrument-swap-fpml-fpmltypes-calculation-37694>`.
 #. Specific *stubRate*: Use this specific fix rate.
 #. Specific *floatingRate*: Use this specific floating rate (if one rate is provided). If two rates
    are provided: use linear interpolation between the two rates.
@@ -300,3 +331,6 @@ practice one of the counterparties is often a swap dealer, who shares some of th
 a bond issuer. For the purpose of lifecycling in Daml Finance, we require one of the counterparties
 to take the role as issuer. This counterparty will serve as calculation agent and provide the
 observables required to calculate the swap payments.
+
+The documentation of the Daml Finance asset model contains an
+:ref:`OTC swap example <otc-swap-asset-model>`.

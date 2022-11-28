@@ -32,14 +32,14 @@ potentially acting maliciously.
 Keys and Versioning
 ===================
 
-An instrument is identified by an ``Id``, which comprises a textual label and a textual version.
-
-It is usually referenced by key, the ``InstrumentKey`` comprising
+Instruments are keyed by an
+:ref:`InstrumentKey <constr-daml-finance-interface-types-common-instrumentkey-1593>`,
+which comprises:
 
 -  the instrument ``issuer``
 -  the instrument ``depository``
 -  a textual ``id``
--  a ``version``
+-  a textual ``version``
 
 The version is used to keep track of the linear evolution of an instrument.
 
@@ -51,20 +51,23 @@ Interfaces
 
 Instrument interfaces are defined in the ``Daml.Finance.Interface.Instrument.*`` packages.
 
-All instruments must implement the base interface defined in
-``Daml.Finance.Interface.Instrument.Base``.
+All instruments must implement the base interface, defined in
+:ref:`Daml.Finance.Interface.Instrument.Base <module-daml-finance-interface-instrument-base-instrument-57320>`.
 
 Implementations
 ===============
 
-A base implementation is provided in ``Daml.Finance.Instrument.Token``.
+A base implementation is provided in
+:ref:`Daml.Finance.Instrument.Token <module-daml-finance-instrument-token-instrument-10682>`.
 
 This template does not define any lifecycling logic and is suitable to model contracts that are
 likely to stay stable, such as currency instruments.
 
-The extensions packages provide additional business-specific implementations, such as an ``Equity``
-instrument (where the issuer can pay dividends) or a ``Bond`` instrument (which includes coupon
-payments).
+The extension packages provide additional business-specific implementations, such as an
+:ref:`Equity <module-daml-finance-instrument-equity-instrument-69265>`
+instrument (where the issuer can pay dividends) or a
+:ref:`Bond <module-daml-finance-instrument-bond-fixedrate-instrument-67993>`
+instrument (which includes coupon payments).
 
 The expectation is that customers define their own instruments suiting the use-case they are
 modeling.
@@ -75,11 +78,11 @@ Holding
 A holding contract represents the ownership of a certain amount of an instrument by an owner at a
 custodian.
 
-Where an instrument defines **what** a party holds (the rights and obligations), a holding defines
+Whereas an instrument defines **what** a party holds (the rights and obligations), a holding defines
 **how much** and **against which party** we are holding something.
 
-It is important to stress that the economic terms of an asset (the instrument) are separated from
-the representation of an asset holding. This allows centralized management of instruments (e.g.
+It is important to understand that the economic terms of an asset (the instrument) are separated
+from the representation of an asset holding. This allows centralized management of instruments (e.g.
 lifecycling) and the reuse of instruments and associated logic across different entities (e.g.
 custodians). It also avoids the data redundancy of replicating instrument data and logic on every
 holding contract.
@@ -102,11 +105,13 @@ Properties of Holdings
 A holding implementation can have specific properties such as being :ref:`fungible <fungibility>` or
 :ref:`transferable <transferability>`.
 
-When, for instance, a holding is transferable, the owner has the right to transfer ownership to a
-different party at the same custodian.
+When, for instance, a holding is transferable, the ownership can be transferred to a different party
+at the same custodian.
 
-These properties are exposed by implementing the corresponding interface (``Fungible`` and
-``Transferable``, respectively).
+These properties are exposed by implementing the corresponding interface
+(:ref:`Fungible <type-daml-finance-interface-holding-fungible-fungible-60176>` and
+:ref:`Transferable <type-daml-finance-interface-holding-transferable-transferable-24986>`,
+respectively).
 
 .. _implementations-1:
 
@@ -114,34 +119,55 @@ Interfaces
 ==========
 
 Holding interfaces are defined in the ``Daml.Finance.Interface.Holding`` package. These include a
-base holding interface, as well as interface definitions for the above properties.
+:ref:`base holding interface <module-daml-finance-interface-holding-base-24195>`,
+as well as interface definitions for the above properties.
 
 Implementations
 ===============
 
-Implementations are provided in ``Daml.Finance.Holding`` for
+Implementations are provided in ``Daml.Finance.Holding`` for:
 
--  a fungible and transferable holding
--  a holding which is transferable but not fungible
--  a holding which is neither transferable nor fungible
+-  a :ref:`fungible and transferable <module-daml-finance-holding-fungible-7201>` holding
+-  a holding which is
+   :ref:`transferable but not fungible <module-daml-finance-holding-nonfungible-86571>`
+-  a holding which is
+   :ref:`neither transferable nor fungible <module-daml-finance-holding-nontransferable-44402>`
 
 Account
 *******
 
-Finally, account contracts are used as proof of a relationship between a
-``custodian`` and an ``owner``.
+Finally, account contracts are used as proof of a relationship between a ``custodian`` and an
+``owner``.
 
-An ``owner`` must have an account contract with a ``custodian`` before a holding
-contract can be created between the two parties.
+An ``owner`` must have an account contract with a ``custodian`` before a holding contract can be
+created between the two parties.
 
-This is similar to how, in the real world, you need to open a bank account
-before you can use the bank’s services.
+This is similar to how, in the real world, you need to open a bank account before you can use the
+bank’s services.
 
-The account contract controls which parties are authorized to transfer holdings in and out of the
-account.
+The account contract also controls which parties are authorized to transfer holdings in and out of
+the account. To be more precise, the
+:ref:`controllers <type-daml-finance-interface-account-account-controllers-36430>`
+field of the account contains:
 
-Accounts are also used to prevent holding transfers to unvetted third parties: Alice can transfer a
-holding to Bob only if Bob has an account at the Bank (and has therefore been vetted by the Bank).
+-  ``instructors``: a set of parties authorizing outgoing transfers
+-  ``approvers``: a set of parties authorizing incoming transfers
+
+This allows for modeling various controllers of transfers between Alice's and Bob's accounts. For
+example:
+
+-  owners-controlled: If the ``owner`` is the sole member of ``instructors`` and ``approvers`` for
+   the accounts, a transfer of a holding from Alice's account to Bob's account needs to be
+   authorized jointly by Alice and Bob.
+-  owner-only-controlled: If, instead, the ``approvers`` (of Bob's account) is the empty set, it is
+   enough that Alice authorizes the transfer alone.
+-  custodian-controlled: If, as often is the case, the ``custodian`` needs to control what is being
+   transferred, we can instead let the ``custodian`` be the sole member of ``instructors`` and
+   ``approvers`` for the accounts.
+
+Accounts also serve to prevent holding transfers to unvetted third parties: a holding of Alice can
+only be transferred to Bob if Bob has an account at the same Bank (and has therefore been vetted by
+the Bank).
 
 .. _signatories-2:
 
@@ -153,7 +179,8 @@ An account is co-signed by the account ``owner`` and the ``custodian``.
 Keys
 ====
 
-Accounts are keyed by an ``AccountKey``, which comprises
+Accounts are keyed by an:
+:ref:`AccountKey <type-daml-finance-interface-types-common-accountkey-85835>`, which comprises:
 
 -  the account ``owner``
 -  the account ``custodian``
@@ -164,12 +191,22 @@ Accounts are keyed by an ``AccountKey``, which comprises
 Interfaces
 ==========
 
-The account interface is defined in the ``Daml.Finance.Interface.Account`` package.
+The account interface is defined in the
+:ref:`Daml.Finance.Interface.Account <module-daml-finance-interface-account-account-92922>`
+package.
 
 Implementations
 ===============
 
-A base account implementation is provided in ``Daml.Finance.Account``.
+A base account implementation is provided in
+:ref:`Daml.Finance.Account <module-daml-finance-account-account-19369>`.
+
+The account can be created with arbitrary
+:ref:`controllers <type-daml-finance-interface-account-account-controllers-36430>`
+(for incoming and outgoing transfers).
+
+In our examples, we typically let accounts be owners-controlled, i.e., the owner and the new owner
+must authorize transfers.
 
 Examples
 ********
@@ -200,7 +237,8 @@ account.
 .. image:: ../images/asset_model_currency.png
    :alt: Currency asset setup.
 
-In this scenario, we can see how
+In this scenario, we can see how:
+
 - the instrument defines what is held
 - the holding defines where the rights and obligations lie, as well as the corresponding amount
 
@@ -222,7 +260,10 @@ corresponding Account and Holding contracts.
    :alt: Equity asset setup.
 
 It is worth noting that the ``issuer`` of the Equity Instrument has the right to perform certain
-Corporate Actions, such as declaring dividends. This topic is covered in the lifecycling section.
+Corporate Actions, such as declaring dividends. This topic is covered in the
+:doc:`lifecycling section <lifecycling>`.
+
+.. _otc-swap-asset-model:
 
 OTC Swap
 ========
@@ -235,7 +276,7 @@ for this purpose.
 In this case, all contracts are agreed and co-signed by both parties. In the instrument contract,
 it does not really matter whether Party A is the ``issuer`` and Party B the ``depository``, or the
 other way around. However, the role matters in the Holding contract, as it defines the direction of
-the trade (that is, which party receives the fixed leg and which party receives the floating one).
+the trade, i.e., which party receives the fixed leg and which party receives the floating one.
 
 .. image:: ../images/asset_model_otc.png
    :alt: OTC Swap asset setup.

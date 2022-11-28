@@ -8,7 +8,7 @@ This tutorial introduces the :ref:`lifecycling <lifecycling>` framework of the l
 example. The purpose is to demonstrate how lifecycle rules and events can be used to process a
 dividend payment.
 
-We are going to
+We are going to:
 
 #. create a new version of the token instrument
 #. create the required lifecycle rules
@@ -25,25 +25,25 @@ Overview of the Process
 
 We first give a high-level outline of the lifecycle process.
 
-+-------------------------------------------------+-----------------------------------------------------------------------------------------+
-| 1. Create a lifecycle rule                      | A lifecycle rule implements the logic to calculate effects for a given lifecycle event. |
-|                                                 | In our example we create a distribution rule to handle the dividend event on our token. |
-|                                                 |                                                                                         |
-+-------------------------------------------------+-----------------------------------------------------------------------------------------+
-| 2. Create a lifecycle event                     | The lifecycle event refers to the *target instrument* the event applies to. Holdings on |
-|                                                 | this instrument can then be used to claim the resulting lifecycle effect.               |
-|                                                 |                                                                                         |
-+-------------------------------------------------+-----------------------------------------------------------------------------------------+
-| 4. Process the event through the lifecycle rule | The lifecycle rule contains the business logic to derive the lifecycle effects          |
-|                                                 | resulting from a concrete event. The effect describes the per-unit holding transfers    |
-|                                                 | that are to be settled between a custodian and the owner of a holding.                  |
-|                                                 |                                                                                         |
-+-------------------------------------------------+-----------------------------------------------------------------------------------------+
-| 4. Claim the effect using a holding             | The claim rule is used to claim the effects resulting from a lifecycle event using a    |
-|                                                 | holding on the target instrument. The result is a set of settlement instructions and    |
-|                                                 | corresponding batch to be settled between the custodian and owner of the holding.       |
-|                                                 |                                                                                         |
-+-------------------------------------------------+-----------------------------------------------------------------------------------------+
++-----------------------------+--------------------------------------------------------------------+
+| 1. Create a lifecycle rule  | A lifecycle rule implements the logic to calculate effects for a   |
+|                             | given lifecycle event. In our example we create a distribution     |
+|                             | rule to handle the dividend event on our token.                    |
++-----------------------------+--------------------------------------------------------------------+
+| 2. Create a lifecycle event | The lifecycle event refers to the *target instrument* the event    |
+|                             | applies to. Holdings on this instrument can then be used to claim  |
+|                             | the resulting lifecycle effect.                                    |
++-----------------------------+--------------------------------------------------------------------+
+| 3. Process the event        | The lifecycle rule contains the business logic to derive the       |
+|    through the lifecycle    | lifecycle effects resulting from a concrete event. The effect      |
+|    rule                     | describes the per-unit holding transfers that are to be settled    |
+|                             | between a custodian and the owner of a holding.                    |
++-----------------------------+--------------------------------------------------------------------+
+| 4. Claim the effect using a | The claim rule is used to claim the effects resulting from a       |
+|    holding                  | lifecycle event using a holding on the target instrument. The      |
+|                             | result is a set of settlement instructions and corresponding batch |
+|                             | to be settled between the custodian and owner of the holding.      |
++-----------------------------+--------------------------------------------------------------------+
 
 Run the Script
 **************
@@ -62,14 +62,6 @@ later in the tutorial.
   :language: daml
   :start-after: -- NEW_VERSION_BEGIN
   :end-before: -- NEW_VERSION_END
-
-A clock is required as an input to the distribution rule to determine if the event is due to be
-processed.
-
-.. literalinclude:: ../../../code-samples/getting-started/daml/Scripts/Lifecycling.daml
-  :language: daml
-  :start-after: -- CREATE_CLOCK_BEGIN
-  :end-before: -- CREATE_CLOCK_END
 
 Next, we create two lifecycle rules:
 
@@ -108,11 +100,11 @@ the associated entitlements.
   :start-after: -- CLAIM_EVENT_BEGIN
   :end-before: -- CLAIM_EVENT_END
 
-As a side-effect of claiming the effect the presented holding is exchanged for the new token
-version. This is to prevent a holder from claiming a given effect twice.
+As a side-effect of claiming the effect the presented holding is exchanged for a holding of the new
+token version. This is to prevent a holder from claiming a given effect twice.
 
-In our example of a cash dividend only a single instruction is generated: the movement of cash from
-the bank to the token holder. This instruction along with its batch is now settled the usual way, as
+In our example of a cash dividend, only a single instruction is generated: the movement of cash from
+the bank to the token holder. This instruction along with its batch is settled the usual way, as
 described in the previous :doc:`Settlement <settlement>` tutorial.
 
 .. literalinclude:: ../../../code-samples/getting-started/daml/Scripts/Lifecycling.daml
@@ -131,8 +123,8 @@ Frequently Asked Questions
 Which party should create and sign the lifecycle rules and events?
 ==================================================================
 
-In the simplified scenario for this tutorial we have used the bank as both the *issuer* and
-*depository* for the instruments involved. In a real-world case instruments and their corresponding
+In the simplified scenario for this tutorial, we have used the bank as both the *issuer* and
+*depository* for the instruments involved. In a real-world case, instruments and their corresponding
 lifecycle rules and events would be maintained by an actual issuer, with the depository acting as a
 3rd-party trust anchor.
 
@@ -163,15 +155,15 @@ contracts:
   upgrade or patch them without affecting your live instruments.
 * Having separate rules allows to change the lifecycle properties of an instrument dynamically at
   runtime. For example, an instrument can initially be created without support for doing asset
-  distributions. Then, at a later point the issuer might decide to start paying dividends. They can
+  distributions. Then, at a later point, the issuer might decide to start paying dividends. They can
   now simply add a distribution rule to the running system to enable this new lifecycle event for
   their instrument without affecting the actual live instrument itself (or any holdings on it).
 
 Summary
 *******
 
-You have now learned how to use lifecycle rules and events to describe the behavior of an
-instrument. The key concepts to take away are:
+You have learned how to use lifecycle rules and events to describe the behavior of an instrument.
+The key concepts to take away are:
 
 * Lifecycle events represent different ways of how an instrument can evolve.
 * A lifecycle rule contains logic to calculate the effects an event has on an instrument and its

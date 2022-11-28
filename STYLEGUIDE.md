@@ -9,7 +9,8 @@ within this repository.
 
 - Use 2 spaces for indentation
 - Use single empty line to separate sections (and end the file with a single empty line)
-- [*decide*] Use at most 100 characters per line (alt. toggle text wrap in vscode)
+- Use at most 100 characters per line. As a visual guide, you can add `"editor.rulers": [100]` to
+  your vscode `settings.json`.
 
 ### Imports
 
@@ -20,7 +21,7 @@ within this repository.
   import Daml.Script
   ```
 
-- Use explicit imports and order them alphabetically ordered:
+- Use explicit imports and order them alphabetically:
 
   ```haskell
   import DA.Set (empty, fromList, singleton)
@@ -80,14 +81,19 @@ within this repository.
 - Group all serializable interface fields into a `View` type:
 
   ```haskell
+  -- | View for `Account`.
+  -- This data type is ..
   data View = View
     with
       custodian : Party
-        -- ^ Party providing accounting services.
+        -- ^ Party providing accounting
+        --   services.
       id : Text
-        -- ^ Textual description of the account.
+        -- ^ Textual description of
+        --   the account.
       owner : Party
-        -- ^ Party owning this account.
+        -- ^ Party owning
+        --   this account.
     deriving (Eq, Show)
   ```
 
@@ -99,14 +105,15 @@ within this repository.
     ...
   ```
 
-- Define `I` and `V` type aliases for the interface resp. view type:
+- Define `I` and `V` type aliases for the interface and view type, respectively:
 
   ```haskell
   type I = Account
   type V = View
   ```
 
-- Use qualified imports `I` and `V` to refer to interface resp. view types in consuming code:
+- In consuming code, use qualified imports `I` and `V` to refer to interface and view types,
+- respectively:
 
   ```haskell
   let iCid : ContractId Holding.I = ...
@@ -115,33 +122,34 @@ within this repository.
 
 - For interface choices with empty implemenations
 
-To prevent us from keeping the implementation arguments 'in sync' with the choice arguments, we use
+  To prevent us from keeping the implementation arguments 'in sync' with the choice arguments, we
+  use
 
-```haskell
-foo : Foo -> Update res
-choice Foo : res
-  with
-    a : A
-    b : B
-  controller actor
-  do
-    foo this arg
-```
+  ```haskell
+  foo : Foo -> Update res
+  choice Foo : res
+    with
+      a : A
+      b : B
+    controller actor
+    do
+      foo this arg
+  ```
 
-instead of
+  instead of
 
-```haskell
-foo : arg1 -> arg2 -> Update res
-choice Foo : res
-  with
-    a : A
-    b : B
-  controller actor
-  do
-    foo a b
-```
+  ```haskell
+  foo : A -> B -> Update res
+  choice Foo : res
+    with
+      a : A
+      b : B
+    controller actor
+    do
+      foo a b
+  ```
 
-Recall that `arg` is syntactic sugar for `Foo with a; b` when used in the body of the choice.
+  Recall that `arg` is syntactic sugar for `Foo with a; b` when used in the body of the choice.
 
 ### `do` notation
 
@@ -175,6 +183,7 @@ Recall that `arg` is syntactic sugar for `Foo with a; b` when used in the body o
     = OptionOne
     | OptionTwo
     | OptionThree
+    deriving (Eq, Ord)
   ```
 
   ```haskell
@@ -245,7 +254,7 @@ we let the `actor : Party` be the first argument of the choice.
   let add a b = a + b
   ```
 
-- Use `pure` instead of `pure` as more idiomatic
+- Use `pure` instead of `return` as more idiomatic
 
 ### Constructors
 
@@ -265,7 +274,3 @@ we let the `actor : Party` be the first argument of the choice.
   changes)
 - Don't use positional constructors as they are harder to read (and might cause bugs in case of code
   changes)
-
-## Javascript / Typescript
-
-`TODO`
